@@ -1,0 +1,28 @@
+.mainsec {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around !important;
+  }
+  .innersection {
+    display: flex;
+    width: 100%;
+    background-color: #F4F4F4;
+   margin: 5% 0 5% 0;
+    justify-content: space-around !important;
+  }
+  .turnoverChart_section {
+    width: 60%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    margin: 4%;
+  }
+  .monthlyChart_section {
+    width: 40%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    margin: 4%;
+  }
