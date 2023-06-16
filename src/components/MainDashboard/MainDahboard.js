@@ -8,9 +8,9 @@ function MainDahboard() {
   return (
     <div>
 
-     <Dashboard/>
-   <DashboardChart/>
-     <RecentUserTable/>
+     <Dashboard/> 
+ <DashboardChart/>
+     <RecentUserTable/> 
     </div>
   )
 }

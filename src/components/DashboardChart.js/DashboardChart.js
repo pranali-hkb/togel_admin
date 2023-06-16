@@ -110,8 +110,8 @@ const DashboardChart = () => {
       {/* <div className={chartsStyle.mainsec}> */}
         <div className={chartsStyle.innersection}>
           <Box sx={{ flexGrow: 1 }} >
-            <Grid container spacing={2} >
-              <Grid item sm={12} md={8}>
+            <Grid container spacing={3} >
+              <Grid item sm={12} md={7}>
                 <Item className={chartsStyle.turnoverChart_section}>
                   <h3 sx={{ display: "flex", textAlign: "left" }}>Turnover</h3>
                   <ResponsiveContainer width="100%" aspect={2}>
@@ -146,11 +146,11 @@ const DashboardChart = () => {
                   </ResponsiveContainer>
                 </Item>
               </Grid>
-              <Grid item sm={12} md={4}>
+              <Grid item sm={12} md={5}>
                 <Item className={chartsStyle.monthlyChart_section}>
                 <h3 sx={{ display: "flex", textAlign: "left" }}>Monthly Transaction</h3>
                   <ResponsiveContainer width="100%" aspect={1}>
-                    <PieChart width={400} height={400}>
+                    <PieChart width={400} height={300}>
                       <Pie
                         data={data}
                         cx="50%"
@@ -169,6 +169,7 @@ const DashboardChart = () => {
                         ))}
                       </Pie>
                     </PieChart>
+                    
                   </ResponsiveContainer>
                   <div className={chartsStyle.monthlyPercentage}>
                    <div className={chartsStyle.monthlyColor}>

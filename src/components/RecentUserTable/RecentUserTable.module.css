@@ -1,0 +1,20 @@
+.tableheading{
+    font-size:16px ;
+    font-weight:700 ;
+    padding-left: 4%;
+    padding-top: 5%;
+    color: #344767;
+}
+
+.tableName{
+    font-size:16px ;
+    font-weight:700 ;
+    color: #344767;
+    
+}
+
+.tableData{
+    font-size:14px ;
+    font-weight:700 ;
+    color: #344767;
+}

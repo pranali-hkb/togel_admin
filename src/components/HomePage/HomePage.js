@@ -29,7 +29,7 @@ import Master from "../Master/Master";
 import SuperMaster from "../SuperMaster/SuperMaster";
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 
 import { styled, alpha } from "@mui/material/styles";
 // import AppBar from '@mui/material/AppBar';
@@ -158,18 +158,18 @@ function HomePage(props) {
   const drawer = (
     <div>
       <Toolbar />
-      {/* <Divider sx={{ color: "#fff" }}></Divider> */}
+      <Divider sx={{ color: "#fff" }}></Divider>
       {/* <Box sx={{marginLeft:"5"}}><AccountCircleIcon ></AccountCircleIcon> Pranali Bos</Box> */}
-      {/* <Avatar >
+      <Avatar >
         <img src="../../assets/images/profile/profile1.svg"/> 
-      </Avatar> */}
-      {/* <Divider sx={{ color: "#fff" }}></Divider> */}
-      <Divider></Divider>
+      </Avatar>
+      <Divider sx={{ color: "#fff" }}></Divider>
+
       <ListItem disablePadding onClick={() => navigate("/maindashboard")}>
         <ListItemButton>
           <ListItemIcon sx={{ color: "white" }}>
             <Avatar>
-              <img src="../../assets/images/profile/profile1.svg" />
+              <img src="" />
             </Avatar>
           </ListItemIcon>
           <ListItemText> Pranali Bos</ListItemText>
