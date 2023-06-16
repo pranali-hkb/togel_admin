@@ -112,7 +112,7 @@ function HomePage(props) {
   const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor:"#F5F5F5",
+    backgroundColor:"#F2EDF3",
     '&:hover': {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
@@ -249,7 +249,7 @@ function HomePage(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex", backgroundColor: "#F5F5F5" }}>
+    <Box sx={{ display: "flex", backgroundColor: "#F2EDF3" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -258,7 +258,7 @@ function HomePage(props) {
           ml: { sm: `${drawerWidth}px` },boxShadow:"none", border:"none"
         }}
       >
-        <Toolbar sx={{backgroundColor:"#F5F5F5", boxShadow:"none", border:"none"}}>
+        <Toolbar sx={{backgroundColor:"#F2EDF3", boxShadow:"none", border:"none"}}>
           {/* for mobile */}
           <IconButton
             // color="inherit"
