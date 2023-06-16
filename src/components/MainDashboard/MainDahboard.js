@@ -9,8 +9,8 @@ function MainDahboard() {
     <div>
 
      <Dashboard/>
-   {/* <DashboardChart/>
-     <RecentUserTable/> */}
+   <DashboardChart/>
+     <RecentUserTable/>
     </div>
   )
 }
