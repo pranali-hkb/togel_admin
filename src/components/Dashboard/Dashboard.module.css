@@ -73,7 +73,7 @@ border-radius: 8px;
   padding: 10% 0;
 
 }
-.innerbox h1 {
+.heading {
   font-weight: 700 !important;
   font-size: 32px !important;
   line-height: 140%!important;
@@ -81,7 +81,7 @@ border-radius: 8px;
   padding-left: 5%;
 }
 
-.innerbox h2 {
+.sub-heading {
   font-weight: 500 !important;
   font-size: 21px !important;
   line-height: 140%!important;
@@ -89,7 +89,7 @@ border-radius: 8px;
   padding-left: 5%;
 }
 
-.innerbox h3 {
+.heading {
   font-weight: 700 !important;
   font-size: 32px !important;
   line-height: 140%!important;
