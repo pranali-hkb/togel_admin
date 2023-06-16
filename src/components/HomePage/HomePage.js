@@ -249,7 +249,7 @@ function HomePage(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex", backgroundColor: "#F5F5F5" }}>
+    <Box sx={{ display: "flex", background: "#F5F5F5" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -340,6 +340,7 @@ function HomePage(props) {
               boxSizing: "border-box",
               width: drawerWidth,
               background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
+    
               color: "#fff",
             },
           }}
@@ -354,6 +355,7 @@ function HomePage(props) {
               boxSizing: "border-box",
               width: drawerWidth,
               background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
+           
               color: "#fff",
             },
           }}
