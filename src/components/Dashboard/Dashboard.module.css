@@ -1,98 +1,57 @@
-.mainsec {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
-.innersection {
-  display: flex;
-  width: 100%;
-  background-color: #f4f4f4;
-}
-.innerbox {
-  display: flex;
-  width: 40%;
-  background-color: #e3f5ff;
-  border-radius: 10px;
-  justify-content: center;
-  align-items: center;
-  margin: 2%;
-}
-.innercard1 {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  text-align: start;
-  border-radius: 10px;
-  padding: 10% 0;
-  background: linear-gradient(270deg, #FE8996 14.04%, #FCAB80 93.18%);
-/* drop-shadow-red */
-
-box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36);
-border-radius: 8px;
-}
-
-.innercard2 {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  text-align: start;
-  border-radius: 10px;
-  padding: 10% 0;
-  background: linear-gradient(270deg, #2E95E7 14.04%, #84C3F7 93.18%);
+.cardbg1 {
+  background: linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%);
   /* drop-shadow-red */
-  
+
   box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36);
   border-radius: 8px;
+  text-align: left;
+  /* background-image: url("../../assets/images/profile/cardbg.png") !important;
+  background-repeat: no-repeat; */
+  height: 268px;
 }
 
-
-
-.innercard3 {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  text-align: start;
-  border-radius: 10px;
-  padding: 10% 0;
-  background: linear-gradient(270deg, #FE8996 14.04%, #FCAB80 93.18%);
+.cardbg2 {
+  background: linear-gradient(270deg, #2e95e7 14.04%, #84c3f7 93.18%);
   /* drop-shadow-red */
-  
+
   box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36);
   border-radius: 8px;
+
+  text-align: left;
+  height: 268px;
+}
+.cardbg3 {
+  background: linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%);
+  /* drop-shadow-red */
+
+  box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36);
+  border-radius: 8px;
+
+  text-align: left;
+  height: 268px;
 }
 
-
-.innerbox3 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90%;
-  border-radius: 10px;
-  padding: 10% 0;
-
-}
-.heading {
+.cardheading {
+  padding-top: 25%;
   font-weight: 700 !important;
   font-size: 32px !important;
-  line-height: 140%!important;
+  line-height: 140% !important;
   color: #fff !important;
   padding-left: 5%;
 }
 
-.sub-heading {
+.subhead {
   font-weight: 500 !important;
   font-size: 21px !important;
-  line-height: 140%!important;
+  line-height: 140% !important;
   color: #fff !important;
   padding-left: 5%;
 }
 
-.heading {
+.counterhead {
   font-weight: 700 !important;
   font-size: 32px !important;
-  line-height: 140%!important;
+  line-height: 140% !important;
   color: #fff !important;
   padding-left: 5%;
 }

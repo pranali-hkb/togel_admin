@@ -340,6 +340,7 @@ function HomePage(props) {
               boxSizing: "border-box",
               width: drawerWidth,
               background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
+    
               color: "#fff",
             },
           }}
@@ -354,6 +355,7 @@ function HomePage(props) {
               boxSizing: "border-box",
               width: drawerWidth,
               background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
+           
               color: "#fff",
             },
           }}
