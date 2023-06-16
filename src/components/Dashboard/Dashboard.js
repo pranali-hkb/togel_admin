@@ -15,23 +15,15 @@ import userIcon from "../../assets/images//profile/user.png";
 import { Height } from "@mui/icons-material";
 
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F5F5F5",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-  boxShadow: "none",
-}));
 
 function Dashboard() {
   return (
     <>
       <Box sx={{ flexGrow: 1, marginTop:'2%' }}>
-        <Grid container spacing={2}>
+        <Grid container spacing={4} sx={{display:'flex', justifyContent:'center', alignItems:'center'}}>
           <Grid item sm={12} xs={12} md={4} sx={{ boxShadow: "none" }}>
-            <Item>
-              <Card sx={{ maxWidth: 400 }} className={cardstyle.cardbg1}>
+            {/* <Item> */}
+              <Card sx={{ maxWidth: 350 }} className={cardstyle.cardbg1}>
                 <CardContent>
                   
                   <Typography className={cardstyle.cardheading}>
@@ -45,29 +37,34 @@ function Dashboard() {
               </Card>
 
               
-            </Item>
+            {/* </Item> */}
 
             <Box
                   sx={{
-                    width: "73px",
-                    height: "73px",
+                    width: "55px",
+                    height: "55px",
                     borderRadius:"12px",
                     background: "linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%)",
                     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                    position:"relative",
-                    left: "144px",
-                    bottom: "302px",
+                    position:"absolute",
+                   left:"28%",
+                   top:"12%",
+                  transform:"translateX(-50%)",
+                  // left:"0px",
+                  // top:"0px",
+                  // zIndex:"99",
+                  
                     display:'flex',
                     justifyContent:'center',
                     alignItems:'center'
                   }}
                   >
-                  <img src={superMasterIcon} alt="superMasterIcon"  style={{ width: '47px', }}/>
+                  <img src={superMasterIcon} alt="superMasterIcon"  style={{ width: '37px', }}/>
                   </Box>
           </Grid>
           <Grid item sm={12} xs={12} md={4}>
-            <Item>
-              <Card sx={{ maxWidth: 400 , }} className={cardstyle.cardbg2}>
+            {/* <Item> */}
+              <Card sx={{ maxWidth: 350 , }} className={cardstyle.cardbg2}>
                 <CardContent>
                   <Typography className={cardstyle.cardheading}>
                      Master
@@ -75,33 +72,34 @@ function Dashboard() {
                   <Typography className={cardstyle.subhead}>
                     No of Master
                   </Typography>
-                  <Typography className={cardstyle.counterhead}>3 </Typography>
+                  <Typography className={cardstyle.counterhead}>21</Typography>
                 </CardContent>
               </Card>
-            </Item>
+            {/* </Item> */}
             <Box
                   sx={{
-                    width: "73px",
-                    height: "73px",
+                    width: "55px",
+                    height: "55px",
                     borderRadius:"12px",
                     background: "linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%)",
                     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                    position:"relative",
-                    left: "144px",
-                    bottom: "302px",
+                    position:"absolute",
+                    left:"54%",
+                    top:"12%",
+           
                     display:'flex',
                     justifyContent:'center',
                     alignItems:'center'
                     
                   }}
                   >
-                    <img src={masterIcon} alt="masterIcon"  style={{ width: '47px', }}/>
+                    <img src={masterIcon} alt="masterIcon"  style={{ width: '37px', }}/>
                   </Box>
           </Grid>
 
           <Grid item sm={12} xs={12} md={4}>
-            <Item>
-              <Card sx={{ maxWidth: 400 }} className={cardstyle.cardbg3}>
+            {/* <Item> */}
+              <Card sx={{ maxWidth: 350 }} className={cardstyle.cardbg3}>
                 <CardContent>
                   <Typography className={cardstyle.cardheading}>
                     Agent
@@ -109,27 +107,28 @@ function Dashboard() {
                   <Typography className={cardstyle.subhead}>
                     No of Agent
                   </Typography>
-                  <Typography className={cardstyle.counterhead}>3 </Typography>
+                  <Typography className={cardstyle.counterhead}>600</Typography>
                 </CardContent>
               </Card>
-            </Item>
+            {/* </Item> */}
             <Box
                   sx={{
-                    width: "73px",
-                    height: "73px",
+                    width: "55px",
+                    height: "55px",
                     borderRadius:"12px",
                     background: "linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%)",
                     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                    position:"relative",
-                    left: "150px",
-                    bottom: "302px",
+                    position:"absolute",
+                    left:"82%",
+                   top:"12%",
+                      
                     display:'flex',
                     justifyContent:'center',
                     alignItems:'center'
                     
                   }}
                   >
-                    <img src={userIcon} alt="superMasterIcon"  style={{ width: '47px', }}/>
+                    <img src={userIcon} alt="superMasterIcon"  style={{ width: '37px', }}/>
                   </Box>
           </Grid>
         </Grid>
