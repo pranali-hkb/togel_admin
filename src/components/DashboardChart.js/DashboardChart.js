@@ -16,6 +16,7 @@ import {
 } from "recharts";
 import { PieChart, Pie, Sector, Cell } from "recharts";
 import { Typography } from "@mui/material";
+import CustomizedPieChart from "../CustomizedPieChart/CustomizedPieChart";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -23,7 +24,6 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   textAlign: "center",
   color: theme.palette.text.secondary,
-  
 }));
 const DashboardChart = () => {
   let demoUrl = "https://codesandbox.io/s/bar-chart-has-no-padding-jphoc";
@@ -79,7 +79,7 @@ const DashboardChart = () => {
     { name: "Group C", value: 300 },
     // { name: 'Group D', value: 200 },
   ];
-  const COLORS = ["#9C80D9", "#4CA4EC", "#FD948F", "#FF8042"];
+  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({
     cx,
@@ -108,94 +108,105 @@ const DashboardChart = () => {
   return (
     <>
       {/* <div className={chartsStyle.mainsec}> */}
-        <div className={chartsStyle.innersection}>
-          <Box sx={{ flexGrow: 1 }} >
-            <Grid container spacing={2} >
-              <Grid item sm={12} md={8}>
-                <Item className={chartsStyle.turnoverChart_section}>
-                  <h3 sx={{ display: "flex", textAlign: "left" }}>Turnover</h3>
-                  <ResponsiveContainer width="100%" aspect={2}>
-                    <BarChart
-                      width={500}
-                      height={300}
-                      data={dataTurnover}
-                      margin={{
-                        top: 5,
-                        right: 30,
-                        left: 20,
-                        bottom: 5,
-                      }}
-                      barSize={20}
-                    >
-                      <XAxis
-                        dataKey="name"
-                        scale="point"
-                        padding={{ left: 10, right: 10 }}
-                      />
-                      <YAxis />
-                      <Tooltip />
-                      <Legend />
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <Bar
-                        dataKey="pv"
-                        fill="#8884D8"
-                        background={{ fill: "#eee" }}
-                      />
-                      =
-                    </BarChart>
-                  </ResponsiveContainer>
-                </Item>
-              </Grid>
-              <Grid item sm={12} md={4}>
-                <Item className={chartsStyle.monthlyChart_section}>
-                <h3 sx={{ display: "flex", textAlign: "left" }}>Monthly Transaction</h3>
-                  <ResponsiveContainer width="100%" aspect={1}>
-                    <PieChart width={400} height={400}>
-                      <Pie
-                        data={data}
-                        cx="50%"
-                        cy="50%"
-                        labelLine={false}
-                        label={renderCustomizedLabel}
-                        outerRadius={80}
-                        fill="#8884D8"
-                        dataKey="value"
-                      >
-                        {data.map((entry, index) => (
-                          <Cell
-                            key={`cell-${index}`}
-                            fill={COLORS[index % COLORS.length]}
-                          />
-                        ))}
-                      </Pie>
-                    </PieChart>
-                  </ResponsiveContainer>
-                  <div className={chartsStyle.monthlyPercentage}>
-                   <div className={chartsStyle.monthlyColor}>
-                   <div className={chartsStyle.colorCircle}></div>
-                    <div className={chartsStyle.agentText}>Agent</div>
-                   </div>
-                   <div className={chartsStyle.agentPercentage}>50%</div>
-                  </div>
-                  <div className={chartsStyle.monthlyPercentage}>
-                   <div className={chartsStyle.monthlyColor}>
-                   <div className={chartsStyle.colorCircle}></div>
-                    <div className={chartsStyle.agentText}>Agent</div>
-                   </div>
-                   <div className={chartsStyle.agentPercentage}>50%</div>
-                  </div>
-                  <div className={chartsStyle.monthlyPercentage}>
-                   <div className={chartsStyle.monthlyColor}>
-                   <div className={chartsStyle.colorCircle}></div>
-                    <div className={chartsStyle.agentText}>Agent</div>
-                   </div>
-                   <div className={chartsStyle.agentPercentage}>50%</div>
-                  </div>
-                </Item>
-              </Grid>
+      <div className={chartsStyle.innersection}>
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container spacing={2}>
+            <Grid item sm={12} md={8}>
+              <Item className={chartsStyle.turnoverChart_section}>
+                <h3 sx={{ display: "flex", textAlign: "left" }}>Turnover</h3>
+                <ResponsiveContainer width="100%" aspect={2}>
+                  <BarChart
+                    width={500}
+                    height={300}
+                    data={dataTurnover}
+                    margin={{
+                      top: 5,
+                      right: 30,
+                      left: 20,
+                      bottom: 5,
+                    }}
+                    barSize={20}
+                  >
+                    <XAxis
+                      dataKey="name"
+                      scale="point"
+                      padding={{ left: 10, right: 10 }}
+                    />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <Bar
+                      dataKey="pv"
+                      fill="#8884D8"
+                      background={{ fill: "#eee" }}
+                    />
+                    {data.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % 10]} />
+                    ))}
+                    =
+                  </BarChart>
+                </ResponsiveContainer>
+              </Item>
             </Grid>
-          </Box>
-        </div>
+            <Grid item sm={12} md={4}>
+              <Item className={chartsStyle.monthlyChart_section}>
+                <h3 sx={{ display: "flex", textAlign: "left" }}>
+                  Monthly Transaction
+                </h3>
+                {/* <ResponsiveContainer width="100%" aspect={1}>
+                  <PieChart width={400} height={400}>
+                    <Pie
+                      data={data}
+                      cx="50%"
+                      cy="50%"
+                      labelLine={false}
+                      label={renderCustomizedLabel}
+                      outerRadius={80}
+                      fill="#8884D8"
+                      dataKey="value"
+                    >
+                      {data.map((entry, index) => (
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={COLORS[index % COLORS.length]}
+                        />
+                      ))}
+                    </Pie>
+                  </PieChart>
+                </ResponsiveContainer>
+                <div className={chartsStyle.ParentMonthlyPercentage}>
+                  <div className={chartsStyle.monthlyPercentage}>
+                    <div className={chartsStyle.monthlyColor}>
+                      <div className={chartsStyle.colorCircle}></div>
+                      <div className={chartsStyle.agentText}>Agent</div>
+                    </div>
+                    <div className={chartsStyle.agentPercentage}>50%</div>
+                  </div>
+                <div className={chartsStyle.monthlyPercentage}>
+                  <div className={chartsStyle.monthlyColor}>
+                    <div className={chartsStyle.colorCircle}></div>
+                    <div className={chartsStyle.agentText}>Agent</div>
+                  </div>
+                  <div className={chartsStyle.agentPercentage}>50%</div>
+                </div>
+                <div className={chartsStyle.monthlyPercentage}>
+                  <div className={chartsStyle.monthlyColor}>
+                    <div className={chartsStyle.colorCircle}></div>
+                    <div className={chartsStyle.agentText}>Agent</div>
+                  </div>
+                  <div className={chartsStyle.agentPercentage}>50%</div>
+                </div>
+                </div> */}
+                <CustomizedPieChart />
+              </Item>
+            </Grid>
+            {/* <Grid item sm={12} md={6}>
+            <CustomizedPieChart />
+            </Grid> */}
+          </Grid>
+        </Box>
+      </div>
       {/* </div> */}
     </>
   );
