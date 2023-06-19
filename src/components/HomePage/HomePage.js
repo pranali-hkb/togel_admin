@@ -38,57 +38,54 @@ import { useRef } from "react";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-// import MenuIcon from '@mui/icons-material/Menu';
-// import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import MoreIcon from "@mui/icons-material/MoreVert";
-import MainDahboard from "../MainDashboard/MainDahboard";
-import ArticleRoundedIcon from "@mui/icons-material/ArticleRounded";
+import RoutesPages from "../../RoutesPages";
+import userprofile from "../../assets/images//profile/userprofile.svg";
+import dashboardprofile from "../../assets/images//profile/dashboardprofile.svg";
+import supermasterprofile from "../../assets/images//profile/supermasterprofile.svg";
+import masterprofile from "../../assets/images//profile/masterprofile.svg";
+import agentprofile from "../../assets/images//profile/agentprofile.svg";
+import reportprofile from "../../assets/images//profile/reportprofile.svg";
+import logoutprofile from "../../assets/images//profile/logoutprofile.svg";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { Settings } from "@mui/icons-material";
+import SettingsIcon from "@mui/icons-material/Settings";
+import PersonIcon from "@mui/icons-material/Person";
+import { useLocation } from 'react-router-dom';
 
-
-
-import RoutesPages from '../../RoutesPages'
-
-const drawerWidth = 240;
+const drawerWidth = 280;
 
 function HomePage(props) {
-
   const [openUser, setOpenUser] = useState(false);
   const userButtonRef = useRef();
-
-
-
-
-
-  // const handleUserClick = () => {
-  //   setOpenUser(!openUser);
-  // };
-
   const [openSuperMaster, setOpenSuperMaster] = React.useState(true);
-  const [openMaster, setOpenMaster] = React.useState(true)
-  const [openAgent, setOpenAgent] = React.useState(true)
-
+  const [openMaster, setOpenMaster] = React.useState(true);
+  const [openAgent, setOpenAgent] = React.useState(true);
+  const location = useLocation();
 
   const handleSuperMasterClick = () => {
     setOpenSuperMaster(!openSuperMaster);
   };
 
   const handleMasterClick = () => {
-    setOpenMaster(!openMaster)
-  }
+    setOpenMaster(!openMaster);
+  };
 
   const handleAgentClick = () => {
-    setOpenAgent(!openAgent)
-  }
+    setOpenAgent(!openAgent);
+  };
 
+  // active listitem color
   const activeTab = (route) => {
-    navigate(`${route}`);
     return {
-      color: "#f6faff",
+      color: "#1095FF", // Change this to the desired active tab color
     };
   };
+
+  const [openContent, setOpenContent] = React.useState(true)
+
   const navigate = useNavigate();
 
   const { window } = props;
@@ -121,9 +118,6 @@ function HomePage(props) {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
-
-
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -196,314 +190,249 @@ function HomePage(props) {
   const drawer = (
     <div>
       <Toolbar />
-      <Divider sx={{ color: "#fff" }}></Divider>
-      {/* <Box sx={{marginLeft:"5"}}><AccountCircleIcon ></AccountCircleIcon> Pranali Bos</Box> */}
-      <Avatar>
-        <img src="../../assets/images/profile/profile1.svg" />
-      </Avatar>
-      <Divider sx={{ color: "#fff" }}></Divider>
 
-      <ListItem disablePadding onClick={() => navigate("/maindashboard")}>
-        <ListItemButton>
-          <ListItemIcon sx={{ color: "white" }}>
-            <Avatar>
-              <img src="" />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "40px",
+        }}
+      >
+        <div
+          style={{
+            borderTop: "1px solid #fff",
+            borderBottom: "1px solid #fff",
+          }}
+        >
+          <ListItem
+            disablePadding
+            onClick={() => navigate("/maindashboard")}
+            sx={{ pl: 4, pr: 4 }}
+          >
+            <ListItemButton sx={{ color: openUser ? "#E3F5F" : "transparent" }}>
+              <ListItemIcon sx={{ color: "white" }}>
+                <Avatar sx={{ backgroundColor: "#fff" }}>
+                  <img src={userprofile} alt="" />
+                </Avatar>
+              </ListItemIcon>
+              <ListItemText> Pranali Bos</ListItemText>
+            </ListItemButton>
+          </ListItem>
+        </div>
+      </div>
+      <ListItem
+        disablePadding
+        sx={{ pt: 4 }}
+        onClick={() => navigate("/dashboard")}
+      >
+        <ListItemButton sx={{ color: openUser ? "#E3F5F" : "transparent" }}>
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <Avatar sx={{ backgroundColor: "#fff" }}>
+              <img src={dashboardprofile} alt="" />
             </Avatar>
           </ListItemIcon>
-          <ListItemText> Pranali Bos</ListItemText>
+          <ListItemText className={appstyle.navtext}>Dashboard</ListItemText>
         </ListItemButton>
       </ListItem>
-      <Divider></Divider>
-    
- 
-    {/* // **************SuperMaster Start******************* */}
+      {/* // **************SuperMaster Start******************* */}
 
-<ListItem disablePadding>
-<ListItemButton onClick={handleSuperMasterClick} >
-<ListItemIcon sx={{ color: "#fff" }}>
-          <Avatar>
-            {" "}
-            <PersonOutlineIcon />
-          </Avatar>
-        </ListItemIcon>
-  <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>SuperMaster</ListItemText>
-</ListItemButton>
-</ListItem>
-<Collapse in={openSuperMaster} timeout="auto" unmountOnExit>
-<List component="div" disablePadding>
-  <ListItemButton sx={{ pl: 7 }} onClick={() => navigate('/')} >
-    <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>SuperMaster 1</ListItemText>
-  </ListItemButton>
-</List>
-</Collapse>
-<Collapse in={openSuperMaster} timeout="auto" unmountOnExit>
-<List component="div" disablePadding>
-  <ListItemButton sx={{ pl: 7 }} onClick={() => navigate('/')}>
-    <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>SuperMaster 2</ListItemText>
-  </ListItemButton>
-</List>
-</Collapse>
+      <ListItem disablePadding>
+        <ListItemButton
+          onClick={handleSuperMasterClick}
+          ref={userButtonRef}
+          selected={openSuperMaster}
+          sx={{
+            '&:hover': {
+              backgroundColor: '#c5a31d',
+              color:'#111'
+            },
+            '&:focus': {
+              backgroundColor: '#c5a31d',
+              color:'#111'
 
-
-{/* // **************SuperMaster End******************* */}
-
-
-
-
-  {/* // **************Master Start******************* */}
-
-  
-  <ListItem disablePadding>
-  <ListItemButton onClick={handleMasterClick} >
-  <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar>
-              {" "}
-              <PersonOutlineIcon />
+            },
+            backgroundColor: openSuperMaster ? '#c5a31d' : 'transparent',
+            color: openSuperMaster ? '#c5a31d' : 'inherit',
+          }}        >
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <Avatar sx={{ backgroundColor: "#fff" }}>
+              <img src={supermasterprofile} alt="" />
             </Avatar>
           </ListItemIcon>
-    <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>Master</ListItemText>
-  </ListItemButton>
-</ListItem>
-<Collapse in={openMaster} timeout="auto" unmountOnExit>
-  <List component="div" disablePadding>
-    <ListItemButton sx={{ pl: 7 }} onClick={() => navigate('/')}>
-      <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>Master 1</ListItemText>
-    </ListItemButton>
-  </List>
-</Collapse>
-<Collapse in={openMaster} timeout="auto" unmountOnExit>
-  <List component="div" disablePadding>
-    <ListItemButton sx={{ pl: 7 }} onClick={() => navigate('/')}>
-      <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>Master 2</ListItemText>
-    </ListItemButton>
-  </List>
-</Collapse>
-  {/* // **************Master End*******************
+          <ListItemText
+            className={appstyle.navtext}                   
+            sx={{ display: "flex", justifyContent: "start" ,color: openSuperMaster ? '#7b809a' : 'inherit',}}
+          >
+            <span
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              Super Master
+              <KeyboardArrowDownIcon sx={{ ml: 4 }}></KeyboardArrowDownIcon>
+            </span>
+          </ListItemText>
+        </ListItemButton>
+      </ListItem>
+
+
+      <Collapse in={openSuperMaster} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItemButton
+          
+          sx={{ pl: 7 , backgroundColor: location.pathname === '/dashboard' ? '#E3F5F' : 'transparent',
+          color: location.pathname === '/homepage' ? 'darkblue' : 'inherit',}}
+          onClick={() => navigate('/dashboard')} selected={location.pathname === '/dashboard'}
+          >
+            <ListItemText
+              className={appstyle.menunavtext}
+              
+            >
+              <PersonIcon sx={{ pt: 1 }}></PersonIcon> Profile Update
+            </ListItemText>
+          </ListItemButton>
+        </List>
+      </Collapse>
+      <Collapse in={openSuperMaster} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItemButton
+            sx={{ pl: 7 , backgroundColor: location.pathname === '/dashboard' ? '#E3F5F' : 'transparent',
+            color: location.pathname === '/homepage' ? 'darkblue' : 'inherit',}}
+            onClick={() => navigate('/dashboard')} selected={location.pathname === '/dashboard'}>          
+            <ListItemText
+              className={appstyle.menunavtext}
+              sx={{ backgroundColor: openUser ? "#E3F5F" : "transparent" }}
+            >
+              <SettingsIcon sx={{ pt: 1 }}></SettingsIcon> Settings
+            </ListItemText>
+          </ListItemButton>
+        </List>
+      </Collapse>
+
+      {/* // **************SuperMaster End******************* */}
+
+      {/* // **************Master Start******************* */}
+
+      <ListItem disablePadding>
+        <ListItemButton onClick={handleMasterClick}>
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <Avatar sx={{ backgroundColor: "#fff" }}>
+              <img src={masterprofile} alt="" />
+            </Avatar>
+          </ListItemIcon>
+          <ListItemText
+            className={appstyle.navtext}
+            sx={{ display: "flex", justifyContent: "start" }}
+          >
+            <span
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              Master
+              <KeyboardArrowDownIcon sx={{ ml: 10 }}></KeyboardArrowDownIcon>
+            </span>
+          </ListItemText>
+        </ListItemButton>
+      </ListItem>
+      <Collapse in={openMaster} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 7 }} onClick={() => navigate("/")}>
+            <ListItemText className={appstyle.menunavtext}>
+              <PersonIcon sx={{ pt: 1 }}></PersonIcon> Profile Update
+            </ListItemText>
+          </ListItemButton>
+        </List>
+      </Collapse>
+      <Collapse in={openMaster} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 7 }} onClick={() => navigate("/")}>
+            <ListItemText className={appstyle.menunavtext}>
+              <SettingsIcon sx={{ pt: 1 }}></SettingsIcon> Settings
+            </ListItemText>
+          </ListItemButton>
+        </List>
+      </Collapse>
+      {/* // **************Master End*******************
 
 
 {/* // **************Agent Start******************* */}
 
-  
-<ListItem disablePadding>
-  <ListItemButton onClick={handleAgentClick} >
-   
-    <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar>
-              {" "}
-              <PersonOutlineIcon />
-            </Avatar>
-          </ListItemIcon>
-   
-    <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>Agent</ListItemText>
-  </ListItemButton>
-</ListItem>
-<Collapse in={openAgent} timeout="auto" unmountOnExit>
-  <List component="div" disablePadding>
-    <ListItemButton sx={{ pl: 7 }} onClick={() => navigate('/')}>
-      <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>Agent 1</ListItemText>
-    </ListItemButton>
-  </List>
-</Collapse>
-<Collapse in={openAgent} timeout="auto" unmountOnExit>
-  <List component="div" disablePadding>
-    <ListItemButton sx={{ pl: 7 }} onClick={() => navigate('/')}>
-      <ListItemText>Agent 2</ListItemText>
-    </ListItemButton>
-  </List>
-</Collapse>
-  {/* // **************Agent End******************* */}
-
- 
-   
-
-{/*       
-      <ListItem disablePadding component="div" onClick={handleSuperMasterClick}>
-        <ListItemButton>
+      <ListItem disablePadding>
+        <ListItemButton onClick={handleAgentClick}>
           <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar>
-              {" "}
-              <PersonOutlineIcon />
+            <Avatar sx={{ backgroundColor: "#fff" }}>
+              <img src={agentprofile} alt="" />
             </Avatar>
           </ListItemIcon>
-          <ListItemText className={appstyle.navtext}>Super Master</ListItemText>
+          <ListItemText
+            className={appstyle.navtext}
+            sx={{ display: "flex", justifyContent: "start" }}
+          >
+            <span
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              Agent
+              <KeyboardArrowDownIcon sx={{ ml: 11 }}></KeyboardArrowDownIcon>
+            </span>
+          </ListItemText>
         </ListItemButton>
       </ListItem>
+      <Collapse in={openAgent} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 7 }} onClick={() => navigate("/")}>
+            <ListItemText className={appstyle.menunavtext}>
+              <PersonIcon sx={{ pt: 1 }}></PersonIcon> Profile Update
+            </ListItemText>
+          </ListItemButton>
+        </List>
+      </Collapse>
+      <Collapse in={openAgent} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 7 }} onClick={() => navigate("/")}>
+            <ListItemText className={appstyle.menunavtext}>
+              <SettingsIcon sx={{ pt: 1 }}></SettingsIcon> Settings
+            </ListItemText>
+          </ListItemButton>
+        </List>
+      </Collapse>
+      {/* // **************Agent End******************* */}
 
-      <Collapse in={superMaster} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItemButton>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      fontSize: "15px",
-                      fontWeight: "500",
-                    }}
-                  >
-                    Page
-                  </ListItemText>
-                </ListItemButton>
-              </List>
-            </Collapse>
-
-            <Collapse in={superMaster} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItemButton>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      fontSize: "15px",
-                      fontWeight: "500",
-                    }}
-                  >
-                    Page
-                  </ListItemText>
-                </ListItemButton>
-              </List>
-            </Collapse>
-
-
-            <ListItem disablePadding component="div" onClick={handleContentClick}>
-        <ListItemButton>
-          <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar>
-              {" "}
-              <PersonOutlineIcon />
-            </Avatar>
-          </ListItemIcon>
-          <ListItemText className={appstyle.navtext}>Master</ListItemText>
-        </ListItemButton>
-      </ListItem>
-
-      <Collapse in={openContent} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItemButton>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      fontSize: "15px",
-                      fontWeight: "500",
-                    }}
-                  >
-                    Page
-                  </ListItemText>
-                </ListItemButton>
-              </List>
-            </Collapse>
-
-            <Collapse in={openContent} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItemButton>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      fontSize: "15px",
-                      fontWeight: "500",
-                    }}
-                  >
-                    Page
-                  </ListItemText>
-                </ListItemButton>
-              </List>
-            </Collapse>
-{/* ********************Master Start***************** */}
-  
-
-{/* <ListItem disablePadding component="div" onClick={handleAgentClick}>
-        <ListItemButton>
-          <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar>
-              {" "}
-              <PersonOutlineIcon />
-            </Avatar>
-          </ListItemIcon>
-          <ListItemText className={appstyle.navtext}>Master</ListItemText>
-        </ListItemButton>
-      </ListItem> */}
-
-      {/* <Collapse in={Agent} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItemButton>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      fontSize: "15px",
-                      fontWeight: "500",
-                    }}
-                  >
-                    Page
-                  </ListItemText>
-                </ListItemButton>
-              </List>
-            </Collapse> */}
-
-            {/* <Collapse in={Agent} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItemButton>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      fontSize: "15px",
-                      fontWeight: "500",
-                    }}
-                  >
-                    Page
-                  </ListItemText>
-                </ListItemButton>
-              </List>
-            </Collapse> */}
-
-      
-
-      <ListItem disablePadding >
-        <ListItemButton>
-          <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar>
-              <ConfirmationNumberIcon />
-            </Avatar>
-          </ListItemIcon>
-          <ListItemText className={appstyle.navtext}>Agent</ListItemText>
-        </ListItemButton>
-      </ListItem>
       <ListItem disablePadding onClick={() => navigate("/reports")}>
         <ListItemButton>
           <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar>
-              <NotificationsNoneIcon />
+            <Avatar sx={{ backgroundColor: "#fff" }}>
+              <img src={reportprofile} alt="" />
             </Avatar>
           </ListItemIcon>
           <ListItemText className={appstyle.navtext}>Reports</ListItemText>
         </ListItemButton>
       </ListItem>
 
-      <Collapse 
-      // in={openContent}
-       timeout="auto" unmountOnExit>
-  <List component="div" disablePadding>
-    <ListItemButton
-    
-      onClick={() => navigate('/master')}
-      // selected={location.pathname === '/userlist'}
-    >
-      <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>
-        List
-      </ListItemText>
-    </ListItemButton>
-  </List>
-</Collapse>
-
-{/* ********************Master End**************** */}
-
+      {/* ********************Master End**************** */}
 
       <ListItem disablePadding onClick={() => navigate("/logout")}>
         <ListItemButton>
           <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar>
-              <NotificationsNoneIcon />
+            <Avatar sx={{ backgroundColor: "#fff" }}>
+              <img src={logoutprofile} alt="" />
             </Avatar>
           </ListItemIcon>
+
           <ListItemText className={appstyle.navtext}>Logout</ListItemText>
         </ListItemButton>
       </ListItem>
 
- 
-
-  
-
-      <Divider />
+      <Divider sx={{ borderColor: "#fff", mt: 5 }}></Divider>
     </div>
   );
 
@@ -533,7 +462,7 @@ function HomePage(props) {
             onClick={handleDrawerToggle}
             sx={{
               mr: 2,
-              display: { sm: "none" },
+              display: { sm: "none", color: "#111" },
               color: "rgba(196, 196, 196, 1)",
             }}
           >
@@ -543,27 +472,18 @@ function HomePage(props) {
           {/* icon on app bar */}
 
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Search>
+          <Box sx={{ display: { xs: "none", md: "flex", marginTop: "30px" } }}>
+            <Search className={appstyle.search}>
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
               <StyledInputBase
+                className={appstyle.searchtxt}
                 placeholder="Search…"
+                height="42px"
                 inputProps={{ "aria-label": "search" }}
               />
             </Search>
-
-            <IconButton size="large" aria-label="show 4 new mails">
-              <Badge badgeContent={4} color="warning">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton size="large" aria-label="show 17 new notifications">
-              <Badge badgeContent={17} color="warning">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
             <IconButton
               size="large"
               edge="end"
@@ -573,6 +493,16 @@ function HomePage(props) {
               onClick={handleProfileMenuOpen}
             >
               <AccountCircle />
+            </IconButton>
+            <IconButton size="large" aria-label="show 4 new mails">
+              <Badge badgeContent={4} color="warning">
+                <Settings />
+              </Badge>
+            </IconButton>
+            <IconButton size="large" aria-label="show 17 new notifications">
+              <Badge badgeContent={17} color="warning">
+                <NotificationsIcon />
+              </Badge>
             </IconButton>
           </Box>
 
@@ -599,7 +529,7 @@ function HomePage(props) {
               boxSizing: "border-box",
               width: drawerWidth,
               background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
-
+              // borderRadius: "12px",
               color: "#fff",
             },
           }}
@@ -628,6 +558,7 @@ function HomePage(props) {
         sx={{
           flexGrow: 1,
           p: 3,
+          mt: 4,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
@@ -647,4 +578,3 @@ HomePage.propTypes = {
 };
 
 export default HomePage;
-

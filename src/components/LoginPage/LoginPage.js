@@ -9,14 +9,20 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
-import HomePage from "../HomePage/HomePage"
-
-
+import HomePage from "../HomePage/HomePage";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import logintodashboard from "../../assets/images/profile/logintodashboard.svg";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import loginusericon from "../../assets/images/profile/loginusericon.svg";
+import passwardkeyicon from "../../assets/images/profile/passwardkeyicon.svg";
+import Checkbox from '@mui/material/Checkbox';
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevent form submission from refreshing the page
@@ -62,39 +68,55 @@ function LoginPage() {
   if (isLoggedIn) {
     return (
       <div>
-      <HomePage/>
+        <HomePage />
       </div>
     );
   }
   // username: 'kminchelle',
   //   password: '0lelplR',
   return (
-  
-    <div className={loginPageStyle.mainsec}>
-      <div className={loginPageStyle.innersec}>
-        <div className={loginPageStyle.inner_sec}>
-        
-          <Typography variant="h1">Hi, Welcome</Typography>
-          <Typography variant="h2">
-            Enter your credentials to continue
-          </Typography>
-          <form onClick={handleLogin}>
-            <TextField
-              label="Email Address / Username"
-              variant="outlined"
-              className={loginPageStyle.TextField}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+    <Box sx={{ flexGrow: 1 }} className={loginPageStyle.mainsec}>
+      <Grid
+        container
+        spacing={2}
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      >
+        <Grid sm={12} md={5}>
+          <img
+            src={logintodashboard}
+            alt=""
+            className={loginPageStyle.loginimg}
+          />
+        </Grid>
+        <Grid sm={12} md={3} className={loginPageStyle.formSec}>
+          <Typography variant="h1">Login</Typography>
 
-            <FormControl
-              variant="outlined"
-              className={loginPageStyle.TextField}
-            >
-              <InputLabel htmlFor="outlined-adornment-password">
-                Password
+          <form onClick={handleLogin}>
+            <FormControl className={loginPageStyle.TextField}>
+              <InputLabel className={loginPageStyle.inputtxt}>
+                <span style={{ width: "10px", m: "2" }}>
+                  {" "}
+                  <img src={loginusericon} width={25} /> Super Admin
+                </span>
               </InputLabel>
               <OutlinedInput
+                className={loginPageStyle.loginbox}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                label="super Admin"
+              />
+            </FormControl>
+
+            <FormControl className={loginPageStyle.TextField}>
+              <InputLabel className={loginPageStyle.inputtxt}>
+                <span style={{ width: "10px", m: "2" }}>
+                  {" "}
+                  <img src={passwardkeyicon} width={25} /> Password
+                </span>{" "}
+              </InputLabel>
+              <OutlinedInput
+                className={loginPageStyle.loginbox}
+                type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 id="outlined-adornment-password"
@@ -108,25 +130,23 @@ function LoginPage() {
             </FormControl>
 
             <div className={loginPageStyle.newsection}>
-              <p className={loginPageStyle.loggedintxt}>Keep me logged in</p>
+              <p className={loginPageStyle.loggedintxt}> <Checkbox {...label} />
+Remember me</p>
               <p className={loginPageStyle.forgotpwtxt}>Forgot Password?</p>
             </div>
             <Button
               type="submit"
               variant="contained"
               size="large"
-              className={loginPageStyle.SignInBtn} sx={{width:"100%"}}
+              className={loginPageStyle.SignInBtn}
+              sx={{ width: "100%" }}
             >
-              Sign In
+              Login{" "}
             </Button>
           </form>
-          <p style={{ border: "0.5px solid #e3e8ef" }}></p>
-          <Typography className={loginPageStyle.text}>
-            Don't have an account?
-          </Typography>
-        </div>
-      </div>
-    </div>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
 
