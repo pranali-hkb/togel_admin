@@ -1,76 +1,135 @@
 import * as React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import { Avatar, Box } from "@mui/material";
+import { useEffect, useState } from "react";
+// import Table from "@mui/material/Table";
+// import TableBody from "@mui/material/TableBody";
+// import TableCell from "@mui/material/TableCell";
+// import TableContainer from "@mui/material/TableContainer";
+// import TableHead from "@mui/material/TableHead";
+// import TableRow from "@mui/material/TableRow";
+// import Paper from "@mui/material/Paper";
+// import { Avatar, Box } from "@mui/material";
 import profileicon from "../../assets/images/profile/user.png";
-import tablestyle from "./RecentUserTable.module.css"
+import tablestyle from "./RecentUserTable.module.css";
+import axios from "axios";
+import { DataGrid } from "@mui/x-data-grid";
+import { Avatar, Box, TableContainer } from "@mui/material";
+import Paper from "@mui/material/Paper";
 
 
 
+const RecentUserTable = () => {
+  //-------------- states-----------------------//
+  const [userDataTable, setUserDataTable] = useState([]);
 
+  //-----------------Get API---------------------//
 
+  const getUserData = async () => {
+    try {
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/photos"
+      );
+      console.log("response=>", response.data);
+      setUserDataTable(response.data);
+    } catch (e) {
+      console.log("error=>", e);
+    }
+  };
 
-function createData(name, createdOn, status, userCode) {
-  return { name, createdOn, status, userCode };
+  useEffect(() => {
+    getUserData();
+  }, []);
+
+  const columns = [
+    {
+      field: "id",
+      headerName: "ID",
+      width: 70,
+      flex: 1,
+      headerClassName: "custom-header",
+      
+    },
+    {
+      field: "thumbnailUrl",
+      headerName: "Image",
+      renderCell: (params) => {
+        console.log("inmages->", params);
+        return (
+          <span>
+            <Avatar sx={{ width: 40, height: 40 }}>
+              <img src={params.row.thumbnailUrl} alt="Your Image" />
+            </Avatar>
+          </span>
+        );
+      },
+      width: 150,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    { field: "title", headerName: "First name", width: 130, flex: 1 ,headerClassName: "custom-header",},
+    { field: "url", headerName: "Last name", width: 130, flex: 1 ,headerClassName: "custom-header",},
+    // {
+    //   field: "albumId",
+    //   headerName: "Age",
+    //   type: "number",
+    //   width: 90,
+    //   flex: 1
+    // },
+    // {
+    //   field: "fullName",
+    //   headerName: "Full name",
+    //   description: "This column has a value getter and is not sortable.",
+    //   sortable: false,
+    //   width: 160,
+    //   flex: 1,
+    //   valueGetter: (params) =>
+    //     `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+    // },
+  ];
+// CSS styles
+const styles = `
+.custom-header {
+  background-color: #f2f2f2;
+  color: #672D71;
+  font-weight: 700;
+  font-size:18px;
+  
 }
+`;
+  const rows = [
+    { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
+    { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
+    { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
+    { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
+    { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
+    { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
+    { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
+    { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
+    { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
+  ];
+  
 
-const rows = [
-  createData("Chetali", "22-06-2022", "Active", 24),
-  createData("Pranali", "12-06-2021", "Active", 24),
-  createData("Sonali", "2-06-2022", "Active", 24),
-  createData("Arshad", "72-06-2022", "Active", 24),
-  createData("Darshana", "26-06-2019", "Active", 24),
-];
-
-export default function BasicTable() {
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <h1 className={tablestyle.tableheading}>Recent Users</h1>
-          <TableRow>
-            {/* <TableCell align="left" sx={{ minWidth: 5 }}></TableCell> */}
-            <TableCell align="left" className={tablestyle.tableName}>Name</TableCell>
-            <TableCell align="right" className={tablestyle.tableName}>Created On</TableCell>
-            <TableCell align="right" className={tablestyle.tableName}>Status</TableCell>
-            <TableCell align="right" className={tablestyle.tableName}>User Code</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell align="left">
-                <div style={{ display: "flex" , gap:"10px"}}>
-                  <span>
-                  <Avatar sx={{ width: 40, height: 40 }}>
-                    <img src={profileicon} alt="Your Image" />
-                  </Avatar>
-                  </span>
-                  <span style={{display:'flex',justifyContent:"center", alignItems:"center"}} className={tablestyle.tableName}>
-                  {row.name}
-                  </span>
-                </div>
-              </TableCell>
-
-              {/* <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell> */}
-
-              <TableCell align="right" className={tablestyle.tableName}>{row.createdOn}</TableCell>
-              <TableCell align="right" className={tablestyle.tableName}>{row.status}</TableCell>
-              <TableCell align="right" className={tablestyle.tableName}>{row.userCode}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <>
+    <style>{styles}</style>
+      <TableContainer component={Paper} className={tablestyle.userTableSection}>
+        <h1 className={tablestyle.tableheading}>Recent Users</h1>
+        <div style={{ height: 400, width: "100%" }}>
+          <DataGrid
+            rows={userDataTable}
+            columns={columns}
+            initialState={{
+              pagination: {
+                paginationModel: { page: 0, pageSize: 5 },
+              },
+            }}
+            pageSizeOptions={[5, 10, 15, 20]}
+             checkboxSelection
+            //  hideFooter={true}
+          />
+        </div>
+      </TableContainer>
+    </>
   );
-}
+};
+
+export default RecentUserTable;
