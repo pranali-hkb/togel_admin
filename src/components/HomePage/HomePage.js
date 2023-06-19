@@ -48,6 +48,9 @@ import MainDahboard from "../MainDashboard/MainDahboard";
 import ArticleRoundedIcon from "@mui/icons-material/ArticleRounded";
 
 
+
+import RoutesPages from '../../RoutesPages'
+
 const drawerWidth = 240;
 
 function HomePage(props) {
@@ -629,15 +632,7 @@ function HomePage(props) {
         }}
       >
         <Toolbar />
-        <Routes>
-          <Route exact path="/" element={<MainDahboard />} />
-          <Route exact path="/maindashboard" element={<MainDahboard />} />
-          <Route path="/supermaster" element={<SuperMaster />} />
-          <Route path="/master" element={<Master />} />
-          <Route path="/agent" element={<Agent />} />
-          <Route path="/reports" element={<Reports />} />
-          <Route path="/logout" element={<Logout />} />
-        </Routes>
+        <RoutesPages />
       </Box>
     </Box>
   );
