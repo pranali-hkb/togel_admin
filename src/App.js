@@ -6,12 +6,9 @@ import Test from "./components/Test/Test";
 function App() {
   return (
     <div className="App">
-      {/* <LoginPage/> */}
-      {/* <LoginPage/> */}
       <BrowserRouter>
-        {/* <LoginPage /> */}
-        <HomePage/>
-        {/* <Test/> */}
+        <LoginPage/>
+
       </BrowserRouter>
     </div>
   );

@@ -1,81 +1,36 @@
-/* .mainsec {
-  display: flex;
-  height: 100vh;
-  background-color: rgb(239, 239, 239);
-  justify-content: center;
-  align-items: center;
-}
-
-.inneersec {
-    border-radius: 10px;
-    height: 40vh;
-    margin: 5%  ;
-width: 20%;
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(28, 28, 78);
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-.inputtxt {
-    color: rgb(255, 255, 255);
-    border-radius: 5px;
-    padding: 2%;
-  width: 90%;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.btn{
-    font-size: 18px;
-    font-weight: 500;
-    height: 5vh;
-    border-radius: 5px;
-    margin: 2%;
-    width: 90%; 
-    background-color: rgb(29, 29, 101);
-    color: aliceblue;
-} */
-
-
-
-
 .mainsec {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #eef2f6;
+  background: linear-gradient(238.94deg, #ecb4f1 12.64%, #bee0ea 75.69%);
+  padding: 7% 0 7% 0;
+}
+.loginimg {
+  width: 480px;
 }
 
-.innersec {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 33%;
-  padding-top: 5%;
-  padding-bottom: 10%;
-  background-color: rgb(255, 255, 255);
-  height: 380px;
+.formSec {
   border-radius: 8px;
   margin: 4% 0 5% 0;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 2%;
 }
 
-.inner_sec {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 80%;
-}
+.loginbox{
+  border: none!important;
+  background: #ECECEC!important;
+  border: 1px solid #ECECEC!important;
+  border-radius: 8px;
 
-.inner_sec h1 {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 28.8px;
-  color: #16469d;
-  padding-top: 5%;
+}
+.formSec h1 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 135.5%;
+  color: #313035;
+  text-align: center;
+  padding: 5% 0 5% 0;
 }
 
 .inner_sec h2 {
@@ -88,23 +43,29 @@ width: 20%;
 
 .TextField {
   width: 100%;
-  font-weight: 400 !important;
-  font-size: 10px !important;
-  line-height: 20px !important;
-  color: #7d8669 !important;
   margin-top: 6% !important;
-  border-radius: 8px!important;
+  border: 1px solid #ECECEC!important;
+border-radius: 8px;
+}
+.inputtxt {
+  font-family: 'Poppins'!important;
+  font-style: normal!important;
+  font-weight: 700!important;
+  font-size: 16px!important;
+  color: #6358DC!important; 
 }
 
 .SignInBtn {
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-  color: #fff;
-  background-color: #16469d !important;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
 
+  background: #6358dc !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
   text-transform: capitalize !important;
   height: 50px !important;
+  padding-right: 5%;
 }
 
 .newsection {
@@ -112,26 +73,24 @@ width: 20%;
   justify-content: space-between;
 }
 .loggedintxt {
+  font-family: 'Poppins';
+  font-style: normal;
   font-weight: 400;
-  font-size: 15px;
-  line-height: 18px;
-  color: #364152;
-  margin-top: 8%;
+  font-size: 16px;
+  line-height: 135.5%;
 }
 .forgotpwtxt {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    color: #16469D;
-    margin-top: 8%;
-    padding-top: 1%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #16469d;
+  margin-top: 8%;
+  padding-top: 1%;
 }
 
 .text {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    color: #121926;
-
- 
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #121926;
 }
