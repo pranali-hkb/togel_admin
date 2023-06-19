@@ -27,17 +27,14 @@ import Reports from "../Reports/Reports";
 import Logout from "../Logout/Logout";
 import Master from "../Master/Master";
 import SuperMaster from "../SuperMaster/SuperMaster";
-import SearchIcon from '@mui/icons-material/Search';
-import InputBase from '@mui/material/InputBase';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-
+import SearchIcon from "@mui/icons-material/Search";
+import InputBase from "@mui/material/InputBase";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import Collapse from "@mui/material/Collapse";
+import List from "@mui/material/List";
 import { styled, alpha } from "@mui/material/styles";
-// import AppBar from '@mui/material/AppBar';
-// import Box from '@mui/material/Box';
-// import Toolbar from '@mui/material/Toolbar';
-// import IconButton from '@mui/material/IconButton';
-// import Typography from '@mui/material/Typography';
-// import InputBase from '@mui/material/InputBase';
+import { useState } from "react";
+import { useRef } from "react";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
@@ -48,10 +45,47 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import MainDahboard from "../MainDashboard/MainDahboard";
+import ArticleRoundedIcon from "@mui/icons-material/ArticleRounded";
+
 
 const drawerWidth = 240;
 
 function HomePage(props) {
+
+  const [openUser, setOpenUser] = useState(false);
+  const userButtonRef = useRef();
+
+
+
+
+
+  // const handleUserClick = () => {
+  //   setOpenUser(!openUser);
+  // };
+
+  const [openSuperMaster, setOpenSuperMaster] = React.useState(true);
+  const [openMaster, setOpenMaster] = React.useState(true)
+  const [openAgent, setOpenAgent] = React.useState(true)
+
+
+  const handleSuperMasterClick = () => {
+    setOpenSuperMaster(!openSuperMaster);
+  };
+
+  const handleMasterClick = () => {
+    setOpenMaster(!openMaster)
+  }
+
+  const handleAgentClick = () => {
+    setOpenAgent(!openAgent)
+  }
+
+  const activeTab = (route) => {
+    navigate(`${route}`);
+    return {
+      color: "#f6faff",
+    };
+  };
   const navigate = useNavigate();
 
   const { window } = props;
@@ -85,6 +119,9 @@ function HomePage(props) {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+
+
+
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -107,50 +144,48 @@ function HomePage(props) {
     </Menu>
   );
 
-
   // search
-  const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
+  const Search = styled("div")(({ theme }) => ({
+    position: "relative",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor:"#F2EDF3",
-    '&:hover': {
+    backgroundColor: "#F2EDF3",
+    "&:hover": {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    border:"1px solid #7B809A",
-    height:"42px",
-    color:"rgba(123, 128, 154, 1)",
-    height:"42px",
-    width:"173px",
-        marginRight: theme.spacing(2),
+    border: "1px solid #7B809A",
+    height: "42px",
+    color: "rgba(123, 128, 154, 1)",
+    height: "42px",
+    width: "173px",
+    marginRight: theme.spacing(2),
     marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(3),
-      width: 'auto',
+      width: "auto",
     },
   }));
 
-  const SearchIconWrapper = styled('div')(({ theme }) => ({
+  const SearchIconWrapper = styled("div")(({ theme }) => ({
     padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   }));
-  
+
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    '& .MuiInputBase-input': {
+    color: "inherit",
+    "& .MuiInputBase-input": {
       padding: theme.spacing(1, 1, 1, 0),
       // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create('width'),
-      width: '100%',
-      [theme.breakpoints.up('md')]: {
-        width: '10ch',
+      transition: theme.transitions.create("width"),
+      width: "100%",
+      [theme.breakpoints.up("md")]: {
+        width: "10ch",
       },
     },
   }));
@@ -160,8 +195,8 @@ function HomePage(props) {
       <Toolbar />
       <Divider sx={{ color: "#fff" }}></Divider>
       {/* <Box sx={{marginLeft:"5"}}><AccountCircleIcon ></AccountCircleIcon> Pranali Bos</Box> */}
-      <Avatar >
-        <img src="../../assets/images/profile/profile1.svg"/> 
+      <Avatar>
+        <img src="../../assets/images/profile/profile1.svg" />
       </Avatar>
       <Divider sx={{ color: "#fff" }}></Divider>
 
@@ -176,18 +211,110 @@ function HomePage(props) {
         </ListItemButton>
       </ListItem>
       <Divider></Divider>
+    
+ 
+    {/* // **************SuperMaster Start******************* */}
 
-      <ListItem disablePadding onClick={() => navigate("/maindashboard")}>
-        <ListItemButton>
-          <ListItemIcon sx={{ color: "white" }}>
+<ListItem disablePadding>
+<ListItemButton onClick={handleSuperMasterClick} >
+<ListItemIcon sx={{ color: "#fff" }}>
+          <Avatar>
+            {" "}
+            <PersonOutlineIcon />
+          </Avatar>
+        </ListItemIcon>
+  <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>SuperMaster</ListItemText>
+</ListItemButton>
+</ListItem>
+<Collapse in={openSuperMaster} timeout="auto" unmountOnExit>
+<List component="div" disablePadding>
+  <ListItemButton sx={{ pl: 7 }} onClick={() => navigate('/')} >
+    <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>SuperMaster 1</ListItemText>
+  </ListItemButton>
+</List>
+</Collapse>
+<Collapse in={openSuperMaster} timeout="auto" unmountOnExit>
+<List component="div" disablePadding>
+  <ListItemButton sx={{ pl: 7 }} onClick={() => navigate('/')}>
+    <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>SuperMaster 2</ListItemText>
+  </ListItemButton>
+</List>
+</Collapse>
+
+
+{/* // **************SuperMaster End******************* */}
+
+
+
+
+  {/* // **************Master Start******************* */}
+
+  
+  <ListItem disablePadding>
+  <ListItemButton onClick={handleMasterClick} >
+  <ListItemIcon sx={{ color: "#fff" }}>
             <Avatar>
-              <GridViewIcon />
+              {" "}
+              <PersonOutlineIcon />
             </Avatar>
           </ListItemIcon>
-          <ListItemText className={appstyle.navtext}>Dashboard</ListItemText>
-        </ListItemButton>
-      </ListItem>
-      <ListItem disablePadding onClick={() => navigate("/supermaster")}>
+    <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>Master</ListItemText>
+  </ListItemButton>
+</ListItem>
+<Collapse in={openMaster} timeout="auto" unmountOnExit>
+  <List component="div" disablePadding>
+    <ListItemButton sx={{ pl: 7 }} onClick={() => navigate('/')}>
+      <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>Master 1</ListItemText>
+    </ListItemButton>
+  </List>
+</Collapse>
+<Collapse in={openMaster} timeout="auto" unmountOnExit>
+  <List component="div" disablePadding>
+    <ListItemButton sx={{ pl: 7 }} onClick={() => navigate('/')}>
+      <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>Master 2</ListItemText>
+    </ListItemButton>
+  </List>
+</Collapse>
+  {/* // **************Master End*******************
+
+
+{/* // **************Agent Start******************* */}
+
+  
+<ListItem disablePadding>
+  <ListItemButton onClick={handleAgentClick} >
+   
+    <ListItemIcon sx={{ color: "#fff" }}>
+            <Avatar>
+              {" "}
+              <PersonOutlineIcon />
+            </Avatar>
+          </ListItemIcon>
+   
+    <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>Agent</ListItemText>
+  </ListItemButton>
+</ListItem>
+<Collapse in={openAgent} timeout="auto" unmountOnExit>
+  <List component="div" disablePadding>
+    <ListItemButton sx={{ pl: 7 }} onClick={() => navigate('/')}>
+      <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>Agent 1</ListItemText>
+    </ListItemButton>
+  </List>
+</Collapse>
+<Collapse in={openAgent} timeout="auto" unmountOnExit>
+  <List component="div" disablePadding>
+    <ListItemButton sx={{ pl: 7 }} onClick={() => navigate('/')}>
+      <ListItemText>Agent 2</ListItemText>
+    </ListItemButton>
+  </List>
+</Collapse>
+  {/* // **************Agent End******************* */}
+
+ 
+   
+
+{/*       
+      <ListItem disablePadding component="div" onClick={handleSuperMasterClick}>
         <ListItemButton>
           <ListItemIcon sx={{ color: "#fff" }}>
             <Avatar>
@@ -198,18 +325,127 @@ function HomePage(props) {
           <ListItemText className={appstyle.navtext}>Super Master</ListItemText>
         </ListItemButton>
       </ListItem>
-      <ListItem disablePadding onClick={() => navigate("/master")}>
+
+      <Collapse in={superMaster} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItemButton>
+                  <ListItemText
+                    primaryTypographyProps={{
+                      fontSize: "15px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Page
+                  </ListItemText>
+                </ListItemButton>
+              </List>
+            </Collapse>
+
+            <Collapse in={superMaster} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItemButton>
+                  <ListItemText
+                    primaryTypographyProps={{
+                      fontSize: "15px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Page
+                  </ListItemText>
+                </ListItemButton>
+              </List>
+            </Collapse>
+
+
+            <ListItem disablePadding component="div" onClick={handleContentClick}>
         <ListItemButton>
           <ListItemIcon sx={{ color: "#fff" }}>
             <Avatar>
-              <ContentPasteIcon />
+              {" "}
+              <PersonOutlineIcon />
             </Avatar>
           </ListItemIcon>
           <ListItemText className={appstyle.navtext}>Master</ListItemText>
         </ListItemButton>
       </ListItem>
 
-      <ListItem disablePadding onClick={() => navigate("/agent")}>
+      <Collapse in={openContent} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItemButton>
+                  <ListItemText
+                    primaryTypographyProps={{
+                      fontSize: "15px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Page
+                  </ListItemText>
+                </ListItemButton>
+              </List>
+            </Collapse>
+
+            <Collapse in={openContent} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItemButton>
+                  <ListItemText
+                    primaryTypographyProps={{
+                      fontSize: "15px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Page
+                  </ListItemText>
+                </ListItemButton>
+              </List>
+            </Collapse>
+{/* ********************Master Start***************** */}
+  
+
+{/* <ListItem disablePadding component="div" onClick={handleAgentClick}>
+        <ListItemButton>
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <Avatar>
+              {" "}
+              <PersonOutlineIcon />
+            </Avatar>
+          </ListItemIcon>
+          <ListItemText className={appstyle.navtext}>Master</ListItemText>
+        </ListItemButton>
+      </ListItem> */}
+
+      {/* <Collapse in={Agent} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItemButton>
+                  <ListItemText
+                    primaryTypographyProps={{
+                      fontSize: "15px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Page
+                  </ListItemText>
+                </ListItemButton>
+              </List>
+            </Collapse> */}
+
+            {/* <Collapse in={Agent} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItemButton>
+                  <ListItemText
+                    primaryTypographyProps={{
+                      fontSize: "15px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Page
+                  </ListItemText>
+                </ListItemButton>
+              </List>
+            </Collapse> */}
+
+      
+
+      <ListItem disablePadding >
         <ListItemButton>
           <ListItemIcon sx={{ color: "#fff" }}>
             <Avatar>
@@ -230,6 +466,25 @@ function HomePage(props) {
         </ListItemButton>
       </ListItem>
 
+      <Collapse 
+      // in={openContent}
+       timeout="auto" unmountOnExit>
+  <List component="div" disablePadding>
+    <ListItemButton
+    
+      onClick={() => navigate('/master')}
+      // selected={location.pathname === '/userlist'}
+    >
+      <ListItemText primaryTypographyProps={{ fontSize: '15px', fontWeight: '500' }}>
+        List
+      </ListItemText>
+    </ListItemButton>
+  </List>
+</Collapse>
+
+{/* ********************Master End**************** */}
+
+
       <ListItem disablePadding onClick={() => navigate("/logout")}>
         <ListItemButton>
           <ListItemIcon sx={{ color: "#fff" }}>
@@ -240,6 +495,10 @@ function HomePage(props) {
           <ListItemText className={appstyle.navtext}>Logout</ListItemText>
         </ListItemButton>
       </ListItem>
+
+ 
+
+  
 
       <Divider />
     </div>
@@ -255,17 +514,25 @@ function HomePage(props) {
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },boxShadow:"none", border:"none"
+          ml: { sm: `${drawerWidth}px` },
+          boxShadow: "none",
+          border: "none",
         }}
       >
-        <Toolbar sx={{backgroundColor:"#F2EDF3", boxShadow:"none", border:"none"}}>
+        <Toolbar
+          sx={{ backgroundColor: "#F2EDF3", boxShadow: "none", border: "none" }}
+        >
           {/* for mobile */}
           <IconButton
             // color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" },color:"rgba(196, 196, 196, 1)" }}
+            sx={{
+              mr: 2,
+              display: { sm: "none" },
+              color: "rgba(196, 196, 196, 1)",
+            }}
           >
             <MenuIcon />
           </IconButton>
@@ -274,32 +541,22 @@ function HomePage(props) {
 
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
 
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-
-
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              
-            >
+            <IconButton size="large" aria-label="show 4 new mails">
               <Badge badgeContent={4} color="warning">
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-            
-            >
+            <IconButton size="large" aria-label="show 17 new notifications">
               <Badge badgeContent={17} color="warning">
                 <NotificationsIcon />
               </Badge>
@@ -311,7 +568,6 @@ function HomePage(props) {
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-             
             >
               <AccountCircle />
             </IconButton>
@@ -340,7 +596,7 @@ function HomePage(props) {
               boxSizing: "border-box",
               width: drawerWidth,
               background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
-    
+
               color: "#fff",
             },
           }}
@@ -355,7 +611,7 @@ function HomePage(props) {
               boxSizing: "border-box",
               width: drawerWidth,
               background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
-           
+
               color: "#fff",
             },
           }}
@@ -374,8 +630,8 @@ function HomePage(props) {
       >
         <Toolbar />
         <Routes>
-          <Route exact path="/" element={<MainDahboard/>} />
-          <Route exact path="/maindashboard" element={<MainDahboard/>} />
+          <Route exact path="/" element={<MainDahboard />} />
+          <Route exact path="/maindashboard" element={<MainDahboard />} />
           <Route path="/supermaster" element={<SuperMaster />} />
           <Route path="/master" element={<Master />} />
           <Route path="/agent" element={<Agent />} />
@@ -396,3 +652,4 @@ HomePage.propTypes = {
 };
 
 export default HomePage;
+
