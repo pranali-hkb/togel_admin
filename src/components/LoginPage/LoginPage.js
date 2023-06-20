@@ -16,13 +16,13 @@ import logintodashboard from "../../assets/images/profile/logintodashboard.svg";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import loginusericon from "../../assets/images/profile/loginusericon.svg";
 import passwardkeyicon from "../../assets/images/profile/passwardkeyicon.svg";
-import Checkbox from '@mui/material/Checkbox';
+import Checkbox from "@mui/material/Checkbox";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevent form submission from refreshing the page
@@ -89,16 +89,17 @@ function LoginPage() {
           />
         </Grid>
         <Grid sm={12} md={3} className={loginPageStyle.formSec}>
-          <Typography variant="h1">Login</Typography>
+          <Typography variant="h1" className={loginPageStyle.logintxt}>Login</Typography>
 
-          <form onClick={handleLogin}>
+          <form onSubmit={handleLogin}>
             <FormControl className={loginPageStyle.TextField}>
               <InputLabel className={loginPageStyle.inputtxt}>
                 <span style={{ width: "10px", m: "2" }}>
-                  {" "}
-                  <img src={loginusericon} width={25} /> Super Admin
+                  <img src={loginusericon} width={20} /> Super Admin
                 </span>
               </InputLabel>
+
+
               <OutlinedInput
                 className={loginPageStyle.loginbox}
                 value={email}
@@ -110,8 +111,7 @@ function LoginPage() {
             <FormControl className={loginPageStyle.TextField}>
               <InputLabel className={loginPageStyle.inputtxt}>
                 <span style={{ width: "10px", m: "2" }}>
-                  {" "}
-                  <img src={passwardkeyicon} width={25} /> Password
+                  <img src={passwardkeyicon} width={20} /> Password
                 </span>{" "}
               </InputLabel>
               <OutlinedInput
@@ -130,13 +130,16 @@ function LoginPage() {
             </FormControl>
 
             <div className={loginPageStyle.newsection}>
-              <p className={loginPageStyle.loggedintxt}> <Checkbox {...label} />
-Remember me</p>
+              <p className={loginPageStyle.remembertxt}>
+                {" "}
+                <Checkbox {...label} />
+                Remember me
+              </p>
               <p className={loginPageStyle.forgotpwtxt}>Forgot Password?</p>
             </div>
             <Button
               type="submit"
-              variant="contained"
+              variant="contained" 
               size="large"
               className={loginPageStyle.SignInBtn}
               sx={{ width: "100%" }}
