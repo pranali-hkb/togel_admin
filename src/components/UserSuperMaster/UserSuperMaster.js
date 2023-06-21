@@ -20,7 +20,6 @@ import EditIcon from "../../assets/images/profile/pen.svg";
 import DeleteIcon from "../../assets/images/profile/remove.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
-// import { makeStyles } from "@mui/styles";
 
 // search
 const Search = styled("div")(({ theme }) => ({
@@ -193,7 +192,7 @@ const UserSuperMaster = () => {
       flex: 1,
       headerClassName: "custom-header",
     },
- 
+
     {
       field: "Name",
       headerName: "Name",
@@ -270,21 +269,20 @@ const UserSuperMaster = () => {
       headerClassName: "custom-header",
 
       renderCell: (params) => (
-        <div sx={{ display: "flex", padding: "0px" }}>
-          <Button style={{ width: "10px", m: "2px" }}>
+        <div style={{ display: "flex", margin: "none", gap: "7px" }}>
+          <span>
             <img
               src={EditIcon}
               width={20}
               onClick={() => handleEditClick(params.row)}
             />
-          </Button>
-          <Button style={{ width: "10px", m: "2px" }}>
+          </span>
+          <span>
             <img src={DeleteIcon} width={20} />
-          </Button>
+          </span>
         </div>
       ),
     },
- 
   ];
   const handleButtonClick = (row) => {
     console.log("Button clicked for:", row);
@@ -300,25 +298,15 @@ const UserSuperMaster = () => {
 .custom-header {
   background-color: #FFFFFF;
   color: #672D71;
-  font-weight: 800;
-  font-size:14px;
-  hei
-  
+  font-weight: 600;
+  font-size:16px;
+ 
 }
 
 `;
-// const useStyles = makeStyles({
-//   customHeader: {
-//     backgroundColor: "#FFFFFF",
-//     color: "#672D71",
-//     fontWeight: 800,
-//     fontSize: 14,
-//     height: 60, // Adjust the height value as per your requirement
-//   },
-// });
+
   return (
     <>
-    
       <style>{styles}</style>
       <Box>
         <TableContainer
@@ -327,7 +315,7 @@ const UserSuperMaster = () => {
         >
           <div className={tablestyle.table_btn_container}>
             <div className={tablestyle.tableUpperSection}>
-              <div className={tablestyle.TabsButton} sx={{ gap: "10px" }}>
+              <div className={tablestyle.TabsButton} sx={{ gap: '10px',}}>
                 <Button
                   sx={{
                     "&.active": {
@@ -420,7 +408,6 @@ const UserSuperMaster = () => {
                   paginationModel: { page: 0, pageSize: 5 },
                 },
               }}
-            
               pageSizeOptions={[5, 10, 15, 20]}
               //  checkboxSelection
             />
