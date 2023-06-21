@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   FormControl,
+  IconButton,
   InputLabel,
   MenuItem,
   Select,
@@ -15,9 +16,11 @@ import tablestyle from "./UserSuperMaster.module.css";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import InputBase from "@mui/material/InputBase";
-
+import EditIcon from "../../assets/images/profile/pen.svg";
+import DeleteIcon from "../../assets/images/profile/remove.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
+// import { makeStyles } from "@mui/styles";
 
 // search
 const Search = styled("div")(({ theme }) => ({
@@ -83,6 +86,8 @@ const UserSuperMaster = () => {
   const handleDeleted = () => {
     setDeletedStatus(true);
   };
+  // const classes = useStyles();
+
   const styleModal = {
     position: "absolute",
     top: "50%",
@@ -97,77 +102,224 @@ const UserSuperMaster = () => {
   //-------------------------------Table Columns---------------------------//
 
   const rows = [
-    { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-    { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-    { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-    { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-    { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-    { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-    { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-    { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-    { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
-  ];
-console.log("deletedStatus=>",deletedStatus)
-  const columns = [
     {
-      field: "id",
-      headerName: "ID",
-      width: 70,
-      flex: 1,
-      headerClassName: "custom-header",
+      id: 1,
+      Name: "Snow",
+      "Mobile No": "Jon",
+      Email: 35,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
     },
     {
-      field: "thumbnailUrl",
-      headerName: "Image",
-      renderCell: (params) => {
-        console.log("inmages->", params);
-        return (
-          <span>
-            <Avatar sx={{ width: 40, height: 40 }}>
-              <img src={params.row.thumbnailUrl} alt="Your Image" />
-            </Avatar>
-          </span>
-        );
-      },
-      width: 150,
-      flex: 1,
-      headerClassName: "custom-header",
+      id: 2,
+      Name: "Lannister",
+      "Mobile No": "Cersei",
+      Email: 42,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
     },
     {
-      field: "title",
-      headerName: "First name",
-      width: 130,
-      flex: 1,
-      headerClassName: "custom-header",
+      id: 3,
+      Name: "Lannister",
+      "Mobile No": "Jaime",
+      Email: 45,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
     },
     {
-      field: "url",
-      headerName: "Last name",
-      width: 130,
-      flex: 1,
-      headerClassName: "custom-header",
+      id: 4,
+      Name: "Stark",
+      "Mobile No": "Arya",
+      Email: 16,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
     },
     {
-      field: "albumId",
-      headerName: "Age",
-      type: "number",
-      width: 90,
-      flex: 1,
+      id: 5,
+      Name: "Targaryen",
+      "Mobile No": "Daenerys",
+      Email: null,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
     },
     {
-      field: "fullName",
-      headerName: "Full name",
-      description: "This column has a value getter and is not sortable.",
-      sortable: false,
-      width: 160,
-      flex: 1,
-      valueGetter: (params) =>
-        `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+      id: 6,
+      Name: "Melisandre",
+      "Mobile No": null,
+      Email: 150,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
+    },
+    {
+      id: 7,
+      Name: "Clifford",
+      "Mobile No": "Ferrara",
+      Email: 44,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
+    },
+    {
+      id: 8,
+      Name: "Frances",
+      "Mobile No": "Rossini",
+      Email: 36,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
+    },
+    {
+      id: 9,
+      Name: "Roxie",
+      "Mobile No": "Harvey",
+      Email: 65,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
     },
   ];
 
+  const columns = [
+    {
+      field: "id",
+      headerName: "Id",
+      width: 30,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+ 
+    {
+      field: "Name",
+      headerName: "Name",
+      width: 130,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "Mobile No",
+      headerName: "Mobile No",
+      width: 90,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "Email",
+      headerName: "Email",
+      type: "number",
+      width: 90,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+
+    {
+      field: "Limit",
+      headerName: "Limit",
+      type: "number",
+      width: 90,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "Country",
+      headerName: "Country",
+      type: "number",
+      width: 90,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "Discount",
+      headerName: "Discount",
+      type: "number",
+      width: 90,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "List",
+      headerName: "List",
+      // type: "number",
+      width: 90,
+      headerClassName: "custom-header",
+
+      flex: 1,
+      renderCell: (params) => (
+        <Button
+          className={tablestyle.btnViewMore}
+          sx={{ textTransform: "none" }}
+          // variant="contained"
+          // color="primary"
+          onClick={() => handleButtonClick(params.row)}
+        >
+          View More
+        </Button>
+      ),
+    },
+    {
+      field: "Action",
+      headerName: "Action",
+      // type: "number",
+      width: 90,
+      flex: 1,
+      headerClassName: "custom-header",
+
+      renderCell: (params) => (
+        <div sx={{ display: "flex", padding: "0px" }}>
+          <Button style={{ width: "10px", m: "2px" }}>
+            <img
+              src={EditIcon}
+              width={20}
+              onClick={() => handleEditClick(params.row)}
+            />
+          </Button>
+          <Button style={{ width: "10px", m: "2px" }}>
+            <img src={DeleteIcon} width={20} />
+          </Button>
+        </div>
+      ),
+    },
+ 
+  ];
+  const handleButtonClick = (row) => {
+    console.log("Button clicked for:", row);
+    // Perform desired action with the row data
+  };
+  const handleEditClick = (row) => {
+    console.log("Edit Button clicked for:", row);
+    // Perform desired action with the row data
+  };
+
+  // CSS styles
+  const styles = `
+.custom-header {
+  background-color: #FFFFFF;
+  color: #672D71;
+  font-weight: 800;
+  font-size:14px;
+  hei
+  
+}
+
+`;
+// const useStyles = makeStyles({
+//   customHeader: {
+//     backgroundColor: "#FFFFFF",
+//     color: "#672D71",
+//     fontWeight: 800,
+//     fontSize: 14,
+//     height: 60, // Adjust the height value as per your requirement
+//   },
+// });
   return (
     <>
+    
+      <style>{styles}</style>
       <Box>
         <TableContainer
           component={Paper}
@@ -175,22 +327,22 @@ console.log("deletedStatus=>",deletedStatus)
         >
           <div className={tablestyle.table_btn_container}>
             <div className={tablestyle.tableUpperSection}>
-              <div className={tablestyle.TabsButton} sx={{gap:"10px"}}>
+              <div className={tablestyle.TabsButton} sx={{ gap: "10px" }}>
                 <Button
                   sx={{
                     "&.active": {
                       backgroundColor: "#90168C", // Customize the active background color
                       color: "white",
                       textTransform: "none",
-                      padding:"7px 10px",
-                      marginRight:"15px",
+                      padding: "7px 10px",
+                      marginRight: "15px",
                       // Customize the active text color
                       // Add any other active styles you want
                     },
                     textTransform: "none",
-                    padding:"7px 10px",
+                    padding: "7px 10px",
                     color: "#6F6F6F",
-                    marginRight:"15px",
+                    marginRight: "15px",
                   }}
                   className={deletedStatus ? "" : "active"}
                   onClick={handleNonDeleted}
@@ -204,15 +356,15 @@ console.log("deletedStatus=>",deletedStatus)
                       backgroundColor: "#90168C", // Customize the active background color
                       color: "white",
                       textTransform: "none",
-                      padding:"7px 10px",
-                      marginRight:"15px",
+                      padding: "7px 10px",
+                      marginRight: "15px",
                       // Customize the active text color
                       // Add any other active styles you want
                     },
                     textTransform: "none",
                     color: "#6F6F6F",
-                    padding:"7px 10px",
-                    marginRight:"15px",
+                    padding: "7px 10px",
+                    marginRight: "15px",
                   }}
                   className={deletedStatus ? "active" : ""}
                   onClick={handleDeleted}
@@ -232,9 +384,9 @@ console.log("deletedStatus=>",deletedStatus)
                     displayEmpty
                     inputProps={{ "aria-label": "Without label" }}
                   >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
+                    {/* <MenuItem value="">
+                      <em>All</em>
+                    </MenuItem> */}
                     <MenuItem value="ALL">All</MenuItem>
                     <MenuItem value="TRUE">Active</MenuItem>
                     <MenuItem value="FALSE">Inactive</MenuItem>
@@ -268,6 +420,7 @@ console.log("deletedStatus=>",deletedStatus)
                   paginationModel: { page: 0, pageSize: 5 },
                 },
               }}
+            
               pageSizeOptions={[5, 10, 15, 20]}
               //  checkboxSelection
             />
