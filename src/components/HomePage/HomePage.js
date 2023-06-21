@@ -288,13 +288,13 @@ function HomePage(props) {
             sx={{
               pl: 7,
               backgroundColor:
-                location.pathname === "/maindashboard"
+                location.pathname === "/usersupermaster"
                   ? "#E3F5F"
                   : "transparent",
               color: location.pathname === "/homepage" ? "darkblue" : "inherit",
             }}
-            onClick={() => navigate("/maindashboard")}
-            selected={location.pathname === "/maindashboard"}
+            onClick={() => navigate("/usersupermaster")}
+            selected={location.pathname === "/usersupermaster"}
           >
             <ListItemText className={appstyle.menunavtext}>
               <PersonIcon sx={{ pt: 1 }}></PersonIcon> User Super Master
