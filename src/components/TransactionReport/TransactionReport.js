@@ -25,6 +25,7 @@ const Item = styled(Paper)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-around",
   alignItems: "center",
+
   color: theme.palette.text.secondary,
 }));
 
@@ -208,156 +209,182 @@ const TransactionReport = () => {
   return (
     <div>
       <style>{styles}</style>
-      <Box
-        sx={{ flexGrow: 1, boxShadow: "none", borderRadius: "none" }}
-        className={transactnstyle.trmainsec}
-      >
-        <h1 className={transactnstyle.reporthead}>Transaction Report</h1>
-        <Grid container spacing={2} className={transactnstyle.trinrsec}>
-          <Grid item xs={12} lg={6} sx={{ textAlign: "left" }}>
-            {/* From date */}
-            <Item>
-              <Typography className={transactnstyle.labeltxt}>
-                From Date
-              </Typography>
-              {/* From date */}
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer
-                  components={["DatePicker", "DatePicker"]}
-                  sx={{
-                    color: "#642483",
-                    fontSize: "18px",
-                    fontWeight: "800",
-                  }}
-                >
-                  <DatePicker
-                    className={transactnstyle.trmainsec}
+      <h1 className={transactnstyle.reporthead}>Transaction Report</h1>
+      <div className={transactnstyle.mainsection}>
+        <div className={transactnstyle.innersection}>
+          {/* left 50%%*/}
+          <div className={transactnstyle.secleft}>
+            {/*From Date  */}
+            <div className={transactnstyle.maincol}>
+              {/* col1 */}
+              <div className={transactnstyle.col1}>
+                <Typography className={transactnstyle.labeltxt}>
+                  From Date
+                </Typography>
+              </div>
+              {/* col2 */}
+              <div className={transactnstyle.col2}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer
+                    components={["DatePicker", "DatePicker"]}
                     sx={{
-                      borderColor: "#642483",
                       color: "#642483",
+                      fontSize: "18px",
+                      fontWeight: "800",
                     }}
-                    inputProps={{ "aria-label": "Without label" }}
-                    value={value}
-                    onChange={(newValue) => setValue(newValue)}
-                  />
-                </DemoContainer>
-              </LocalizationProvider>
-            </Item>
+                  >
+                    <DatePicker
+                      className={transactnstyle.trmainsec}
+                      sx={{
+                        borderColor: "#642483",
+                        color: "#642483",
+                      }}
+                      inputProps={{ "aria-label": "Without label" }}
+                      value={value}
+                      onChange={(newValue) => setValue(newValue)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
+              </div>
+            </div>
 
-            {/* To date */}
-            <Item>
-              <Typography className={transactnstyle.labeltxt}>
-                To Date
-              </Typography>
-              {/* From date */}
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer
-                  components={["DatePicker", "DatePicker"]}
-                  sx={{
-                    color: "#642483",
-                    fontSize: "18px",
-                    fontWeight: "800",
-                  }}
-                >
-                  <DatePicker
-                    className={transactnstyle.trmainsec}
+            {/*To Date  */}
+            <div className={transactnstyle.maincol}>
+              {/* col1 */}
+              <div className={transactnstyle.col1}>
+                <Typography className={transactnstyle.labeltxt}>
+                  To Date
+                </Typography>
+              </div>
+              {/* col2 */}
+              <div className={transactnstyle.col2}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer
+                    components={["DatePicker", "DatePicker"]}
                     sx={{
-                      borderColor: "#642483",
                       color: "#642483",
+                      fontSize: "18px",
+                      fontWeight: "800",
                     }}
-                    labelId="demo-select-small-label"
+                  >
+                    <DatePicker
+                      className={transactnstyle.trmainsec}
+                      sx={{
+                        borderColor: "#642483",
+                        color: "#642483",
+                      }}
+                      inputProps={{ "aria-label": "Without label" }}
+                      value={value}
+                      onChange={(newValue) => setValue(newValue)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
+              </div>
+            </div>
+          </div>
+
+          {/* right */}
+          {/* left 50%%*/}
+          <div className={transactnstyle.secleft}>
+            {/*use code  */}
+            <div className={transactnstyle.maincol}>
+              {/* col1 */}
+              <div className={transactnstyle.col1}>
+                <Typography className={transactnstyle.labeltxt}>
+                  User Code
+                </Typography>
+              </div>
+              {/* col2 */}
+              <div className={transactnstyle.col2}>
+                <FormControl sx={{ m: 1 }}>
+                  <Select
+                    labelId="demo-simple-select-autowidth-label"
+                    id="demo-simple-select-autowidth"
+                    value={usercode}
+                    onChange={usercodeChange}
+                    autoWidth
+                    displayEmpty
                     inputProps={{ "aria-label": "Without label" }}
-                    value={value}
-                    onChange={(newValue) => setValue(newValue)}
-                  />
-                </DemoContainer>
-              </LocalizationProvider>
-            </Item>
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>Super Master</MenuItem>
+                    <MenuItem value={21}>Master</MenuItem>
+                    <MenuItem value={22}>Agent</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+            </div>
 
-            {/* USer code */}
-            <Item>
-              <Typography className={transactnstyle.labeltxt}>
-                User code
-              </Typography>
-              <FormControl sx={{ m: 1, minWidth: 255 }}>
-                <Select
-                  labelId="demo-simple-select-autowidth-label"
-                  id="demo-simple-select-autowidth"
-                  value={usercode}
-                  onChange={usercodeChange}
-                  autoWidth
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Super Master</MenuItem>
-                  <MenuItem value={21}>Master</MenuItem>
-                  <MenuItem value={22}>Agent</MenuItem>
-                </Select>
-              </FormControl>
-            </Item>
-          </Grid>
-          <Grid item xs={12} lg={6} sx={{ textAlign: "left" }}>
-            {/*  Market Betting */}
-            <Item>
-              <Typography className={transactnstyle.labeltxt}>
-                Market Betting
-              </Typography>
-              <FormControl sx={{ m: 1, minWidth: 255 }}>
-                <Select
-                  labelId="demo-simple-select-autowidth-label"
-                  id="demo-simple-select-autowidth"
-                  value={marketbetting}
-                  onChange={marketbettingChange}
-                  autoWidth
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Market Betting1</MenuItem>
-                  <MenuItem value={21}>Market Betting2</MenuItem>
-                  <MenuItem value={22}>Market Betting3</MenuItem>
-                </Select>
-              </FormControl>
-            </Item>
-
-            {/*  Betting Type */}
-            <Item>
-              <Typography className={transactnstyle.labeltxt}>
-                Betting Type
-              </Typography>
-              <FormControl sx={{ m: 1, minWidth: 255 }}>
-                <Select
-                  labelId="demo-simple-select-autowidth-label"
-                  id="demo-simple-select-autowidth"
-                  value={bettingtype}
-                  onChange={bettingtypeChange}
-                  autoWidth
-                  inputProps={{ "aria-label": "Without label" }}
-                  displayEmpty
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>2D</MenuItem>2D
-                  <MenuItem value={21}>3D</MenuItem>
-                  <MenuItem value={22}>Zodiac</MenuItem>
-                </Select>
-              </FormControl>
-            </Item>
-          </Grid>
-        </Grid>
-      </Box>
+            {/*Market Betting  */}
+            <div className={transactnstyle.maincol}>
+              {/* col1 */}
+              <div className={transactnstyle.col1}>
+                <Typography className={transactnstyle.labeltxt}>
+                  Market Betting
+                </Typography>
+              </div>
+              {/* col2 */}
+              <div className={transactnstyle.col2}>
+                <FormControl sx={{ m: 1 }}>
+                  <Select
+                    labelId="demo-simple-select-autowidth-label"
+                    id="demo-simple-select-autowidth"
+                    value={marketbetting}
+                    onChange={marketbettingChange}
+                    autoWidth
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>Market Betting1</MenuItem>
+                    <MenuItem value={21}>Market Betting2</MenuItem>
+                    <MenuItem value={22}>Market Betting3</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+            </div>
+            {/*Betting Type */}
+            <div className={transactnstyle.maincol}>
+              {/* col1 */}
+              <div className={transactnstyle.col1}>
+                <Typography className={transactnstyle.labeltxt}>
+                  Betting Type
+                </Typography>
+              </div>
+              {/* col2 */}
+              <div className={transactnstyle.col2}>
+                <FormControl sx={{ m: 1 }}>
+                  <Select
+                    labelId="demo-simple-select-autowidth-label"
+                    id="demo-simple-select-autowidth"
+                    value={bettingtype}
+                    onChange={bettingtypeChange}
+                    autoWidth
+                    inputProps={{ "aria-label": "Without label" }}
+                    displayEmpty
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>2D</MenuItem>2D
+                    <MenuItem value={21}>3D</MenuItem>
+                    <MenuItem value={22}>Zodiac</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* --------------- Transaction Report Table */}
       <Box
         sx={{
           padding: "5%",
-          
         }}
       >
         <TableContainer

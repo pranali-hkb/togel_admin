@@ -50,151 +50,186 @@ const TurnoverReport = () => {
 
   return (
     <div>
+      <h1 className={turnoverstyle.reporthead}>Turn Over Report</h1>
+      <div className={turnoverstyle.mainsection}>
+        <div className={turnoverstyle.innersection}>
+          {/* left 50%%*/}
+          <div className={turnoverstyle.secleft}>
+            {/*From Date  */}
+            <div className={turnoverstyle.maincol}>
+              {/* col1 */}
+              <div className={turnoverstyle.col1}>
+                <Typography className={turnoverstyle.labeltxt}>
+                  From Date
+                </Typography>
+              </div>
+              {/* col2 */}
+              <div className={turnoverstyle.col2}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer
+                    components={["DatePicker", "DatePicker"]}
+                    sx={{
+                      color: "#642483",
+                      fontSize: "18px",
+                      fontWeight: "800",
+                    }}
+                  >
+                    <DatePicker
+                      className={turnoverstyle.trmainsec}
+                      sx={{
+                        borderColor: "#642483",
+                        color: "#642483",
+                      }}
+                      inputProps={{ "aria-label": "Without label" }}
+                      value={value}
+                      onChange={(newValue) => setValue(newValue)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
+              </div>
+            </div>
+
+  
+            {/*To Date  */}
+            <div className={turnoverstyle.maincol}>
+              {/* col1 */}
+              <div className={turnoverstyle.col1}>
+                <Typography className={turnoverstyle.labeltxt}>
+                  To Date
+                </Typography>
+              </div>
+              {/* col2 */}
+              <div className={turnoverstyle.col2}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer
+                    components={["DatePicker", "DatePicker"]}
+                    sx={{
+                      color: "#642483",
+                      fontSize: "18px",
+                      fontWeight: "800",
+                    }}
+                  >
+                    <DatePicker
+                      className={turnoverstyle.trmainsec}
+                      sx={{
+                        borderColor: "#642483",
+                        color: "#642483",
+                      }}
+                      inputProps={{ "aria-label": "Without label" }}
+                      value={value}
+                      onChange={(newValue) => setValue(newValue)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
+              </div>
+            </div>
+          </div>
+
+          {/* right */}
+          {/* left 50%%*/}
+          <div className={turnoverstyle.secleft}>
+            
+              {/*use code  */}
+              <div className={turnoverstyle.maincol}>
+              {/* col1 */}
+              <div className={turnoverstyle.col1}>
+                <Typography className={turnoverstyle.labeltxt}>
+                 User Code
+                </Typography>
+              </div>
+              {/* col2 */}
+              <div className={turnoverstyle.col2}>
+              <FormControl sx={{ m: 1 }}>
+                  <Select
+                    labelId="demo-simple-select-autowidth-label"
+                    id="demo-simple-select-autowidth"
+                    value={usercode}
+                    onChange={usercodeChange}
+                    autoWidth
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>Super Master</MenuItem>
+                    <MenuItem value={21}>Master</MenuItem>
+                    <MenuItem value={22}>Agent</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+            </div>
+
+
+
+            {/*Market Betting  */}
+            <div className={turnoverstyle.maincol}>
+              {/* col1 */}
+              <div className={turnoverstyle.col1}>
+                <Typography className={turnoverstyle.labeltxt}>
+                  Market Betting
+                </Typography>
+              </div>
+              {/* col2 */}
+              <div className={turnoverstyle.col2}>
+                <FormControl sx={{ m: 1 }}>
+                  <Select
+                    labelId="demo-simple-select-autowidth-label"
+                    id="demo-simple-select-autowidth"
+                    value={marketbetting}
+                    onChange={marketbettingChange}
+                    autoWidth
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>Market Betting1</MenuItem>
+                    <MenuItem value={21}>Market Betting2</MenuItem>
+                    <MenuItem value={22}>Market Betting3</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+            </div>
+            {/*Betting Type */}
+            <div className={turnoverstyle.maincol}>
+              {/* col1 */}
+              <div className={turnoverstyle.col1}>
+                <Typography className={turnoverstyle.labeltxt}>
+                  Betting Type
+                </Typography>
+              </div>
+              {/* col2 */}
+              <div className={turnoverstyle.col2}>
+                <FormControl sx={{ m: 1 }}>
+                  <Select
+                    labelId="demo-simple-select-autowidth-label"
+                    id="demo-simple-select-autowidth"
+                    value={bettingtype}
+                    onChange={bettingtypeChange}
+                    autoWidth
+                    inputProps={{ "aria-label": "Without label" }}
+                    displayEmpty
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>2D</MenuItem>2D
+                    <MenuItem value={21}>3D</MenuItem>
+                    <MenuItem value={22}>Zodiac</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <Box
         sx={{ flexGrow: 1, boxShadow: "none", borderRadius: "none" }}
-        className={turnoverstyle.trmainsec}
+        className={turnoverstyle.reporttable}
       >
-        <h1 className={turnoverstyle.reporthead}>Turnover Report</h1>
-        <Grid container spacing={2} className={turnoverstyle.trinrsec}>
-          <Grid item xs={12} lg={6} sx={{ textAlign: "left" }}>
-            {/* From date */}
-            <Item>
-              <Typography className={turnoverstyle.labeltxt}>
-                From Date
-              </Typography>
-              {/* From date */}
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer
-                  components={["DatePicker", "DatePicker"]}
-                  sx={{
-                    color: "#642483",
-                    fontSize: "18px",
-                    fontWeight: "800",
-                  }}
-                >
-                  <DatePicker
-                    className={turnoverstyle.trmainsec}
-                    sx={{
-                      borderColor: "#642483",
-                      color: "#642483",
-                    }}
-                    inputProps={{ "aria-label": "Without label" }}
-                    value={value}
-                    onChange={(newValue) => setValue(newValue)}
-                  />
-                </DemoContainer>
-              </LocalizationProvider>
-            </Item>
-
-            {/* To date */}
-            <Item>
-              <Typography className={turnoverstyle.labeltxt}>
-                To Date
-              </Typography>
-              {/* From date */}
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer
-                  components={["DatePicker", "DatePicker"]}
-                  sx={{
-                    color: "#642483",
-                    fontSize: "18px",
-                    fontWeight: "800",
-                  }}
-                >
-                  <DatePicker
-                    className={turnoverstyle.trmainsec}
-                    sx={{
-                      borderColor: "#642483",
-                      color: "#642483",
-                    }}
-                    labelId="demo-select-small-label"
-                    inputProps={{ "aria-label": "Without label" }}
-                    value={value}
-                    onChange={(newValue) => setValue(newValue)}
-                  />
-                </DemoContainer>
-              </LocalizationProvider>
-            </Item>
-
-            {/* USer code */}
-            <Item>
-              <Typography className={turnoverstyle.labeltxt}>
-                User code
-              </Typography>
-              <FormControl sx={{ m: 1, minWidth: 255 }}>
-                <Select
-                  labelId="demo-simple-select-autowidth-label"
-                  id="demo-simple-select-autowidth"
-                  value={usercode}
-                  onChange={usercodeChange}
-                  autoWidth
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Super Master</MenuItem>
-                  <MenuItem value={21}>Master</MenuItem>
-                  <MenuItem value={22}>Agent</MenuItem>
-                </Select>
-              </FormControl>
-            </Item>
-          </Grid>
-          <Grid item xs={12} lg={6} sx={{ textAlign: "left" }}>
-            {/*  Market Betting */}
-            <Item>
-              <Typography className={turnoverstyle.labeltxt}>
-                Market Betting
-              </Typography>
-              <FormControl sx={{ m: 1, minWidth: 255 }}>
-                <Select
-                  labelId="demo-simple-select-autowidth-label"
-                  id="demo-simple-select-autowidth"
-                  value={marketbetting}
-                  onChange={marketbettingChange}
-                  autoWidth
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Market Betting1</MenuItem>
-                  <MenuItem value={21}>Market Betting2</MenuItem>
-                  <MenuItem value={22}>Market Betting3</MenuItem>
-                </Select>
-              </FormControl>
-            </Item>
-
-            {/*  Betting Type */}
-            <Item>
-              <Typography className={turnoverstyle.labeltxt}>
-                Betting Type
-              </Typography>
-              <FormControl sx={{ m: 1, minWidth: 255 }}>
-                <Select
-                  labelId="demo-simple-select-autowidth-label"
-                  id="demo-simple-select-autowidth"
-                  value={bettingtype}
-                  onChange={bettingtypeChange}
-                  autoWidth
-                  inputProps={{ "aria-label": "Without label" }}
-                  displayEmpty
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>2D</MenuItem>2D
-                  <MenuItem value={21}>3D</MenuItem>
-                  <MenuItem value={22}>Zodiac</MenuItem>
-                </Select>
-              </FormControl>
-            </Item>
-          </Grid>
-        </Grid>
-        {/* *************************************section 2 ***************************** */}
-
         {/* <Grid spacing={2}  lg={12} className={turnoverstyle.trmainsec1}> */}
         <Grid container spacing={2} lg={6} className={turnoverstyle.trinrsec1}>
           <Grid container item xs={12} lg={12} sx={{ mt: "5" }}>
@@ -204,7 +239,7 @@ const TurnoverReport = () => {
               </Typography>
             </Grid>
             <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <TextField disabled className={turnoverstyle.reportbox} />
+              <TextField disabled placeholder="125" className={turnoverstyle.reportbox} />
             </Grid>
           </Grid>
 
@@ -215,7 +250,7 @@ const TurnoverReport = () => {
               </Typography>
             </Grid>
             <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <TextField disabled className={turnoverstyle.reportbox} />
+              <TextField disabled placeholder="125" className={turnoverstyle.reportbox} />
             </Grid>
           </Grid>
 
@@ -226,7 +261,7 @@ const TurnoverReport = () => {
               </Typography>
             </Grid>
             <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <TextField disabled className={turnoverstyle.reportbox} />
+              <TextField disabled placeholder="125" className={turnoverstyle.reportbox} />
             </Grid>
           </Grid>
 
@@ -237,7 +272,7 @@ const TurnoverReport = () => {
               </Typography>
             </Grid>
             <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <TextField disabled className={turnoverstyle.reportbox} />
+              <TextField  disabled placeholder="125" placeholder="125" className={turnoverstyle.reportbox}  />
             </Grid>
           </Grid>
         </Grid>
