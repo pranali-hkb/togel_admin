@@ -7,16 +7,10 @@ import Agent from './components/Agent/Agent'
 import Reports from './components/Reports/Reports'
 import Logout from './components/Logout/Logout'
 import { Dashboard } from '@mui/icons-material'
-<<<<<<< HEAD
 import UserSuperMaster from './components/UserSuperMaster/UserSuperMaster'
-
-
-
-=======
 import TransactionReport from './components/TransactionReport/TransactionReport'
 import TurnoverReport from './components/TurnoverReport/TurnoverReport'
 import WinlossReport from './components/WinLossReport/WinLossReport'
->>>>>>> 482895fd7a825f82e43e4307ec1ccd8dd7091ffb
 
 const RoutesPages = () => {
   return (
