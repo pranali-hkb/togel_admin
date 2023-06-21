@@ -17,7 +17,19 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import loginusericon from "../../assets/images/profile/loginusericon.svg";
 import passwardkeyicon from "../../assets/images/profile/passwardkeyicon.svg";
 import Checkbox from "@mui/material/Checkbox";
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
 
+
+
+
+const Item = styled(Paper)(({ theme }) => ({
+  // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(2),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -81,14 +93,14 @@ function LoginPage() {
         spacing={2}
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
       >
-        <Grid sm={12} md={5}>
+        <Grid sm={6} md={6}  sx={{sm:{display:'none'}}}>
           <img
             src={logintodashboard}
-            alt=""
+            alt="loginImg"
             className={loginPageStyle.loginimg}
           />
         </Grid>
-        <Grid sm={12} md={3} className={loginPageStyle.formSec}>
+        <Grid sm={6} md={3} className={loginPageStyle.formSec}>
           <Typography variant="h1" className={loginPageStyle.logintxt}>Login</Typography>
 
           <form onSubmit={handleLogin}>
@@ -150,6 +162,8 @@ function LoginPage() {
         </Grid>
       </Grid>
     </Box>
+
+
   );
 }
 

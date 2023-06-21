@@ -54,6 +54,8 @@ import { Settings } from "@mui/icons-material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import PersonIcon from "@mui/icons-material/Person";
 import { useLocation } from "react-router-dom";
+import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
+
 
 const drawerWidth = 280;
 
@@ -63,6 +65,7 @@ function HomePage(props) {
   const [openSuperMaster, setOpenSuperMaster] = React.useState(true);
   const [openMaster, setOpenMaster] = React.useState(true);
   const [openAgent, setOpenAgent] = React.useState(true);
+  const [openReports, setOpenReports] = React.useState(true);
   const location = useLocation();
 
   const handleSuperMasterClick = () => {
@@ -76,7 +79,9 @@ function HomePage(props) {
   const handleAgentClick = () => {
     setOpenAgent(!openAgent);
   };
-
+  const handleReportsClick = () => {
+    setOpenReports(!openReports);
+  };
   // active listitem color
   const activeTab = (route) => {
     return {
@@ -210,13 +215,13 @@ function HomePage(props) {
             onClick={() => navigate("/maindashboard")}
             sx={{ pl: 4, pr: 4 }}
           >
-            <ListItemButton sx={{ color: openUser ? "#E3F5F" : "transparent" }}>
+            <ListItemButton sx={{ color: openUser ? "#fff" : "transparent" }}>
               <ListItemIcon sx={{ color: "white" }}>
                 <Avatar sx={{ backgroundColor: "#fff" }}>
                   <img src={userprofile} alt="" />
                 </Avatar>
               </ListItemIcon>
-              <ListItemText> Pranali Bos</ListItemText>
+              <ListItemText sx={{color:'#fff'}}> Pranali Bos</ListItemText>
             </ListItemButton>
           </ListItem>
         </div>
@@ -461,17 +466,91 @@ function HomePage(props) {
       </Collapse>
       {/* // **************Agent End******************* */}
 
-      <ListItem disablePadding onClick={() => navigate("/reports")}>
-        <ListItemButton>
+      <ListItem disablePadding>
+        <ListItemButton onClick={handleReportsClick}>
           <ListItemIcon sx={{ color: "#fff" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
               <img src={reportprofile} alt="" />
             </Avatar>
           </ListItemIcon>
-          <ListItemText className={appstyle.navtext}>Reports</ListItemText>
+          <ListItemText
+            className={appstyle.navtext}
+            sx={{ display: "flex", justifyContent: "start" }}
+          >
+            <span
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              Reports
+              <KeyboardArrowDownIcon sx={{ ml: 9 }}></KeyboardArrowDownIcon>
+            </span>
+          </ListItemText>
         </ListItemButton>
       </ListItem>
-
+      <Collapse in={openReports} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItemButton
+            sx={{
+              pl: 7,
+              backgroundColor:
+                location.pathname === "/turnoverreport"
+                  ? "#E3F5F"
+                  : "transparent",
+              color: location.pathname === "/homepage" ? "darkblue" : "inherit",
+            }}
+            onClick={() => navigate("/turnoverreport")}
+            selected={location.pathname === "/turnoverreport"}
+          >
+            <ListItemText className={appstyle.menunavtext}>
+              <DescriptionOutlinedIcon sx={{ pt: 1 }}></DescriptionOutlinedIcon>Turnover Report
+            </ListItemText>
+          </ListItemButton>
+        </List>
+      </Collapse>
+      <Collapse in={openReports} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItemButton
+            sx={{
+              pl: 7,
+              backgroundColor:
+                location.pathname === "/winlossreport"
+                  ? "#E3F5F"
+                  : "transparent",
+              color: location.pathname === "/homepage" ? "darkblue" : "inherit",
+            }}
+            onClick={() => navigate("/winlossreport")}
+            selected={location.pathname === "/winlossreport"}
+          >
+            <ListItemText className={appstyle.menunavtext}>
+              <DescriptionOutlinedIcon sx={{ pt: 1 }}></DescriptionOutlinedIcon>Win Loss Report
+            </ListItemText>
+          </ListItemButton>
+        </List>
+      </Collapse>
+      <Collapse in={openReports} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItemButton
+            sx={{
+              pl: 7,
+              backgroundColor:
+                location.pathname === "/transactionreport"
+                  ? "#E3F5F"
+                  : "transparent",
+              color: location.pathname === "/homepage" ? "darkblue" : "inherit",
+            }}
+            onClick={() => navigate("/transactionreport")}
+            selected={location.pathname === "/transactionreport"}
+          >
+            <ListItemText className={appstyle.menunavtext}>
+              <DescriptionOutlinedIcon sx={{ pt: 1 }}></DescriptionOutlinedIcon>Transaction Report
+            </ListItemText>
+          </ListItemButton>
+        </List>
+      </Collapse>
+     
       {/* ********************Master End**************** */}
 
       <ListItem disablePadding onClick={() => navigate("/logout")}>
@@ -494,7 +573,7 @@ function HomePage(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex", backgroundColor: "#F2EDF3" }}>
+    <Box sx={{ display: "flex", backgroundColor: "#f5f5f5" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -506,7 +585,7 @@ function HomePage(props) {
         }}
       >
         <Toolbar
-          sx={{ backgroundColor: "#F2EDF3", boxShadow: "none", border: "none" }}
+          sx={{backgroundColor: "#f5f5f5", boxShadow: "none", border: "none" }}
         >
           {/* for mobile */}
           <IconButton

@@ -7,9 +7,9 @@ import Agent from './components/Agent/Agent'
 import Reports from './components/Reports/Reports'
 import Logout from './components/Logout/Logout'
 import { Dashboard } from '@mui/icons-material'
-
-
-
+import TransactionReport from './components/TransactionReport/TransactionReport'
+import TurnoverReport from './components/TurnoverReport/TurnoverReport'
+import WinlossReport from './components/WinLossReport/WinLossReport'
 
 const RoutesPages = () => {
   return (
@@ -21,6 +21,9 @@ const RoutesPages = () => {
           <Route path="/master" element={<Master />} />
           <Route path="/agent" element={<Agent />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/transactionreport" element={<TransactionReport/>} />
+          <Route path="/turnoverreport" element={<TurnoverReport />} />
+          <Route path="/winlossreport" element={<WinlossReport/>} />
           <Route path="/logout" element={<Logout />} />
         </Routes>
     </div>
