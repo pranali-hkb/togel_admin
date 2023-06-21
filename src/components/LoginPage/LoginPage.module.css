@@ -1,12 +1,14 @@
 .mainsec {
   background: linear-gradient(238.94deg, #ecb4f1 12.64%, #bee0ea 75.69%);
   padding: 7% 0 7% 0;
+  height: 100% !important;
 }
 .loginimg {
   width: 480px;
 }
 
 .formSec {
+  width: 500px !important;
   border-radius: 8px;
   margin: 4% 0 5% 0;
   background: #ffffff;
@@ -15,12 +17,11 @@
   padding: 2%;
 }
 
-.loginbox{
-  border: none!important;
-  background: #ECECEC!important;
-  border: 1px solid #ECECEC!important;
+.loginbox {
+  border: none !important;
+  background: #ececec !important;
+  border: 1px solid #ececec !important;
   border-radius: 8px;
-
 }
 .formSec h1 {
   font-family: "Poppins";
@@ -44,15 +45,15 @@
 .TextField {
   width: 100%;
   margin-top: 6% !important;
-  border: 1px solid #ECECEC!important;
-border-radius: 8px;
+  border: 1px solid #ececec !important;
+  border-radius: 8px;
 }
 .inputtxt {
-  font-family: 'Poppins'!important;
-  font-style: normal!important;
-  font-weight: 700!important;
-  font-size: 16px!important;
-  color: #6358DC!important; 
+  font-family: "Poppins" !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  color: #6358dc !important;
 }
 
 .SignInBtn {
@@ -73,20 +74,20 @@ border-radius: 8px;
   justify-content: space-between;
 }
 .remembertxt {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 135.5%;
 }
 .forgotpwtxt {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 135.5%;
   padding-top: 3%;
-  color: #6358DC;
+  color: #6358dc;
 }
 
 .logintxt {
@@ -94,4 +95,43 @@ border-radius: 8px;
   font-size: 14px;
   line-height: 24px;
   color: #ffffff;
+}
+
+/* tab view 768*/
+
+@media screen and (max-width: 768px) {
+  .mainsec {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8% 0 8% 0;
+    height: 600px!important;
+  }
+  .loginimg {
+    width: 300px !important;
+  }
+  .formSec {
+    padding: 5% !important;
+  }
+}
+
+/* mobile view  600*/
+@media screen and (max-width: 600px) {
+  .mainsec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10% 0 10% 0;
+    height: 600px!important;
+  }
+
+  .loginimg {
+    display: none;
+  }
+  .formSec {
+    margin-left: 3%;
+    width: 400px !important;
+    border-radius: 8px;
+    padding: 5% !important;
+  }
 }
