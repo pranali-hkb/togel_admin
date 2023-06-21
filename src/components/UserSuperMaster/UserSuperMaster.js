@@ -3,9 +3,11 @@ import {
   Box,
   Button,
   FormControl,
+  Grid,
   IconButton,
   InputLabel,
   MenuItem,
+  OutlinedInput,
   Select,
   TableContainer,
 } from "@mui/material";
@@ -18,7 +20,14 @@ import Modal from "@mui/material/Modal";
 import InputBase from "@mui/material/InputBase";
 import EditIcon from "../../assets/images/profile/pen.svg";
 import DeleteIcon from "../../assets/images/profile/remove.svg";
+import CloseIcon from "../../assets/images/profile/close.svg";
+import ManIcon from "../../assets/images/profile/man.svg";
+import GmailIcon from "../../assets/images/profile/gmail.svg";
+import PhoneIcon from "../../assets/images/profile/telephone.svg";
+import CoronavirusIcon from "../../assets/images/profile/coronavirus.svg";
+import yuanIcon from "../../assets/images/profile/yuan.svg";
 import SearchIcon from "@mui/icons-material/Search";
+
 import { styled, alpha } from "@mui/material/styles";
 
 // search
@@ -70,6 +79,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const UserSuperMaster = () => {
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userMobileNo, setUserMobileNo] = useState("");
+  const [userCountry, setUserCountry] = useState("");
+  const [userLimit, setUserLimit] = useState("");
+
   const [activeStatus, setActiveStatus] = useState("ALL");
   const [deletedStatus, setDeletedStatus] = useState(false);
   //-----------------Modal State------------------------------------------//
@@ -85,19 +100,7 @@ const UserSuperMaster = () => {
   const handleDeleted = () => {
     setDeletedStatus(true);
   };
-  // const classes = useStyles();
 
-  const styleModal = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-  };
   //-------------------------------Table Columns---------------------------//
 
   const rows = [
@@ -315,7 +318,7 @@ const UserSuperMaster = () => {
         >
           <div className={tablestyle.table_btn_container}>
             <div className={tablestyle.tableUpperSection}>
-              <div className={tablestyle.TabsButton} sx={{ gap: '10px',}}>
+              <div className={tablestyle.TabsButton} sx={{ gap: "10px" }}>
                 <Button
                   sx={{
                     "&.active": {
@@ -421,13 +424,148 @@ const UserSuperMaster = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box className={styleModal}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            bgcolor: "background.paper",
+            boxShadow: 24,
+            p: 4,
+            width: "550px", // Adjust the desired width
+            height: "600px",
+            background: "#FFFFFF",
+            boxShadow: "0px 0px 4px rgba(0, 0, 0, 0.08)",
+            borderRadius: "30px",
+          }}
+        >
+          <span className={tablestyle.ModlaStyle}>
+            <img src={CloseIcon} width={20} onClick={handleClose} />
+          </span>
+
+          <Typography
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              fontSize: "41px",
+              fontWeight: "600",
+            }}
+          >
+            Add Super Master
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <Grid container spacing={1}>
+            <Grid sm={12} md={12}>
+              <FormControl className={tablestyle.TextField}>
+                <InputLabel className={tablestyle.inputtxt}>
+                  <span style={{ width: "10px", m: "2" }}>
+                    <img src={ManIcon} width={20} /> Name
+                  </span>
+                </InputLabel>
+
+                <OutlinedInput
+                  className={tablestyle.loginbox}
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
+                  label="Name"
+                />
+              </FormControl>
+            </Grid>
+            <Grid sm={12} md={12}>
+              <FormControl className={tablestyle.TextField}>
+                <InputLabel className={tablestyle.inputtxt}>
+                  <span style={{ width: "10px", m: "2" }}>
+                    <img src={ManIcon} width={20} /> Email
+                  </span>
+                </InputLabel>
+
+                <OutlinedInput
+                  className={tablestyle.loginbox}
+                  value={userEmail}
+                  onChange={(e) => setUserEmail(e.target.value)}
+                  label="Email"
+                />
+              </FormControl>
+            </Grid>
+            <Grid sm={12} md={12}>
+              <FormControl className={tablestyle.TextField}>
+                <InputLabel className={tablestyle.inputtxt}>
+                  <span style={{ width: "10px", m: "2" }}>
+                    <img src={PhoneIcon} width={20} /> Mobile Number
+                  </span>
+                </InputLabel>
+
+                <OutlinedInput
+                  className={tablestyle.loginbox}
+                  value={userMobileNo}
+                  onChange={(e) => setUserMobileNo(e.target.value)}
+                  label="Mobile Number"
+                />
+              </FormControl>
+            </Grid>
+            <div className={tablestyle.btnSection1}>
+              <Grid xs={6} sm={5} md={5} sx={{marginTop:"3%"}}>
+                <FormControl className={tablestyle.TextField}>
+                  <InputLabel className={tablestyle.inputtxt}>
+                    <span style={{ width: "10px", m: "2" }}>
+                      <img src={CoronavirusIcon} width={20} /> Country
+                    </span>
+                  </InputLabel>
+
+                  <OutlinedInput
+                    className={tablestyle.loginbox}
+                    value={userCountry}
+                    onChange={(e) => setUserCountry(e.target.value)}
+                    label="Country"
+                  />
+                </FormControl>
+              </Grid>
+              <Grid xs={6} sm={5} md={5} sx={{marginTop:"3%"}}>
+                <FormControl className={tablestyle.TextField}>
+                  <InputLabel className={tablestyle.inputtxt}>
+                    <span style={{ width: "10px", mt: "2" }}>
+                      <img src={yuanIcon} width={20} /> Limit
+                    </span>
+                  </InputLabel>
+
+                  <OutlinedInput
+                    className={tablestyle.loginbox}
+                    value={userLimit}
+                    onChange={(e) => setUserLimit(e.target.value)}
+                    label="Limit"
+                  />
+                </FormControl>
+              </Grid>
+            </div>
+
+            <div className={tablestyle.btnSection}>
+              <div className={tablestyle.sec1}>
+                <Button
+                  // type="submit"
+                  variant="contained"
+                  size="large"
+                  className={tablestyle.btnReject}
+                  sx={{ width: "100%", padding: "0 30px 0 30px" }}
+                >
+                  Reject
+                </Button>
+              </div>
+              <div className={tablestyle.sec2}>
+                <Button
+                  // type="submit"
+                  variant="contained"
+                  size="large"
+                  className={tablestyle.btnSave}
+                  sx={{ width: "100%", padding: "0 30px 0 30px" }}
+                >
+                  Save
+                </Button>
+              </div>
+            </div>
+          </Grid>
         </Box>
       </Modal>
     </>
