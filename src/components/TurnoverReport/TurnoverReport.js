@@ -44,7 +44,7 @@ const TurnoverReport = () => {
   const bettingtypeChange = (event) => {
     setBettingtype(event.target.value);
   };
- 
+
   // calender code
   const [value, setValue] = React.useState(dayjs("2022-04-17"));
 
@@ -63,9 +63,8 @@ const TurnoverReport = () => {
                 From Date
               </Typography>
               {/* From date */}
-              <LocalizationProvider  size="small" dateAdapter={AdapterDayjs}>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DemoContainer
-                  size="small"
                   components={["DatePicker", "DatePicker"]}
                   sx={{
                     color: "#642483",
@@ -74,7 +73,6 @@ const TurnoverReport = () => {
                   }}
                 >
                   <DatePicker
-                    size="small"
                     className={turnoverstyle.trmainsec}
                     sx={{
                       borderColor: "#642483",
@@ -127,10 +125,10 @@ const TurnoverReport = () => {
                 <Select
                   labelId="demo-simple-select-autowidth-label"
                   id="demo-simple-select-autowidth"
-                  size="small"
                   value={usercode}
                   onChange={usercodeChange}
                   autoWidth
+                  displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
                   <MenuItem value="">
@@ -156,7 +154,7 @@ const TurnoverReport = () => {
                   value={marketbetting}
                   onChange={marketbettingChange}
                   autoWidth
-                  size="small"
+                  displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
                   <MenuItem value="">
@@ -178,11 +176,11 @@ const TurnoverReport = () => {
                 <Select
                   labelId="demo-simple-select-autowidth-label"
                   id="demo-simple-select-autowidth"
-                  size="small"
                   value={bettingtype}
                   onChange={bettingtypeChange}
                   autoWidth
                   inputProps={{ "aria-label": "Without label" }}
+                  displayEmpty
                 >
                   <MenuItem value="">
                     <em>None</em>
@@ -206,11 +204,7 @@ const TurnoverReport = () => {
               </Typography>
             </Grid>
             <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <TextField
-                size="small"
-                disabled
-                className={turnoverstyle.reportbox}
-              />
+              <TextField disabled className={turnoverstyle.reportbox} />
             </Grid>
           </Grid>
 
@@ -221,11 +215,7 @@ const TurnoverReport = () => {
               </Typography>
             </Grid>
             <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <TextField
-                size="small"
-                disabled
-                className={turnoverstyle.reportbox}
-              />
+              <TextField disabled className={turnoverstyle.reportbox} />
             </Grid>
           </Grid>
 
@@ -236,11 +226,7 @@ const TurnoverReport = () => {
               </Typography>
             </Grid>
             <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <TextField
-                size="small"
-                disabled
-                className={turnoverstyle.reportbox}
-              />
+              <TextField disabled className={turnoverstyle.reportbox} />
             </Grid>
           </Grid>
 
@@ -251,11 +237,7 @@ const TurnoverReport = () => {
               </Typography>
             </Grid>
             <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <TextField
-                size="small"
-                disabled
-                className={turnoverstyle.reportbox}
-              />
+              <TextField disabled className={turnoverstyle.reportbox} />
             </Grid>
           </Grid>
         </Grid>
