@@ -18,16 +18,13 @@
   color: #344767;
 }
 .userTableSection {
-  border-radius: 12px;
-  /* box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25); */
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
-  border-radius: 17px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5)!important;
+  border-radius: 15px!important;
 }
 .table_btn_container {
   padding-bottom: 5px;
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
   padding: 40px;
 }
 .tableUpperSection {
@@ -89,14 +86,15 @@
 }
 
 .btnViewMore {
-  background: #700482;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 7px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 140%;
+  background: #700482!important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)!important;
+  border-radius: 7px!important;
+  font-family: "Roboto"!important;
+  font-style: normal!important;
+  font-weight: 700!important;
+  font-size: 12px!important;
+  line-height: 140%!important;
+  color: #fff!important;
   /* or 17px */
 
   color: #ffffff;
