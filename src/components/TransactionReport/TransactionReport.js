@@ -13,8 +13,10 @@ import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { TextField } from "@mui/material";
+import { TableContainer, TextField } from "@mui/material";
 import { Directions } from "@mui/icons-material";
+import { DataGrid } from "@mui/x-data-grid";
+
 // item code
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#F5F5F5",
@@ -48,9 +50,165 @@ const TransactionReport = () => {
   // calender code
   const [value, setValue] = React.useState(dayjs("2022-04-17"));
 
+  //-------------------------------Table Columns---------------------------//
+
+  const rows = [
+    {
+      id: 1,
+      Name: "Snow",
+      "Mobile No": "Jon",
+      Email: 35,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
+    },
+    {
+      id: 2,
+      Name: "Lannister",
+      "Mobile No": "Cersei",
+      Email: 42,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
+    },
+    {
+      id: 3,
+      Name: "Lannister",
+      "Mobile No": "Jaime",
+      Email: 45,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
+    },
+    {
+      id: 4,
+      Name: "Stark",
+      "Mobile No": "Arya",
+      Email: 16,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
+    },
+    {
+      id: 5,
+      Name: "Targaryen",
+      "Mobile No": "Daenerys",
+      Email: null,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
+    },
+    {
+      id: 6,
+      Name: "Melisandre",
+      "Mobile No": null,
+      Email: 150,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
+    },
+    {
+      id: 7,
+      Name: "Clifford",
+      "Mobile No": "Ferrara",
+      Email: 44,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
+    },
+    {
+      id: 8,
+      Name: "Frances",
+      "Mobile No": "Rossini",
+      Email: 36,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
+    },
+    {
+      id: 9,
+      Name: "Roxie",
+      "Mobile No": "Harvey",
+      Email: 65,
+      Limit: "20,000",
+      Country: "India",
+      Discount: "10%",
+    },
+  ];
+
+  const columns = [
+    {
+      field: "id",
+      headerName: "Id",
+      width: 30,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+
+    {
+      field: "Name",
+      headerName: "Name",
+      width: 130,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "Mobile No",
+      headerName: "Mobile No",
+      width: 90,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "Email",
+      headerName: "Email",
+      type: "number",
+      width: 90,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+
+    {
+      field: "Limit",
+      headerName: "Limit",
+      type: "number",
+      width: 90,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "Country",
+      headerName: "Country",
+      type: "number",
+      width: 90,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "Discount",
+      headerName: "Discount",
+      type: "number",
+      width: 90,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+  ];
+
+  const styles = `
+.custom-header {
+  background-color: #FFFFFF;
+  color: #672D71;
+  font-weight: 600;
+  font-size:16px;
+  hei
+  
+}
+
+`;
   return (
     <div>
-     <Box
+      <style>{styles}</style>
+      <Box
         sx={{ flexGrow: 1, boxShadow: "none", borderRadius: "none" }}
         className={transactnstyle.trmainsec}
       >
@@ -193,16 +351,34 @@ const TransactionReport = () => {
             </Item>
           </Grid>
         </Grid>
-        {/* *************************************section 2 ***************************** */}
+      </Box>
 
-        {/* <Grid spacing={2}  lg={12} className={transactnstyle.trmainsec1}> */}
-        <Grid container spacing={2} lg={6} className={transactnstyle.trinrsec1}>
+      {/* --------------- Transaction Report Table */}
+      <Box
+        sx={{
+          padding: "5%",
           
-         
+        }}
+      >
+        <TableContainer
+          component={Paper}
+          className={transactnstyle.userTableSection}
+        >
+          <div style={{ height: 400, width: "100%" }}>
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              // initialState={{
+              //   pagination: {
+              //     paginationModel: { page: 0, pageSize: 0 },
+              //   },
+              // }}
 
-         
-        </Grid>
-        {/* </Grid> */}
+              // pageSizeOptions={[5, 10, 15, 20]}
+              // //  checkboxSelection
+            />
+          </div>
+        </TableContainer>
       </Box>
     </div>
   );
