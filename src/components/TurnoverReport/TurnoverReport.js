@@ -139,6 +139,7 @@ const TurnoverReport = () => {
               <div className={turnoverstyle.col2}>
                 <FormControl sx={{ m: 1 }}>
                   <Select
+                 
                     labelId="demo-simple-select-autowidth-label"
                     id="demo-simple-select-autowidth"
                     value={usercode}
@@ -170,6 +171,7 @@ const TurnoverReport = () => {
               <div className={turnoverstyle.col2}>
                 <FormControl sx={{ m: 1 }}>
                   <Select
+                 
                     labelId="demo-simple-select-autowidth-label"
                     id="demo-simple-select-autowidth"
                     value={marketbetting}
@@ -200,6 +202,7 @@ const TurnoverReport = () => {
               <div className={turnoverstyle.col2}>
                 <FormControl sx={{ m: 1 }}>
                   <Select
+                 
                     labelId="demo-simple-select-autowidth-label"
                     id="demo-simple-select-autowidth"
                     value={bettingtype}
@@ -225,7 +228,6 @@ const TurnoverReport = () => {
       {/* (**** table start ) */}
       <div className={turnoverstyle.table}>
         <div className={turnoverstyle.tableMainSec}>
-          {/* 1 */}
           <div className={turnoverstyle.tableInSec}>
             <div className={turnoverstyle.tableLeft}>
               <Typography className={turnoverstyle.reportLtxt}>
@@ -236,7 +238,6 @@ const TurnoverReport = () => {
               <Typography className={turnoverstyle.reporttxt}>8548</Typography>
             </div>
           </div>
-          {/* 2 */}
           <div className={turnoverstyle.tableInSec}>
             <div className={turnoverstyle.tableLeft}>
               <Typography className={turnoverstyle.reportLtxt}>
@@ -247,7 +248,6 @@ const TurnoverReport = () => {
               <Typography className={turnoverstyle.reporttxt}>8548</Typography>
             </div>
           </div>
-          {/* 3 */}
           <div className={turnoverstyle.tableInSec}>
             <div className={turnoverstyle.tableLeft}>
               <Typography className={turnoverstyle.reportLtxt}>
@@ -258,7 +258,7 @@ const TurnoverReport = () => {
               <Typography className={turnoverstyle.reporttxt}>8548</Typography>
             </div>
           </div>
-          {/* 4 */}
+
           <div className={turnoverstyle.tableInSec}>
             <div className={turnoverstyle.tableLeft}>
               <Typography className={turnoverstyle.reportLtxt}>

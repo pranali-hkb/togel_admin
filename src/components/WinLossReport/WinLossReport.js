@@ -193,8 +193,9 @@ const TransactionReport = () => {
 .custom-header {
   background-color: #FFFFFF;
   color: #672D71;
-  font-weight: 600;
+  font-weight: 800!important;
   font-size:16px;
+  text-align:'left'
   
   
 }
@@ -350,11 +351,12 @@ const TransactionReport = () => {
       <style>{styles}</style>
       <Box
         sx={{
-          padding: "5%",
+          padding:"3% 5% 2% 5%"
           
         }}
-      >
+      > 
         <TableContainer
+        sx={{textAlign:'left'}}
           component={Paper}
           className={winlosstyle.userTableSection}
         >

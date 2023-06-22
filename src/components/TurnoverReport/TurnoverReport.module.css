@@ -6,7 +6,7 @@
   text-decoration-line: underline;
   color: #672d71;
   text-align: center;
-  padding: 0 0 2% 0;
+  padding: 0 0 1% 0;
 }
 
 .mainsection {
@@ -18,42 +18,38 @@
 }
 .innersection {
   display: flex;
-  width: 80%;
+  width: 90%;
   justify-content: space-between;
 }
 .secleft {
   display: flex;
   width: 50%;
-  /* justify-content: center;
-  align-items: center; */
   flex-direction: column;
 }
 
 .secright {
   display: flex;
   width: 50%;
-  /* justify-content: center;
-  align-items: center; */
   flex-direction: column;
 }
 .maincol {
   display: flex;
-  width: 100%;
+  width: 95%;
   margin-top: 3%;
   justify-content: space-between;
 }
 
 .col1 {
   display: flex;
-  width: 30%;
+  width: 40%;
   flex-direction: column;
-  padding-top: 2%;
+  padding-top: 1%;
   align-items: flex-start !important;
 }
 
 .col2 {
   display: flex;
-  width: 70%;
+  width: 60%;
   flex-direction: column;
 }
 
@@ -105,6 +101,7 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  margin-top: 2%;
 }
 .tableMainSec {
   display: flex;
@@ -185,7 +182,6 @@
     padding: none !important;
   }
 }
-
 
 @media screen and (max-width: 1100px) {
   .labeltxt {

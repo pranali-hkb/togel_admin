@@ -383,8 +383,8 @@ const TransactionReport = () => {
 
       {/* --------------- Transaction Report Table */}
       <Box
-        sx={{
-          padding: "5%",
+        sx={{ 
+         padding:"0 5% 2% 5%"
         }}
       >
         <TableContainer
