@@ -5,14 +5,15 @@ import Test from "./components/Test/Test";
 import TurnoverReport from "./components/TurnoverReport/TurnoverReport";
 import WinLossReport from "./components/WinLossReport/WinLossReport";
 
+
+
 function App() {
   return (
     <div className="App">
+  
+    
       <BrowserRouter>
-        {/* <LoginPage/> */}
-        <HomePage />
-       
-{/* <WinLossReport/> */}
+<HomePage/>
       </BrowserRouter>
     </div>
   );
