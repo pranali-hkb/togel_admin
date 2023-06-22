@@ -8,7 +8,6 @@
   text-align: center;
   padding: 0 0 1% 0;
 }
-
 .mainsection {
   display: flex;
   width: 100%;
@@ -61,38 +60,6 @@
   color: #672d71 !important;
   text-align: left !important;
 }
-.demo-container {
-  width: 100px !important;
-  height: 50px !important;
-  background: #642483;
-  border: 1px solid #376dd7;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 2px;
-}
-
-.droplist {
-  width: 70px;
-  background: #ffffff;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
-  border-radius: 14px;
-}
-/* section 2 start */
-
-.trinrsec1 {
-  flex-direction: column;
-  display: flex;
-  background-color: none;
-  margin-top: 4% !important;
-  background: #ffffff;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
-  padding: 3% !important;
-}
-
-.inrgrid {
-  display: flex;
-  justify-content: space-between;
-}
 
 /* report table css start */
 
@@ -112,7 +79,7 @@
   background-color: #ffffff;
   padding: 1%;
   border-radius: 15px !important;
-  box-shadow: 0px 2px 10px rgba(194, 141, 141, 0.25);
+  box-shadow: 0px 4px 15px rgba(33, 33, 33, 0.25);
 }
 .tableInSec {
   display: flex;
@@ -139,7 +106,7 @@
   text-align: center;
   align-content: center;
   padding: 1%;
-  box-shadow: 0px 2px 10px rgba(194, 141, 141, 0.25);
+
 }
 .reportLtxt {
   font-family: "Roboto" !important;
@@ -157,72 +124,103 @@
   line-height: 140% !important;
   color: #fff !important;
 }
-/* report table css start */
+/* report table css end */
 
-@media screen and (max-width: 1100px) {
-  .reportLtxt {
-    font-size: 14px !important;
-  }
-  .reportRtxt {
-    font-size: 14px !important;
-  }
-  .tableRgt {
-    padding: none !important;
-  }
-}
+/* for mobile */
+@media screen and (max-width: 500px) {
 
-@media screen and (max-width: 600px) {
-  .reportLtxt {
-    font-size: 8px !important;
-  }
-  .reportRtxt {
-    font-size: 8px !important;
-  }
-  .tableRgt {
-    padding: none !important;
-  }
-}
-
-@media screen and (max-width: 1100px) {
-  .labeltxt {
-    font-family: "Roboto" !important;
-    font-style: normal !important;
-    font-weight: 500 !important;
-    font-size: 15px !important;
-    color: #672d71 !important;
-    text-align: left !important;
-  }
   .innersection {
-    width: 90%;
-    flex-direction: row !important;
-  }
-}
-
-@media screen and (max-width: 769px) {
-  .labeltxt {
-    font-size: 20px !important;
-  }
-  .innersection {
-    width: 90%;
-    justify-content: space-around !important;
-  }
-}
-
-@media screen and (max-width: 769px) {
-  .labeltxt {
-    font-size: 16px !important;
-  }
-  .innersection {
-    width: 98% !important;
+    width: 95% !important;
     flex-direction: column !important;
-    justify-content: space-around !important;
+    justify-content: center !important;
   }
+  .secleft {
+    width: 100% !important;
+  }
+
+  .secright {
+    width: 100% !important;
+  }
+  .maincol {
+    justify-content: space-between;
+  }
+
   .col1 {
-    width: 50%;
-    padding-top: 2%;
+    width: 35% !important;
   }
 
   .col2 {
-    width: 50%;
+    width: 65% !important;
+  }
+
+  .labeltxt {
+    font-weight: 500 !important;
+    font-size: 18px !important;
+  }
+  .table {
+    margin-top: 3% !important;
+  }
+  .tableMainSec {
+    width: 100% !important;
+  }
+  .tableInSec {
+    width: 90%;
+  }
+  .tableLeft {
+    width: 45%;
+  }
+  .tableRgt {
+    width: 45%;
+  }
+  .reportLtxt {
+    font-size: 12px !important;
+  }
+}
+/* for tab */
+
+@media screen and (max-width: 768px) {
+  .reportLtxt {
+    font-size: 12px !important;
+    font-weight: 800 !important;
+  }
+  .innersection {
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .secleft {
+    width: 100% !important;
+  }
+  .secright {
+    width: 100% !important;
+  }
+  .col1 {
+    width: 33% !important;
+  }
+
+  .col2 {
+    width: 70% !important;
+  }
+
+  .labeltxt {
+    font-weight: 500 !important;
+    font-size: 18px !important;
+  }
+  .table {
+    margin-top: 3% !important;
+  }
+  .tableMainSec {
+    width: 80% !important;
+  }
+  .tableInSec {
+    width: 90%;
+  }
+  .tableLeft {
+    width: 45%;
+  }
+  .tableRgt {
+    width: 45%;
+  }
+  .reportLtxt {
+    font-size: 14px!important;
   }
 }

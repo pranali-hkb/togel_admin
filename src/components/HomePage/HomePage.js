@@ -10,23 +10,12 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import GridViewIcon from "@mui/icons-material/GridView";
 import ListItemText from "@mui/material/ListItemText";
-import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import ContentPasteIcon from "@mui/icons-material/ContentPaste";
-import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import Dashboard from "../Dashboard/Dashboard";
 import Avatar from "@mui/material/Avatar";
 import appstyle from "./HomePage.module.css";
-import Agent from "../Agent/Agent";
-import Reports from "../Reports/Reports";
-import Logout from "../Logout/Logout";
-import Master from "../Master/Master";
-import SuperMaster from "../SuperMaster/SuperMaster";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
@@ -54,13 +43,29 @@ import { Settings } from "@mui/icons-material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import PersonIcon from "@mui/icons-material/Person";
 import { useLocation } from "react-router-dom";
-import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
+import MoreIcon from "@mui/icons-material/MoreVert";
+// import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 
 const drawerWidth = 280;
 
 function HomePage(props) {
+  //swipeableDreawer code
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return;
+    }
+
+    setIsOpen(open);
+  };
+
+
   const [openUser, setOpenUser] = useState(false);
   const userButtonRef = useRef();
   const [openSuperMaster, setOpenSuperMaster] = React.useState(true);
@@ -126,28 +131,8 @@ function HomePage(props) {
   };
 
   const menuId = "primary-search-account-menu";
-  
-  const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
+
+  const mobileMenuId = "primary-search-account-menu-mobile";
 
   // search
   const Search = styled("div")(({ theme }) => ({
@@ -224,7 +209,7 @@ function HomePage(props) {
                   <img src={userprofile} alt="" />
                 </Avatar>
               </ListItemIcon>
-              <ListItemText sx={{color:'#fff'}}> Pranali Bos</ListItemText>
+              <ListItemText sx={{ color: "#fff" }}> Pranali Bos</ListItemText>
             </ListItemButton>
           </ListItem>
         </div>
@@ -508,7 +493,8 @@ function HomePage(props) {
             selected={location.pathname === "/turnoverreport"}
           >
             <ListItemText className={appstyle.menunavtext}>
-              <DescriptionOutlinedIcon sx={{ pt: 1 }}></DescriptionOutlinedIcon>Turnover Report
+              <DescriptionOutlinedIcon sx={{ pt: 1 }}></DescriptionOutlinedIcon>
+              Turnover Report
             </ListItemText>
           </ListItemButton>
         </List>
@@ -528,7 +514,8 @@ function HomePage(props) {
             selected={location.pathname === "/winlossreport"}
           >
             <ListItemText className={appstyle.menunavtext}>
-              <DescriptionOutlinedIcon sx={{ pt: 1 }}></DescriptionOutlinedIcon>Win Loss Report
+              <DescriptionOutlinedIcon sx={{ pt: 1 }}></DescriptionOutlinedIcon>
+              Win Loss Report
             </ListItemText>
           </ListItemButton>
         </List>
@@ -548,12 +535,13 @@ function HomePage(props) {
             selected={location.pathname === "/transactionreport"}
           >
             <ListItemText className={appstyle.menunavtext}>
-              <DescriptionOutlinedIcon sx={{ pt: 1 }}></DescriptionOutlinedIcon>Transaction Report
+              <DescriptionOutlinedIcon sx={{ pt: 1 }}></DescriptionOutlinedIcon>
+              Transaction Report
             </ListItemText>
           </ListItemButton>
         </List>
       </Collapse>
-     
+
       {/* ********************Master End**************** */}
 
       <ListItem disablePadding onClick={() => navigate("/logout")}>
@@ -588,7 +576,7 @@ function HomePage(props) {
         }}
       >
         <Toolbar
-          sx={{backgroundColor: "#f5f5f5", boxShadow: "none", border: "none" }}
+          sx={{ backgroundColor: "#f5f5f5", boxShadow: "none", border: "none" }}
         >
           {/* for mobile */}
           <IconButton
@@ -598,8 +586,8 @@ function HomePage(props) {
             onClick={handleDrawerToggle}
             sx={{
               mr: 2,
-              display: { sm: "none", color: "#111" },
-              color: "rgba(196, 196, 196, 1)",
+              display: { sm: "none", },
+              color: "black",
             }}
           >
             <MenuIcon />
@@ -641,61 +629,60 @@ function HomePage(props) {
               </Badge>
             </IconButton>
 
-
             <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-
-      {/* menuitem code for mobile */}
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages1</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-
-
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+              anchorEl={mobileMoreAnchorEl}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              id={mobileMenuId}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={isMobileMenuOpen}
+              onClose={handleMobileMenuClose}
+            >
+              {/* menuitem code for mobile */}
+              <MenuItem>
+                <IconButton
+                  size="large"
+                  aria-label="show 4 new mails"
+                  color="inherit"
+                >
+                  <Badge badgeContent={4} color="error">
+                    <MailIcon />
+                  </Badge>
+                </IconButton>
+                <p>Messages1</p>
+              </MenuItem>
+              <MenuItem>
+                <IconButton
+                  size="large"
+                  aria-label="show 17 new notifications"
+                  color="inherit"
+                >
+                  <Badge badgeContent={17} color="error">
+                    <NotificationsIcon />
+                  </Badge>
+                </IconButton>
+                <p>Notifications</p>
+              </MenuItem>
+              <MenuItem onClick={handleProfileMenuOpen}>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="primary-search-account-menu"
+                  aria-haspopup="true"
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+                <p>Profile</p>
+              </MenuItem>
+            </Menu>
+            <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="show more"
@@ -704,9 +691,11 @@ function HomePage(props) {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon sx={{color:'red'}}/>
+              <MoreIcon sx={{ color: "red" }} />
             </IconButton>
           </Box>
+          </Box>
+       
           {/*  */}
         </Toolbar>
       </AppBar>
@@ -722,15 +711,15 @@ function HomePage(props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+           keepMounted: true
+         // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
+            display: { xs: "block", sm: "none",},
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
               background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
-              // borderRadius: "12px",
               color: "#fff",
             },
           }}
@@ -740,12 +729,11 @@ function HomePage(props) {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: "none", sm: "block" },
+            display: { xs: "none", sm: "block" ,},
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
               background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
-
               color: "#fff",
             },
           }}
