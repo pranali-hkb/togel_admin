@@ -26,6 +26,7 @@
   display: flex;
   justify-content: space-between;
   padding: 40px;
+  border: none !important;
 }
 .tableUpperSection {
   display: flex;
@@ -33,8 +34,10 @@
 .TabsButton {
   gap: 15px;
 }
+
+
 .addButton {
-  width: 160px;
+  width: 18%;
   height: 30px;
   background: linear-gradient(266.44deg, #f196f6 4.86%, #a684dc 137.8%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -167,20 +170,10 @@
   width: 260px !important;
   color: #ffffff;
   display: flex;
+ 
 
 }
-.SignInBtn {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  background: #6358dc !important;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-  text-transform: capitalize !important;
-  height: 50px !important;
-  padding-right: 5%;
-  font-size: 18px;
-}
+
 .btnSection1{
   width: 100%;
   display: flex;
@@ -199,4 +192,19 @@
 .sec2{
   width: 40%;
   display: flex;
+}
+
+
+/* ----------------- Media Screen  ---------------------------*/
+
+@media screen and (max-width: 425px) {
+  /* .table_btn_container {
+  display: inline-block;
+  } */
+  /* .TabsButton {
+    gap: 10px;
+  } */
+  .addButton{
+    width: 10%;
+  }
 }

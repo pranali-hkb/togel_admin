@@ -11,6 +11,7 @@ import UserSuperMaster from './components/UserSuperMaster/UserSuperMaster'
 import TransactionReport from './components/TransactionReport/TransactionReport'
 import TurnoverReport from './components/TurnoverReport/TurnoverReport'
 import WinlossReport from './components/WinLossReport/WinLossReport'
+import GameSetting from './components/GameSetting/GameSetting'
 
 const RoutesPages = () => {
   return (
@@ -21,6 +22,7 @@ const RoutesPages = () => {
           <Route exact path="/dashboard" element={<Dashboard/>} />
           <Route path="/supermaster" element={<SuperMaster />} />
           <Route path="/usersupermaster" element={<UserSuperMaster />} />
+          <Route path="/gamesetting" element={<GameSetting />} />
           <Route path="/master" element={<Master />} />
           <Route path="/agent" element={<Agent />} />
           <Route path="/reports" element={<Reports />} />

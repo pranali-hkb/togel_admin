@@ -108,7 +108,7 @@ const UserSuperMaster = () => {
       id: 1,
       Name: "Snow",
       "Mobile No": "Jon",
-      Email: 35,
+      Email: "abcd@gmail.com",
       Limit: "20,000",
       Country: "India",
       Discount: "10%",
@@ -117,7 +117,7 @@ const UserSuperMaster = () => {
       id: 2,
       Name: "Lannister",
       "Mobile No": "Cersei",
-      Email: 42,
+      Email: "abcd@gmail.com",
       Limit: "20,000",
       Country: "India",
       Discount: "10%",
@@ -126,7 +126,7 @@ const UserSuperMaster = () => {
       id: 3,
       Name: "Lannister",
       "Mobile No": "Jaime",
-      Email: 45,
+      Email: "abcd@gmail.com",
       Limit: "20,000",
       Country: "India",
       Discount: "10%",
@@ -135,7 +135,7 @@ const UserSuperMaster = () => {
       id: 4,
       Name: "Stark",
       "Mobile No": "Arya",
-      Email: 16,
+      Email: "abcd@gmail.com",
       Limit: "20,000",
       Country: "India",
       Discount: "10%",
@@ -153,7 +153,7 @@ const UserSuperMaster = () => {
       id: 6,
       Name: "Melisandre",
       "Mobile No": null,
-      Email: 150,
+      Email: "abcd@gmail.com",
       Limit: "20,000",
       Country: "India",
       Discount: "10%",
@@ -162,7 +162,7 @@ const UserSuperMaster = () => {
       id: 7,
       Name: "Clifford",
       "Mobile No": "Ferrara",
-      Email: 44,
+      Email: "abcd@gmail.com",
       Limit: "20,000",
       Country: "India",
       Discount: "10%",
@@ -171,7 +171,7 @@ const UserSuperMaster = () => {
       id: 8,
       Name: "Frances",
       "Mobile No": "Rossini",
-      Email: 36,
+      Email: "abcd@gmail.com",
       Limit: "20,000",
       Country: "India",
       Discount: "10%",
@@ -180,7 +180,7 @@ const UserSuperMaster = () => {
       id: 9,
       Name: "Roxie",
       "Mobile No": "Harvey",
-      Email: 65,
+      Email: "arshadansari.hkb@gmail.com",
       Limit: "20,000",
       Country: "India",
       Discount: "10%",
@@ -192,7 +192,7 @@ const UserSuperMaster = () => {
       field: "id",
       headerName: "Id",
       width: 30,
-      flex: 1,
+      flex: 0.5,
       headerClassName: "custom-header",
     },
 
@@ -213,16 +213,17 @@ const UserSuperMaster = () => {
     {
       field: "Email",
       headerName: "Email",
-      type: "number",
-      width: 90,
+      // type: "number",
+      width: 130,
       flex: 1,
       headerClassName: "custom-header",
+      // align: 'right',
     },
 
     {
       field: "Limit",
       headerName: "Limit",
-      type: "number",
+      // type: "number",
       width: 90,
       flex: 1,
       headerClassName: "custom-header",
@@ -230,16 +231,16 @@ const UserSuperMaster = () => {
     {
       field: "Country",
       headerName: "Country",
-      type: "number",
-      width: 90,
+      // type: "number",
+      width: 130,
       flex: 1,
       headerClassName: "custom-header",
     },
     {
       field: "Discount",
       headerName: "Discount",
-      type: "number",
-      width: 90,
+      // type: "number",
+      width: 130,
       flex: 1,
       headerClassName: "custom-header",
     },
@@ -247,7 +248,7 @@ const UserSuperMaster = () => {
       field: "List",
       headerName: "List",
       // type: "number",
-      width: 90,
+      width: 130,
       headerClassName: "custom-header",
 
       flex: 1,
@@ -267,7 +268,7 @@ const UserSuperMaster = () => {
       field: "Action",
       headerName: "Action",
       // type: "number",
-      width: 90,
+      width: 130,
       flex: 1,
       headerClassName: "custom-header",
 
@@ -306,6 +307,7 @@ const UserSuperMaster = () => {
  
 }
 
+
 `;
 
   return (
@@ -318,7 +320,7 @@ const UserSuperMaster = () => {
         >
           <div className={tablestyle.table_btn_container}>
             <div className={tablestyle.tableUpperSection}>
-              <div className={tablestyle.TabsButton} sx={{ gap: "10px" }}>
+              <div className={tablestyle.TabsButton}>
                 <Button
                   sx={{
                     "&.active": {
@@ -402,18 +404,30 @@ const UserSuperMaster = () => {
               </Button>
             </div>
           </div>
-          <div style={{ height: 400, width: "100%" }}>
-            <DataGrid
-              rows={rows}
-              columns={columns}
-              initialState={{
-                pagination: {
-                  paginationModel: { page: 0, pageSize: 5 },
+          <div style={{ width: "100%", height: "100%" }}>
+            <div
+              style={{
+                width: "100%",
+                height: "400px",
+                maxWidth: "100%",
+                "@media (max-width: 600px)": {
+                  height: "300px",
                 },
               }}
-              pageSizeOptions={[5, 10, 15, 20]}
-              //  checkboxSelection
-            />
+            >
+              <DataGrid
+                rows={rows}
+                columns={columns}
+                autoHeight
+                initialState={{
+                  pagination: {
+                    paginationModel: { page: 0, pageSize: 5 },
+                  },
+                }}
+                pageSizeOptions={[5, 10, 15, 20]}
+                //  checkboxSelection
+              />
+            </div>
           </div>
         </TableContainer>
       </Box>
@@ -458,7 +472,7 @@ const UserSuperMaster = () => {
             Add Super Master
           </Typography>
           <Grid container spacing={1}>
-            <Grid sm={12} md={12}>
+            <Grid xs={12} sm={12} md={12}>
               <FormControl className={tablestyle.TextField}>
                 <InputLabel className={tablestyle.inputtxt}>
                   <span style={{ width: "10px", m: "2" }}>
@@ -478,7 +492,7 @@ const UserSuperMaster = () => {
               <FormControl className={tablestyle.TextField}>
                 <InputLabel className={tablestyle.inputtxt}>
                   <span style={{ width: "10px", m: "2" }}>
-                    <img src={ManIcon} width={20} /> Email
+                    <img src={GmailIcon} width={20} /> Email
                   </span>
                 </InputLabel>
 
@@ -507,7 +521,7 @@ const UserSuperMaster = () => {
               </FormControl>
             </Grid>
             <div className={tablestyle.btnSection1}>
-              <Grid xs={6} sm={5} md={5} sx={{marginTop:"3%"}}>
+              <Grid xs={6} sm={5} md={5} sx={{ marginTop: "3%" }}>
                 <FormControl className={tablestyle.TextField}>
                   <InputLabel className={tablestyle.inputtxt}>
                     <span style={{ width: "10px", m: "2" }}>
@@ -523,7 +537,7 @@ const UserSuperMaster = () => {
                   />
                 </FormControl>
               </Grid>
-              <Grid xs={6} sm={5} md={5} sx={{marginTop:"3%"}}>
+              <Grid xs={6} sm={5} md={5} sx={{ marginTop: "3%" }}>
                 <FormControl className={tablestyle.TextField}>
                   <InputLabel className={tablestyle.inputtxt}>
                     <span style={{ width: "10px", mt: "2" }}>
@@ -548,7 +562,11 @@ const UserSuperMaster = () => {
                   variant="contained"
                   size="large"
                   className={tablestyle.btnReject}
-                  sx={{ width: "100%", padding: "0 30px 0 30px" }}
+                  sx={{
+                    width: "100%",
+                    padding: "0 30px 0 30px",
+                    textTransform: "none",
+                  }}
                 >
                   Reject
                 </Button>
@@ -559,7 +577,11 @@ const UserSuperMaster = () => {
                   variant="contained"
                   size="large"
                   className={tablestyle.btnSave}
-                  sx={{ width: "100%", padding: "0 30px 0 30px" }}
+                  sx={{
+                    width: "100%",
+                    padding: "0 30px 0 30px",
+                    textTransform: "none",
+                  }}
                 >
                   Save
                 </Button>
