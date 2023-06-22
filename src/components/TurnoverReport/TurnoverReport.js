@@ -89,7 +89,6 @@ const TurnoverReport = () => {
               </div>
             </div>
 
-  
             {/*To Date  */}
             <div className={turnoverstyle.maincol}>
               {/* col1 */}
@@ -128,18 +127,17 @@ const TurnoverReport = () => {
           {/* right */}
           {/* left 50%%*/}
           <div className={turnoverstyle.secleft}>
-            
-              {/*use code  */}
-              <div className={turnoverstyle.maincol}>
+            {/*use code  */}
+            <div className={turnoverstyle.maincol}>
               {/* col1 */}
               <div className={turnoverstyle.col1}>
                 <Typography className={turnoverstyle.labeltxt}>
-                 User Code
+                  User Code
                 </Typography>
               </div>
               {/* col2 */}
               <div className={turnoverstyle.col2}>
-              <FormControl sx={{ m: 1 }}>
+                <FormControl sx={{ m: 1 }}>
                   <Select
                     labelId="demo-simple-select-autowidth-label"
                     id="demo-simple-select-autowidth"
@@ -159,8 +157,6 @@ const TurnoverReport = () => {
                 </FormControl>
               </div>
             </div>
-
-
 
             {/*Market Betting  */}
             <div className={turnoverstyle.maincol}>
@@ -216,8 +212,8 @@ const TurnoverReport = () => {
                       <em>None</em>
                     </MenuItem>
                     <MenuItem value={10}>2D</MenuItem>2D
-                    <MenuItem value={21}>3D</MenuItem>
-                    <MenuItem value={22}>Zodiac</MenuItem>
+                    <MenuItem value={20}>3D</MenuItem>
+                    <MenuItem value={30}>Zodiac</MenuItem>
                   </Select>
                 </FormControl>
               </div>
@@ -226,60 +222,57 @@ const TurnoverReport = () => {
         </div>
       </div>
 
-      <Box
-        sx={{ flexGrow: 1, boxShadow: "none", borderRadius: "none" }}
-        className={turnoverstyle.reporttable}
-      >
-        {/* <Grid spacing={2}  lg={12} className={turnoverstyle.trmainsec1}> */}
-        <Grid container spacing={2} lg={6} className={turnoverstyle.trinrsec1}>
-          <Grid container item xs={12} lg={12} sx={{ mt: "5" }}>
-            <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <Typography className={turnoverstyle.reporttxt}>
+      {/* (**** table start ) */}
+      <div className={turnoverstyle.table}>
+        <div className={turnoverstyle.tableMainSec}>
+          {/* 1 */}
+          <div className={turnoverstyle.tableInSec}>
+            <div className={turnoverstyle.tableLeft}>
+              <Typography className={turnoverstyle.reportLtxt}>
                 Total Transaction:
               </Typography>
-            </Grid>
-            <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <TextField disabled placeholder="125" className={turnoverstyle.reportbox} />
-            </Grid>
-          </Grid>
-
-          <Grid container item xs={12} lg={12}>
-            <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <Typography className={turnoverstyle.reporttxt}>
+            </div>
+            <div className={turnoverstyle.tableRgt}>
+              <Typography className={turnoverstyle.reporttxt}>8548</Typography>
+            </div>
+          </div>
+          {/* 2 */}
+          <div className={turnoverstyle.tableInSec}>
+            <div className={turnoverstyle.tableLeft}>
+              <Typography className={turnoverstyle.reportLtxt}>
                 Total Credit:
               </Typography>
-            </Grid>
-            <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <TextField disabled placeholder="125" className={turnoverstyle.reportbox} />
-            </Grid>
-          </Grid>
-
-          <Grid container item xs={12} lg={12}>
-            <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <Typography className={turnoverstyle.reporttxt}>
+            </div>
+            <div className={turnoverstyle.tableRgt}>
+              <Typography className={turnoverstyle.reporttxt}>8548</Typography>
+            </div>
+          </div>
+          {/* 3 */}
+          <div className={turnoverstyle.tableInSec}>
+            <div className={turnoverstyle.tableLeft}>
+              <Typography className={turnoverstyle.reportLtxt}>
                 Total Debit:
               </Typography>
-            </Grid>
-            <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <TextField disabled placeholder="125" className={turnoverstyle.reportbox} />
-            </Grid>
-          </Grid>
-
-          <Grid container item xs={12} lg={12}>
-            <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <Typography className={turnoverstyle.reporttxt}>
+            </div>
+            <div className={turnoverstyle.tableRgt}>
+              <Typography className={turnoverstyle.reporttxt}>8548</Typography>
+            </div>
+          </div>
+          {/* 4 */}
+          <div className={turnoverstyle.tableInSec}>
+            <div className={turnoverstyle.tableLeft}>
+              <Typography className={turnoverstyle.reportLtxt}>
                 Total Profit:
               </Typography>
-            </Grid>
-            <Grid item xs={6} lg={6} className={turnoverstyle.inrgrid}>
-              <TextField  disabled placeholder="125" placeholder="125" className={turnoverstyle.reportbox}  />
-            </Grid>
-          </Grid>
-        </Grid>
-        {/* </Grid> */}
-      </Box>
+            </div>
+            <div className={turnoverstyle.tableRgt}>
+              <Typography className={turnoverstyle.reporttxt}>8548</Typography>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      {/* ***********section 2 ******************************************* */}
+      {/* (**** table start ) */}
     </div>
   );
 };

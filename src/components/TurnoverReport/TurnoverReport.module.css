@@ -20,7 +20,6 @@
   display: flex;
   width: 80%;
   justify-content: space-between;
-
 }
 .secleft {
   display: flex;
@@ -76,6 +75,7 @@
 }
 
 .droplist {
+  width: 70px;
   background: #ffffff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
   border-radius: 14px;
@@ -88,8 +88,8 @@
   background-color: none;
   margin-top: 4% !important;
   background: #ffffff;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-  border-radius: 31px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
   padding: 3% !important;
 }
 
@@ -97,37 +97,95 @@
   display: flex;
   justify-content: space-between;
 }
-.reporttxt {
-  font-family: "Roboto" !important;
-  font-style: normal !important;
-  font-weight: 700 !important;
-  font-size: 21px !important;
-  line-height: 140% !important;
-  color: #672d71 !important;
-  padding-top: 4%;
-}
-.reportbox {
-  background: #642483 !important;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  border-radius: 6px;
-  color: #ffffff !important;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500 !important;
-  font-size: 18px;
-  line-height: 140%;
-  text-align: center;
-}
-.reporttable {
-  width: 100%;
+
+/* report table css start */
+
+.table {
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
 }
-.tableInsec {
-  width: 90%;
+.tableMainSec {
   display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 1%;
+  border-radius: 15px !important;
+  box-shadow: 0px 2px 10px rgba(194, 141, 141, 0.25);
 }
+.tableInSec {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  align-items: center;
+  color: #ffffff !important;
+}
+.tableLeft {
+  margin: 3%;
+  display: flex;
+  width: 45%;
+  text-align: left;
+  flex-direction: column;
+}
+.tableRgt {
+  display: flex;
+  width: 35%;
+  text-align: left;
+  background-color: #89328e !important;
+  color: #ffffff;
+  flex-direction: column;
+  border-radius: 10px;
+  text-align: center;
+  align-content: center;
+  padding: 1%;
+  box-shadow: 0px 2px 10px rgba(194, 141, 141, 0.25);
+}
+.reportLtxt {
+  font-family: "Roboto" !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  line-height: 140% !important;
+  color: #89328e !important;
+}
+.reportRtxt {
+  font-family: "Roboto" !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  line-height: 140% !important;
+  color: #fff !important;
+}
+/* report table css start */
+
+@media screen and (max-width: 1100px) {
+  .reportLtxt {
+    font-size: 14px !important;
+  }
+  .reportRtxt {
+    font-size: 14px !important;
+  }
+  .tableRgt {
+    padding: none !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .reportLtxt {
+    font-size: 8px !important;
+  }
+  .reportRtxt {
+    font-size: 8px !important;
+  }
+  .tableRgt {
+    padding: none !important;
+  }
+}
+
 
 @media screen and (max-width: 1100px) {
   .labeltxt {
