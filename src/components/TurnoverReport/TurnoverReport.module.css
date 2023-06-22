@@ -6,9 +6,8 @@
   text-decoration-line: underline;
   color: #672d71;
   text-align: center;
-  padding: 0 0 2% 0;
+  padding: 0 0 1% 0;
 }
-
 .mainsection {
   display: flex;
   width: 100%;
@@ -18,43 +17,38 @@
 }
 .innersection {
   display: flex;
-  width: 80%;
+  width: 90%;
   justify-content: space-between;
-
 }
 .secleft {
   display: flex;
   width: 50%;
-  /* justify-content: center;
-  align-items: center; */
   flex-direction: column;
 }
 
 .secright {
   display: flex;
   width: 50%;
-  /* justify-content: center;
-  align-items: center; */
   flex-direction: column;
 }
 .maincol {
   display: flex;
-  width: 100%;
+  width: 95%;
   margin-top: 3%;
   justify-content: space-between;
 }
 
 .col1 {
   display: flex;
-  width: 30%;
+  width: 40%;
   flex-direction: column;
-  padding-top: 2%;
+  padding-top: 1%;
   align-items: flex-start !important;
 }
 
 .col2 {
   display: flex;
-  width: 70%;
+  width: 60%;
   flex-direction: column;
 }
 
@@ -66,109 +60,167 @@
   color: #672d71 !important;
   text-align: left !important;
 }
-.demo-container {
-  width: 100px !important;
-  height: 50px !important;
-  background: #642483;
-  border: 1px solid #376dd7;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 2px;
-}
 
-.droplist {
-  background: #ffffff;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
-  border-radius: 14px;
-}
-/* section 2 start */
+/* report table css start */
 
-.trinrsec1 {
+.table {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+}
+.tableMainSec {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  display: flex;
-  background-color: none;
-  margin-top: 4% !important;
-  background: #ffffff;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-  border-radius: 31px;
-  padding: 3% !important;
+  background-color: #ffffff;
+  padding: 1%;
+  border-radius: 15px !important;
+  box-shadow: 0px 4px 15px rgba(33, 33, 33, 0.25);
 }
+.tableInSec {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  align-items: center;
+  color: #ffffff !important;
+}
+.tableLeft {
+  margin: 3%;
+  display: flex;
+  width: 45%;
+  text-align: left;
+  flex-direction: column;
+}
+.tableRgt {
+  display: flex;
+  width: 35%;
+  text-align: left;
+  background-color: #89328e !important;
+  color: #ffffff;
+  flex-direction: column;
+  border-radius: 10px;
+  text-align: center;
+  align-content: center;
+  padding: 1%;
 
-.inrgrid {
-  display: flex;
-  justify-content: space-between;
 }
-.reporttxt {
+.reportLtxt {
   font-family: "Roboto" !important;
   font-style: normal !important;
   font-weight: 700 !important;
-  font-size: 21px !important;
+  font-size: 18px !important;
   line-height: 140% !important;
-  color: #672d71 !important;
-  padding-top: 4%;
+  color: #89328e !important;
 }
-.reportbox {
-  background: #642483 !important;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  border-radius: 6px;
-  color: #ffffff !important;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500 !important;
-  font-size: 18px;
-  line-height: 140%;
-  text-align: center;
+.reportRtxt {
+  font-family: "Roboto" !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  line-height: 140% !important;
+  color: #fff !important;
 }
-.reporttable {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.tableInsec {
-  width: 90%;
-  display: flex;
-}
+/* report table css end */
 
-@media screen and (max-width: 1100px) {
-  .labeltxt {
-    font-family: "Roboto" !important;
-    font-style: normal !important;
-    font-weight: 500 !important;
-    font-size: 15px !important;
-    color: #672d71 !important;
-    text-align: left !important;
-  }
-  .innersection {
-    width: 90%;
-    flex-direction: row !important;
-  }
-}
+/* for mobile */
+@media screen and (max-width: 500px) {
 
-@media screen and (max-width: 769px) {
-  .labeltxt {
-    font-size: 20px !important;
-  }
   .innersection {
-    width: 90%;
-    justify-content: space-around !important;
-  }
-}
-
-@media screen and (max-width: 769px) {
-  .labeltxt {
-    font-size: 16px !important;
-  }
-  .innersection {
-    width: 98% !important;
+    width: 95% !important;
     flex-direction: column !important;
-    justify-content: space-around !important;
+    justify-content: center !important;
   }
+  .secleft {
+    width: 100% !important;
+  }
+
+  .secright {
+    width: 100% !important;
+  }
+  .maincol {
+    justify-content: space-between;
+  }
+
   .col1 {
-    width: 50%;
-    padding-top: 2%;
+    width: 35% !important;
   }
 
   .col2 {
-    width: 50%;
+    width: 65% !important;
+  }
+
+  .labeltxt {
+    font-weight: 500 !important;
+    font-size: 18px !important;
+  }
+  .table {
+    margin-top: 3% !important;
+  }
+  .tableMainSec {
+    width: 100% !important;
+  }
+  .tableInSec {
+    width: 90%;
+  }
+  .tableLeft {
+    width: 45%;
+  }
+  .tableRgt {
+    width: 45%;
+  }
+  .reportLtxt {
+    font-size: 12px !important;
+  }
+}
+/* for tab */
+
+@media screen and (max-width: 768px) {
+  .reportLtxt {
+    font-size: 12px !important;
+    font-weight: 800 !important;
+  }
+  .innersection {
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .secleft {
+    width: 100% !important;
+  }
+  .secright {
+    width: 100% !important;
+  }
+  .col1 {
+    width: 33% !important;
+  }
+
+  .col2 {
+    width: 70% !important;
+  }
+
+  .labeltxt {
+    font-weight: 500 !important;
+    font-size: 18px !important;
+  }
+  .table {
+    margin-top: 3% !important;
+  }
+  .tableMainSec {
+    width: 80% !important;
+  }
+  .tableInSec {
+    width: 90%;
+  }
+  .tableLeft {
+    width: 45%;
+  }
+  .tableRgt {
+    width: 45%;
+  }
+  .reportLtxt {
+    font-size: 14px!important;
   }
 }

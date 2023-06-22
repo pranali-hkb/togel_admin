@@ -16,6 +16,8 @@ import Select from "@mui/material/Select";
 import { TableContainer, TextField } from "@mui/material";
 import { Directions } from "@mui/icons-material";
 import { DataGrid } from "@mui/x-data-grid";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 // item code
 const Item = styled(Paper)(({ theme }) => ({
@@ -29,6 +31,26 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const TransactionReport = () => {
+  const [userDataTable, setUserDataTable] = useState([]);
+  const [loading, setLoading] = useState(true);
+  //-----------------Get API---------------------//
+
+  const getUserData = async () => {
+    try {
+      const response = await axios.get(
+        "https://dummy.restapiexample.com/api/v1/employees"
+      );
+      console.log("employees response=>", response.data.data);
+      setUserDataTable(response.data.data);
+    } catch (e) {
+      console.log("error=>", e);
+    }
+  };
+  console.log("test ", userDataTable);
+  useEffect(() => {
+    getUserData();
+  }, []);
+
   // dropdown list code start
 
   const [marketbetting, setMarketbetting] = React.useState("");
@@ -55,7 +77,8 @@ const TransactionReport = () => {
       Email: 35,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+      
     },
     {
       id: 2,
@@ -64,7 +87,8 @@ const TransactionReport = () => {
       Email: 42,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+  
     },
     {
       id: 3,
@@ -73,7 +97,8 @@ const TransactionReport = () => {
       Email: 45,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+  
     },
     {
       id: 4,
@@ -82,7 +107,8 @@ const TransactionReport = () => {
       Email: 16,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+  
     },
     {
       id: 5,
@@ -91,7 +117,8 @@ const TransactionReport = () => {
       Email: null,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+  
     },
     {
       id: 6,
@@ -100,7 +127,8 @@ const TransactionReport = () => {
       Email: 150,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+   
     },
     {
       id: 7,
@@ -109,7 +137,8 @@ const TransactionReport = () => {
       Email: 44,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+   
     },
     {
       id: 8,
@@ -118,7 +147,8 @@ const TransactionReport = () => {
       Email: 36,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+   
     },
     {
       id: 9,
@@ -127,7 +157,8 @@ const TransactionReport = () => {
       Email: 65,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+   
     },
   ];
 
@@ -135,78 +166,79 @@ const TransactionReport = () => {
     {
       field: "id",
       headerName: "Id",
-      width: 30,
-      flex: 1,
+      width: 10,
+      flex: 0.7,
       headerClassName: "custom-header",
+      align: "left",
     },
 
     {
       field: "Name",
-      headerName: "Name",
+      headerName: "Market",
       width: 130,
       flex: 1,
       headerClassName: "custom-header",
+      align: "left",
     },
     {
       field: "Mobile No",
-      headerName: "Mobile No",
-      width: 90,
+      headerName: "Betting Type",
+      width: 12,
       flex: 1,
+
       headerClassName: "custom-header",
+      headerAlign: "left",
+       align: "left",
     },
     {
       field: "Email",
-      headerName: "Email",
+      headerName: "User Code",
       type: "number",
       width: 90,
       flex: 1,
       headerClassName: "custom-header",
+      headerAlign: "left",
+       align: "left",
     },
 
     {
       field: "Limit",
-      headerName: "Limit",
+      headerName: "Game Win/Loss",
       type: "number",
       width: 90,
       flex: 1,
       headerClassName: "custom-header",
+      headerAlign: "left",
+       align: "left",
     },
     {
       field: "Country",
-      headerName: "Country",
+      headerName: "Bet Amount",
       type: "number",
       width: 90,
       flex: 1,
       headerClassName: "custom-header",
+      headerAlign: "left",
+       align: "left",
     },
-    {
-      field: "Discount",
-      headerName: "Discount",
-      type: "number",
-      width: 90,
-      flex: 1,
-      headerClassName: "custom-header",
-    },
+ 
   ];
 
   const styles = `
 .custom-header {
   background-color: #FFFFFF;
   color: #672D71;
-  font-weight: 600;
-  font-size:16px;
-  
-  
+  font-weight: 800;
+  font-size:17px;
+  text-align: left;
 }
 
 `;
   return (
     <div>
-   <h1 className={winlosstyle.reporthead}>Win Loss Report</h1>
+      <h1 className={winlosstyle.reporthead}>Win Loss Report</h1>
       <div className={winlosstyle.mainsection}>
-     
         <div className={winlosstyle.innersection}>
-         
           {/* left 50%%*/}
           <div className={winlosstyle.secleft}>
             {/*From Date  */}
@@ -242,8 +274,8 @@ const TransactionReport = () => {
                 </LocalizationProvider>
               </div>
             </div>
-             {/*To Date  */}
-             <div className={winlosstyle.maincol}>
+            {/*To Date  */}
+            <div className={winlosstyle.maincol}>
               {/* col1 */}
               <div className={winlosstyle.col1}>
                 <Typography className={winlosstyle.labeltxt}>
@@ -277,72 +309,70 @@ const TransactionReport = () => {
             </div>
           </div>
 
-
-{/* right */}
- {/* left 50%%*/}
- <div className={winlosstyle.secleft}>
+          {/* right */}
+          {/* left 50%%*/}
+          <div className={winlosstyle.secleft}>
             {/*Market Betting  */}
             <div className={winlosstyle.maincol}>
               {/* col1 */}
               <div className={winlosstyle.col1}>
                 <Typography className={winlosstyle.labeltxt}>
-                 Market Betting
+                  Market Betting
                 </Typography>
               </div>
               {/* col2 */}
               <div className={winlosstyle.col2}>
-              <FormControl sx={{ m: 1,  }}>
-                <Select
-                  labelId="demo-simple-select-autowidth-label"
-                  id="demo-simple-select-autowidth"
-                  value={marketbetting}
-                  onChange={marketbettingChange}
-                  autoWidth
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Market Betting1</MenuItem>
-                  <MenuItem value={21}>Market Betting2</MenuItem>
-                  <MenuItem value={22}>Market Betting3</MenuItem>
-                </Select>
-              </FormControl>
+                <FormControl sx={{ m: 1 }}>
+                  <Select
+                    labelId="demo-simple-select-autowidth-label"
+                    id="demo-simple-select-autowidth"
+                    value={marketbetting}
+                    onChange={marketbettingChange}
+                    autoWidth
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>Market Betting1</MenuItem>
+                    <MenuItem value={21}>Market Betting2</MenuItem>
+                    <MenuItem value={22}>Market Betting3</MenuItem>
+                  </Select>
+                </FormControl>
               </div>
             </div>
-             {/*Betting Type */}
-             <div className={winlosstyle.maincol}>
+            {/*Betting Type */}
+            <div className={winlosstyle.maincol}>
               {/* col1 */}
               <div className={winlosstyle.col1}>
                 <Typography className={winlosstyle.labeltxt}>
-                Betting Type
+                  Betting Type
                 </Typography>
               </div>
               {/* col2 */}
               <div className={winlosstyle.col2}>
-              <FormControl sx={{ m: 1,  }}>
-                <Select
-                  labelId="demo-simple-select-autowidth-label"
-                  id="demo-simple-select-autowidth"
-                  value={bettingtype}
-                  onChange={bettingtypeChange}
-                  autoWidth
-                  inputProps={{ "aria-label": "Without label" }}
-                  displayEmpty
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>2D</MenuItem>2D
-                  <MenuItem value={21}>3D</MenuItem>
-                  <MenuItem value={22}>Zodiac</MenuItem>
-                </Select>
-              </FormControl>
+                <FormControl sx={{ m: 1 }}>
+                  <Select
+                    labelId="demo-simple-select-autowidth-label"
+                    id="demo-simple-select-autowidth"
+                    value={bettingtype}
+                    onChange={bettingtypeChange}
+                    autoWidth
+                    inputProps={{ "aria-label": "Without label" }}
+                    displayEmpty
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>2D</MenuItem>2D
+                    <MenuItem value={21}>3D</MenuItem>
+                    <MenuItem value={22}>Zodiac</MenuItem>
+                  </Select>
+                </FormControl>
               </div>
             </div>
           </div>
-          
         </div>
       </div>
 
@@ -350,16 +380,17 @@ const TransactionReport = () => {
       <style>{styles}</style>
       <Box
         sx={{
-          padding: "5%",
-          
+          padding: "3% 5% 2% 5%",
         }}
       >
         <TableContainer
+          sx={{ textAlign: "left" }}
           component={Paper}
           className={winlosstyle.userTableSection}
         >
           <div style={{ height: 400, width: "100%" }}>
             <DataGrid
+              // rows={userDataTable}
               rows={rows}
               columns={columns}
               // initialState={{

@@ -4,15 +4,19 @@ import LoginPage from "./components/LoginPage/LoginPage";
 import Test from "./components/Test/Test";
 import TurnoverReport from "./components/TurnoverReport/TurnoverReport";
 import WinLossReport from "./components/WinLossReport/WinLossReport";
+import TransactionReport from "./components/TransactionReport/TransactionReport";
+
+
 
 function App() {
   return (
     <div className="App">
+  {/* <TurnoverReport/>
+     */}
+     {/* <TransactionReport/> */}
+     {/* <WinLossReport/> */}
       <BrowserRouter>
-        {/* <LoginPage/> */}
-        <HomePage />
-       
-{/* <WinLossReport/> */}
+<HomePage/>
       </BrowserRouter>
     </div>
   );

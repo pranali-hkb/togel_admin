@@ -53,7 +53,9 @@ const TransactionReport = () => {
 
   //-------------------------------Table Columns---------------------------//
 
-  const rows = [
+   //-------------------------------Table Columns---------------------------//
+
+   const rows = [
     {
       id: 1,
       Name: "Snow",
@@ -61,7 +63,8 @@ const TransactionReport = () => {
       Email: 35,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+      
     },
     {
       id: 2,
@@ -70,7 +73,8 @@ const TransactionReport = () => {
       Email: 42,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+  
     },
     {
       id: 3,
@@ -79,7 +83,8 @@ const TransactionReport = () => {
       Email: 45,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+  
     },
     {
       id: 4,
@@ -88,7 +93,8 @@ const TransactionReport = () => {
       Email: 16,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+  
     },
     {
       id: 5,
@@ -97,7 +103,8 @@ const TransactionReport = () => {
       Email: null,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+  
     },
     {
       id: 6,
@@ -106,7 +113,8 @@ const TransactionReport = () => {
       Email: 150,
       Limit: "20,000",
       Country: "India",
-      Discount: "10%",
+     
+   
     },
     {
       id: 7,
@@ -116,6 +124,7 @@ const TransactionReport = () => {
       Limit: "20,000",
       Country: "India",
       Discount: "10%",
+   
     },
     {
       id: 8,
@@ -125,6 +134,7 @@ const TransactionReport = () => {
       Limit: "20,000",
       Country: "India",
       Discount: "10%",
+   
     },
     {
       id: 9,
@@ -134,6 +144,7 @@ const TransactionReport = () => {
       Limit: "20,000",
       Country: "India",
       Discount: "10%",
+   
     },
   ];
 
@@ -141,9 +152,10 @@ const TransactionReport = () => {
     {
       field: "id",
       headerName: "Id",
-      width: 30,
-      flex: 1,
-      headerClassName: "custom-header",
+      width: 10,
+      flex: 0.7,
+      headerClassName: "Market",
+      align: "left",
     },
 
     {
@@ -151,58 +163,50 @@ const TransactionReport = () => {
       headerName: "Name",
       width: 130,
       flex: 1,
-      headerClassName: "custom-header",
+      headerClassName: "Date",
+      align: "left",
     },
     {
       field: "Mobile No",
-      headerName: "Mobile No",
-      width: 90,
+      headerName: "Betting Type",
+      width: 12,
       flex: 1,
+
       headerClassName: "custom-header",
+      headerAlign: "left",
+       align: "left",
     },
     {
       field: "Email",
-      headerName: "Email",
+      headerName: "Bet Amount",
       type: "number",
       width: 90,
       flex: 1,
       headerClassName: "custom-header",
+      headerAlign: "left",
+       align: "left",
     },
 
     {
       field: "Limit",
-      headerName: "Limit",
+      headerName: "User Code",
       type: "number",
       width: 90,
       flex: 1,
       headerClassName: "custom-header",
+      headerAlign: "left",
+       align: "left",
     },
-    {
-      field: "Country",
-      headerName: "Country",
-      type: "number",
-      width: 90,
-      flex: 1,
-      headerClassName: "custom-header",
-    },
-    {
-      field: "Discount",
-      headerName: "Discount",
-      type: "number",
-      width: 90,
-      flex: 1,
-      headerClassName: "custom-header",
-    },
+   
   ];
 
   const styles = `
 .custom-header {
   background-color: #FFFFFF;
   color: #672D71;
-  font-weight: 600;
-  font-size:16px;
-  hei
-  
+  font-weight: 800;
+  font-size:17px;
+  text-align: left;
 }
 
 `;
@@ -383,8 +387,8 @@ const TransactionReport = () => {
 
       {/* --------------- Transaction Report Table */}
       <Box
-        sx={{
-          padding: "5%",
+        sx={{ 
+         padding:"0 5% 2% 5%"
         }}
       >
         <TableContainer
