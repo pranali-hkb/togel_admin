@@ -1,0 +1,84 @@
+.maincontainer {
+  width: 100%;
+  height: 745px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.inrcontainer {
+  width: 23%;
+  height: 320px;
+  display: flex;
+  padding: 1%;
+  background-color: rgb(244, 244, 244);
+  border-radius: 10px;
+  flex-direction: column;
+}
+.btnsection {
+  display: flex;
+  justify-content: end;
+}
+.btnsection img {
+  width: 30px;
+  height: 30px;
+}
+.settingsection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 8%;
+}
+
+.settingsection img {
+  width: 150px;
+  height: 150px;
+}
+.SetingMsg {
+  font-size: 20px!important;
+  color: #343434;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1024px) {
+  .inrcontainer {
+    width: 25%;
+    height: 270px;
+  }
+
+  .settingsection {
+    padding-top: 8%;
+  }
+
+  .settingsection img {
+    width: 120px;
+    height: 120px;
+  }
+  .SetingMsg {
+    font-size: 15px !important;
+  }
+}
+
+/*tablet  */
+
+@media screen and (max-width: 768px) {
+  .inrcontainer {
+    width: 40%!important;
+    height: 200px;
+  }
+}
+
+/*tablet  */
+
+@media screen and (max-width: 768px) {
+  .inrcontainer {
+    width: 70%;
+    height: 270px;
+  }
+
+  .settingsection img {
+    width: 100px;
+    height: 100px;
+  }
+}
