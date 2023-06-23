@@ -14,7 +14,7 @@ import {
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
 import { Avatar } from "@mui/material";
-import tablestyle from "./UserSuperMaster.module.css";
+import tablestyle from "./Game.module.css";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import InputBase from "@mui/material/InputBase";
@@ -30,6 +30,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import moment from "moment";
 import { styled, alpha } from "@mui/material/styles";
 import axios from "axios";
+import { FormGroup, FormControlLabel, Switch } from "@mui/material";
 
 // search
 const Search = styled("div")(({ theme }) => ({
@@ -79,7 +80,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const UserSuperMaster = () => {
+const Game = () => {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userMobileNo, setUserMobileNo] = useState("");
@@ -104,7 +105,62 @@ const UserSuperMaster = () => {
     setDeletedStatus(true);
   };
   // console.log("deletedStatus=>", deletedStatus);
+  // const [checked, setChecked] = useState(false);
 
+  const updateStatus = (id,status) => {
+    // setChecked(!checked);
+    console.log("checked=>id",id,status)
+  };
+const IOSSwitch = styled((props) => (
+  <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+))(({ theme }) => ({
+  width: 42,
+  height: 26,
+  padding: 0,
+  '& .MuiSwitch-switchBase': {
+    padding: 0,
+    margin: 2,
+    transitionDuration: '300ms',
+    '&.Mui-checked': {
+      transform: 'translateX(16px)',
+      color: '#fff',
+      '& + .MuiSwitch-track': {
+        backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
+        opacity: 1,
+        border: 0,
+      },
+      '&.Mui-disabled + .MuiSwitch-track': {
+        opacity: 0.5,
+      },
+    },
+    '&.Mui-focusVisible .MuiSwitch-thumb': {
+      color: '#33cf4d',
+      border: '6px solid #fff',
+    },
+    '&.Mui-disabled .MuiSwitch-thumb': {
+      color:
+        theme.palette.mode === 'light'
+          ? theme.palette.grey[100]
+          : theme.palette.grey[600],
+    },
+    '&.Mui-disabled + .MuiSwitch-track': {
+      opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
+    },
+  },
+  '& .MuiSwitch-thumb': {
+    boxSizing: 'border-box',
+    width: 22,
+    height: 22,
+  },
+  '& .MuiSwitch-track': {
+    borderRadius: 26 / 2,
+    backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
+    opacity: 1,
+    transition: theme.transitions.create(['background-color'], {
+      duration: 500,
+    }),
+  },
+}));
   //----------------------GET API------------------------//
 
   const getGameData = async () => {
@@ -122,91 +178,8 @@ const UserSuperMaster = () => {
   useEffect(() => {
     getGameData();
   }, []);
+  
   //-------------------------------Table Columns---------------------------//
-
-  const rows = [
-    {
-      id: 1,
-      Name: "Snow",
-      "Mobile No": "Jon",
-      Email: "abcd@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 2,
-      Name: "Lannister",
-      "Mobile No": "Cersei",
-      Email: "abcd@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 3,
-      Name: "Lannister",
-      "Mobile No": "Jaime",
-      Email: "abcd@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 4,
-      Name: "Stark",
-      "Mobile No": "Arya",
-      Email: "abcd@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 5,
-      Name: "Targaryen",
-      "Mobile No": "Daenerys",
-      Email: null,
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 6,
-      Name: "Melisandre",
-      "Mobile No": null,
-      Email: "abcd@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 7,
-      Name: "Clifford",
-      "Mobile No": "Ferrara",
-      Email: "abcd@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 8,
-      Name: "Frances",
-      "Mobile No": "Rossini",
-      Email: "abcd@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 9,
-      Name: "Roxie",
-      "Mobile No": "Harvey",
-      Email: "arshadansari.hkb@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-  ];
 
   const columns = [
     {
@@ -219,10 +192,40 @@ const UserSuperMaster = () => {
 
     {
       field: "game_name",
-      headerName: "Game Name",
+      headerName: "Name",
       width: 130,
       flex: 1,
       headerClassName: "custom-header",
+    },
+    {
+      field: "status",
+      headerName: "Game Status",
+      // type: "number",
+      width: 130,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "Game Status",
+      headerName: "Game Status",
+      // type: "number",
+      width: 130,
+      flex: 1,
+      headerClassName: "custom-header",
+      renderCell: (params) =>{
+      console.log("params=>",params)
+
+      return(
+        <FormGroup>
+        <FormControlLabel
+        control={<IOSSwitch sx={{ m: 1 }} checked={params.row.status} onChange={(e)=>updateStatus
+       
+        (params.id,params.status)}/>}
+        
+      />
+      </FormGroup>
+      )
+    } 
     },
     {
       field: "created_at",
@@ -232,40 +235,7 @@ const UserSuperMaster = () => {
       headerClassName: "custom-header",
       valueGetter: (params) => moment(params.value).format("DD/MM/YY LT"),
     },
-    // {
-    //   field: "Email",
-    //   headerName: "Email",
-    //   // type: "number",
-    //   width: 130,
-    //   flex: 1,
-    //   headerClassName: "custom-header",
-    //   // align: 'right',
-    // },
-
-    // {
-    //   field: "Limit",
-    //   headerName: "Limit",
-    //   // type: "number",
-    //   width: 90,
-    //   flex: 1,
-    //   headerClassName: "custom-header",
-    // },
-    // {
-    //   field: "Country",
-    //   headerName: "Country",
-    //   // type: "number",
-    //   width: 130,
-    //   flex: 1,
-    //   headerClassName: "custom-header",
-    // },
-    // {
-    //   field: "Discount",
-    //   headerName: "Discount",
-    //   // type: "number",
-    //   width: 130,
-    //   flex: 1,
-    //   headerClassName: "custom-header",
-    // },
+ 
     {
       field: "List",
       headerName: "List",
@@ -295,125 +265,23 @@ const UserSuperMaster = () => {
       headerClassName: "custom-header",
 
       renderCell: (params) => (
-        console.log("params=>", params),
-        (
-          <div style={{ display: "flex", margin: "none", gap: "7px" }}>
-            <span>
-              <img
-                src={EditIcon}
-                width={20}
-                onClick={() => handleEditClick(params.id)}
-              />
-            </span>
-            <span>
-              <img src={DeleteIcon} width={20} />
-            </span>
-          </div>
-        )
+        // console.log("params=>", params),
+        <div style={{ display: "flex", margin: "none", gap: "7px" }}>
+          <span>
+            <img
+              src={EditIcon}
+              width={20}
+              onClick={() => handleEditClick(params.id)}
+            />
+          </span>
+          <span>
+            <img src={DeleteIcon} width={20} />
+          </span>
+        </div>
       ),
     },
   ];
-  // const columns = [
-  //   {
-  //     field: "id",
-  //     headerName: "Id",
-  //     width: 30,
-  //     flex: 0.5,
-  //     headerClassName: "custom-header",
-  //   },
 
-  //   {
-  //     field: "Name",
-  //     headerName: "Name",
-  //     width: 130,
-  //     flex: 1,
-  //     headerClassName: "custom-header",
-  //   },
-  //   {
-  //     field: "Mobile No",
-  //     headerName: "Mobile No",
-  //     width: 90,
-  //     flex: 1,
-  //     headerClassName: "custom-header",
-  //   },
-  //   {
-  //     field: "Email",
-  //     headerName: "Email",
-  //     // type: "number",
-  //     width: 130,
-  //     flex: 1,
-  //     headerClassName: "custom-header",
-  //     // align: 'right',
-  //   },
-
-  //   {
-  //     field: "Limit",
-  //     headerName: "Limit",
-  //     // type: "number",
-  //     width: 90,
-  //     flex: 1,
-  //     headerClassName: "custom-header",
-  //   },
-  //   {
-  //     field: "Country",
-  //     headerName: "Country",
-  //     // type: "number",
-  //     width: 130,
-  //     flex: 1,
-  //     headerClassName: "custom-header",
-  //   },
-  //   {
-  //     field: "Discount",
-  //     headerName: "Discount",
-  //     // type: "number",
-  //     width: 130,
-  //     flex: 1,
-  //     headerClassName: "custom-header",
-  //   },
-  //   {
-  //     field: "List",
-  //     headerName: "List",
-  //     // type: "number",
-  //     width: 130,
-  //     headerClassName: "custom-header",
-
-  //     flex: 1,
-  //     renderCell: (params) => (
-  //       <Button
-  //         className={tablestyle.btnViewMore}
-  //         sx={{ textTransform: "none" }}
-  //         // variant="contained"
-  //         // color="primary"
-  //         onClick={() => handleButtonClick(params.row)}
-  //       >
-  //         View More
-  //       </Button>
-  //     ),
-  //   },
-  //   {
-  //     field: "Action",
-  //     headerName: "Action",
-  //     // type: "number",
-  //     width: 130,
-  //     flex: 1,
-  //     headerClassName: "custom-header",
-
-  //     renderCell: (params) => (
-  //       <div style={{ display: "flex", margin: "none", gap: "7px" }}>
-  //         <span>
-  //           <img
-  //             src={EditIcon}
-  //             width={20}
-  //             onClick={() => handleEditClick(params.row)}
-  //           />
-  //         </span>
-  //         <span>
-  //           <img src={DeleteIcon} width={20} />
-  //         </span>
-  //       </div>
-  //     ),
-  //   },
-  // ];
   const handleButtonClick = (row) => {
     console.log("Button clicked for:", row);
     // Perform desired action with the row data
@@ -422,7 +290,7 @@ const UserSuperMaster = () => {
     console.log("Edit Button clicked for id:", row);
     // Perform desired action with the row data
   };
-
+ 
   // CSS styles
   const styles = `
 .custom-header {
@@ -527,7 +395,7 @@ const UserSuperMaster = () => {
             </div>
             <div className={tablestyle.addButton}>
               <Button sx={{ textTransform: "none" }} onClick={handleOpen}>
-                + Add Master
+                + Add Game
               </Button>
             </div>
           </div>
@@ -720,4 +588,4 @@ const UserSuperMaster = () => {
     </>
   );
 };
-export default UserSuperMaster;
+export default Game;

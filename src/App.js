@@ -5,18 +5,18 @@ import Test from "./components/Test/Test";
 import TurnoverReport from "./components/TurnoverReport/TurnoverReport";
 import WinLossReport from "./components/WinLossReport/WinLossReport";
 import TransactionReport from "./components/TransactionReport/TransactionReport";
-
-
+import Game from "./components/Game/Game";
 
 function App() {
   return (
     <div className="App">
-  {/* <TurnoverReport/>
-     */}
-     {/* <TransactionReport/> */}
-     {/* <WinLossReport/> */}
+      {/* <TurnoverReport/>
+       */}
+      {/* <TransactionReport/> */}
+      {/* <WinLossReport/> */}
       <BrowserRouter>
-<HomePage/>
+        <HomePage/>
+        {/* <Game /> */}
       </BrowserRouter>
     </div>
   );
