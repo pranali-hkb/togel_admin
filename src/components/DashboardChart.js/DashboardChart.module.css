@@ -3,14 +3,36 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    justify-content: space-around !important;
+    background-color:blue;
+    /* margin:2% 0 2% 0; */
   }
   .innersection {
-    /* display: flex; */
-    width: 100%;
+    background-color:rgb(149, 149, 208);
+    display: flex;
+    width:95%;
     background-color: #F4F4F4;
-   margin: 2% 0 2% 0;
-    justify-content: space-around !important;
+align-items: center;
+    justify-content: space-between !important;
+  }
+
+  .Charts1{
+    background-color:yellow;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Charts2{
+    /* background-color: green; */
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .CustomizeBarChart,.CustomizedPieChart{
+
+    background-color: #ffffff;
+    /* padding: 0 1% 0 1% ; */
   }
   .turnoverChart_section {
     /* width: 60%; */
