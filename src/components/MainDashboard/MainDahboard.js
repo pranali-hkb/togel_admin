@@ -14,6 +14,10 @@ function MainDahboard() {
  <DashbordCards/>
  {/* <DashboardChart/> */}
 
+     <Dashboard/> 
+  
+ <DashboardChart/>
+     <RecentUserTable/> 
      {/* <RecentUserTable2 /> */}
     </div>
   )
