@@ -71,13 +71,11 @@ const DashbordCards = () => {
             </Box>
           </div>
         </div>
+      
       </div>
     </>
   );
 };
 
-<<<<<<< HEAD
+
 export default DashbordCards;
-=======
-export default DashbordCards;
->>>>>>> 28aa56995a787378382358399d653dd13809cc4c

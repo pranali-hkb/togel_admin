@@ -1,284 +1,12 @@
 .maincardsec {
-<<<<<<< HEAD
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: #2e95e7; */
-  }
-  
-  .maincardinsec {
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1% 0 1% 0;
-  }
-  
-  .cardsec {
-    width: 30%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    /* background-color: #c9cf56; */
-    padding: 1% 0 1% 0;
-  }
-  
-  .cardbg1 {
-    width: 100%;
-    background: url("../../assets/images/profile/cardbg.png"),
-      linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%) !important;
-    /* box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36); */
-    border-radius: 5px;
-    text-align: left;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-position: left top !important;
-    /* height: 200px; */
-  
-    position: relative !important;
-  }
-  .cardbg2 {
-    width: 100%;
-    background: linear-gradient(270deg, #2e95e7 14.04%, #84c3f7 93.18%);
-    /* drop-shadow-red */
-    /* box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36); */
-    border-radius: 5px;
-  
-    text-align: left;
-    /* height: 200px; */
-    box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36) !important;
-    position: relative !important;
-  }
-  .cardbg3 {
-    width: 100%;
-  
-    background: linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%);
-    /* drop-shadow-red */
-  
-    /* box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36); */
-    border-radius: 5px;
-  
-    text-align: left;
-    /* height: 200px; */
-    box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36) !important;
-    position: relative !important;
-  }
-  
-  .cardheading {
-    padding-top: 10%;
-    font-weight: 700 !important;
-    font-size: 28px !important;
-    line-height: 140% !important;
-    color: #fff !important;
-    padding-left: 5%;
-  }
-  
-  .subhead {
-    padding-top: 4%;
-    font-weight: 500 !important;
-    font-size: 20px !important;
-    line-height: 140% !important;
-    color: #fff !important;
-    padding-left: 5%;
-  }
-  
-  .counterhead {
-    padding-top: 4%;
-    font-weight: 700 !important;
-    font-size: 18px !important;
-    line-height: 140% !important;
-    color: #fff !important;
-    padding-left: 5%;
-  }
-  .supermastericon {
-    width: 55px;
-    height: 55px;
-    border-radius: 12px;
-    background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    position: absolute;
-    left: 22%;
-    top: calc(0px + 32px);
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .mastericon {
-    width: 55px;
-    height: 55px;
-    border-radius: 12px;
-    background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    position: absolute;
-    left: 50%;
-    top: calc(0px + 32px);
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .usericon {
-    width: 55px;
-    height: 55px;
-    border-radius: 12px;
-    background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    position: absolute;
-    left: 77%;
-    top: calc(0px + 32px);
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  @media screen and (max-width: 1024px) {
-    .supermastericon {
-      width: 45px;
-      height: 45px;
-      left: 22%;
-      top: calc(0px + 28px);
-    }
-    .mastericon {
-      width: 45px;
-      height: 45px;
-      left: 50%;
-      top: calc(0px + 28px);
-    }
-    .usericon {
-      width: 45px;
-      height: 45px;
-      left: 77%;
-      top: calc(0px + 28px);
-    }
-    .maincardinsec {
-      width: 80%;
-    }
-  
-    .cardheading {
-      font-size: 20px !important;
-    }
-  
-    .subhead {
-      font-size: 18px !important;
-    }
-  
-    .counterhead {
-      font-size: 16px !important;
-    }
-  }
-  
-  @media screen and (max-width: 768px) {
-    .supermastericon {
-      width: 42px;
-      height: 42px;
-      left: 19%;
-      top: calc(0px + 28px);
-    }
-    .mastericon {
-      width: 42px;
-      height: 42px;
-      left: 50%;
-      top: calc(0px + 28px);
-    }
-    .usericon {
-      width: 42px;
-      height: 42px;
-      left: 82%;
-      top: calc(0px + 28px);
-    }
-    .maincardinsec {
-      width: 90%;
-    }
-  
-    .cardheading {
-      font-size: 18px !important;
-    }
-  
-    .subhead {
-      font-size: 16px !important;
-    }
-  
-    .counterhead {
-      font-size: 15px !important;
-    }
-  }
-  
-  /* mobile */
-  @media screen and (max-width: 500px) {
-    .maincardinsec {
-      flex-direction: column !important;
-    }
-    .cardsec {
-      width: 100% !important;
-      margin-top: 3%;
-    }
-    .supermastericon {
-      width: 45px;
-      height: 45px;
-      left: 49%;
-      top: calc(0px + 28px);
-    }
-    .mastericon {
-      width: 45px;
-      height: 45px;
-      left: 50%;
-      top: calc(0px + 220px);
-    }
-    .usericon {
-      width: 45px;
-      height: 45px;
-      left: 51%;
-      top: calc(0px + 415px);
-    }
-  }
-  
-  @media screen and (max-width: 500px) {
-    .supermastericon {
-      width: 45px;
-      height: 45px;
-      left: 49%;
-      top: calc(0px + 29px);
-    }
-    .mastericon {
-      width: 45px;
-      height: 45px;
-      left: 50%;
-      top: calc(0px + 210px);
-    }
-    .usericon {
-      width: 45px;
-      height: 45px;
-      left: 51%;
-      top: calc(0px + 390px);
-    }
-  }
-  
-  /* 375 icon none */
-  /* mobile */
-  @media screen and (max-width: 320px) {
-    .supermastericon {
-      display: none;
-    }
-    .mastericon {
-      display: none;
-    }
-    .usericon {
-      display: none;
-    }
-  }
-=======
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: #2e95e7; */
 }
 
 .maincardinsec {
-  width: 80%;
+  width: 98%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -286,51 +14,39 @@
 }
 
 .cardsec {
-  width: 30%;
+  width: 32%;
   display: flex;
   justify-content: start;
   align-items: center;
-  /* background-color: #c9cf56; */
   padding: 1% 0 1% 0;
 }
 
 .cardbg1 {
   width: 100%;
-  background: url("../../assets/images/profile/cardbg.png"),
-    linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%) !important;
-  /* box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36); */
+  /* background: url("../../assets/images/profile/cardbg.png"),
+    linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%) !important; */
+  background: linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%);
   border-radius: 5px;
   text-align: left;
   background-size: cover !important;
   background-repeat: no-repeat !important;
-  background-position: left top !important;
-  /* height: 200px; */
+  /* background-position:  right center !important; */
 
   position: relative !important;
 }
 .cardbg2 {
   width: 100%;
   background: linear-gradient(270deg, #2e95e7 14.04%, #84c3f7 93.18%);
-  /* drop-shadow-red */
-  /* box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36); */
   border-radius: 5px;
-
   text-align: left;
-  /* height: 200px; */
   box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36) !important;
   position: relative !important;
 }
 .cardbg3 {
   width: 100%;
-
   background: linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%);
-  /* drop-shadow-red */
-
-  /* box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36); */
   border-radius: 5px;
-
   text-align: left;
-  /* height: 200px; */
   box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36) !important;
   position: relative !important;
 }
@@ -368,8 +84,8 @@
   background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   position: absolute;
-  left: 22%;
-  top: calc(0px + 32px);
+  left: 34%;
+  top: calc(0px + 152px);
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
@@ -382,8 +98,8 @@
   background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   position: absolute;
-  left: 50%;
-  top: calc(0px + 32px);
+  left: 59%;
+  top: calc(0px + 152px);
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
@@ -396,8 +112,8 @@
   background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   position: absolute;
-  left: 77%;
-  top: calc(0px + 32px);
+  left: 84%;
+  top: calc(0px + 152px);
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
@@ -408,23 +124,23 @@
   .supermastericon {
     width: 45px;
     height: 45px;
-    left: 22%;
-    top: calc(0px + 28px);
+    left: 41% !important;
+    top: calc(0px + 19%) !important;
   }
   .mastericon {
     width: 45px;
     height: 45px;
-    left: 50%;
-    top: calc(0px + 28px);
+    left: 63% !important;
+    top: calc(0px + 128px) !important;
   }
   .usericon {
     width: 45px;
     height: 45px;
-    left: 77%;
-    top: calc(0px + 28px);
+    left: 86% !important;
+    top: calc(0px + 129px) !important;
   }
   .maincardinsec {
-    width: 80%;
+    width: 100%;
   }
 
   .cardheading {
@@ -442,25 +158,35 @@
 
 @media screen and (max-width: 768px) {
   .supermastericon {
-    width: 42px;
-    height: 42px;
-    left: 19%;
-    top: calc(0px + 28px);
+    width: 35px !important;
+    height: 35px !important;
+    left: 49% !important;
+    top: calc(0px + 123px) !important;
+  }
+  .supermastericon img {
+    width: 25px !important;
   }
   .mastericon {
-    width: 42px;
-    height: 42px;
-    left: 50%;
-    top: calc(0px + 28px);
+    width: 35px !important;
+    height: 35px !important;
+    left: 68% !important;
+    top: calc(0px + 128px) !important;
+  }
+  .mastericon img {
+    width: 25px !important;
   }
   .usericon {
-    width: 42px;
-    height: 42px;
-    left: 82%;
-    top: calc(0px + 28px);
+    width: 35px !important;
+    height: 35px !important;
+    left: 88% !important;
+    top: calc(0px + 128px) !important;
+  }
+
+  .usericon img {
+    width: 25px !important;
   }
   .maincardinsec {
-    width: 90%;
+    width: 100%;
   }
 
   .cardheading {
@@ -483,46 +209,25 @@
   }
   .cardsec {
     width: 100% !important;
-    margin-top: 3%;
+    margin-top: 2%;
   }
   .supermastericon {
     width: 45px;
     height: 45px;
-    left: 49%;
-    top: calc(0px + 28px);
+    left: 49% !important;
+    top: calc(0px + 122px) !important;
   }
   .mastericon {
     width: 45px;
     height: 45px;
-    left: 50%;
-    top: calc(0px + 220px);
+    left: 49% !important;
+    top: calc(0px + 310px) !important;
   }
   .usericon {
     width: 45px;
     height: 45px;
-    left: 51%;
-    top: calc(0px + 415px);
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .supermastericon {
-    width: 45px;
-    height: 45px;
-    left: 49%;
-    top: calc(0px + 29px);
-  }
-  .mastericon {
-    width: 45px;
-    height: 45px;
-    left: 50%;
-    top: calc(0px + 210px);
-  }
-  .usericon {
-    width: 45px;
-    height: 45px;
-    left: 51%;
-    top: calc(0px + 390px);
+    left: 49% !important;
+    top: calc(0px + 495px) !important;
   }
 }
 
@@ -539,4 +244,3 @@
     display: none;
   }
 }
->>>>>>> 28aa56995a787378382358399d653dd13809cc4c

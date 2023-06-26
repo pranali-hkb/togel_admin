@@ -45,6 +45,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import { useLocation } from "react-router-dom";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import { green } from "@mui/material/colors";
 // import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 
 const drawerWidth = 280;
@@ -321,13 +322,13 @@ function HomePage(props) {
             sx={{
               pl: 7,
               backgroundColor:
-                location.pathname === "/gamesetting"
+                location.pathname === "/game"
                   ? "#E3F5F"
                   : "transparent",
               color: location.pathname === "/homepage" ? "darkblue" : "inherit",
             }}
-            onClick={() => navigate("/gamesetting")}
-            selected={location.pathname === "/gamesetting"}
+            onClick={() => navigate("/game")}
+            selected={location.pathname === "/game"}
           >
             <ListItemText
               className={appstyle.menunavtext}
@@ -596,7 +597,7 @@ function HomePage(props) {
           {/* icon on app bar */}
 
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex", marginTop: "30px" } }}>
+          <Box sx={{ display: { xs: "none", md: "flex",  marginTop: "30px" } }}>
             <Search className={appstyle.search}>
               <SearchIconWrapper>
                 <SearchIcon />
@@ -630,6 +631,7 @@ function HomePage(props) {
             </IconButton>
 
             <Menu
+            sx={{color:'green'}}
               anchorEl={mobileMoreAnchorEl}
               anchorOrigin={{
                 vertical: "top",
@@ -645,7 +647,7 @@ function HomePage(props) {
               onClose={handleMobileMenuClose}
             >
               {/* menuitem code for mobile */}
-              <MenuItem>
+              <MenuItem >
                 <IconButton
                   size="large"
                   aria-label="show 4 new mails"
@@ -682,7 +684,10 @@ function HomePage(props) {
                 <p>Profile</p>
               </MenuItem>
             </Menu>
-            <Box sx={{ display: { xs: "flex", md: "none" } }}>
+      
+          </Box>
+
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="show more"
@@ -693,7 +698,6 @@ function HomePage(props) {
             >
               <MoreIcon sx={{ color: "red" }} />
             </IconButton>
-          </Box>
           </Box>
        
           {/*  */}
