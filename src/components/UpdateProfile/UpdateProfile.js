@@ -13,7 +13,7 @@ import worldicon from "../../assets/images/UpdateProfileIcons/worldicon.svg";
 import yaunicon from "../../assets/images/UpdateProfileIcons/yaunicon.svg";
 import { Box } from "@mui/material";
 import PercentIcon from "@mui/icons-material/Percent";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
 const UpdateProfile = () => {
@@ -110,73 +110,78 @@ const UpdateProfile = () => {
           <div className={profilestyle.boxSec}>
             <div className={profilestyle.boxSecLeftsec}>
               <div className={profilestyle.btnSection}>
-              <div className={profilestyle.btnSection1}>
-                <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',}}>
-                  <img src={TWOD} alt=""/>
-                </Box>
-                
+                <div className={profilestyle.btnSection1}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img src={TWOD} alt="" />
+                  </Box>
                 </div>
                 <div className={profilestyle.btnSection2}>
-                <TextField
-                  id="outlined-number"
-                  label="Enter %"
-                  //   type="number"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
+                  <TextField
+                    id="outlined-number"
+                    label="Enter %"
+                    //   type="number"
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
                 </div>
                 <div className={profilestyle.btnSection3}>
-                <TextField
-                  id="outlined-number"
-                  label="Enter IDR"
-                  //   type="number"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
+                  <TextField
+                    id="outlined-number"
+                    label="Enter IDR"
+                    //   type="number"
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
                 </div>
-            
               </div>
             </div>
             <div className={profilestyle.boxSecRightsec}>
-            <div className={profilestyle.btnSection}>
-              <div className={profilestyle.btnSection1}>
-                <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',}}>
-                  <img src={ThreeD} alt=""/>
-                </Box>
-                
+              <div className={profilestyle.btnSection}>
+                <div className={profilestyle.btnSection1}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img src={ThreeD} alt="" />
+                  </Box>
                 </div>
                 <div className={profilestyle.btnSection2}>
-                <TextField
-                  id="outlined-number"
-                  label="Enter %"
-                  //   type="number"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
+                  <TextField
+                    id="outlined-number"
+                    label="Enter %"
+                    //   type="number"
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
                 </div>
                 <div className={profilestyle.btnSection3}>
-                <TextField
-                  id="outlined-number"
-                  label="Enter IDR"
-                  //   type="number"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
+                  <TextField
+                    id="outlined-number"
+                    label="Enter IDR"
+                    //   type="number"
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
                 </div>
-            
               </div>
             </div>
-           
-          
           </div>
-          
+
           {/* ******************************************************************* */}
         </div>
-        
       </div>
     </>
   );
