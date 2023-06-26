@@ -6,9 +6,9 @@ import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
 function App() {
   return (
     <div className="App">
-    <UpdateProfile/>
-      <BrowserRouter>
-        {/* <HomePage /> */}
+
+      <BrowserRouter> 
+        <HomePage />
       </BrowserRouter>
     </div>
   );
