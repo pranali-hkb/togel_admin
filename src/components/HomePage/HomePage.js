@@ -302,13 +302,13 @@ function HomePage(props) {
             sx={{
               pl: 7,
               backgroundColor:
-                location.pathname === "/maindashboard"
+                location.pathname === "/supermasterprofileupdate"
                   ? "#E3F5F"
                   : "transparent",
               color: location.pathname === "/homepage" ? "darkblue" : "inherit",
             }}
-            onClick={() => navigate("/maindashboard")}
-            selected={location.pathname === "/maindashboard"}
+            onClick={() => navigate("/supermasterprofileupdate")}
+            selected={location.pathname === "/supermasterprofileupdate"}
           >
             <ListItemText className={appstyle.menunavtext}>
               <PersonIcon sx={{ pt: 1 }}></PersonIcon> Profile Update

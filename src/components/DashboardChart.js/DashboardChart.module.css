@@ -1,100 +1,59 @@
 .mainsec {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color:blue;
-    /* margin:2% 0 2% 0; */
-  }
-  .innersection {
-    background-color:rgb(149, 149, 208);
-    display: flex;
-    width:95%;
-    background-color: #F4F4F4;
-align-items: center;
-    justify-content: space-between !important;
-  }
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.innersection {
+  display: flex;
+  width: 100%;
+  height: 500px;
+  align-items: center;
+  justify-content: space-between !important;
+  /* padding: 2% 0% 2% 0%; */
+}
 
-  .Charts1{
-    background-color:yellow;
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .Charts2{
-    /* background-color: green; */
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .CustomizeBarChart,.CustomizedPieChart{
-
-    background-color: #ffffff;
-    /* padding: 0 1% 0 1% ; */
-  }
-  .turnoverChart_section {
-    /* width: 60%; */
-    background: #FFFFFF;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    
-    /* margin: 4%; */
-    height: 100%;
-    
-  }
-  .turnoverChart_section h3{
-    text-align: left;
-    padding-left: 10%;
-  }
-  .monthlyChart_section {
-    /* width: 40%; */
-    background: #FFFFFF;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    /* margin: 4%; */
-    height: 100%;
-    /* width: 80% !important; */
-    /* height: 60% !important; */
-  }
-  /* .recharts-responsive-container{
-    width: 80% !important;
-   
-  } */
-  .ParentMonthlyPercentage{
-    padding: 10px 20px;
-  }
-  .monthlyPercentage{
-    display: flex;
-    justify-content: space-between;
-   
-  }
-  .monthlyColor{
-    display: flex;
-    justify-content: space-between;
-    gap :10px
-  }
-  .colorCircle{
-    width: 30px;
-    height: 30px;
-    background-color: #9C80D9;
-    border-radius: 50%;
-  }
-  /* .colorCircle2{
-    width: 30px;
-    height: 30px;
-    background-color: #9C80D9;
-    border-radius: 50%;
-  }
-  .colorCircle3{
-    width: 30px;
-    height: 30px;
-    background-color: #9C80D9;
-    border-radius: 50%;
-  } */
-  .agentText,.agentPercentage{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.Charts1 {
+  height: 520px;
+  width: 59%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.Charts2 {
+  height: 520px;
+  width: 39%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.CustomizeBarChart {
+  background-color: #ffffff;
+  padding: 2% 7% 7% 7%;
+  border-radius: 2%;
+}
+.CustomizeBarChart h1 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: #313035;
+  text-align: center;
+}
+.CustomizePaiChart {
+  background-color: #ffffff;
+  padding: 4% 7% 7% 7%;
+  border-radius: 2%;
+}
+.CustomizePaiChart h1 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: #313035;
+  text-align: center;
+}
