@@ -23,7 +23,7 @@ const RoutesPages = () => {
           <Route exact path="/dashboard" element={<MainDahboard/>} />
           <Route path="/supermaster" element={<SuperMaster />} />
           <Route path="/usersupermaster" element={<UserSuperMaster />} />
-          <Route path="/game" element={<Game />} />
+          <Route path="/gamesettting" element={<GameSetting />} />
           <Route path="/master" element={<Master />} />
           <Route path="/agent" element={<Agent />} />
           <Route path="/reports" element={<Reports />} />

@@ -1,0 +1,66 @@
+.Container {
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 15px !important;
+  padding: 0 40px 40px 40px;
+
+}
+.ParentContainer {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+.txtHeader {
+  text-align: center;
+  color: #90168c;
+  font-size: 30px;
+  font-weight: 700;
+}
+.leftContainer {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  
+}
+.rightContainer {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+.btnRadioSection {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dimentionSection {
+  color: #90168c;
+  font-weight: 800 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 7px;
+  font-size: 10px !important;
+  
+}
+.btnRadio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+}
+.imageSection {
+  width: 14%;
+}
+.discountSection {
+  display: flex;
+}
+.txtField {
+  width: 35%;
+}
+/* for tab */
+
+@media screen and (max-width: 1024px) {
+  
+
+}

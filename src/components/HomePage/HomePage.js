@@ -322,13 +322,13 @@ function HomePage(props) {
             sx={{
               pl: 7,
               backgroundColor:
-                location.pathname === "/game"
+                location.pathname === "/gamesettting"
                   ? "#E3F5F"
                   : "transparent",
               color: location.pathname === "/homepage" ? "darkblue" : "inherit",
             }}
-            onClick={() => navigate("/game")}
-            selected={location.pathname === "/game"}
+            onClick={() => navigate("/gamesettting")}
+            selected={location.pathname === "/gamesettting"}
           >
             <ListItemText
               className={appstyle.menunavtext}
