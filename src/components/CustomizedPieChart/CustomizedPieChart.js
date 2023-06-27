@@ -38,16 +38,17 @@ const CustomizedPieChart = () => {
     };
   
     return (
-      <PieChart width={400} height={400}>
+      <PieChart width={460} height={350} >
         <Pie
           data={data}
           dataKey="value"
           cx={200}
-          cy={200}
+          cy={160}
           labelLine={false}
           label={renderCustomizedLabel}
           outerRadius={140}
           fill="#8884d8"
+       
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />

@@ -65,19 +65,19 @@ const CustomizeBarChart = () => {
   return (
     <>
       <BarChart
-        width={600}
-        height={300}
+        width={610}
+        height={340}
         data={dataTurnover}
         margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
+          top: 50,
+          right: 20,
+          left: 2,
+          bottom: 2,
         }}
         padding={{
-          left: 40,
+          left: 20,
 
-          right: 40,
+          right: 20,
         }}
         barSize={20}
       >

@@ -1,21 +1,21 @@
 .outersec {
   width: 100%;
-  height: 745px;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
   /* background-color: rgb(255, 255, 255); */
 }
 .innerSec {
-  width: 80%;
-  height: 320px;
+  width: 95%;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
-   background-color: rgb(242, 242, 242); 
-  border-radius: 10px;
-  box-shadow: 0px 4px 15px rgba(33, 33, 33, 0.25);
-
+  /* background-color: rgb(242, 242, 242);  */
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(33, 33, 33, 0.25);
+  background-color: rgb(241, 241, 241);
   flex-direction: column;
 }
 
@@ -33,6 +33,7 @@
   flex-direction: column;
   justify-content: right;
   align-items: center;
+
   /* background-color: rgb(246, 143, 224); */
 }
 .boxSecRightsec {
@@ -41,12 +42,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: left;
+
   /* background-color: rgb(234, 197, 77); */
 }
 .boxcontainer {
   width: 100%;
   display: flex;
   justify-content: space-around;
+  margin-top: 4%;
   /* background-color: rgb(110, 228, 181); */
 }
 .box1 {
@@ -59,57 +62,120 @@
   width: 50%;
   display: flex;
 }
-.btnSection{
+.btnSection {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: 70px;
 }
-.btnSection1{
+.btnSection1 {
   display: flex;
- width: 10%;
- 
+  width: 10%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.btnSection2{
+.btnSection2 {
   display: flex;
- width: 40%;
- 
+  width: 40%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.btnSection3{
+.btnSection3 {
   display: flex;
- width: 40%;
- 
+  width: 40%;
+}
+
+.buttonsec {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8%;
+}
+.resetbtn {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.savebtn {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .TextField {
   width: 98%;
-  border: 1px soli#ececec !important;
-  border-radius: 8px;
   margin-top: 5%;
 }
 .inputtxt {
   font-family: "Poppins" !important;
   font-style: normal !important;
-  font-weight: 700 !important;
-  font-size: 16px !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
   color: #924ac2 !important;
 }
 .loginbox {
   border: none !important;
-  background: #d8fcff !important;
-  border: 1px solid #ececec !important;
-  border-radius: 8px;
+  /* background: #d8fcff !important; */
 }
 
-/* <FormControl className={profilestyle.TextField}>
-<InputLabel className={profilestyle.inputtxt}>
-  <span style={{ width: "10px", m: "2" }}>
-    <img src={profileicon} width={15} /> Name
-  </span>
-</InputLabel>
-<OutlinedInput
-  size=""
-  className={profilestyle.loginbox}
-  // value={email}
-  // onChange={(e) => setEmail(e.target.value)}
-  label="super Admin"
-/>
-</FormControl> */
+@media screen and (max-width: 1024px) {
+  .btnSection {
+    justify-content: space-between;
+
+    height: 70px;
+  }
+  .btnSection1 {
+    width: 15%;
+  }
+  .btnSection2 {
+    width: 40%;
+  }
+  .btnSection3 {
+    width: 40%;
+  }
+
+  .buttonsec {
+    justify-content: space-around !important;
+  }
+  .resetbtn {
+    width: 45%;
+  }
+
+  .savebtn {
+    width: 45%;
+  }
+}
+
+/* ****768******** */
+@media screen and (max-width: 768px) {
+  .innerSec {
+    width: 95%;
+    height: 600px;
+  }
+  .boxSec {
+    width: 95%;
+    height: 500px;
+
+    flex-direction: column;
+  }
+  .boxSecLeftsec {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .boxSecRightsec {
+    width: 100%;
+    flex-direction: column;
+  }
+  .boxcontainer {
+    margin-top: 5%;
+  }
+  .buttonsec {
+    justify-content: space-around !important;
+  }
+}

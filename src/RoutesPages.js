@@ -13,7 +13,7 @@ import TurnoverReport from './components/TurnoverReport/TurnoverReport'
 import WinlossReport from './components/WinLossReport/WinLossReport'
 import GameSetting from './components/GameSetting/GameSetting'
 import Game from './components/Game/Game'
-
+import UpdateProfile from './components/UpdateProfile/UpdateProfile'
 const RoutesPages = () => {
   return (
     <div>
@@ -31,6 +31,7 @@ const RoutesPages = () => {
           <Route path="/turnoverreport" element={<TurnoverReport />} />
           <Route path="/winlossreport" element={<WinlossReport/>} />
           <Route path="/logout" element={<Logout />} />
+          <Route path='/supermasterprofileupdate' element={<UpdateProfile/>}/>
         </Routes>
     </div>
   )

@@ -11,12 +11,14 @@ import phoneicon from "../../assets/images/UpdateProfileIcons/phoneicon.svg";
 import profileicon from "../../assets/images/UpdateProfileIcons/profileicon.svg";
 import worldicon from "../../assets/images/UpdateProfileIcons/worldicon.svg";
 import yaunicon from "../../assets/images/UpdateProfileIcons/yaunicon.svg";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import PercentIcon from "@mui/icons-material/Percent";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
 const UpdateProfile = () => {
+
+
   return (
     <>
       <div className={profilestyle.outersec}>
@@ -30,25 +32,27 @@ const UpdateProfile = () => {
                   </span>
                 </InputLabel>
                 <OutlinedInput
-                  size=""
-                  className={profilestyle.loginbox}
+                
                   // value={email}
                   // onChange={(e) => setEmail(e.target.value)}
-                  label="super Admin"
+                  label="Name"
                 />
               </FormControl>
-              <FormControl className={profilestyle.TextField}>
+              <FormControl
+                className={profilestyle.TextField}
+                sx={{ marginTop: "4%" }}
+              >
                 <InputLabel className={profilestyle.inputtxt}>
                   <span style={{ width: "10px", m: "2" }}>
-                    <img src={profileicon} width={15} /> Name
+                    <img src={phoneicon} width={15} /> Phone
                   </span>
                 </InputLabel>
                 <OutlinedInput
                   size=""
-                  className={profilestyle.loginbox}
+                
                   // value={email}
                   // onChange={(e) => setEmail(e.target.value)}
-                  label="super Admin"
+                  label="Phone"
                 />
               </FormControl>
             </div>
@@ -56,15 +60,15 @@ const UpdateProfile = () => {
               <FormControl className={profilestyle.TextField}>
                 <InputLabel className={profilestyle.inputtxt}>
                   <span style={{ width: "10px", m: "2" }}>
-                    <img src={profileicon} width={15} /> Name
+                    <img src={gmailicon} width={15} /> Email
                   </span>
                 </InputLabel>
                 <OutlinedInput
                   size=""
-                  className={profilestyle.loginbox}
+                
                   // value={email}
                   // onChange={(e) => setEmail(e.target.value)}
-                  label="super Admin"
+                  label="Email"
                 />
               </FormControl>
 
@@ -73,15 +77,15 @@ const UpdateProfile = () => {
                   <FormControl className={profilestyle.TextField}>
                     <InputLabel className={profilestyle.inputtxt}>
                       <span style={{ width: "10px", m: "2" }}>
-                        <img src={profileicon} width={15} /> Name
+                        <img src={worldicon} width={15} /> City
                       </span>
                     </InputLabel>
                     <OutlinedInput
                       size=""
-                      className={profilestyle.loginbox}
+                    
                       // value={email}
                       // onChange={(e) => setEmail(e.target.value)}
-                      label="super Admin"
+                      label="City"
                     />
                   </FormControl>
                 </div>
@@ -89,15 +93,14 @@ const UpdateProfile = () => {
                   <FormControl className={profilestyle.TextField}>
                     <InputLabel className={profilestyle.inputtxt}>
                       <span style={{ width: "10px", m: "2" }}>
-                        <img src={profileicon} width={15} /> Name
+                        <img src={yaunicon} width={15} /> Country
                       </span>
                     </InputLabel>
                     <OutlinedInput
-                      size=""
-                      className={profilestyle.loginbox}
+                    
                       // value={email}
                       // onChange={(e) => setEmail(e.target.value)}
-                      label="super Admin"
+                      label="Country"
                     />
                   </FormControl>
                 </div>
@@ -113,21 +116,41 @@ const UpdateProfile = () => {
                 <div className={profilestyle.btnSection1}>
                   <Box
                     sx={{
+                      borderRadius: "5px",
+                      backgroundColor: "#fff",
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
+                      padding: "4px",
+                      marginTop: {
+                        xs: "10px",      
+                        sm: "20px",      
+                        md: "5px",     
+                        lg: "20px",      
+                         
+                      }, 
+                 
+                      background:
+                      "linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%)",
+                    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                     }}
                   >
-                    <img src={TWOD} alt="" />
+                    <img src={TWOD} alt="" style={{width:'25px'}} />
                   </Box>
+                 <Typography sx={{paddingTop:'4px',color:'#924ac2'}}> 2D</Typography>
                 </div>
                 <div className={profilestyle.btnSection2}>
                   <TextField
                     id="outlined-number"
                     label="Enter %"
+                    size="small"
                     //   type="number"
                     InputLabelProps={{
-                      shrink: true,
+                      style: {
+                        fontSize: "14px",
+                        color: "#441a61",
+                        fontweight: "600",
+                      },
                     }}
                   />
                 </div>
@@ -135,9 +158,14 @@ const UpdateProfile = () => {
                   <TextField
                     id="outlined-number"
                     label="Enter IDR"
+                    size="small"
                     //   type="number"
                     InputLabelProps={{
-                      shrink: true,
+                      style: {
+                        fontSize: "14px",
+                        color: "#441a61",
+                        fontweight: "600",
+                      },
                     }}
                   />
                 </div>
@@ -148,21 +176,40 @@ const UpdateProfile = () => {
                 <div className={profilestyle.btnSection1}>
                   <Box
                     sx={{
+                      borderRadius: "5px",
+                      backgroundColor: "#fff",
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
+                      padding: "4px",
+                      marginTop: {
+                        xs: "10px",      
+                        sm: "20px",      
+                        md: "5px",     
+                        lg: "20px",      
+                         
+                      }, 
+                      background:
+                        "linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%)",
+                      boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                     }}
                   >
-                    <img src={ThreeD} alt="" />
+                    <img src={ThreeD} alt=""  style={{width:'25px'}}  />
                   </Box>
+                  <Typography sx={{paddingTop:'4px',color:'#924ac2'}}> 3D</Typography>
                 </div>
                 <div className={profilestyle.btnSection2}>
                   <TextField
                     id="outlined-number"
                     label="Enter %"
+                    size="small"
                     //   type="number"
                     InputLabelProps={{
-                      shrink: true,
+                      style: {
+                        fontSize: "14px",
+                        color: "#441a61",
+                        fontweight: "600",
+                      },
                     }}
                   />
                 </div>
@@ -170,13 +217,33 @@ const UpdateProfile = () => {
                   <TextField
                     id="outlined-number"
                     label="Enter IDR"
+                    size="small"
                     //   type="number"
                     InputLabelProps={{
-                      shrink: true,
+                      style: {
+                        fontSize: "14px",
+                        color: "#441a61",
+                        fontweight: "600",
+                      },
                     }}
                   />
                 </div>
               </div>
+
+              {/* btn start */}
+
+              <div className={profilestyle.buttonsec}>
+                <div className={profilestyle.resetbtn}>
+                  {" "}
+                  <Button variant="contained" sx={{width:"150px", backgroundColor:"red"}}>Reset</Button>
+                </div>
+                <div className={profilestyle.savebtn}>
+                  {" "}
+                  <Button variant="contained" sx={{width:"150px", backgroundColor:"blue"}}>Save</Button>
+                </div>
+              </div>
+
+              {/* btn end */}
             </div>
           </div>
 
