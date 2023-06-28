@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, MenuItem, Select, Typography } from "@mui/material";
 import React, { useState } from "react";
 import gamestyle from "./GameSetting.module.css";
 import Radio from "@mui/material/Radio";
@@ -10,16 +10,39 @@ import ThreeD from "../../assets/images/UpdateProfileIcons/3D.svg";
 import TextField from "@mui/material/TextField";
 const GameSetting = () => {
   const [type, setType] = useState("2D");
-
+  const [activeStatus, setActiveStatus] = useState("ALL");
+  const handleChange = (event) => {
+    setActiveStatus(event.target.value);
+  };
   console.log("type=>", type);
   return (
     <>
       <Box>
         <div className={gamestyle.Container}>
-          <h3 className={gamestyle.txtHeader}>Game Setting</h3>
+          <h3 className={gamestyle.txtHeader}>
+            Game Setting (Discount & Prize)
+          </h3>
+            <div>
+              <FormControl sx={{ minWidth: 300 }}>
+                <Select
+                  labelId="demo-simple-select-autowidth-label"
+                  id="demo-simple-select-autowidth"
+                  size="small"
+                  value={activeStatus}
+                  onChange={handleChange}
+                  // autoWidth
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
+                >
+                  
+                  <MenuItem value="ALL">All</MenuItem>
+                  <MenuItem value="TRUE">User1</MenuItem>
+                  <MenuItem value="FALSE">User2</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
           <div className={gamestyle.ParentContainer}>
             <div className={gamestyle.leftContainer}>
-              
               <div className={gamestyle.btnRadioSection}>
                 <div className={gamestyle.btnRadio}>
                   <FormControl>
@@ -460,7 +483,7 @@ const GameSetting = () => {
                     <img src={ThreeD} alt="" />
                   </Box>
                   <Typography className={gamestyle.dimentionSection}>
-                  Free Bet
+                    Free Bet
                   </Typography>
                 </div>
                 <div className={gamestyle.txtField}>
@@ -540,7 +563,7 @@ const GameSetting = () => {
                     <img src={ThreeD} alt="" />
                   </Box>
                   <Typography className={gamestyle.dimentionSection}>
-                  Free Bet 2D
+                    Free Bet 2D
                   </Typography>
                 </div>
                 <div className={gamestyle.txtField}>
@@ -640,6 +663,10 @@ const GameSetting = () => {
                         fontSize: "14px",
                         color: "#924AC2 ",
                         // fontWeight:"600"
+                        "@media (max-width: 1024px)": {
+                          // Adjust the font size for screen width up to 400px
+                          fontSize: "10px",
+                        },
                       },
                     }}
                   />
@@ -749,11 +776,11 @@ const GameSetting = () => {
                     <RadioGroup
                       aria-labelledby="demo-controlled-radio-buttons-group"
                       name="controlled-radio-buttons-group"
-                      value="ZODIAC"
+                      value={type}
                       onChange={(e) => setType(e.currentTarget.value)}
                     >
                       <FormControlLabel
-                        // value="female"
+                        value="ZODIAC"
                         control={<Radio />}
                         // label="Female"
                       />

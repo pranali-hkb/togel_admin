@@ -61,6 +61,14 @@
 /* for tab */
 
 @media screen and (max-width: 1024px) {
-  
+  .ParentContainer{
+    flex-direction: column;
+  }
+.leftContainer,.rightContainer{
+  width: 100%;
+}
+.txtHeader{
+  font-size: 19px;
+}
 
 }

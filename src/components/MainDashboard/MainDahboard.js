@@ -10,7 +10,7 @@ function MainDahboard() {
     <div>
       <DashbordCards />
       <DashboardChart />
-      {/* <RecentUserTable /> */}
+      <RecentUserTable />
     </div>
   );
 }

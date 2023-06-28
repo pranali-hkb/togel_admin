@@ -17,50 +17,94 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import loginusericon from "../../assets/images/profile/loginusericon.svg";
 import passwardkeyicon from "../../assets/images/profile/passwardkeyicon.svg";
 import Checkbox from "@mui/material/Checkbox";
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-
+import { styled } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
+import axios from "axios";
+import config from "../../config";
+import { useNavigate } from 'react-router-dom';
 const Item = styled(Paper)(({ theme }) => ({
   // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
   padding: theme.spacing(2),
-  textAlign: 'center',
+  textAlign: "center",
   color: theme.palette.text.secondary,
 }));
 function LoginPage() {
-  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+  // const [email, setEmail] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-  const handleLogin = async (e) => {
-    e.preventDefault(); // Prevent form submission from refreshing the page
+  // const handleLogin = async (e) => {
+  //   e.preventDefault(); // Prevent form submission from refreshing the page
 
-    console.log(email, password);
+  // console.log("username and password", username, password);
 
-    // Replace the API endpoint and request body with your actual login logic
-    fetch("https://dummyjson.com/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        username: email,
-        password: password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // Assuming the response contains a token or some other indication of successful login
-        if (data.token) {
-          // Save user info to local storage
-          localStorage.setItem("user-info", JSON.stringify(data));
+  // Replace the API endpoint and request body with your actual login logic
+  // fetch("https://dummyjson.com/auth/login", {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify({
+  //     username: username,
+  //     password: password,
+  //   }),
+  // })
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     // Assuming the response contains a token or some other indication of successful login
+  //     if (data.token) {
+  //       // Save user info to local storage
+  //       localStorage.setItem("user-info", JSON.stringify(data));
 
-          // Update the login status
-          setIsLoggedIn(true);
-        }
+  //       // Update the login status
+  //       setIsLoggedIn(true);
+  //     }
+  //   })
+  //   .catch((error) => {
+  //     // Handle login error
+  //     console.error("Login failed:", error);
+  //   });
+
+  //   
+  // };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (username != "" && password != "") {
+      sendData();
+    } else {
+      console.log("Please fill All Fields! ");
+    }
+  };
+
+  const sendData = () => {
+    const data = {
+      username: username,
+      password: password,
+    };
+    console.log("save data==>", data);
+    axios
+      .post(`${config.serverUrl}/auth/login`, data)
+      .then(function (response) {
+        console.log("response=>", response);
+        let adminInformation = response.data.data;
+        console.log("adminInformation=>",adminInformation)
+        if (response.data.token) {
+                // Save user info to local storage
+                localStorage.setItem("user-info", btoa(JSON.stringify(response.data)));
+                setIsLoggedIn(true);
+                // Update the login status
+                // setIsLoggedIn(true);
+                // navigate(<HomePage />);
+              }
+        // if(response.status === 200){
+        //   navigate(<HomePage />);
+        // }
       })
-      .catch((error) => {
-        // Handle login error
-        console.error("Login failed:", error);
+      .catch(function (e) {
+        console.log("error=>", e);
       });
   };
 
@@ -72,6 +116,8 @@ function LoginPage() {
       console.log("Login Successful");
       setIsLoggedIn(true);
     }
+
+   
   }, []);
 
   if (isLoggedIn) {
@@ -90,7 +136,7 @@ function LoginPage() {
         spacing={2}
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
       >
-        <Grid sm={6} md={6}  sx={{sm:{display:'none'}}}>
+        <Grid sm={6} md={6} sx={{ sm: { display: "none" } }}>
           <img
             src={logintodashboard}
             alt="loginImg"
@@ -98,7 +144,9 @@ function LoginPage() {
           />
         </Grid>
         <Grid sm={6} md={3} className={loginPageStyle.formSec}>
-          <Typography variant="h1" className={loginPageStyle.logintxt}>Login</Typography>
+          <Typography variant="h1" className={loginPageStyle.logintxt}>
+            Login
+          </Typography>
 
           <form onSubmit={handleLogin}>
             <FormControl className={loginPageStyle.TextField}>
@@ -108,11 +156,10 @@ function LoginPage() {
                 </span>
               </InputLabel>
 
-
               <OutlinedInput
                 className={loginPageStyle.loginbox}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={username}
+                onChange={(e) => setUserName(e.target.value)}
                 label="super Admin"
               />
             </FormControl>
@@ -148,7 +195,7 @@ function LoginPage() {
             </div>
             <Button
               type="submit"
-              variant="contained" 
+              variant="contained"
               size="large"
               className={loginPageStyle.SignInBtn}
               sx={{ width: "100%" }}
@@ -159,8 +206,6 @@ function LoginPage() {
         </Grid>
       </Grid>
     </Box>
-
-
   );
 }
 

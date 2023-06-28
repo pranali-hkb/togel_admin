@@ -1,0 +1,111 @@
+
+
+
+
+
+
+.MyProfileMain{
+    width: 100%;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+}
+.MyProfileSecondMain{
+    width: 85%;
+  
+}
+.MyProfileSecondMain h2{
+    margin-top: 5%;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 23px;
+    color: #585858;
+    margin-bottom: 5%;
+    
+    
+}
+
+.firstTextfield{
+    width: 614px;
+    height: 68px;
+    max-width: 100%;
+    margin-top: 1%;
+}
+.firstTextSecond {
+    width: 614px;
+    height: 80px; /* Updated height value */
+    max-width: 100%;
+    margin-top: 2%;
+    display: block;
+  }
+  .buttonWithPadding {
+    padding-left: 10px;
+    padding-right: 20px;
+  }
+  .modalTextfield{
+    margin-top: 2%;
+    width: 100%;
+    padding: 4% 0;
+    text-indent: 10px;
+    margin: 2% 0;
+    border-radius: 4px;
+    border: 1px solid #D4D5D9 !important;
+    
+  }
+ 
+  .modalBox input:focus{
+    border: 1px solid #D4D5D9 !important;
+    border-radius: 4px;
+    
+  }
+  .firstModals input:focus{
+    border: 1px solid #D4D5D9 !important;
+ 
+    
+  }
+  .thirdModal input:focus{
+    border: 1px solid #D4D5D9 !important;
+  }
+
+  .firstModals h3{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 23px;
+    color: #282C3F;
+  }
+
+  .firstModals h4{
+    font-size: 14px;
+    line-height: 23px;
+    color: #282C3F;
+    margin-top: 3%;
+  }
+  .firstModals h5{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 23px;
+    color: #282C3F;
+    margin-top: 3%;
+  }
+.thirdModal h5{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 23px;
+    color: #282C3F;
+    margin-top: 3%;
+}
+.thirdModal h6{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 23px;
+    color: #282C3F;
+    margin-top: 3%;
+}
+
+.css-sox5kk-MuiBackdrop-root {
+  background-color: transparent !important;
+  backdrop-filter: blur(10px);
+  
+}
+
