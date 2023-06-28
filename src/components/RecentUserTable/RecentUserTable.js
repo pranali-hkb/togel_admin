@@ -1,13 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-// import Table from "@mui/material/Table";
-// import TableBody from "@mui/material/TableBody";
-// import TableCell from "@mui/material/TableCell";
-// import TableContainer from "@mui/material/TableContainer";
-// import TableHead from "@mui/material/TableHead";
-// import TableRow from "@mui/material/TableRow";
-// import Paper from "@mui/material/Paper";
-// import { Avatar, Box } from "@mui/material";
+
 import profileicon from "../../assets/images/profile/user.png";
 import tablestyle from "./RecentUserTable.module.css";
 import axios from "axios";
@@ -22,28 +15,30 @@ const RecentUserTable = () => {
   const [userDataTable, setUserDataTable] = useState([]);
 
   //-----------------Get API---------------------//
-  // const acessToken = localStorage.getItem('user-token');
-  // console.log("acessToken",acessToken)
+
   const getUserData = async () => {
 
     try {
-      // const acessToken = localStorage.getItem('user-token');
-      // console.log("acessToken",acessToken)
-      // if(acessToken){
-      //   const decryptedState = atob(acessToken);
-      //   console.log("decryptedState token=>",decryptedState);
-      // }
-      const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/photos"
-        // "http://51.79.177.218:8181/api/admin/user/super-master/list"
-      );
-      console.log("response=>", response.data);
-      setUserDataTable(response.data);
+      const  accessToken = localStorage.getItem('user-token');
+      console.log("accessToken",accessToken)
+      if(accessToken){
+        const response = await axios.get(
+          // "https://jsonplaceholder.typicode.com/photos"
+          "http://51.79.177.218:8181/api/admin/user/super-master/list",
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`
+            }
+          }
+        );
+        console.log("response=>", response.data);
+        setUserDataTable(response.data.data);
+      }
     } catch (e) {
       console.log("error=>", e);
     }
   };
-
+console.log("userDataTable",userDataTable)
   useEffect(() => {
     getUserData();
   }, []);
@@ -57,25 +52,25 @@ const RecentUserTable = () => {
       headerClassName: "custom-header",
       
     },
-    {
-      field: "thumbnailUrl",
-      headerName: "Image",
-      renderCell: (params) => {
-        // console.log("inmages->", params);
-        return (
-          <span>
-            <Avatar sx={{ width: 40, height: 40 }}>
-              <img src={params.row.thumbnailUrl} alt="Your Image" />
-            </Avatar>
-          </span>
-        );
-      },
-      width: 150,
-      flex: 1,
-      headerClassName: "custom-header",
-    },
-    { field: "title", headerName: "First name", width: 130, flex: 1 ,headerClassName: "custom-header",},
-    { field: "url", headerName: "Last name", width: 130, flex: 1 ,headerClassName: "custom-header",},
+    // {
+    //   field: "thumbnailUrl",
+    //   headerName: "Image",
+    //   renderCell: (params) => {
+    //     // console.log("inmages->", params);
+    //     return (
+    //       <span>
+    //         <Avatar sx={{ width: 40, height: 40 }}>
+    //           <img src={params.row.thumbnailUrl} alt="Your Image" />
+    //         </Avatar>
+    //       </span>
+    //     );
+    //   },
+    //   width: 150,
+    //   flex: 1,
+    //   headerClassName: "custom-header",
+    // },
+    { field: "username", headerName: "First name", width: 130, flex: 1 ,headerClassName: "custom-header",},
+    { field: "email", headerName: "Last name", width: 130, flex: 1 ,headerClassName: "custom-header",},
     // {
     //   field: "albumId",
     //   headerName: "Age",

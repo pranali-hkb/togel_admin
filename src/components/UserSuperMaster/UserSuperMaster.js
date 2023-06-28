@@ -109,11 +109,21 @@ const UserSuperMaster = () => {
 
   const getGameData = async () => {
     try {
+      const  accessToken = localStorage.getItem('user-token');
+      console.log("accessToken",accessToken)
+      if(accessToken){
       const response = await axios.get(
-        "http://51.79.177.218/togel-app-v1.0/togle/public/api/admin/setting/game"
+        // "http://51.79.177.218/togel-app-v1.0/togle/public/api/admin/setting/game"
+        "http://51.79.177.218:8181/api/admin/user/super-master/list",
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`
+          }
+        }
       );
-      console.log("Game Response=>", response.data.data.data);
-      setGameData(response.data.data.data);
+      console.log("Game Response=>", response.data.data);
+      setGameData(response.data.data);
+      }
     } catch (e) {
       console.log("error=>", e);
     }
@@ -218,8 +228,50 @@ const UserSuperMaster = () => {
     },
 
     {
-      field: "game_name",
-      headerName: "Game Name",
+      field: "name",
+      headerName: "Name",
+      width: 130,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "contact_number",
+      headerName: "Contact Number",
+      width: 130,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "email",
+      headerName: "Email",
+      width: 130,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "ac_balance",
+      headerName: "Limits",
+      width: 130,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "email",
+      headerName: "Email",
+      width: 130,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "email",
+      headerName: "Email",
+      width: 130,
+      flex: 1,
+      headerClassName: "custom-header",
+    },
+    {
+      field: "email",
+      headerName: "Email",
       width: 130,
       flex: 1,
       headerClassName: "custom-header",
@@ -467,7 +519,7 @@ const UserSuperMaster = () => {
                   // className={`${tablestyle.btnMaster} ${deletedStatus ? tablestyle.active : ''}`}
                   onClick={handleNonDeleted}
                 >
-                  Master
+                  Super Master
                 </Button>
                 <Button
                   sx={{
