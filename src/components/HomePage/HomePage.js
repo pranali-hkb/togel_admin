@@ -39,14 +39,25 @@ import agentprofile from "../../assets/images//profile/agentprofile.svg";
 import reportprofile from "../../assets/images//profile/reportprofile.svg";
 import logoutprofile from "../../assets/images//profile/logoutprofile.svg";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { Settings } from "@mui/icons-material";
+import { Person2Rounded, ReportOffOutlined, Settings } from "@mui/icons-material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import PersonIcon from "@mui/icons-material/Person";
 import { useLocation } from "react-router-dom";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { green } from "@mui/material/colors";
-// import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
+import Person4OutlinedIcon from '@mui/icons-material/Person4Outlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined';
+import SettingsSuggestOutlinedIcon from '@mui/icons-material/SettingsSuggestOutlined';
+import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import BatchPredictionOutlinedIcon from '@mui/icons-material/BatchPredictionOutlined';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import ReceiptLongOutlinedIcon from '@mui/icons-material/ReceiptLongOutlined';
+import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
+import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
 
 const drawerWidth = 280;
 
@@ -232,7 +243,8 @@ function HomePage(props) {
         >
           <ListItemIcon sx={{ color: "#fff" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
-              <img src={logoutprofile} alt="" />
+              {/* <img src={logoutprofile} alt="" /> */}
+              <GridViewOutlinedIcon sx={{color:"#642483"}}></GridViewOutlinedIcon>
             </Avatar>
           </ListItemIcon>
 
@@ -268,8 +280,9 @@ function HomePage(props) {
           }}
         >
           <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar>
-              <img src={supermasterprofile} alt="" />
+            <Avatar sx={{ backgroundColor: "#fff" }}>
+              {/* <img src={supermasterprofile} alt="" /> */}
+              <Person4OutlinedIcon sx={{color:"#642483"}}></Person4OutlinedIcon>
             </Avatar>
           </ListItemIcon>
           <ListItemText
@@ -363,7 +376,7 @@ function HomePage(props) {
               }}
               className={appstyle.menunavtext}
             >
-              <PersonIcon
+              <BadgeOutlinedIcon
                 sx={{
                   pt: 1,
                   color:
@@ -371,7 +384,7 @@ function HomePage(props) {
                       ? "orange"
                       : "#fff",
                 }}
-              ></PersonIcon>{" "}
+              ></BadgeOutlinedIcon>{" "}
               Profile Update
             </ListItemText>
           </ListItemButton>
@@ -439,8 +452,10 @@ function HomePage(props) {
           }}
         >
           <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar>
-              <img src={supermasterprofile} alt="" />
+            <Avatar sx={{backgroundColor:'#fff'}}>
+              {/* <img src={masterprofile} alt="" /> */}
+              <PersonOutlineOutlinedIcon sx={{color:"#642483"}}></PersonOutlineOutlinedIcon>
+
             </Avatar>
           </ListItemIcon>
           <ListItemText
@@ -533,7 +548,7 @@ function HomePage(props) {
               }}
               className={appstyle.menunavtext}
             >
-              <PersonIcon
+              <BadgeOutlinedIcon
                 sx={{
                   pt: 1,
                   color:
@@ -541,7 +556,7 @@ function HomePage(props) {
                       ? "orange"
                       : "#fff",
                 }}
-              ></PersonIcon>{" "}
+              ></BadgeOutlinedIcon>{" "}
               Profile Update
             </ListItemText>
           </ListItemButton>
@@ -609,8 +624,9 @@ function HomePage(props) {
           }}
         >
           <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar>
-              <img src={supermasterprofile} alt="" />
+            <Avatar sx={{backgroundColor:"#fff"}}>
+              {/* <img src={agentprofile} alt="" /> */}
+              <PeopleAltOutlinedIcon sx={{color:"#642483"}}></PeopleAltOutlinedIcon>
             </Avatar>
           </ListItemIcon>
           <ListItemText
@@ -670,7 +686,7 @@ function HomePage(props) {
                       : "#fff",
                 }}
               ></PersonIcon>{" "}
-              User Master
+              User Agent
             </ListItemText>
           </ListItemButton>
         </List>
@@ -703,7 +719,7 @@ function HomePage(props) {
               }}
               className={appstyle.menunavtext}
             >
-              <PersonIcon
+              <BadgeOutlinedIcon
                 sx={{
                   pt: 1,
                   color:
@@ -711,7 +727,7 @@ function HomePage(props) {
                       ? "orange"
                       : "#fff",
                 }}
-              ></PersonIcon>{" "}
+              ></BadgeOutlinedIcon>{" "}
               Profile Update
             </ListItemText>
           </ListItemButton>
@@ -776,8 +792,9 @@ function HomePage(props) {
           }}
         >
           <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar>
-              <img src={supermasterprofile} alt="" />
+            <Avatar sx={{ backgroundColor: "#fff" }}>
+              {/* <img src={reportprofile} alt="" /> */}
+              <SummarizeOutlinedIcon sx={{color:"#642483"}}></SummarizeOutlinedIcon>
             </Avatar>
           </ListItemIcon>
           <ListItemText
@@ -828,13 +845,13 @@ function HomePage(props) {
               }}
               className={appstyle.menunavtext}
             >
-              <DescriptionOutlinedIcon
+              <AssessmentOutlinedIcon
                 sx={{
                   pt: 1,
                   color:
                     location.pathname === "/turnoverreport" ? "orange" : "#fff",
                 }}
-              ></DescriptionOutlinedIcon>{" "}
+              ></AssessmentOutlinedIcon>{" "}
               TurnoverReport
             </ListItemText>
           </ListItemButton>
@@ -865,13 +882,13 @@ function HomePage(props) {
               }}
               className={appstyle.menunavtext}
             >
-              <DescriptionOutlinedIcon
+              <ReceiptOutlinedIcon
                 sx={{
                   pt: 1,
                   color:
                     location.pathname === "/winlossreport" ? "orange" : "#fff",
                 }}
-              ></DescriptionOutlinedIcon>{" "}
+              ></ReceiptOutlinedIcon>{" "}
               Win Loss Report
             </ListItemText>
           </ListItemButton>
@@ -904,7 +921,7 @@ function HomePage(props) {
               }}
               className={appstyle.menunavtext}
             >
-              <DescriptionOutlinedIcon
+              <ReceiptLongOutlinedIcon
                 sx={{
                   pt: 1,
                   color:
@@ -912,7 +929,7 @@ function HomePage(props) {
                       ? "orange"
                       : "#fff",
                 }}
-              ></DescriptionOutlinedIcon>{" "}
+              ></ReceiptLongOutlinedIcon>{" "}
               Transaction Report
             </ListItemText>
           </ListItemButton>
@@ -939,7 +956,8 @@ function HomePage(props) {
         >
           <ListItemIcon sx={{ color: "#fff" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
-              <img src={logoutprofile} alt="" />
+              {/* <img src={logoutprofile} alt="" /> */}
+              <ExitToAppOutlinedIcon sx={{color:"#642483"}}></ExitToAppOutlinedIcon>
             </Avatar>
           </ListItemIcon>
 
@@ -954,6 +972,44 @@ function HomePage(props) {
           </ListItemText>
         </ListItemButton>
       </ListItem>
+
+
+      <ListItem disablePadding>
+        <ListItemButton
+          ref={userButtonRef}
+          sx={{
+            "&:hover": {
+              backgroundColor: "#642483",
+              color: "#642483",
+            },
+            "&:focus": {
+              backgroundColor: "#642483",
+              color: "#642483",
+            },
+          }}
+          onClick={() => navigate("/prediction")}
+          selected={location.pathname === "/prediction"}
+        >
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <Avatar sx={{ backgroundColor: "#fff" }}>
+              {/* <img src={logoutprofile} alt="" /> */}
+              <BatchPredictionOutlinedIcon  sx={{color:"#642483"}}></BatchPredictionOutlinedIcon>
+            </Avatar>
+          </ListItemIcon>
+
+          <ListItemText
+            sx={{
+              WebkitTextFillColor:
+                location.pathname === "/prediction" ? "orange" : "#fff",
+            }}
+            className={appstyle.navtext}
+          >
+          Prediction 
+          </ListItemText>
+        </ListItemButton>
+      </ListItem>
+
+
 
       <Divider sx={{ borderColor: "#fff", mt: 5 }}></Divider>
     </div>
