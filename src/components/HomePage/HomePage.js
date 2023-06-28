@@ -57,8 +57,8 @@ function HomePage(props) {
   const toggleDrawer = (open) => (event) => {
     if (
       event &&
-      event.type === 'keydown' &&
-      (event.key === 'Tab' || event.key === 'Shift')
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
     ) {
       return;
     }
@@ -66,15 +66,14 @@ function HomePage(props) {
     setIsOpen(open);
   };
 
-
   const [openUser, setOpenUser] = useState(false);
   const userButtonRef = useRef();
-  const [openSuperMaster, setOpenSuperMaster] = React.useState(true);
-  const [openMaster, setOpenMaster] = React.useState(true);
-  const [openAgent, setOpenAgent] = React.useState(true);
-  const [openReports, setOpenReports] = React.useState(true);
-  const location = useLocation();
+  const [openSuperMaster, setOpenSuperMaster] = React.useState(false);
+  const [openMaster, setOpenMaster] = React.useState(false);
+  const [openAgent, setOpenAgent] = React.useState(false);
+  const [openReports, setOpenReports] = React.useState(false);
 
+  const location = useLocation();
   const handleSuperMasterClick = () => {
     setOpenSuperMaster(!openSuperMaster);
   };
@@ -89,13 +88,13 @@ function HomePage(props) {
   const handleReportsClick = () => {
     setOpenReports(!openReports);
   };
-  // active listitem color
+
+  // active list item color
   const activeTab = (route) => {
     return {
-      color: "#1095FF", // Change this to the desired active tab color
+      backgroundColor: "#1095FF", // Change this to the desired active tab color
     };
   };
-
   const [openContent, setOpenContent] = React.useState(true);
 
   const navigate = useNavigate();
@@ -215,18 +214,37 @@ function HomePage(props) {
           </ListItem>
         </div>
       </div>
-      <ListItem
-        disablePadding
-        sx={{ pt: 4 }}
-        onClick={() => navigate("/dashboard")}
-      >
-        <ListItemButton sx={{ color: openUser ? "#E3F5F" : "transparent" }}>
+      <ListItem disablePadding sx={{ pt: 4 }}>
+        <ListItemButton
+          ref={userButtonRef}
+          sx={{
+            "&:hover": {
+              backgroundColor: "#642483",
+              color: "#642483",
+            },
+            "&:focus": {
+              backgroundColor: "#642483",
+              color: "#642483",
+            },
+          }}
+          onClick={() => navigate("/dashboard")}
+          selected={location.pathname === "/dashboard"}
+        >
           <ListItemIcon sx={{ color: "#fff" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
-              <img src={dashboardprofile} alt="" />
+              <img src={logoutprofile} alt="" />
             </Avatar>
           </ListItemIcon>
-          <ListItemText className={appstyle.navtext}>Dashboard</ListItemText>
+
+          <ListItemText
+            sx={{
+              WebkitTextFillColor:
+                location.pathname === "/dashboard" ? "orange" : "#fff",
+            }}
+            className={appstyle.navtext}
+          >
+            Dashboard
+          </ListItemText>
         </ListItemButton>
       </ListItem>
       {/* // **************SuperMaster Start******************* */}
@@ -238,19 +256,19 @@ function HomePage(props) {
           selected={openSuperMaster}
           sx={{
             "&:hover": {
-              backgroundColor: "#c5a31d",
-              color: "#111",
+              backgroundColor: "#642483",
+              color: "#642483",
             },
             "&:focus": {
-              backgroundColor: "#c5a31d",
-              color: "#111",
+              backgroundColor: "#642483",
+              color: "#642483",
             },
-            backgroundColor: openSuperMaster ? "#c5a31d" : "transparent",
-            color: openSuperMaster ? "#c5a31d" : "inherit",
+
+            backgroundColor: openSuperMaster ? "#642483" : "transparent",
           }}
         >
           <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar sx={{ backgroundColor: "#fff" }}>
+            <Avatar>
               <img src={supermasterprofile} alt="" />
             </Avatar>
           </ListItemIcon>
@@ -259,7 +277,7 @@ function HomePage(props) {
             sx={{
               display: "flex",
               justifyContent: "start",
-              color: openSuperMaster ? "#7b809a" : "inherit",
+              WebkitTextFillColor: openSuperMaster ? "orange" : "#fff",
             }}
           >
             <span
@@ -270,7 +288,9 @@ function HomePage(props) {
               }}
             >
               Super Master
-              <KeyboardArrowDownIcon sx={{ ml: 4 }}></KeyboardArrowDownIcon>
+              <KeyboardArrowDownIcon
+                sx={{ ml: 4, color: openSuperMaster ? "orange" : "#fff" }}
+              ></KeyboardArrowDownIcon>
             </span>
           </ListItemText>
         </ListItemButton>
@@ -279,62 +299,118 @@ function HomePage(props) {
       <Collapse in={openSuperMaster} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
+            //  onClick={setHandleUserSuperMaster}
+            ref={userButtonRef}
+            // selected={openhandleUserSuperMaster}
             sx={{
               pl: 7,
-              backgroundColor:
-                location.pathname === "/usersupermaster"
-                  ? "#E3F5F"
-                  : "transparent",
-              color: location.pathname === "/homepage" ? "darkblue" : "inherit",
+              "&:hover": {
+                backgroundColor: "#642483",
+              },
+              "&:focus": {
+                backgroundColor: "#642483",
+              },
             }}
             onClick={() => navigate("/usersupermaster")}
             selected={location.pathname === "/usersupermaster"}
           >
-            <ListItemText className={appstyle.menunavtext}>
-              <PersonIcon sx={{ pt: 1 }}></PersonIcon> User Super Master
+            <ListItemText
+              sx={{
+                WebkitTextFillColor:
+                  location.pathname === "/usersupermaster" ? "orange" : "#fff",
+              }}
+              className={appstyle.menunavtext}
+            >
+              <PersonIcon
+                sx={{
+                  pt: 1,
+                  color:
+                    location.pathname === "/usersupermaster"
+                      ? "orange"
+                      : "#fff",
+                }}
+              ></PersonIcon>{" "}
+              User Super Master
             </ListItemText>
           </ListItemButton>
         </List>
       </Collapse>
+
       <Collapse in={openSuperMaster} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
+            //  onClick={setHandleUserSuperMaster}
+            ref={userButtonRef}
+            // selected={openhandleUserSuperMaster}
             sx={{
               pl: 7,
-              backgroundColor:
-                location.pathname === "/supermasterprofileupdate"
-                  ? "#E3F5F"
-                  : "transparent",
-              color: location.pathname === "/homepage" ? "darkblue" : "inherit",
+              "&:hover": {
+                backgroundColor: "#642483",
+              },
+              "&:focus": {
+                backgroundColor: "#642483",
+              },
             }}
             onClick={() => navigate("/supermasterprofileupdate")}
             selected={location.pathname === "/supermasterprofileupdate"}
           >
-            <ListItemText className={appstyle.menunavtext}>
-              <PersonIcon sx={{ pt: 1 }}></PersonIcon> Profile Update
+            <ListItemText
+              sx={{
+                WebkitTextFillColor:
+                  location.pathname === "/supermasterprofileupdate"
+                    ? "orange"
+                    : "#fff",
+              }}
+              className={appstyle.menunavtext}
+            >
+              <PersonIcon
+                sx={{
+                  pt: 1,
+                  color:
+                    location.pathname === "/supermasterprofileupdate"
+                      ? "orange"
+                      : "#fff",
+                }}
+              ></PersonIcon>{" "}
+              Profile Update
             </ListItemText>
           </ListItemButton>
         </List>
       </Collapse>
+
       <Collapse in={openSuperMaster} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
+            //  onClick={setHandleUserSuperMaster}
+            ref={userButtonRef}
+            // selected={openhandleUserSuperMaster}
             sx={{
               pl: 7,
-              backgroundColor:
-                location.pathname === "/gamesettting"
-                  ? "#E3F5F"
-                  : "transparent",
-              color: location.pathname === "/homepage" ? "darkblue" : "inherit",
+              "&:hover": {
+                backgroundColor: "#642483",
+              },
+              "&:focus": {
+                backgroundColor: "#642483",
+              },
             }}
             onClick={() => navigate("/gamesettting")}
             selected={location.pathname === "/gamesettting"}
           >
             <ListItemText
+              sx={{
+                WebkitTextFillColor:
+                  location.pathname === "/gamesettting" ? "orange" : "#fff",
+              }}
               className={appstyle.menunavtext}
-              sx={{ backgroundColor: openUser ? "#E3F5F" : "transparent" }}
             >
-              <SettingsIcon sx={{ pt: 1 }}></SettingsIcon> Settings
+              <SettingsIcon
+                sx={{
+                  pt: 1,
+                  color:
+                    location.pathname === "/gamesettting" ? "orange" : "#fff",
+                }}
+              ></SettingsIcon>{" "}
+              Game Settings
             </ListItemText>
           </ListItemButton>
         </List>
@@ -345,15 +421,35 @@ function HomePage(props) {
       {/* // **************Master Start******************* */}
 
       <ListItem disablePadding>
-        <ListItemButton onClick={handleMasterClick}>
+        <ListItemButton
+          onClick={handleMasterClick}
+          ref={userButtonRef}
+          selected={openMaster}
+          sx={{
+            "&:hover": {
+              backgroundColor: "#642483",
+              color: "#642483",
+            },
+            "&:focus": {
+              backgroundColor: "#642483",
+              color: "#642483",
+            },
+
+            backgroundColor: openMaster ? "#642483" : "transparent",
+          }}
+        >
           <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar sx={{ backgroundColor: "#fff" }}>
-              <img src={masterprofile} alt="" />
+            <Avatar>
+              <img src={supermasterprofile} alt="" />
             </Avatar>
           </ListItemIcon>
           <ListItemText
             className={appstyle.navtext}
-            sx={{ display: "flex", justifyContent: "start" }}
+            sx={{
+              display: "flex",
+              justifyContent: "start",
+              WebkitTextFillColor: openMaster ? "orange" : "#fff",
+            }}
           >
             <span
               style={{
@@ -363,45 +459,128 @@ function HomePage(props) {
               }}
             >
               Master
-              <KeyboardArrowDownIcon sx={{ ml: 10 }}></KeyboardArrowDownIcon>
+              <KeyboardArrowDownIcon
+                sx={{ ml: 10, color: openMaster ? "orange" : "#fff" }}
+              ></KeyboardArrowDownIcon>
             </span>
           </ListItemText>
         </ListItemButton>
       </ListItem>
-      <Collapse in={openSuperMaster} timeout="auto" unmountOnExit>
+      <Collapse in={openMaster} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
+            //  onClick={setHandleUserSuperMaster}
+            ref={userButtonRef}
+            // selected={openhandleUserSuperMaster}
             sx={{
               pl: 7,
-              backgroundColor:
-                location.pathname === "/maindashboard"
-                  ? "#E3F5F"
-                  : "transparent",
-              color: location.pathname === "/homepage" ? "darkblue" : "inherit",
+              "&:hover": {
+                backgroundColor: "#642483",
+              },
+              "&:focus": {
+                backgroundColor: "#642483",
+              },
             }}
-            onClick={() => navigate("/maindashboard")}
-            selected={location.pathname === "/maindashboard"}
+            onClick={() => navigate("/usersupermaster")}
+            selected={location.pathname === "/usersupermaster"}
           >
-            <ListItemText className={appstyle.menunavtext}>
-              <PersonIcon sx={{ pt: 1 }}></PersonIcon> User Master
+            <ListItemText
+              sx={{
+                WebkitTextFillColor:
+                  location.pathname === "/usersupermaster" ? "orange" : "#fff",
+              }}
+              className={appstyle.menunavtext}
+            >
+              <PersonIcon
+                sx={{
+                  pt: 1,
+                  color:
+                    location.pathname === "/usersupermaster"
+                      ? "orange"
+                      : "#fff",
+                }}
+              ></PersonIcon>{" "}
+              User Master
             </ListItemText>
           </ListItemButton>
         </List>
       </Collapse>
+
       <Collapse in={openMaster} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 7 }} onClick={() => navigate("/")}>
-            <ListItemText className={appstyle.menunavtext}>
-              <PersonIcon sx={{ pt: 1 }}></PersonIcon> Profile Update
+          <ListItemButton
+            //  onClick={setHandleUserSuperMaster}
+            ref={userButtonRef}
+            // selected={openhandleUserSuperMaster}
+            sx={{
+              pl: 7,
+              "&:hover": {
+                backgroundColor: "#642483",
+              },
+              "&:focus": {
+                backgroundColor: "#642483",
+              },
+            }}
+            onClick={() => navigate("/supermasterprofileupdate")}
+            selected={location.pathname === "/supermasterprofileupdate"}
+          >
+            <ListItemText
+              sx={{
+                WebkitTextFillColor:
+                  location.pathname === "/supermasterprofileupdate"
+                    ? "orange"
+                    : "#fff",
+              }}
+              className={appstyle.menunavtext}
+            >
+              <PersonIcon
+                sx={{
+                  pt: 1,
+                  color:
+                    location.pathname === "/supermasterprofileupdate"
+                      ? "orange"
+                      : "#fff",
+                }}
+              ></PersonIcon>{" "}
+              Profile Update
             </ListItemText>
           </ListItemButton>
         </List>
       </Collapse>
+
       <Collapse in={openMaster} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 7 }} onClick={() => navigate("/")}>
-            <ListItemText className={appstyle.menunavtext}>
-              <SettingsIcon sx={{ pt: 1 }}></SettingsIcon> Settings
+          <ListItemButton
+            //  onClick={setHandleUserSuperMaster}
+            ref={userButtonRef}
+            // selected={openhandleUserSuperMaster}
+            sx={{
+              pl: 7,
+              "&:hover": {
+                backgroundColor: "#642483",
+              },
+              "&:focus": {
+                backgroundColor: "#642483",
+              },
+            }}
+            onClick={() => navigate("/gamesettting")}
+            selected={location.pathname === "/gamesettting"}
+          >
+            <ListItemText
+              sx={{
+                WebkitTextFillColor:
+                  location.pathname === "/gamesettting" ? "orange" : "#fff",
+              }}
+              className={appstyle.menunavtext}
+            >
+              <SettingsIcon
+                sx={{
+                  pt: 1,
+                  color:
+                    location.pathname === "/gamesettting" ? "orange" : "#fff",
+                }}
+              ></SettingsIcon>{" "}
+              Game Settings
             </ListItemText>
           </ListItemButton>
         </List>
@@ -412,15 +591,35 @@ function HomePage(props) {
 {/* // **************Agent Start******************* */}
 
       <ListItem disablePadding>
-        <ListItemButton onClick={handleAgentClick}>
+        <ListItemButton
+          onClick={handleAgentClick}
+          ref={userButtonRef}
+          selected={openAgent}
+          sx={{
+            "&:hover": {
+              backgroundColor: "#642483",
+              color: "#642483",
+            },
+            "&:focus": {
+              backgroundColor: "#642483",
+              color: "#642483",
+            },
+
+            backgroundColor: openAgent ? "#642483" : "transparent",
+          }}
+        >
           <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar sx={{ backgroundColor: "#fff" }}>
-              <img src={agentprofile} alt="" />
+            <Avatar>
+              <img src={supermasterprofile} alt="" />
             </Avatar>
           </ListItemIcon>
           <ListItemText
             className={appstyle.navtext}
-            sx={{ display: "flex", justifyContent: "start" }}
+            sx={{
+              display: "flex",
+              justifyContent: "start",
+              WebkitTextFillColor: openAgent ? "orange" : "#fff",
+            }}
           >
             <span
               style={{
@@ -430,41 +629,164 @@ function HomePage(props) {
               }}
             >
               Agent
-              <KeyboardArrowDownIcon sx={{ ml: 11 }}></KeyboardArrowDownIcon>
+              <KeyboardArrowDownIcon
+                sx={{ ml: 11, color: openAgent ? "orange" : "#fff" }}
+              ></KeyboardArrowDownIcon>
             </span>
           </ListItemText>
         </ListItemButton>
       </ListItem>
       <Collapse in={openAgent} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 7 }} onClick={() => navigate("/")}>
-            <ListItemText className={appstyle.menunavtext}>
-              <PersonIcon sx={{ pt: 1 }}></PersonIcon> Profile Update
+          <ListItemButton
+            //  onClick={setHandleUserSuperMaster}
+            ref={userButtonRef}
+            // selected={openhandleUserSuperMaster}
+            sx={{
+              pl: 7,
+              "&:hover": {
+                backgroundColor: "#642483",
+              },
+              "&:focus": {
+                backgroundColor: "#642483",
+              },
+            }}
+            onClick={() => navigate("/usersupermaster")}
+            selected={location.pathname === "/usersupermaster"}
+          >
+            <ListItemText
+              sx={{
+                WebkitTextFillColor:
+                  location.pathname === "/usersupermaster" ? "orange" : "#fff",
+              }}
+              className={appstyle.menunavtext}
+            >
+              <PersonIcon
+                sx={{
+                  pt: 1,
+                  color:
+                    location.pathname === "/usersupermaster"
+                      ? "orange"
+                      : "#fff",
+                }}
+              ></PersonIcon>{" "}
+              User Master
             </ListItemText>
           </ListItemButton>
         </List>
       </Collapse>
+
       <Collapse in={openAgent} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 7 }} onClick={() => navigate("/")}>
-            <ListItemText className={appstyle.menunavtext}>
-              <SettingsIcon sx={{ pt: 1 }}></SettingsIcon> Settings
+          <ListItemButton
+            //  onClick={setHandleUserSuperMaster}
+            ref={userButtonRef}
+            // selected={openhandleUserSuperMaster}
+            sx={{
+              pl: 7,
+              "&:hover": {
+                backgroundColor: "#642483",
+              },
+              "&:focus": {
+                backgroundColor: "#642483",
+              },
+            }}
+            onClick={() => navigate("/supermasterprofileupdate")}
+            selected={location.pathname === "/supermasterprofileupdate"}
+          >
+            <ListItemText
+              sx={{
+                WebkitTextFillColor:
+                  location.pathname === "/supermasterprofileupdate"
+                    ? "orange"
+                    : "#fff",
+              }}
+              className={appstyle.menunavtext}
+            >
+              <PersonIcon
+                sx={{
+                  pt: 1,
+                  color:
+                    location.pathname === "/supermasterprofileupdate"
+                      ? "orange"
+                      : "#fff",
+                }}
+              ></PersonIcon>{" "}
+              Profile Update
+            </ListItemText>
+          </ListItemButton>
+        </List>
+      </Collapse>
+
+      <Collapse in={openAgent} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItemButton
+            //  onClick={setHandleUserSuperMaster}
+            ref={userButtonRef}
+            // selected={openhandleUserSuperMaster}
+            sx={{
+              pl: 7,
+              "&:hover": {
+                backgroundColor: "#642483",
+              },
+              "&:focus": {
+                backgroundColor: "#642483",
+              },
+            }}
+            onClick={() => navigate("/gamesettting")}
+            selected={location.pathname === "/gamesettting"}
+          >
+            <ListItemText
+              sx={{
+                WebkitTextFillColor:
+                  location.pathname === "/gamesettting" ? "orange" : "#fff",
+              }}
+              className={appstyle.menunavtext}
+            >
+              <SettingsIcon
+                sx={{
+                  pt: 1,
+                  color:
+                    location.pathname === "/gamesettting" ? "orange" : "#fff",
+                }}
+              ></SettingsIcon>{" "}
+              Game Settings
             </ListItemText>
           </ListItemButton>
         </List>
       </Collapse>
       {/* // **************Agent End******************* */}
-
+      {/* // **************Reports ******************* */}
       <ListItem disablePadding>
-        <ListItemButton onClick={handleReportsClick}>
+        <ListItemButton
+          onClick={handleReportsClick}
+          ref={userButtonRef}
+          selected={openReports}
+          sx={{
+            "&:hover": {
+              backgroundColor: "#642483",
+              color: "#642483",
+            },
+            "&:focus": {
+              backgroundColor: "#642483",
+              color: "#642483",
+            },
+
+            backgroundColor: openReports ? "#642483" : "transparent",
+          }}
+        >
           <ListItemIcon sx={{ color: "#fff" }}>
-            <Avatar sx={{ backgroundColor: "#fff" }}>
-              <img src={reportprofile} alt="" />
+            <Avatar>
+              <img src={supermasterprofile} alt="" />
             </Avatar>
           </ListItemIcon>
           <ListItemText
             className={appstyle.navtext}
-            sx={{ display: "flex", justifyContent: "start" }}
+            sx={{
+              display: "flex",
+              justifyContent: "start",
+              WebkitTextFillColor: openReports ? "orange" : "#fff",
+            }}
           >
             <span
               style={{
@@ -474,7 +796,9 @@ function HomePage(props) {
               }}
             >
               Reports
-              <KeyboardArrowDownIcon sx={{ ml: 9 }}></KeyboardArrowDownIcon>
+              <KeyboardArrowDownIcon
+                sx={{ ml: 11, color: openReports ? "orange" : "#fff" }}
+              ></KeyboardArrowDownIcon>
             </span>
           </ListItemText>
         </ListItemButton>
@@ -482,20 +806,36 @@ function HomePage(props) {
       <Collapse in={openReports} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
+            //  onClick={setHandleUserSuperMaster}
+            ref={userButtonRef}
+            // selected={openhandleUserSuperMaster}
             sx={{
               pl: 7,
-              backgroundColor:
-                location.pathname === "/turnoverreport"
-                  ? "#E3F5F"
-                  : "transparent",
-              color: location.pathname === "/homepage" ? "darkblue" : "inherit",
+              "&:hover": {
+                backgroundColor: "#642483",
+              },
+              "&:focus": {
+                backgroundColor: "#642483",
+              },
             }}
             onClick={() => navigate("/turnoverreport")}
             selected={location.pathname === "/turnoverreport"}
           >
-            <ListItemText className={appstyle.menunavtext}>
-              <DescriptionOutlinedIcon sx={{ pt: 1 }}></DescriptionOutlinedIcon>
-              Turnover Report
+            <ListItemText
+              sx={{
+                WebkitTextFillColor:
+                  location.pathname === "/turnoverreport" ? "orange" : "#fff",
+              }}
+              className={appstyle.menunavtext}
+            >
+              <DescriptionOutlinedIcon
+                sx={{
+                  pt: 1,
+                  color:
+                    location.pathname === "/turnoverreport" ? "orange" : "#fff",
+                }}
+              ></DescriptionOutlinedIcon>{" "}
+              TurnoverReport
             </ListItemText>
           </ListItemButton>
         </List>
@@ -503,19 +843,35 @@ function HomePage(props) {
       <Collapse in={openReports} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
+            //  onClick={setHandleUserSuperMaster}
+            ref={userButtonRef}
+            // selected={openhandleUserSuperMaster}
             sx={{
               pl: 7,
-              backgroundColor:
-                location.pathname === "/winlossreport"
-                  ? "#E3F5F"
-                  : "transparent",
-              color: location.pathname === "/homepage" ? "darkblue" : "inherit",
+              "&:hover": {
+                backgroundColor: "#642483",
+              },
+              "&:focus": {
+                backgroundColor: "#642483",
+              },
             }}
             onClick={() => navigate("/winlossreport")}
             selected={location.pathname === "/winlossreport"}
           >
-            <ListItemText className={appstyle.menunavtext}>
-              <DescriptionOutlinedIcon sx={{ pt: 1 }}></DescriptionOutlinedIcon>
+            <ListItemText
+              sx={{
+                WebkitTextFillColor:
+                  location.pathname === "/winlossreport" ? "orange" : "#fff",
+              }}
+              className={appstyle.menunavtext}
+            >
+              <DescriptionOutlinedIcon
+                sx={{
+                  pt: 1,
+                  color:
+                    location.pathname === "/winlossreport" ? "orange" : "#fff",
+                }}
+              ></DescriptionOutlinedIcon>{" "}
               Win Loss Report
             </ListItemText>
           </ListItemButton>
@@ -524,36 +880,78 @@ function HomePage(props) {
       <Collapse in={openReports} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
+            //  onClick={setHandleUserSuperMaster}
+            ref={userButtonRef}
+            // selected={openhandleUserSuperMaster}
             sx={{
               pl: 7,
-              backgroundColor:
-                location.pathname === "/transactionreport"
-                  ? "#E3F5F"
-                  : "transparent",
-              color: location.pathname === "/homepage" ? "darkblue" : "inherit",
+              "&:hover": {
+                backgroundColor: "#642483",
+              },
+              "&:focus": {
+                backgroundColor: "#642483",
+              },
             }}
             onClick={() => navigate("/transactionreport")}
             selected={location.pathname === "/transactionreport"}
           >
-            <ListItemText className={appstyle.menunavtext}>
-              <DescriptionOutlinedIcon sx={{ pt: 1 }}></DescriptionOutlinedIcon>
+            <ListItemText
+              sx={{
+                WebkitTextFillColor:
+                  location.pathname === "/transactionreport"
+                    ? "orange"
+                    : "#fff",
+              }}
+              className={appstyle.menunavtext}
+            >
+              <DescriptionOutlinedIcon
+                sx={{
+                  pt: 1,
+                  color:
+                    location.pathname === "/transactionreport"
+                      ? "orange"
+                      : "#fff",
+                }}
+              ></DescriptionOutlinedIcon>{" "}
               Transaction Report
             </ListItemText>
           </ListItemButton>
         </List>
       </Collapse>
 
-      {/* ********************Master End**************** */}
+      {/* ********************Logout start**************** */}
 
-      <ListItem disablePadding onClick={() => navigate("/logout")}>
-        <ListItemButton>
+      <ListItem disablePadding>
+        <ListItemButton
+          ref={userButtonRef}
+          sx={{
+            "&:hover": {
+              backgroundColor: "#642483",
+              color: "#642483",
+            },
+            "&:focus": {
+              backgroundColor: "#642483",
+              color: "#642483",
+            },
+          }}
+          onClick={() => navigate("/logout")}
+          selected={location.pathname === "/logout"}
+        >
           <ListItemIcon sx={{ color: "#fff" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
               <img src={logoutprofile} alt="" />
             </Avatar>
           </ListItemIcon>
 
-          <ListItemText className={appstyle.navtext}>Logout</ListItemText>
+          <ListItemText
+            sx={{
+              WebkitTextFillColor:
+                location.pathname === "/logout" ? "orange" : "#fff",
+            }}
+            className={appstyle.navtext}
+          >
+            Logout
+          </ListItemText>
         </ListItemButton>
       </ListItem>
 
@@ -587,7 +985,7 @@ function HomePage(props) {
             onClick={handleDrawerToggle}
             sx={{
               mr: 2,
-              display: { sm: "none", },
+              display: { sm: "none" },
               color: "black",
             }}
           >
@@ -597,7 +995,7 @@ function HomePage(props) {
           {/* icon on app bar */}
 
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex",  marginTop: "30px" } }}>
+          <Box sx={{ display: { xs: "none", md: "flex", marginTop: "30px" } }}>
             <Search className={appstyle.search}>
               <SearchIconWrapper>
                 <SearchIcon />
@@ -631,7 +1029,7 @@ function HomePage(props) {
             </IconButton>
 
             <Menu
-            sx={{color:'green'}}
+              sx={{ color: "green" }}
               anchorEl={mobileMoreAnchorEl}
               anchorOrigin={{
                 vertical: "top",
@@ -647,7 +1045,7 @@ function HomePage(props) {
               onClose={handleMobileMenuClose}
             >
               {/* menuitem code for mobile */}
-              <MenuItem >
+              <MenuItem>
                 <IconButton
                   size="large"
                   aria-label="show 4 new mails"
@@ -684,7 +1082,6 @@ function HomePage(props) {
                 <p>Profile</p>
               </MenuItem>
             </Menu>
-      
           </Box>
 
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -699,7 +1096,7 @@ function HomePage(props) {
               <MoreIcon sx={{ color: "red" }} />
             </IconButton>
           </Box>
-       
+
           {/*  */}
         </Toolbar>
       </AppBar>
@@ -715,11 +1112,11 @@ function HomePage(props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-           keepMounted: true
-         // Better open performance on mobile.
+            keepMounted: true,
+            // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: "block", sm: "none",},
+            display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
@@ -733,7 +1130,7 @@ function HomePage(props) {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: "none", sm: "block" ,},
+            display: { xs: "none", sm: "block" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
