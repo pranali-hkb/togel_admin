@@ -22,11 +22,20 @@ const RecentUserTable = () => {
   const [userDataTable, setUserDataTable] = useState([]);
 
   //-----------------Get API---------------------//
-
+  // const acessToken = localStorage.getItem('user-token');
+  // console.log("acessToken",acessToken)
   const getUserData = async () => {
+
     try {
+      // const acessToken = localStorage.getItem('user-token');
+      // console.log("acessToken",acessToken)
+      // if(acessToken){
+      //   const decryptedState = atob(acessToken);
+      //   console.log("decryptedState token=>",decryptedState);
+      // }
       const response = await axios.get(
         "https://jsonplaceholder.typicode.com/photos"
+        // "http://51.79.177.218:8181/api/admin/user/super-master/list"
       );
       console.log("response=>", response.data);
       setUserDataTable(response.data);
@@ -52,7 +61,7 @@ const RecentUserTable = () => {
       field: "thumbnailUrl",
       headerName: "Image",
       renderCell: (params) => {
-        console.log("inmages->", params);
+        // console.log("inmages->", params);
         return (
           <span>
             <Avatar sx={{ width: 40, height: 40 }}>

@@ -90,6 +90,7 @@ function LoginPage() {
       .then(function (response) {
         console.log("response=>", response);
         let adminInformation = response.data.data;
+        localStorage.setItem("user-token",btoa(response.data.token))
         console.log("adminInformation=>",adminInformation)
         if (response.data.token) {
                 // Save user info to local storage
