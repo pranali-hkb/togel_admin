@@ -86,7 +86,7 @@ const UserSuperMaster = () => {
   const [userCountry, setUserCountry] = useState("");
   const [userLimit, setUserLimit] = useState("");
 
-  const [gameData, setGameData] = useState([]);
+  const [userData, setUserData] = useState([]);
 
   const [activeStatus, setActiveStatus] = useState("ALL");
   const [deletedStatus, setDeletedStatus] = useState(false);
@@ -107,7 +107,7 @@ const UserSuperMaster = () => {
 
   //----------------------GET API------------------------//
 
-  const getGameData = async () => {
+  const getSuperMasterList = async () => {
     try {
       const  accessToken = localStorage.getItem('user-token');
       console.log("accessToken",accessToken)
@@ -122,7 +122,7 @@ const UserSuperMaster = () => {
         }
       );
       console.log("Game Response=>", response.data.data);
-      setGameData(response.data.data);
+      setUserData(response.data.data);
       }
     } catch (e) {
       console.log("error=>", e);
@@ -130,7 +130,7 @@ const UserSuperMaster = () => {
   };
 
   useEffect(() => {
-    getGameData();
+    getSuperMasterList();
   }, []);
   //-------------------------------Table Columns---------------------------//
 
@@ -567,7 +567,7 @@ const UserSuperMaster = () => {
               }}
             >
               <DataGrid
-                rows={gameData}
+                rows={userData}
                 columns={columns}
                 autoHeight
                 initialState={{
