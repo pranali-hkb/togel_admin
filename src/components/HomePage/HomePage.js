@@ -391,6 +391,45 @@ function HomePage(props) {
         </List>
       </Collapse>
 
+
+      <Collapse in={openSuperMaster} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItemButton
+            //  onClick={setHandleUserSuperMaster}
+            ref={userButtonRef}
+            // selected={openhandleUserSuperMaster}
+            sx={{
+              pl: 7,
+              "&:hover": {
+                backgroundColor: "#642483",
+              },
+              "&:focus": {
+                backgroundColor: "#642483",
+              },
+            }}
+            onClick={() => navigate("/gamelist")}
+            selected={location.pathname === "/gamelist"}
+          >
+            <ListItemText
+              sx={{
+                WebkitTextFillColor:
+                  location.pathname === "/gamelist" ? "orange" : "#fff",
+              }}
+              className={appstyle.menunavtext}
+            >
+              <ReceiptOutlinedIcon
+                sx={{
+                  pt: 1,
+                  color:
+                    location.pathname === "/gamelist" ? "orange" : "#fff",
+                }}
+              ></ReceiptOutlinedIcon>{" "}
+              Game List
+            </ListItemText>
+          </ListItemButton>
+        </List>
+      </Collapse>
+
       <Collapse in={openSuperMaster} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton

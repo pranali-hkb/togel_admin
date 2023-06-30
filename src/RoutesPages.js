@@ -15,6 +15,7 @@ import GameSetting from './components/GameSetting/GameSetting'
 import Game from './components/Game/Game'
 import UpdateProfile from './components/UpdateProfile/UpdateProfile'
 import Prediction from './components/Prediction/Prediction'
+import GameList from './components/GameList/GameList'
 const RoutesPages = () => {
   return (
     <div>
@@ -34,6 +35,7 @@ const RoutesPages = () => {
           <Route path="/logout" element={<Logout />} />
           <Route path='/supermasterprofileupdate' element={<UpdateProfile/>}/>
           <Route path='/prediction' element={<Prediction/>}/>
+          <Route path='/gamelist' element={<GameList/>}/>
         </Routes>
     </div>
   )
