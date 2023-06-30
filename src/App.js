@@ -11,8 +11,8 @@ function App() {
     <div className="App">
 
       <BrowserRouter> 
-        {/* <HomePage /> */}
-        <LoginPage />
+        <HomePage />
+        {/* <LoginPage /> */}
         {/* <Routes>
           <Route exact path="/" element={<LoginPage/>} />
           <Route exact path="/homepage" element={<HomePage/>} />

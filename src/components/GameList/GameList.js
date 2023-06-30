@@ -3,6 +3,9 @@ import {
   Box,
   Button,
   FormControl,
+  FormControlLabel,
+  FormGroup,
+  Switch,
   Grid,
   IconButton,
   InputLabel,
@@ -30,6 +33,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import moment from "moment";
 import { styled, alpha } from "@mui/material/styles";
 import axios from "axios";
+import config from "../../config";
+import Swal from "sweetalert2";
 
 // search
 const Search = styled("div")(({ theme }) => ({
@@ -86,7 +91,8 @@ const GameList = () => {
   const [userCountry, setUserCountry] = useState("");
   const [userLimit, setUserLimit] = useState("");
 
-  const [gameData, setGameData] = useState([]);
+  const [gameTable, setGameTable] = useState([]);
+  const [gameTableUpdated, setGameTableUpdated] = useState([]);
 
   const [activeStatus, setActiveStatus] = useState("ALL");
   const [deletedStatus, setDeletedStatus] = useState(false);
@@ -94,6 +100,9 @@ const GameList = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+
+  //---------------------------------- ----------------------------------//
   const handleChange = (event) => {
     setActiveStatus(event.target.value);
   };
@@ -105,24 +114,75 @@ const GameList = () => {
   };
   // console.log("deletedStatus=>", deletedStatus);
 
+  //------------------------------IOSSwitch------------------------//
+
+
+  const IOSSwitch = styled((props) => (
+    <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+  ))(({ theme }) => ({
+    width: 42,
+    height: 26,
+    padding: 0,
+    '& .MuiSwitch-switchBase': {
+      padding: 0,
+      margin: 2,
+      transitionDuration: '300ms',
+      '&.Mui-checked': {
+        transform: 'translateX(16px)',
+        color: '#fff',
+        '& + .MuiSwitch-track': {
+          backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
+          opacity: 1,
+          border: 0,
+        },
+        '&.Mui-disabled + .MuiSwitch-track': {
+          opacity: 0.5,
+        },
+      },
+      '&.Mui-focusVisible .MuiSwitch-thumb': {
+        color: '#33cf4d',
+        border: '6px solid #fff',
+      },
+      '&.Mui-disabled .MuiSwitch-thumb': {
+        color:
+          theme.palette.mode === 'light'
+            ? theme.palette.grey[100]
+            : theme.palette.grey[600],
+      },
+      '&.Mui-disabled + .MuiSwitch-track': {
+        opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
+      },
+    },
+    '& .MuiSwitch-thumb': {
+      boxSizing: 'border-box',
+      width: 22,
+      height: 22,
+    },
+    '& .MuiSwitch-track': {
+      borderRadius: 26 / 2,
+      backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
+      opacity: 1,
+      transition: theme.transitions.create(['background-color'], {
+        duration: 500,
+      }),
+    },
+  }));
   //----------------------GET API------------------------//
 
-  const getGameData = async () => {
+  const getGameListData = async () => {
     try {
       const  accessToken = localStorage.getItem('user-token');
       console.log("accessToken",accessToken)
       if(accessToken){
-      const response = await axios.get(
-        // "http://51.79.177.218/togel-app-v1.0/togle/public/api/admin/setting/game"
-        "http://51.79.177.218:8181/api/admin/user/super-master/list",
+      const response = await axios.get(`${config.serverUrl}/admin/setting/game`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`
           }
         }
       );
-      console.log("Game Response=>", response.data.data);
-      setGameData(response.data.data);
+      console.log("Response=>", response.data.data);
+      setGameTable(response.data.data.data);
       }
     } catch (e) {
       console.log("error=>", e);
@@ -130,93 +190,29 @@ const GameList = () => {
   };
 
   useEffect(() => {
-    getGameData();
-  }, []);
+    getGameListData();
+  }, [gameTableUpdated]);
+
+ 
+ 	// --------------------------Update Status API START--------------------------------------------//
+   const updateStatus = (status, id) => {
+
+		const data = {
+			"id": id,
+			"status": status,
+			
+		}
+		console.log("status chk",status,id)
+		axios.post(`${config.serverUrl}/admin/setting/game/status/${id}`, data)
+			.then(function (response) {
+				setGameTableUpdated(response);
+				Swal.fire('Game Status Has Been Changed ', '', 'success');
+			})
+	}
+
   //-------------------------------Table Columns---------------------------//
 
-  const rows = [
-    {
-      id: 1,
-      Name: "Snow",
-      "Mobile No": "Jon",
-      Email: "abcd@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 2,
-      Name: "Lannister",
-      "Mobile No": "Cersei",
-      Email: "abcd@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 3,
-      Name: "Lannister",
-      "Mobile No": "Jaime",
-      Email: "abcd@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 4,
-      Name: "Stark",
-      "Mobile No": "Arya",
-      Email: "abcd@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 5,
-      Name: "Targaryen",
-      "Mobile No": "Daenerys",
-      Email: null,
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 6,
-      Name: "Melisandre",
-      "Mobile No": null,
-      Email: "abcd@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 7,
-      Name: "Clifford",
-      "Mobile No": "Ferrara",
-      Email: "abcd@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 8,
-      Name: "Frances",
-      "Mobile No": "Rossini",
-      Email: "abcd@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-    {
-      id: 9,
-      Name: "Roxie",
-      "Mobile No": "Harvey",
-      Email: "arshadansari.hkb@gmail.com",
-      Limit: "20,000",
-      Country: "India",
-      Discount: "10%",
-    },
-  ];
+
 
   const columns = [
     {
@@ -228,25 +224,33 @@ const GameList = () => {
     },
 
     {
-      field: "name",
+      field: "game_name",
       headerName: "Name",
       width: 130,
       flex: 1,
       headerClassName: "custom-header",
     },
     {
-      field: "contact_number",
-      headerName: "Contact Number",
+      field: "status",
+      headerName: "Status",
+      // type: "number",
       width: 130,
       flex: 1,
       headerClassName: "custom-header",
-    },
-    {
-      field: "email",
-      headerName: "Game Name",
-      width: 130,
-      flex: 1,
-      headerClassName: "custom-header",
+      renderCell: (params) =>{
+      console.log("params=>",params)
+
+      return(
+        <FormGroup>
+        <FormControlLabel
+        control={<IOSSwitch sx={{ m: 1 }} checked={params.row.status} onChange={(e)=>updateStatus
+       
+        (params.id,params.row.status)}/>}
+        
+      />
+      </FormGroup>
+      )
+    } 
     },
     {
       field: "created_at",
@@ -256,60 +260,8 @@ const GameList = () => {
       headerClassName: "custom-header",
       valueGetter: (params) => moment(params.value).format("DD/MM/YY LT"),
     },
-    // {
-    //   field: "Email",
-    //   headerName: "Email",
-    //   // type: "number",
-    //   width: 130,
-    //   flex: 1,
-    //   headerClassName: "custom-header",
-    //   // align: 'right',
-    // },
-
-    // {
-    //   field: "Limit",
-    //   headerName: "Limit",
-    //   // type: "number",
-    //   width: 90,
-    //   flex: 1,
-    //   headerClassName: "custom-header",
-    // },
-    // {
-    //   field: "Country",
-    //   headerName: "Country",
-    //   // type: "number",
-    //   width: 130,
-    //   flex: 1,
-    //   headerClassName: "custom-header",
-    // },
-    // {
-    //   field: "Discount",
-    //   headerName: "Discount",
-    //   // type: "number",
-    //   width: 130,
-    //   flex: 1,
-    //   headerClassName: "custom-header",
-    // },
-    {
-      field: "List",
-      headerName: "List",
-      // type: "number",
-      width: 130,
-      headerClassName: "custom-header",
-
-      flex: 1,
-      renderCell: (params) => (
-        <Button
-          className={tablestyle.btnViewMore}
-          sx={{ textTransform: "none" }}
-          // variant="contained"
-          // color="primary"
-          onClick={() => handleButtonClick(params.row)}
-        >
-          View More
-        </Button>
-      ),
-    },
+   
+   
     {
       field: "Action",
       headerName: "Action",
@@ -319,7 +271,7 @@ const GameList = () => {
       headerClassName: "custom-header",
 
       renderCell: (params) => (
-        console.log("params=>", params),
+        // console.log("params=>", params),
         (
           <div style={{ display: "flex", margin: "none", gap: "7px" }}>
             <span>
@@ -337,7 +289,7 @@ const GameList = () => {
       ),
     },
   ];
-  // const columns = [
+  
   //   {
   //     field: "id",
   //     headerName: "Id",
@@ -491,7 +443,7 @@ const GameList = () => {
                   // className={`${tablestyle.btnMaster} ${deletedStatus ? tablestyle.active : ''}`}
                   onClick={handleNonDeleted}
                 >
-                  Super Master
+                  Game
                 </Button>
                 <Button
                   sx={{
@@ -551,7 +503,7 @@ const GameList = () => {
             </div>
             <div className={tablestyle.addButton}>
               <Button sx={{ textTransform: "none" }} onClick={handleOpen}>
-                + Add Master
+                + Add Game
               </Button>
             </div>
           </div>
@@ -567,7 +519,7 @@ const GameList = () => {
               }}
             >
               <DataGrid
-                rows={gameData}
+                rows={gameTable}
                 columns={columns}
                 autoHeight
                 initialState={{
