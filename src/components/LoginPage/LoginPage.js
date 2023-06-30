@@ -22,6 +22,10 @@ import Paper from "@mui/material/Paper";
 import axios from "axios";
 import config from "../../config";
 import { useNavigate } from 'react-router-dom';
+import { AES, enc } from "crypto-js";
+
+
+
 const Item = styled(Paper)(({ theme }) => ({
   // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -32,6 +36,8 @@ const Item = styled(Paper)(({ theme }) => ({
 function LoginPage() {
   const navigate = useNavigate();
   // const [email, setEmail] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
+
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -72,10 +78,20 @@ function LoginPage() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username != "" && password != "") {
+    if (username !== "" && password !== "") {
       sendData();
-    } else {
-      console.log("Please fill All Fields! ");
+      if (rememberMe) {
+        const encryptedUsername = AES.encrypt(username, "secret-key").toString();
+        const encryptedPassword = AES.encrypt(password, "secret-key").toString();
+  
+        localStorage.setItem("encryptedUsername", encryptedUsername);
+        localStorage.setItem("encryptedPassword", encryptedPassword);
+      } else {
+        localStorage.removeItem("encryptedUsername");
+        localStorage.removeItem("encryptedPassword");
+      }
+    }else {
+      console.log("Please fill all fields!");
     }
   };
 
@@ -110,6 +126,20 @@ function LoginPage() {
   };
 
   useEffect(() => {
+
+    const encryptedUsername = localStorage.getItem("encryptedUsername");
+    const encryptedPassword = localStorage.getItem("encryptedPassword");
+  
+    if (encryptedUsername && encryptedPassword) {
+      const decryptedUsername = AES.decrypt(encryptedUsername, "secret-key").toString(enc.Utf8);
+      const decryptedPassword = AES.decrypt(encryptedPassword, "secret-key").toString(enc.Utf8);
+  
+      setUserName(decryptedUsername);
+      setPassword(decryptedPassword);
+      setRememberMe(true);
+    }
+
+  
     // Clear user info from local storage
     localStorage.removeItem("user-info");
 
@@ -189,7 +219,10 @@ function LoginPage() {
             <div className={loginPageStyle.newsection}>
               <p className={loginPageStyle.remembertxt}>
                 {" "}
-                <Checkbox {...label} />
+                <Checkbox {...label} 
+                 checked={rememberMe}
+                 onChange={(e) => setRememberMe(e.target.checked)}
+                 />
                 Remember me
               </p>
               <p className={loginPageStyle.forgotpwtxt}>Forgot Password?</p>
