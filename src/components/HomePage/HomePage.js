@@ -215,8 +215,8 @@ function HomePage(props) {
       >
         <div
           style={{
-            borderTop: "1px solid #fff",
-            borderBottom: "1px solid #fff",
+            borderTop: "1px solid #038fdd",
+            borderBottom: "1px solid #038fdd",
           }}
         >
           <ListItem
@@ -224,13 +224,13 @@ function HomePage(props) {
             onClick={() => navigate("/maindashboard")}
             sx={{ pl: 4, pr: 4 }}
           >
-            <ListItemButton sx={{ color: openUser ? "#fff" : "transparent" }}>
+            <ListItemButton sx={{ color: openUser ? "#038fdd" : "transparent" }}>
               <ListItemIcon sx={{ color: "white" }}>
                 <Avatar sx={{ backgroundColor: "#fff" }}>
                   <img src={userprofile} alt="" />
                 </Avatar>
               </ListItemIcon>
-              <ListItemText sx={{ color: "#fff" }}> Pranali Bos</ListItemText>
+              <ListItemText sx={{ color: "#038fdd" }}> Pranali Bos</ListItemText>
             </ListItemButton>
           </ListItem>
         </div>
@@ -241,27 +241,27 @@ function HomePage(props) {
           sx={{
             "&:hover": {
               backgroundColor: "#642483",
-              color: "#642483",
+              color: "#fa8c15",
             },
             "&:focus": {
               backgroundColor: "#642483",
-              color: "#642483",
+              color: "#fa8c15",
             },
           }}
           onClick={() => navigate("/dashboard")}
           selected={location.pathname === "/dashboard"}
         >
-          <ListItemIcon sx={{ color: "#fff" }}>
+          <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
               {/* <img src={logoutprofile} alt="" /> */}
-              <GridViewOutlinedIcon sx={{color:"#642483"}}></GridViewOutlinedIcon>
+              <GridViewOutlinedIcon sx={{color:"#fa8c15"}}></GridViewOutlinedIcon>
             </Avatar>
           </ListItemIcon>
 
           <ListItemText
             sx={{
               WebkitTextFillColor:
-                location.pathname === "/dashboard" ? "orange" : "#fff",
+                location.pathname === "/dashboard" ? "orange" : "#038fdd",
             }}
             className={appstyle.navtext}
           >
@@ -280,20 +280,20 @@ function HomePage(props) {
           sx={{
             "&:hover": {
               backgroundColor: "#642483",
-              color: "#642483",
+              color: "#fa8c15",
             },
             "&:focus": {
               backgroundColor: "#642483",
-              color: "#642483",
+              color: "#fa8c15",
             },
 
             backgroundColor: menuStates.superMaster ? "#642483" : "transparent",
           }}
         >
-          <ListItemIcon sx={{ color: "#fff" }}>
+          <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
               {/* <img src={supermasterprofile} alt="" /> */}
-              <Person4OutlinedIcon sx={{color:"#642483"}}></Person4OutlinedIcon>
+              <Person4OutlinedIcon sx={{color:"#fa8c15"}}></Person4OutlinedIcon>
             </Avatar>
           </ListItemIcon>
           <ListItemText
@@ -301,7 +301,7 @@ function HomePage(props) {
             sx={{
               display: "flex",
               justifyContent: "start",
-              WebkitTextFillColor: menuStates.superMaster ? "orange" : "#fff",
+              WebkitTextFillColor: menuStates.superMaster ? "orange" : "#038fdd",
             }}
           >
             <span
@@ -314,11 +314,11 @@ function HomePage(props) {
               Super Master
               {menuStates.superMaster ? (
               <KeyboardArrowDownIcon
-                sx={{ ml: 4, color: menuStates.superMaster ? "orange" : "#fff" }}
+                sx={{ ml: 4, color: menuStates.superMaster ? "orange" : "#038fdd" }}
               ></KeyboardArrowDownIcon>
               ) : (
               <KeyboardArrowRightIcon
-                sx={{ ml: 4, color: menuStates.superMaster ? "orange" : "#fff" }}
+                sx={{ ml: 4, color: menuStates.superMaster ? "orange" : "#038fdd" }}
               ></KeyboardArrowRightIcon>
               )}
             </span>
@@ -347,7 +347,7 @@ function HomePage(props) {
             <ListItemText
               sx={{
                 WebkitTextFillColor:
-                  location.pathname === "/usersupermaster" ? "orange" : "#fff",
+                  location.pathname === "/usersupermaster" ? "orange" : "#038fdd",
               }}
               className={appstyle.menunavtext}
             >
@@ -357,7 +357,7 @@ function HomePage(props) {
                   color:
                     location.pathname === "/usersupermaster"
                       ? "orange"
-                      : "#fff",
+                      : "#038fdd",
                 }}
               ></PersonIcon>{" "}
               User Super Master
@@ -389,7 +389,7 @@ function HomePage(props) {
                 WebkitTextFillColor:
                   location.pathname === "/supermasterprofileupdate"
                     ? "orange"
-                    : "#fff",
+                    : "#038fdd",
               }}
               className={appstyle.menunavtext}
             >
@@ -399,7 +399,7 @@ function HomePage(props) {
                   color:
                     location.pathname === "/supermasterprofileupdate"
                       ? "orange"
-                      : "#fff",
+                      : "#038fdd",
                 }}
               ></BadgeOutlinedIcon>{" "}
               Profile Update
@@ -430,7 +430,7 @@ function HomePage(props) {
             <ListItemText
               sx={{
                 WebkitTextFillColor:
-                  location.pathname === "/gamelist" ? "orange" : "#fff",
+                  location.pathname === "/gamelist" ? "orange" : "#038fdd",
               }}
               className={appstyle.menunavtext}
             >
@@ -438,7 +438,7 @@ function HomePage(props) {
                 sx={{
                   pt: 1,
                   color:
-                    location.pathname === "/gamelist" ? "orange" : "#fff",
+                    location.pathname === "/gamelist" ? "orange" : "#038fdd",
                 }}
               ></ReceiptOutlinedIcon>{" "}
               Game List
@@ -468,7 +468,7 @@ function HomePage(props) {
             <ListItemText
               sx={{
                 WebkitTextFillColor:
-                  location.pathname === "/gamesettting" ? "orange" : "#fff",
+                  location.pathname === "/gamesettting" ? "orange" : "#038fdd",
               }}
               className={appstyle.menunavtext}
             >
@@ -476,7 +476,7 @@ function HomePage(props) {
                 sx={{
                   pt: 1,
                   color:
-                    location.pathname === "/gamesettting" ? "orange" : "#fff",
+                    location.pathname === "/gamesettting" ? "orange" : "#038fdd",
                 }}
               ></SettingsIcon>{" "}
               Game Settings
@@ -497,20 +497,20 @@ function HomePage(props) {
           sx={{
             "&:hover": {
               backgroundColor: "#642483",
-              color: "#642483",
+              color: "#fa8c15",
             },
             "&:focus": {
               backgroundColor: "#642483",
-              color: "#642483",
+              color: "#fa8c15",
             },
 
             backgroundColor: menuStates.master ? "#642483" : "transparent",
           }}
         >
-          <ListItemIcon sx={{ color: "#fff" }}>
+          <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{backgroundColor:'#fff'}}>
               {/* <img src={masterprofile} alt="" /> */}
-              <PersonOutlineOutlinedIcon sx={{color:"#642483"}}></PersonOutlineOutlinedIcon>
+              <PersonOutlineOutlinedIcon sx={{color:"#fa8c15"}}></PersonOutlineOutlinedIcon>
 
             </Avatar>
           </ListItemIcon>
@@ -519,7 +519,7 @@ function HomePage(props) {
             sx={{
               display: "flex",
               justifyContent: "start",
-              WebkitTextFillColor: menuStates.master ? "orange" : "#fff",
+              WebkitTextFillColor: menuStates.master ? "orange" : "#038fdd",
             }}
           >
             <span
@@ -532,11 +532,11 @@ function HomePage(props) {
               Master
               {menuStates.master ? (
               <KeyboardArrowDownIcon
-                sx={{ ml: 10, color: menuStates.master ? "orange" : "#fff" }}
+                sx={{ ml: 10, color: menuStates.master ? "orange" : "#038fdd" }}
               ></KeyboardArrowDownIcon>
               ) : (
               <KeyboardArrowRightIcon
-                sx={{ ml: 10, color: menuStates.master ? "orange" : "#fff" }}
+                sx={{ ml: 10, color: menuStates.master ? "orange" : "#038fdd" }}
               ></KeyboardArrowRightIcon>
               )}
             </span>
@@ -564,7 +564,7 @@ function HomePage(props) {
             <ListItemText
               sx={{
                 WebkitTextFillColor:
-                  location.pathname === "/usersupermaster" ? "orange" : "#fff",
+                  location.pathname === "/usersupermaster" ? "orange" : "#038fdd",
               }}
               className={appstyle.menunavtext}
             >
@@ -574,7 +574,7 @@ function HomePage(props) {
                   color:
                     location.pathname === "/usersupermaster"
                       ? "orange"
-                      : "#fff",
+                      : "#038fdd",
                 }}
               ></PersonIcon>{" "}
               User Master
@@ -606,7 +606,7 @@ function HomePage(props) {
                 WebkitTextFillColor:
                   location.pathname === "/supermasterprofileupdate"
                     ? "orange"
-                    : "#fff",
+                    : "#038fdd",
               }}
               className={appstyle.menunavtext}
             >
@@ -616,7 +616,7 @@ function HomePage(props) {
                   color:
                     location.pathname === "/supermasterprofileupdate"
                       ? "orange"
-                      : "#fff",
+                      : "#038fdd",
                 }}
               ></BadgeOutlinedIcon>{" "}
               Profile Update
@@ -646,7 +646,7 @@ function HomePage(props) {
             <ListItemText
               sx={{
                 WebkitTextFillColor:
-                  location.pathname === "/gamesettting" ? "orange" : "#fff",
+                  location.pathname === "/gamesettting" ? "orange" : "#038fdd",
               }}
               className={appstyle.menunavtext}
             >
@@ -654,7 +654,7 @@ function HomePage(props) {
                 sx={{
                   pt: 1,
                   color:
-                    location.pathname === "/gamesettting" ? "orange" : "#fff",
+                    location.pathname === "/gamesettting" ? "orange" : "#038fdd",
                 }}
               ></SettingsIcon>{" "}
               Game Settings
@@ -675,20 +675,20 @@ function HomePage(props) {
           sx={{
             "&:hover": {
               backgroundColor: "#642483",
-              color: "#642483",
+              color: "#fa8c15",
             },
             "&:focus": {
               backgroundColor: "#642483",
-              color: "#642483",
+              color: "#fa8c15",
             },
 
             backgroundColor: menuStates.agent ? "#642483" : "transparent",
           }}
         >
-          <ListItemIcon sx={{ color: "#fff" }}>
+          <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{backgroundColor:"#fff"}}>
               {/* <img src={agentprofile} alt="" /> */}
-              <PeopleAltOutlinedIcon sx={{color:"#642483"}}></PeopleAltOutlinedIcon>
+              <PeopleAltOutlinedIcon sx={{color:"#fa8c15"}}></PeopleAltOutlinedIcon>
             </Avatar>
           </ListItemIcon>
           <ListItemText
@@ -696,7 +696,7 @@ function HomePage(props) {
             sx={{
               display: "flex",
               justifyContent: "start",
-              WebkitTextFillColor: menuStates.agent ? "orange" : "#fff",
+              WebkitTextFillColor: menuStates.agent ? "orange" : "#038fdd",
             }}
           >
             <span
@@ -709,11 +709,11 @@ function HomePage(props) {
               Agent
               {menuStates.agent ? (
               <KeyboardArrowDownIcon
-                sx={{ ml: 11, color: menuStates.agent ? "orange" : "#fff" }}
+                sx={{ ml: 11, color: menuStates.agent ? "orange" : "#038fdd" }}
               ></KeyboardArrowDownIcon>
               ) : (
               <KeyboardArrowRightIcon
-                sx={{ ml: 11, color: menuStates.agent ? "orange" : "#fff" }}
+                sx={{ ml: 11, color: menuStates.agent ? "orange" : "#038fdd" }}
               ></KeyboardArrowRightIcon>
               )}
             </span>
@@ -741,7 +741,7 @@ function HomePage(props) {
             <ListItemText
               sx={{
                 WebkitTextFillColor:
-                  location.pathname === "/usersupermaster" ? "orange" : "#fff",
+                  location.pathname === "/usersupermaster" ? "orange" : "#038fdd",
               }}
               className={appstyle.menunavtext}
             >
@@ -751,7 +751,7 @@ function HomePage(props) {
                   color:
                     location.pathname === "/usersupermaster"
                       ? "orange"
-                      : "#fff",
+                      : "#038fdd",
                 }}
               ></PersonIcon>{" "}
               User Agent
@@ -783,7 +783,7 @@ function HomePage(props) {
                 WebkitTextFillColor:
                   location.pathname === "/supermasterprofileupdate"
                     ? "orange"
-                    : "#fff",
+                    : "#038fdd",
               }}
               className={appstyle.menunavtext}
             >
@@ -793,7 +793,7 @@ function HomePage(props) {
                   color:
                     location.pathname === "/supermasterprofileupdate"
                       ? "orange"
-                      : "#fff",
+                      : "#038fdd",
                 }}
               ></BadgeOutlinedIcon>{" "}
               Profile Update
@@ -823,7 +823,7 @@ function HomePage(props) {
             <ListItemText
               sx={{
                 WebkitTextFillColor:
-                  location.pathname === "/gamesettting" ? "orange" : "#fff",
+                  location.pathname === "/gamesettting" ? "orange" : "#038fdd",
               }}
               className={appstyle.menunavtext}
             >
@@ -831,7 +831,7 @@ function HomePage(props) {
                 sx={{
                   pt: 1,
                   color:
-                    location.pathname === "/gamesettting" ? "orange" : "#fff",
+                    location.pathname === "/gamesettting" ? "orange" : "#038fdd",
                 }}
               ></SettingsIcon>{" "}
               Game Settings
@@ -849,20 +849,20 @@ function HomePage(props) {
           sx={{
             "&:hover": {
               backgroundColor: "#642483",
-              color: "#642483",
+              color: "#fa8c15",
             },
             "&:focus": {
               backgroundColor: "#642483",
-              color: "#642483",
+              color: "#fa8c15",
             },
 
             backgroundColor: menuStates.reports ? "#642483" : "transparent",
           }}
         >
-          <ListItemIcon sx={{ color: "#fff" }}>
+          <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
               {/* <img src={reportprofile} alt="" /> */}
-              <SummarizeOutlinedIcon sx={{color:"#642483"}}></SummarizeOutlinedIcon>
+              <SummarizeOutlinedIcon sx={{color:"#fa8c15"}}></SummarizeOutlinedIcon>
             </Avatar>
           </ListItemIcon>
           <ListItemText
@@ -870,7 +870,7 @@ function HomePage(props) {
             sx={{
               display: "flex",
               justifyContent: "start",
-              WebkitTextFillColor: menuStates.reports ? "orange" : "#fff",
+              WebkitTextFillColor: menuStates.reports ? "orange" : "#038fdd",
             }}
           >
             <span
@@ -883,11 +883,11 @@ function HomePage(props) {
               Reports
               {menuStates.reports ? (
               <KeyboardArrowDownIcon
-                sx={{ ml: 9, color: menuStates.reports ? "orange" : "#fff" }}
+                sx={{ ml: 9, color: menuStates.reports ? "orange" : "#038fdd" }}
               ></KeyboardArrowDownIcon>
               ) : (
               <KeyboardArrowRightIcon
-                sx={{ ml: 9, color: menuStates.reports ? "orange" : "#fff" }}
+                sx={{ ml: 9, color: menuStates.reports ? "orange" : "#038fdd" }}
               ></KeyboardArrowRightIcon>
               )}
             </span>
@@ -915,7 +915,7 @@ function HomePage(props) {
             <ListItemText
               sx={{
                 WebkitTextFillColor:
-                  location.pathname === "/turnoverreport" ? "orange" : "#fff",
+                  location.pathname === "/turnoverreport" ? "orange" : "#038fdd",
               }}
               className={appstyle.menunavtext}
             >
@@ -923,7 +923,7 @@ function HomePage(props) {
                 sx={{
                   pt: 1,
                   color:
-                    location.pathname === "/turnoverreport" ? "orange" : "#fff",
+                    location.pathname === "/turnoverreport" ? "orange" : "#038fdd",
                 }}
               ></AssessmentOutlinedIcon>{" "}
               TurnoverReport
@@ -952,7 +952,7 @@ function HomePage(props) {
             <ListItemText
               sx={{
                 WebkitTextFillColor:
-                  location.pathname === "/winlossreport" ? "orange" : "#fff",
+                  location.pathname === "/winlossreport" ? "orange" : "#038fdd",
               }}
               className={appstyle.menunavtext}
             >
@@ -960,7 +960,7 @@ function HomePage(props) {
                 sx={{
                   pt: 1,
                   color:
-                    location.pathname === "/winlossreport" ? "orange" : "#fff",
+                    location.pathname === "/winlossreport" ? "orange" : "#038fdd",
                 }}
               ></ReceiptOutlinedIcon>{" "}
               Win Loss Report
@@ -991,7 +991,7 @@ function HomePage(props) {
                 WebkitTextFillColor:
                   location.pathname === "/transactionreport"
                     ? "orange"
-                    : "#fff",
+                    : "#038fdd",
               }}
               className={appstyle.menunavtext}
             >
@@ -1001,7 +1001,7 @@ function HomePage(props) {
                   color:
                     location.pathname === "/transactionreport"
                       ? "orange"
-                      : "#fff",
+                      : "#038fdd",
                 }}
               ></ReceiptLongOutlinedIcon>{" "}
               Transaction Report
@@ -1018,27 +1018,27 @@ function HomePage(props) {
           sx={{
             "&:hover": {
               backgroundColor: "#642483",
-              color: "#642483",
+              color: "#fa8c15",
             },
             "&:focus": {
               backgroundColor: "#642483",
-              color: "#642483",
+              color: "#fa8c15",
             },
           }}
           onClick={() => navigate("/prediction")}
           selected={location.pathname === "/prediction"}
         >
-          <ListItemIcon sx={{ color: "#fff" }}>
+          <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
               {/* <img src={logoutprofile} alt="" /> */}
-              <BatchPredictionOutlinedIcon  sx={{color:"#642483"}}></BatchPredictionOutlinedIcon>
+              <BatchPredictionOutlinedIcon  sx={{color:"#fa8c15"}}></BatchPredictionOutlinedIcon>
             </Avatar>
           </ListItemIcon>
 
           <ListItemText
             sx={{
               WebkitTextFillColor:
-                location.pathname === "/prediction" ? "orange" : "#fff",
+                location.pathname === "/prediction" ? "orange" : "#038fdd",
             }}
             className={appstyle.navtext}
           >
@@ -1052,27 +1052,27 @@ function HomePage(props) {
           sx={{
             "&:hover": {
               backgroundColor: "#642483",
-              color: "#642483",
+              color: "#fa8c15",
             },
             "&:focus": {
               backgroundColor: "#642483",
-              color: "#642483",
+              color: "#fa8c15",
             },
           }}
           onClick={() => navigate("/logout")}
           selected={location.pathname === "/logout"}
         >
-          <ListItemIcon sx={{ color: "#fff" }}>
+          <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
               {/* <img src={logoutprofile} alt="" /> */}
-              <ExitToAppOutlinedIcon sx={{color:"#642483"}}></ExitToAppOutlinedIcon>
+              <ExitToAppOutlinedIcon sx={{color:"#fa8c15"}}></ExitToAppOutlinedIcon>
             </Avatar>
           </ListItemIcon>
 
           <ListItemText
             sx={{
               WebkitTextFillColor:
-                location.pathname === "/logout" ? "orange" : "#fff",
+                location.pathname === "/logout" ? "orange" : "#038fdd",
             }}
             className={appstyle.navtext}
           >
@@ -1086,7 +1086,7 @@ function HomePage(props) {
 
 
 
-      <Divider sx={{ borderColor: "#fff", mt: 5 }}></Divider>
+      <Divider sx={{ borderColor: "#038fdd", mt: 5 }}></Divider>
     </div>
   );
 
@@ -1224,7 +1224,7 @@ function HomePage(props) {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon sx={{ color: "red" }} />
+              <MoreIcon sx={{ color: "#fa8c15" }} />
             </IconButton>
           </Box>
 
@@ -1251,8 +1251,9 @@ function HomePage(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
-              color: "#fff",
+              // background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
+                backgroundColor:'#003366',
+              color: "#038fdd",
             },
           }}
         >
@@ -1265,8 +1266,9 @@ function HomePage(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
-              color: "#fff",
+              // background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
+                backgroundColor:'#003366',
+              color: "#038fdd",
             },
           }}
           open
