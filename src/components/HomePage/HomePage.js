@@ -91,6 +91,7 @@ function HomePage(props) {
       ...prevState,
       [menuName]: !prevState[menuName],
     }));
+    // console.log("useRef",userButtonRef.current.style.color="red");
 
 
       // Close all other menus except the clicked one
@@ -105,11 +106,6 @@ function HomePage(props) {
 };
   const location = useLocation();
   
-
-  
- 
- 
-
   // active list item color
   const activeTab = (route) => {
     return {
@@ -253,7 +249,6 @@ function HomePage(props) {
         >
           <ListItemIcon sx={{ color: "#fff" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
-              {/* <img src={logoutprofile} alt="" /> */}
               <GridViewOutlinedIcon sx={{color:"#642483"}}></GridViewOutlinedIcon>
             </Avatar>
           </ListItemIcon>
@@ -273,7 +268,7 @@ function HomePage(props) {
 
       <ListItem disablePadding>
         <ListItemButton
-          // onClick={handleSuperMasterClick}
+
           onClick={() => handleMenuClick("superMaster")}
           ref={userButtonRef}
           selected={menuStates.superMaster}
@@ -292,7 +287,6 @@ function HomePage(props) {
         >
           <ListItemIcon sx={{ color: "#fff" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
-              {/* <img src={supermasterprofile} alt="" /> */}
               <Person4OutlinedIcon sx={{color:"#642483"}}></Person4OutlinedIcon>
             </Avatar>
           </ListItemIcon>
@@ -329,9 +323,9 @@ function HomePage(props) {
       <Collapse in={menuStates.superMaster} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
-            //  onClick={setHandleUserSuperMaster}
+          
             ref={userButtonRef}
-            // selected={openhandleUserSuperMaster}
+          
             sx={{
               pl: 7,
               "&:hover": {
@@ -369,9 +363,8 @@ function HomePage(props) {
       <Collapse in={menuStates.superMaster} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
-            //  onClick={setHandleUserSuperMaster}
-            ref={userButtonRef}
-            // selected={openhandleUserSuperMaster}
+
+            ref={userButtonRef}       
             sx={{
               pl: 7,
               "&:hover": {
@@ -412,9 +405,9 @@ function HomePage(props) {
       <Collapse in={menuStates.superMaster} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
-            //  onClick={setHandleUserSuperMaster}
+           
             ref={userButtonRef}
-            // selected={openhandleUserSuperMaster}
+            
             sx={{
               pl: 7,
               "&:hover": {
@@ -450,9 +443,9 @@ function HomePage(props) {
       <Collapse in={menuStates.superMaster} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
-            //  onClick={setHandleUserSuperMaster}
+            
             ref={userButtonRef}
-            // selected={openhandleUserSuperMaster}
+          
             sx={{
               pl: 7,
               "&:hover": {
@@ -509,7 +502,7 @@ function HomePage(props) {
         >
           <ListItemIcon sx={{ color: "#fff" }}>
             <Avatar sx={{backgroundColor:'#fff'}}>
-              {/* <img src={masterprofile} alt="" /> */}
+              
               <PersonOutlineOutlinedIcon sx={{color:"#642483"}}></PersonOutlineOutlinedIcon>
 
             </Avatar>
@@ -546,9 +539,9 @@ function HomePage(props) {
       <Collapse in={menuStates.master} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
-            //  onClick={setHandleUserSuperMaster}
+            
             ref={userButtonRef}
-            // selected={openhandleUserSuperMaster}
+            
             sx={{
               pl: 7,
               "&:hover": {
@@ -586,9 +579,9 @@ function HomePage(props) {
       <Collapse in={menuStates.master} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
-            //  onClick={setHandleUserSuperMaster}
+            
             ref={userButtonRef}
-            // selected={openhandleUserSuperMaster}
+         
             sx={{
               pl: 7,
               "&:hover": {
@@ -628,9 +621,9 @@ function HomePage(props) {
       <Collapse in={menuStates.master} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
-            //  onClick={setHandleUserSuperMaster}
+            
             ref={userButtonRef}
-            // selected={openhandleUserSuperMaster}
+            
             sx={{
               pl: 7,
               "&:hover": {
@@ -687,7 +680,7 @@ function HomePage(props) {
         >
           <ListItemIcon sx={{ color: "#fff" }}>
             <Avatar sx={{backgroundColor:"#fff"}}>
-              {/* <img src={agentprofile} alt="" /> */}
+              
               <PeopleAltOutlinedIcon sx={{color:"#642483"}}></PeopleAltOutlinedIcon>
             </Avatar>
           </ListItemIcon>
@@ -723,9 +716,9 @@ function HomePage(props) {
       <Collapse in={menuStates.agent} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
-            //  onClick={setHandleUserSuperMaster}
+            
             ref={userButtonRef}
-            // selected={openhandleUserSuperMaster}
+          
             sx={{
               pl: 7,
               "&:hover": {
@@ -763,9 +756,9 @@ function HomePage(props) {
       <Collapse in={menuStates.agent} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
-            //  onClick={setHandleUserSuperMaster}
+            
             ref={userButtonRef}
-            // selected={openhandleUserSuperMaster}
+            
             sx={{
               pl: 7,
               "&:hover": {
@@ -805,9 +798,9 @@ function HomePage(props) {
       <Collapse in={menuStates.agent} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
-            //  onClick={setHandleUserSuperMaster}
+            
             ref={userButtonRef}
-            // selected={openhandleUserSuperMaster}
+           
             sx={{
               pl: 7,
               "&:hover": {
@@ -897,9 +890,9 @@ function HomePage(props) {
       <Collapse in={menuStates.reports} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
-            //  onClick={setHandleUserSuperMaster}
+            
             ref={userButtonRef}
-            // selected={openhandleUserSuperMaster}
+            
             sx={{
               pl: 7,
               "&:hover": {
@@ -934,9 +927,9 @@ function HomePage(props) {
       <Collapse in={menuStates.reports} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
-            //  onClick={setHandleUserSuperMaster}
+        
             ref={userButtonRef}
-            // selected={openhandleUserSuperMaster}
+           
             sx={{
               pl: 7,
               "&:hover": {
@@ -971,9 +964,9 @@ function HomePage(props) {
       <Collapse in={menuStates.reports} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
-            //  onClick={setHandleUserSuperMaster}
+           
             ref={userButtonRef}
-            // selected={openhandleUserSuperMaster}
+         
             sx={{
               pl: 7,
               "&:hover": {
