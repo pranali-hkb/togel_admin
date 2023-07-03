@@ -79,10 +79,7 @@ function HomePage(props) {
 
   const [openUser, setOpenUser] = useState(false);
   const userButtonRef = useRef();
-  const [openSuperMaster, setOpenSuperMaster] = React.useState(false);
-  const [openMaster, setOpenMaster] = React.useState(false);
-  const [openAgent, setOpenAgent] = React.useState(false);
-  const [openReports, setOpenReports] = React.useState(false);
+ 
   const [menuStates, setMenuStates] = React.useState({
     superMaster: false,
     master: false,
@@ -107,20 +104,11 @@ function HomePage(props) {
   }
 };
   const location = useLocation();
-  const handleSuperMasterClick = () => {
-    setOpenSuperMaster(!openSuperMaster);
-  };
+  
 
-  const handleMasterClick = () => {
-    setOpenMaster(!openMaster);
-  };
-
-  const handleAgentClick = () => {
-    setOpenAgent(!openAgent);
-  };
-  const handleReportsClick = () => {
-    setOpenReports(!openReports);
-  };
+  
+ 
+ 
 
   // active list item color
   const activeTab = (route) => {
@@ -544,11 +532,11 @@ function HomePage(props) {
               Master
               {menuStates.master ? (
               <KeyboardArrowDownIcon
-                sx={{ ml: 4, color: menuStates.master ? "orange" : "#fff" }}
+                sx={{ ml: 10, color: menuStates.master ? "orange" : "#fff" }}
               ></KeyboardArrowDownIcon>
               ) : (
               <KeyboardArrowRightIcon
-                sx={{ ml: 4, color: menuStates.master ? "orange" : "#fff" }}
+                sx={{ ml: 10, color: menuStates.master ? "orange" : "#fff" }}
               ></KeyboardArrowRightIcon>
               )}
             </span>
@@ -721,11 +709,11 @@ function HomePage(props) {
               Agent
               {menuStates.agent ? (
               <KeyboardArrowDownIcon
-                sx={{ ml: 4, color: menuStates.agent ? "orange" : "#fff" }}
+                sx={{ ml: 11, color: menuStates.agent ? "orange" : "#fff" }}
               ></KeyboardArrowDownIcon>
               ) : (
               <KeyboardArrowRightIcon
-                sx={{ ml: 4, color: menuStates.agent ? "orange" : "#fff" }}
+                sx={{ ml: 11, color: menuStates.agent ? "orange" : "#fff" }}
               ></KeyboardArrowRightIcon>
               )}
             </span>
@@ -895,11 +883,11 @@ function HomePage(props) {
               Reports
               {menuStates.reports ? (
               <KeyboardArrowDownIcon
-                sx={{ ml: 4, color: menuStates.reports ? "orange" : "#fff" }}
+                sx={{ ml: 9, color: menuStates.reports ? "orange" : "#fff" }}
               ></KeyboardArrowDownIcon>
               ) : (
               <KeyboardArrowRightIcon
-                sx={{ ml: 4, color: menuStates.reports ? "orange" : "#fff" }}
+                sx={{ ml: 9, color: menuStates.reports ? "orange" : "#fff" }}
               ></KeyboardArrowRightIcon>
               )}
             </span>
