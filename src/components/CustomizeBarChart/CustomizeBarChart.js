@@ -86,7 +86,7 @@ const CustomizeBarChart = () => {
         <Tooltip />
         <Legend />
         <CartesianGrid strokeDasharray="3 3" />
-        <Bar dataKey="pv" fill="#8884D8" background={{ fill: "#eee" }} />
+        <Bar dataKey="pv" fill="#003366" background={{ fill: "#eee" }} />
         {data.map((entry, index) => (
           <Cell key={`cell-${index}`} fill={COLORS[index % 10]} />
         ))}

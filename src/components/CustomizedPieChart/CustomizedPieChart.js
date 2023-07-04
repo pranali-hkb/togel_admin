@@ -8,7 +8,7 @@ const CustomizedPieChart = () => {
     //   { name: 'Category 4', value: 100 },
     ];
   
-    const COLORS = ['#9C80D9', '#FD948F', '#48A2EB', '#FF8042'];
+    const COLORS = ['#67b7dc', '#fe9e15', '#84b761', '#67b7dc'];
   
     const renderCustomizedLabel = ({
       cx,

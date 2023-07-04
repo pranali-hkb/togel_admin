@@ -3,14 +3,17 @@ import Dashboard from "../Dashboard/Dashboard";
 import RecentUserTable from "../RecentUserTable/RecentUserTable";
 import DashboardChart from "../DashboardChart.js/DashboardChart";
 import DashbordCards from "../DashbordCards/DashbordCards";
-// import RecentUserTable2 from '../RecentUserTable2/RecentUserTable2'
+import SampleDataTable from "../SampleDataTable/SampleDataTable";
+
 
 function MainDahboard() {
   return (
     <div>
-      <DashbordCards />
+      {/* <DashbordCards />
       <DashboardChart />
-      <RecentUserTable />
+      <RecentUserTable /> */}
+<SampleDataTable/>
+
     </div>
   );
 }

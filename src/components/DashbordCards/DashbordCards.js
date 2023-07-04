@@ -15,42 +15,42 @@ const DashbordCards = () => {
           <div className={CardStyles.cardsec}>
             <Card className={CardStyles.cardbg1}>
               <CardContent>
-                <Typography className={CardStyles.cardheading}>
-                  Master
+                <Typography className={CardStyles.cardheading} >
+                  Super Master
                 </Typography>
-                <Typography className={CardStyles.subhead}>
-                  No of Master
+                <Typography className={CardStyles.subhead} >
+                  No of Super Master
                 </Typography>
-                <Typography className={CardStyles.counterhead}>21</Typography>
+                <Typography className={CardStyles.counterhead} >581</Typography>
               </CardContent>
             </Card>
-            <Box className={CardStyles.supermastericon}>
+            {/* <Box className={CardStyles.supermastericon}>
               <img
                 src={superMasterIcon}
                 alt="superMasterIcon"
                 style={{ width: "37px" }}
               />
-            </Box>
+            </Box> */}
           </div>
           <div className={CardStyles.cardsec}>
             <Card className={CardStyles.cardbg2}>
               <CardContent>
-                <Typography className={CardStyles.cardheading}>
+                <Typography className={CardStyles.cardheading} >
                   Master
                 </Typography>
                 <Typography className={CardStyles.subhead}>
                   No of Master
                 </Typography>
-                <Typography className={CardStyles.counterhead}>21</Typography>
+                <Typography className={CardStyles.counterhead}>221</Typography>
               </CardContent>
             </Card>
-            <Box className={CardStyles.mastericon}>
+            {/* <Box className={CardStyles.mastericon}>
               <img
                 src={masterIcon}
                 alt="masterIcon"
                 style={{ width: "37px" }}
               />
-            </Box>
+            </Box> */}
           </div>
           <div className={CardStyles.cardsec}>
             <Card className={CardStyles.cardbg3}>
@@ -59,16 +59,16 @@ const DashbordCards = () => {
                 <Typography className={CardStyles.subhead}>
                   No of User
                 </Typography>
-                <Typography className={CardStyles.counterhead}>21</Typography>
+                <Typography className={CardStyles.counterhead}>2521</Typography>
               </CardContent>
             </Card>
-            <Box className={CardStyles.usericon}>
+            {/* <Box className={CardStyles.usericon}>
               <img
                 src={userIcon}
                 alt="superMasterIcon"
                 style={{ width: "37px" }}
               />
-            </Box>
+            </Box> */}
           </div>
         </div>
       
