@@ -6,7 +6,7 @@ import Master from './components/Master/Master'
 import Agent from './components/Agent/Agent'
 import Reports from './components/Reports/Reports'
 import Logout from './components/Logout/Logout'
-import { Dashboard } from '@mui/icons-material'
+import { Dashboard, Login } from '@mui/icons-material'
 import UserSuperMaster from './components/UserSuperMaster/UserSuperMaster'
 import TransactionReport from './components/TransactionReport/TransactionReport'
 import TurnoverReport from './components/TurnoverReport/TurnoverReport'
@@ -16,6 +16,7 @@ import Game from './components/Game/Game'
 import UpdateProfile from './components/UpdateProfile/UpdateProfile'
 import Prediction from './components/Prediction/Prediction'
 import GameList from './components/GameList/GameList'
+import LoginPage from './components/LoginPage/LoginPage'
 const RoutesPages = () => {
   return (
     <div>
@@ -36,6 +37,7 @@ const RoutesPages = () => {
           <Route path='/supermasterprofileupdate' element={<UpdateProfile/>}/>
           <Route path='/prediction' element={<Prediction/>}/>
           <Route path='/gamelist' element={<GameList/>}/>
+          <Route path='/login' element={<LoginPage/>}/>
         </Routes>
     </div>
   )

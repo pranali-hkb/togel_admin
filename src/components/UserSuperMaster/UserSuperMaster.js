@@ -109,20 +109,20 @@ const UserSuperMaster = () => {
 
   const getSuperMasterList = async () => {
     try {
-      const  accessToken = localStorage.getItem('user-token');
-      console.log("accessToken",accessToken)
-      if(accessToken){
-      const response = await axios.get(
-        // "http://51.79.177.218/togel-app-v1.0/togle/public/api/admin/setting/game"
-        "http://51.79.177.218:8181/api/admin/user/super-master/list",
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`
+      const accessToken = localStorage.getItem("user-token");
+      console.log("accessToken", accessToken);
+      if (accessToken) {
+        const response = await axios.get(
+          // "http://51.79.177.218/togel-app-v1.0/togle/public/api/admin/setting/game"
+          "http://51.79.177.218:8181/api/admin/user/super-master/list",
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
           }
-        }
-      );
-      console.log("Game Response=>", response.data.data);
-      setUserData(response.data.data);
+        );
+        console.log("Game Response=>", response.data.data);
+        setUserData(response.data.data);
       }
     } catch (e) {
       console.log("error=>", e);
@@ -460,6 +460,7 @@ const UserSuperMaster = () => {
 
 `;
 
+
   return (
     <>
       <style>{styles}</style>
@@ -582,6 +583,8 @@ const UserSuperMaster = () => {
           </div>
         </TableContainer>
       </Box>
+
+      
 
       <Modal
         open={open}
