@@ -203,7 +203,7 @@ export default function SampleDataTable() {
   };
 
   return (
-    <Paper sx={{ width: "100%", overflow: "hidden" }}>
+    <Paper sx={{ width: "100%", overflow: "hidden", padding: "1%" }}>
       <TableContainer sx={{ maxHeight: 540, padding: "dense" }}>
         <div className={tablestyle.buttonsec}>
           {/* secleft start */}
@@ -212,10 +212,10 @@ export default function SampleDataTable() {
               <Button
                 sx={{
                   "&.active": {
-                    backgroundColor: "#90168C",
+                    backgroundColor: "#038fde",
                     color: "white",
                     textTransform: "none",
-                    padding: "7px 10px",
+                    padding: "8px 10px",
                     marginRight: "15px",
                   },
                   textTransform: "none",
@@ -234,10 +234,10 @@ export default function SampleDataTable() {
               <Button
                 sx={{
                   "&.active": {
-                    backgroundColor: "#90168C",
+                    backgroundColor: "#038fde",
                     color: "white",
                     textTransform: "none",
-                    padding: "7px 10px",
+                    padding: "8px 10px",
                     marginRight: "15px",
                   },
                   textTransform: "none",
@@ -260,7 +260,7 @@ export default function SampleDataTable() {
                   size="small"
                   value={activeStatus}
                   onChange={handleChange}
-                  autoWidth
+                  // autoWidth
                   displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
@@ -276,6 +276,7 @@ export default function SampleDataTable() {
             <div className={tablestyle.searchsec}>
               <Search>
                 <StyledInputBase
+                  size="small"
                   placeholder="Search…"
                   inputProps={{ "aria-label": "search" }}
                 />
@@ -287,9 +288,13 @@ export default function SampleDataTable() {
           </div>
           {/* sec right start */}
           <div className={tablestyle.buttonrgt}>
-          <Button sx={{ textTransform:  "none" }} className={tablestyle.addButton} onClick={handleOpen}>
-                + Add Master
-              </Button>
+            <Button
+              sx={{ textTransform: "none" }}
+              className={tablestyle.addButton}
+              onClick={handleOpen}
+            >
+              + Add Master
+            </Button>
           </div>
         </div>
         <Table stickyHeader aria-label="sticky table" size="small">
