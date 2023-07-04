@@ -64,6 +64,9 @@ import ReceiptLongOutlinedIcon from "@mui/icons-material/ReceiptLongOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 const drawerWidth = 270;
 
 function HomePage(props) {
@@ -228,7 +231,7 @@ function HomePage(props) {
               sx={{ color: openUser ? "#038fdd" : "transparent" }}
             >
               <ListItemIcon sx={{ color: "white" }}>
-                <Avatar sx={{ backgroundColor: "#fff" }}>
+                <Avatar sx={{ backgroundColor: "#fff" , }}>
                   <img src={userprofile} alt="" />
                 </Avatar>
               </ListItemIcon>
@@ -244,9 +247,9 @@ function HomePage(props) {
           selected={location.pathname === "/dashboard"}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
-            <Avatar sx={{ backgroundColor: "#fff" }}>
+            <Avatar sx={{ backgroundColor: "#fff" , }}>
               <GridViewOutlinedIcon
-                sx={{ color: "#fa8c15" }}
+                sx={{ color: "#fa8c15" ,}}
               ></GridViewOutlinedIcon>
             </Avatar>
           </ListItemIcon>
@@ -281,10 +284,10 @@ function HomePage(props) {
           }}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
-            <Avatar sx={{ backgroundColor: "#fff" }}>
-              <Person4OutlinedIcon
+            <Avatar sx={{ backgroundColor: "#fff" , }}>
+              <AccountCircleOutlinedIcon
                 sx={{ color: "#fa8c15" }}
-              ></Person4OutlinedIcon>
+              ></AccountCircleOutlinedIcon>
             </Avatar>
           </ListItemIcon>
           <ListItemText
@@ -493,7 +496,7 @@ function HomePage(props) {
           }}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
-            <Avatar sx={{ backgroundColor: "#fff" }}>
+            <Avatar sx={{ backgroundColor: "#fff" , }}>
               <PersonOutlineOutlinedIcon
                 sx={{ color: "#fa8c15" }}
               ></PersonOutlineOutlinedIcon>
@@ -703,7 +706,7 @@ function HomePage(props) {
           }}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
-            <Avatar sx={{ backgroundColor: "#fff" }}>
+            <Avatar sx={{ backgroundColor: "#fff" , }}>
               <PeopleAltOutlinedIcon
                 sx={{ color: "#fa8c15" }}
               ></PeopleAltOutlinedIcon>
@@ -910,7 +913,7 @@ function HomePage(props) {
           }}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
-            <Avatar sx={{ backgroundColor: "#fff" }}>
+            <Avatar sx={{ backgroundColor: "#fff" , }}>
               {/* <img src={reportprofile} alt="" /> */}
               <SummarizeOutlinedIcon
                 sx={{ color: "#fa8c15" }}
@@ -1191,7 +1194,7 @@ function HomePage(props) {
           selected={location.pathname === "/prediction"}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
-            <Avatar sx={{ backgroundColor: "#fff" }}>
+            <Avatar sx={{ backgroundColor: "#fff" , }}>
               {/* <img src={logoutprofile} alt="" /> */}
               <BatchPredictionOutlinedIcon
                 sx={{ color: "#fa8c15" }}
@@ -1223,7 +1226,7 @@ function HomePage(props) {
           selected={location.pathname === "/logout"}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
-            <Avatar sx={{ backgroundColor: "#fff" }}>
+            <Avatar sx={{ backgroundColor: "#fff" , }}>
               {/* <img src={logoutprofile} alt="" /> */}
               <ExitToAppOutlinedIcon
                 sx={{ color: "#fa8c15" }}
@@ -1269,7 +1272,7 @@ function HomePage(props) {
         }}
       >
         <Toolbar
-          sx={{ backgroundColor: "#f5f5f5", boxShadow: "none", border: "none" }}
+          sx={{ backgroundColor: "#fefefe", boxShadow: "0 0 4px 4px rgba(0,0,0,0.08)", border: "none" }}
         >
           {/* for mobile */}
           <IconButton
@@ -1289,10 +1292,10 @@ function HomePage(props) {
           {/* icon on app bar */}
 
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex", marginTop: "30px" } }}>
-            <Search className={appstyle.search}>
-              <SearchIconWrapper>
-                <SearchIcon />
+          <Box sx={{ display: { xs: "none", md: "flex", marginTop: "15px", marginBottom: "15px"  } }}>
+            <Search className={appstyle.search} sx={{color:'#262626',background:'none',}}>
+              <SearchIconWrapper sx={{color:'#262626'}}>
+                <SearchIcon sx={{color:'#262626'}} />
               </SearchIconWrapper>
               <StyledInputBase
                 className={appstyle.searchtxt}
@@ -1302,6 +1305,7 @@ function HomePage(props) {
               />
             </Search>
             <IconButton
+            sx={{color:'#262626'}}
               size="large"
               edge="end"
               aria-label="account of current user"
@@ -1309,16 +1313,16 @@ function HomePage(props) {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
             >
-              <AccountCircle />
+              <Person4OutlinedIcon  />
             </IconButton>
-            <IconButton size="large" aria-label="show 4 new mails">
+            <IconButton size="large" aria-label="show 4 new mails" sx={{color:'#262626'}}>
               <Badge badgeContent={4} color="warning">
-                <Settings />
+                <SettingsOutlinedIcon />
               </Badge>
             </IconButton>
-            <IconButton size="large" aria-label="show 17 new notifications">
+            <IconButton size="large" aria-label="show 17 new notifications" sx={{color:'#262626'}}>
               <Badge badgeContent={17} color="warning">
-                <NotificationsIcon />
+                <NotificationsOutlinedIcon />
               </Badge>
             </IconButton>
 
@@ -1414,7 +1418,6 @@ function HomePage(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              // background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
               backgroundColor: "#003366",
               color: "#038fdd",
             },
@@ -1429,7 +1432,6 @@ function HomePage(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              // background: "linear-gradient(180deg, #3E3D45 0%, #202020 100%)",
               backgroundColor: "#003366",
               color: "#038fdd",
             },
@@ -1445,6 +1447,7 @@ function HomePage(props) {
           flexGrow: 1,
           p: 3,
           mt: 4,
+          background:'#f5f5f5',
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >

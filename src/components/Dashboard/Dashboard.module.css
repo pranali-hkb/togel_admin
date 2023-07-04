@@ -1,5 +1,7 @@
 .cardbg1 {
-  background:  url("../../assets/images/profile/cardbg.png"), linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%)!important;
+  /* background:  url("../../assets/images/profile/cardbg.png"), linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%)!important; */
+  background-color: #030852!important;
+ 
   box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36);
   border-radius: 8px;
   text-align: left;

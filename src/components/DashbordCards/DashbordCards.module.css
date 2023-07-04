@@ -25,7 +25,9 @@
   width: 100%;
   /* background: url("../../assets/images/profile/cardbg.png"),
     linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%) !important; */
-  background: linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%);
+  /* background: linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%); */
+  /* background-color: #030852!important; */
+  background-color: #038fde!important;
   border-radius: 5px;
   text-align: left;
   background-size: cover !important;
@@ -36,7 +38,9 @@
 }
 .cardbg2 {
   width: 100%;
-  background: linear-gradient(270deg, #2e95e7 14.04%, #84c3f7 93.18%);
+  /* background: linear-gradient(270deg, #2e95e7 14.04%, #84c3f7 93.18%); */
+  /* background-color: #fa8c16 !important; */
+  background: -webkit-linear-gradient(left, #564093, #d2449d);
   border-radius: 5px;
   text-align: left;
   box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36) !important;
@@ -44,7 +48,10 @@
 }
 .cardbg3 {
   width: 100%;
-  background: linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%);
+  background-color: #fff !important;
+ 
+  /* background: linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%); */
+  background-color: #038fde!important;
   border-radius: 5px;
   text-align: left;
   box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36) !important;
@@ -54,7 +61,7 @@
 .cardheading {
   padding-top: 10%;
   font-weight: 700 !important;
-  font-size: 28px !important;
+  font-size: 22px !important;
   line-height: 140% !important;
   color: #fff !important;
   padding-left: 5%;
@@ -63,7 +70,7 @@
 .subhead {
   padding-top: 4%;
   font-weight: 500 !important;
-  font-size: 20px !important;
+  font-size: 18px !important;
   line-height: 140% !important;
   color: #fff !important;
   padding-left: 5%;
