@@ -129,14 +129,18 @@
   align-items: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
+  .mainbtnsec {
+    width: 33%!important;
+  }
+  .btnViewMore {
+    padding: 3px 3px!important;
+  }
+}
 
-.buttonsec {
-  width: 100%;
+
+@media screen and (max-width: 768px) {
+  .mainbtnsec {
+    width: 33%!important;
+  }
 }
-.buttonleft {
-  width: 80%!important;
-}
-.buttonrgt {
-  width: 20%!important;
-}}

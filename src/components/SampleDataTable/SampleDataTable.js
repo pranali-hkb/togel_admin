@@ -15,6 +15,7 @@ import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+import { DataGrid } from "@mui/x-data-grid";
 
 // search
 
@@ -316,7 +317,7 @@ export default function SampleDataTable() {
             </Button>
           </div>
         </div>
-        <Table stickyHeader aria-label="sticky table" size="small">
+        {/* <Table stickyHeader aria-label="sticky table" size="small">
           <TableHead>
             <TableRow>
               {columns.map((column) => (
@@ -369,7 +370,20 @@ export default function SampleDataTable() {
                 );
               })}
           </TableBody>
-        </Table>
+        </Table> */}
+
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          autoHeight
+          initialState={{
+            pagination: {
+              paginationModel: { page: 0, pageSize: 5 },
+            },
+          }}
+          pageSizeOptions={[5, 10, 15, 20]}
+          //  checkboxSelection
+        />
       </TableContainer>
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
