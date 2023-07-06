@@ -10,8 +10,13 @@ import userIcon from "../../assets/images//profile/user.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import config from "../../config";
+import { useContext } from "react";
+import TokenContext from "../../TokenContext";
+
 
 const DashbordCards = () => {
+
+  const accessToken =useContext(TokenContext);
     //-------------- states-----------------------//
     const [supermastercount  , setSuperMasterCount] = useState([]);
     const [mastercount  , setMasterCount] = useState([]);
@@ -21,8 +26,7 @@ const DashbordCards = () => {
     const getsupermastercount = async () => {
   
       try {
-        const  accessToken = localStorage.getItem('user-token');
-        console.log("accessToken",accessToken)
+        
         if(accessToken){
           const response = await axios.get(
             `${config.serverUrl}/admin/dashboard/super-master-count`,
@@ -49,8 +53,7 @@ const DashbordCards = () => {
     const getmastercount = async () => {
   
       try {
-        const  accessToken = localStorage.getItem('user-token');
-        console.log("accessToken",accessToken)
+        
         if(accessToken){
           const response = await axios.get(
             `${config.serverUrl}/admin/dashboard/master-count`,
@@ -76,8 +79,7 @@ const DashbordCards = () => {
     const getagentcount = async () => {
   
       try {
-        const  accessToken = localStorage.getItem('user-token');
-        console.log("accessToken",accessToken)
+        
         if(accessToken){
           const response = await axios.get(
             `${config.serverUrl}/admin/dashboard/agent-count`,
@@ -110,7 +112,7 @@ const DashbordCards = () => {
                   Super Master
                 </Typography>
                 <Typography className={CardStyles.subhead} >
-                  No of Super Master
+                Total Number Of Super Masters
                 </Typography>
                 <Typography className={CardStyles.counterhead} >{supermastercount}</Typography>
               </CardContent>
@@ -130,7 +132,7 @@ const DashbordCards = () => {
                   Master
                 </Typography>
                 <Typography className={CardStyles.subhead}>
-                  No of Master
+                Total Number Of Masters
                 </Typography>
                 <Typography className={CardStyles.counterhead}>{mastercount}</Typography>
               </CardContent>
@@ -146,9 +148,9 @@ const DashbordCards = () => {
           <div className={CardStyles.cardsec}>
             <Card className={CardStyles.cardbg3}>
               <CardContent>
-                <Typography className={CardStyles.cardheading}>User</Typography>
+                <Typography className={CardStyles.cardheading}>Agent</Typography>
                 <Typography className={CardStyles.subhead}>
-                  No of User
+                Total Number Of Agents
                 </Typography>
                 <Typography className={CardStyles.counterhead}>{agentcount}</Typography>
               </CardContent>

@@ -10,15 +10,9 @@ function MainDahboard() {
     <div>
       <DashbordCards />
       <DashboardChart />
-<<<<<<< HEAD
       {/* <RecentUserTable /> */}
 {/* <SampleDataTable/> */}
 
-=======
-      <RecentUserTable /> */}
-      {/* <SampleDataTable /> */}
-      <SampleTable/>
->>>>>>> 655d0ac297d44ed6ccb6ed356a32e40a1c362eb4
     </div>
   );
 }
