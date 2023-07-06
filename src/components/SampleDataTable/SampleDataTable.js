@@ -317,7 +317,7 @@ export default function SampleDataTable() {
             </Button>
           </div>
         </div>
-        {/* <Table stickyHeader aria-label="sticky table" size="small">
+        <Table stickyHeader aria-label="sticky table" size="small">
           <TableHead>
             <TableRow>
               {columns.map((column) => (
@@ -370,20 +370,9 @@ export default function SampleDataTable() {
                 );
               })}
           </TableBody>
-        </Table> */}
+        </Table>
 
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          autoHeight
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
-            },
-          }}
-          pageSizeOptions={[5, 10, 15, 20]}
-          //  checkboxSelection
-        />
+   
       </TableContainer>
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
