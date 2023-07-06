@@ -5,7 +5,7 @@
 .navtext {
   font-size: 27px !important;
   font-weight: 400 !important;
-  line-height: 140% !important;
+  /* line-height: 140% !important; */
 }
 .menunavtext {
   font-size: 24px !important;
