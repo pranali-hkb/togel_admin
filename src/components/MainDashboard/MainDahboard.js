@@ -8,10 +8,10 @@ import SampleTable from "../SampleDataTable/SampleTable";
 function MainDahboard() {
   return (
     <div>
-      <DashbordCards />
+      {/* <DashbordCards />
       <DashboardChart />
-      <RecentUserTable />
-      <SampleDataTable />
+      <RecentUserTable /> */}
+      {/* <SampleDataTable /> */}
       <SampleTable/>
     </div>
   );

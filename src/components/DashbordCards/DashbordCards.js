@@ -80,7 +80,7 @@ const DashbordCards = () => {
         console.log("accessToken",accessToken)
         if(accessToken){
           const response = await axios.get(
-            `${config.serverUrl}/admin/dashboard/master-count`,
+            `${config.serverUrl}/admin/dashboard/agent-count`,
             {
               headers: {
                 Authorization: `Bearer ${accessToken}`
