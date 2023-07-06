@@ -15,6 +15,7 @@ import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+import { DataGrid } from "@mui/x-data-grid";
 
 // search
 
@@ -221,7 +222,6 @@ export default function SampleDataTable() {
                   textTransform: "none",
                   padding: "7px 10px",
                   color: "#6F6F6F",
-                  // marginRight: "15px",
                 }}
                 className={deletedStatus ? "" : "active"}
                 // className={`${tablestyle.btnMaster} ${deletedStatus ? tablestyle.active : ''}`}
@@ -238,12 +238,10 @@ export default function SampleDataTable() {
                     color: "white",
                     textTransform: "none",
                     padding: "8px 10px",
-                    marginRight: "15px",
                   },
                   textTransform: "none",
                   color: "#6F6F6F",
                   padding: "7px 10px",
-                  marginRight: "15px",
                 }}
                 className={deletedStatus ? "active" : ""}
                 //  className={`${tablestyle.btnMaster} ${deletedStatus ? '' : tablestyle.active}`}
@@ -253,8 +251,28 @@ export default function SampleDataTable() {
               </Button>
             </div>
             <div className={tablestyle.listsec}>
-              <FormControl sx={{ minWidth: 100 }}>
+              {/* <FormControl sx={{ minWidth: 100, borderColor:'#038fde' }}> */}
+              <FormControl
+                sx={{
+                  borderColor: "#038fde",
+                  minWidth: "100px",
+                  borderColor: "#038fde",
+                  "@media (max-width: 600px)": {
+                    // Small screens (sm)
+                    minWidth: "50px",
+                  },
+                  "@media (min-width: 601px) and (max-width: 960px)": {
+                    // Medium screens (md)
+                    minWidth: "80px",
+                  },
+                  "@media (min-width: 768px)": {
+                    // Large screens (lg)
+                    minWidth: "80px",
+                  },
+                }}
+              >
                 <Select
+                  sx={{ borderColor: "#038fde" }}
                   labelId="demo-simple-select-autowidth-label"
                   id="demo-simple-select-autowidth"
                   size="small"
@@ -274,7 +292,9 @@ export default function SampleDataTable() {
               </FormControl>
             </div>
             <div className={tablestyle.searchsec}>
-              <Search>
+              <Search
+                sx={{ backgroundColor: "transparent", borderColor: "none" }}
+              >
                 <StyledInputBase
                   size="small"
                   placeholder="Search…"
@@ -351,6 +371,8 @@ export default function SampleDataTable() {
               })}
           </TableBody>
         </Table>
+
+   
       </TableContainer>
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
