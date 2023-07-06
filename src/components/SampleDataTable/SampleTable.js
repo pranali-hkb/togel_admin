@@ -32,23 +32,9 @@ const handleEditClick = (row) => {
 
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
-  { field: "firstName", headerName: "First name", width: 130 },
-  { field: "lastName", headerName: "Last name", width: 130 },
-  {
-    field: "age",
-    headerName: "Age",
-    type: "number",
-    width: 90,
-  },
-  {
-    field: "fullName",
-    headerName: "Full name",
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
-    width: 160,
-    valueGetter: (params) =>
-      `${params.row.firstName || ""} ${params.row.lastName || ""}`,
-  },
+  { field: "User_Code", headerName: "User_Code", width: 150, type: "number", },
+  { field: 'Super_Master_Name', headerName: 'First name', width: 150 },
+  { field: "Total_Master", headerName: "Total Master", width: 150, type: "number" },
   {
     field: "Details",
     headerName: "Details",
@@ -61,7 +47,7 @@ const columns = [
       <Button className={tablestyle.btnViewMore}>
         <RemoveRedEyeIcon
           onClick={() => handleButtonClick(params.row)}
-          sx={{color:'#fff', fontSize:'16px'}}
+          sx={{ color: "#fff", fontSize: "16px" }}
         ></RemoveRedEyeIcon>
       </Button>
     ),
@@ -90,7 +76,7 @@ const columns = [
     field: "AddMaster",
     headerName: "Add Master",
     // type: "number",
-    width: 130,
+    width: 50,
     headerClassName: "custom-header",
 
     flex: 1,
@@ -110,7 +96,7 @@ const columns = [
     field: "Settings",
     headerName: "Settings",
     // type: "number",
-    width: 130,
+    width: 50,
     headerClassName: "custom-header",
 
     flex: 1,
@@ -129,20 +115,20 @@ const columns = [
 ];
 
 const rows = [
-  { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-  { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-  { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-  { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-  { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-  { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-  { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-  { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-  { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
+  { id: 1, Super_Master_Name: 'Jon',  Total_Master: 35 , User_Code: 35 },
+  { id: 2, Super_Master_Name: 'Jon',  Total_Master: 35 , User_Code: 42 },
+  { id: 3, Super_Master_Name: 'Jon', Total_Master: 5 , User_Code: 45 },
+  { id: 4, Super_Master_Name: 'Jon', Total_Master: 95 , User_Code: 16 },
+  { id: 5, Super_Master_Name: 'Jon',  Total_Master: 45 , User_Code: null },
+  { id: 6,Super_Master_Name: 'Jon',  Total_Master: 15 , User_Code: 150 },
+  { id: 7, Super_Master_Name: 'Jon',  Total_Master: 6 , User_Code: 44 },
+  { id: 8, Super_Master_Name: 'Jon',  Total_Master: 4 , User_Code: 36 },
+  { id: 9,Super_Master_Name: 'Jon',  Total_Master: 52 , User_Code: 65 },
 ];
 
 export default function SampleTable() {
   return (
-    <div style={{ height: 400, width: "100%" }}>
+    <div style={{ height: 400, width: "100%", textAlign:'center' }}>
       <DataGrid
         rows={rows}
         columns={columns}

@@ -4,6 +4,7 @@ import DashboardChart from "../DashboardChart.js/DashboardChart";
 import DashbordCards from "../DashbordCards/DashbordCards";
 import SampleDataTable from "../SampleDataTable/SampleDataTable";
 import SampleTable from "../SampleDataTable/SampleTable";
+import AddSuperMasterForm from "../AddSuperMasterForm/AddSuperMasterForm";
 
 function MainDahboard() {
   return (
@@ -12,7 +13,9 @@ function MainDahboard() {
       <DashboardChart />
       <RecentUserTable /> */}
       {/* <SampleDataTable /> */}
-      <SampleTable/>
+      {/* <SampleTable/> */}
+
+    <AddSuperMasterForm/>
     </div>
   );
 }
