@@ -67,6 +67,8 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
+import Logout from '../Logout/Logout'
+
 const drawerWidth = 270;
 
 function HomePage(props) {
@@ -148,6 +150,13 @@ function HomePage(props) {
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
+  };
+
+  const handleLogout = () => {
+    console.log("logout click")
+    localStorage.removeItem('user-token');
+    // const navigate = useNavigate();
+    // navigate('/logout');
   };
 
   const handleMobileMenuOpen = (event) => {
@@ -1219,11 +1228,13 @@ function HomePage(props) {
           </ListItemText>
         </ListItemButton>
       </ListItem>
+      {/* <Logout /> */}
       <ListItem disablePadding>
         <ListItemButton
           ref={userButtonRef}
-          onClick={() => navigate("/logout")}
-          selected={location.pathname === "/logout"}
+          // onClick={() => navigate("/logout")}
+          onClick={() => handleLogout()}
+          selected={location.pathname === "/login"}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" , }}>
@@ -1243,7 +1254,7 @@ function HomePage(props) {
                 WebkitTextFillColor: "#fa8c15",
               },
               WebkitTextFillColor:
-                location.pathname === "/logout" ? "#fa8c15" : "#038fdd",
+                location.pathname === "/login" ? "#fa8c15" : "#038fdd",
             }}
             className={appstyle.navtext}
           >

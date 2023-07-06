@@ -33,7 +33,7 @@ const RoutesPages = () => {
           <Route path="/transactionreport" element={<TransactionReport/>} />
           <Route path="/turnoverreport" element={<TurnoverReport />} />
           <Route path="/winlossreport" element={<WinlossReport/>} />
-          <Route path="/logout" element={<Logout />} />
+          {/* <Route path="/login" element={<Logout />} /> */}
           <Route path='/supermasterprofileupdate' element={<UpdateProfile/>}/>
           <Route path='/prediction' element={<Prediction/>}/>
           <Route path='/gamelist' element={<GameList/>}/>

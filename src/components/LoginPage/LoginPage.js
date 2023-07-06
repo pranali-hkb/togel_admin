@@ -21,10 +21,9 @@ import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import axios from "axios";
 import config from "../../config";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { AES, enc } from "crypto-js";
-
-
+import Swal from "sweetalert2";
 
 const Item = styled(Paper)(({ theme }) => ({
   // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -73,7 +72,7 @@ function LoginPage() {
   //     console.error("Login failed:", error);
   //   });
 
-  //   
+  //
   // };
 
   const handleLogin = (e) => {
@@ -81,65 +80,81 @@ function LoginPage() {
     if (username !== "" && password !== "") {
       sendData();
       if (rememberMe) {
-        const encryptedUsername = AES.encrypt(username, "secret-key").toString();
-        const encryptedPassword = AES.encrypt(password, "secret-key").toString();
-  
+        const encryptedUsername = AES.encrypt(
+          username,
+          "secret-key"
+        ).toString();
+        const encryptedPassword = AES.encrypt(
+          password,
+          "secret-key"
+        ).toString();
+
         localStorage.setItem("encryptedUsername", encryptedUsername);
         localStorage.setItem("encryptedPassword", encryptedPassword);
       } else {
         localStorage.removeItem("encryptedUsername");
         localStorage.removeItem("encryptedPassword");
       }
-    }else {
-      console.log("Please fill all fields!");
+    } else {
+      // console.log("Please fill all fields!");
+      Swal.fire("Please fill all fields!", "", "warning");
     }
   };
 
-  const sendData = () => {
-    const data = {
-      username: username,
-      password: password,
-    };
-    console.log("save data==>", data);
-    axios
-      .post(`${config.serverUrl}/auth/login`, data)
-      .then(function (response) {
-        console.log("response=>", response);
-        let adminInformation = response.data.data;
-        localStorage.setItem("user-token",response.data.token)
-        console.log("adminInformation=>",adminInformation)
-        if (response.data.token) {
-                // Save user info to local storage
-                localStorage.setItem("user-info", btoa(JSON.stringify(response.data)));
-                setIsLoggedIn(true);
-                // Update the login status
-                // setIsLoggedIn(true);
-                // navigate(<HomePage />);
-              }
-        // if(response.status === 200){
-        //   navigate(<HomePage />);
-        // }
-      })
-      .catch(function (e) {
-        console.log("error=>", e);
+  const sendData = async () => {
+    try {
+      const data = {
+        username: username,
+        password: password,
+      };
+      console.log("save data==>", data);
+      const response = await axios.post(`${config.serverUrl}/auth/login`, data);
+      console.log("response=>", response);
+      let adminInformation = response.data.data;
+      localStorage.setItem("user-token", response.data.token);
+      console.log("adminInformation=>", adminInformation);
+      if (response.data.token) {
+        // Save user info to local storage
+        // localStorage.setItem("user-info", btoa(JSON.stringify(response.data)));
+        setIsLoggedIn(true);
+        // Update the login status
+        // setIsLoggedIn(true);
+        // navigate(<HomePage />);
+      }
+      // if(response.status === 200){
+      //   navigate(<HomePage />);
+      // }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Unauthorized User",
+        text: "Please Enter valid Username and Password",
       });
+      setUserName("");
+      setPassword("");
+      console.log("err catch", error.response.data);
+    }
   };
 
   useEffect(() => {
-
     const encryptedUsername = localStorage.getItem("encryptedUsername");
     const encryptedPassword = localStorage.getItem("encryptedPassword");
-  
+
     if (encryptedUsername && encryptedPassword) {
-      const decryptedUsername = AES.decrypt(encryptedUsername, "secret-key").toString(enc.Utf8);
-      const decryptedPassword = AES.decrypt(encryptedPassword, "secret-key").toString(enc.Utf8);
-  
+      const decryptedUsername = AES.decrypt(
+        encryptedUsername,
+        "secret-key"
+      ).toString(enc.Utf8);
+      const decryptedPassword = AES.decrypt(
+        encryptedPassword,
+        "secret-key"
+      ).toString(enc.Utf8);
+
       setUserName(decryptedUsername);
       setPassword(decryptedPassword);
       setRememberMe(true);
     }
 
-  
     // Clear user info from local storage
     localStorage.removeItem("user-info");
 
@@ -147,8 +162,6 @@ function LoginPage() {
       console.log("Login Successful");
       setIsLoggedIn(true);
     }
-
-   
   }, []);
 
   if (isLoggedIn) {
@@ -216,7 +229,7 @@ function LoginPage() {
               />
             </FormControl>
 
-            <div className={loginPageStyle.newsection}>
+            {/* <div className={loginPageStyle.newsection}>
               <p className={loginPageStyle.remembertxt}>
                 {" "}
                 <Checkbox {...label} 
@@ -226,13 +239,13 @@ function LoginPage() {
                 Remember me
               </p>
               <p className={loginPageStyle.forgotpwtxt}>Forgot Password?</p>
-            </div>
+            </div> */}
             <Button
               type="submit"
               variant="contained"
               size="large"
               className={loginPageStyle.SignInBtn}
-              sx={{ width: "100%" }}
+              sx={{ width: "100%", marginTop: "40px" }}
             >
               Login{" "}
             </Button>

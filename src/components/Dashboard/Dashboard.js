@@ -35,7 +35,7 @@ function Dashboard() {
                   Super Master
                 </Typography>
                 <Typography className={cardstyle.subhead}>
-                  No of Super Master
+                  Total Number Of Super Masters
                 </Typography>
                 <Typography className={cardstyle.counterhead}>3 </Typography>
               </CardContent>
@@ -75,7 +75,7 @@ function Dashboard() {
                   Master
                 </Typography>
                 <Typography className={cardstyle.subhead}>
-                  No of Master
+                Total Number Of Masters
                 </Typography>
                 <Typography className={cardstyle.counterhead}>21</Typography>
               </CardContent>
@@ -112,7 +112,7 @@ function Dashboard() {
               <CardContent>
                 <Typography className={cardstyle.cardheading}>Agent</Typography>
                 <Typography className={cardstyle.subhead}>
-                  No of Agent
+                Total Number Of Agents
                 </Typography>
                 <Typography className={cardstyle.counterhead}>600</Typography>
               </CardContent>
