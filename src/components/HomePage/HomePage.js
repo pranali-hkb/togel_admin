@@ -70,6 +70,12 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import Logout from "../Logout/Logout";
 import hkblogo from "../../assets/images/Logo/logo.png";
 import GTranslateIcon from "@mui/icons-material/GTranslate";
+import Popover from '@mui/material/Popover';
+
+
+
+
+
 
 const drawerWidth = 270;
 
@@ -105,17 +111,17 @@ function HomePage(props) {
 
   const handleMenuClick = (menuName) => {
     console.log("menustate =>", menuName);
-    if(menuName=="home"){
-      navigate("/maindashboard")
+    if (menuName == "home") {
+      navigate("/maindashboard");
     }
-    if(menuName=="calculation"){
-      navigate("/calculation")
+    if (menuName == "calculation") {
+      navigate("/calculation");
     }
-    if(menuName=="prediction"){
-      navigate("/prediction")
+    if (menuName == "prediction") {
+      navigate("/prediction");
     }
-    if(menuName=="logs"){
-      navigate("/logs")
+    if (menuName == "logs") {
+      navigate("/logs");
     }
     setMenuStates((prevState) => ({
       ...prevState,
@@ -154,21 +160,40 @@ function HomePage(props) {
 
   // icon on app bar start
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorE2, setAnchorE2] = React.useState(null);
+  const [anchornotification, setAnchorNotification] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
-  const isMenuOpen = Boolean(anchorEl);
+  const isProfileMenuOpen = Boolean(anchorEl);
+  const isLangMenuOpen = Boolean(anchorE2);
+  // const isNotificationMenuOpen = Boolean(anchornotification);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  // const id = open ? 'notification-popover' : undefined;
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
+  const handleLangMenuOpen = (event) => {
+    setAnchorE2(event.currentTarget);
   };
+////////////////////////////////////
+  const handleClick = (event) => {
+    setAnchorNotification(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorNotification(null);
+  };
+  const open = Boolean(anchornotification);
+  const id = open ? 'notification-popover' : undefined;
+
+  // //////////////////////////
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+    setAnchorE2(null);
+    setAnchorNotification(null);
     handleMobileMenuClose();
   };
 
@@ -179,12 +204,58 @@ function HomePage(props) {
     // navigate('/logout');
   };
 
+  // for mobile
+  const handleMobileMenuClose = () => {
+    setMobileMoreAnchorEl(null);
+  };
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = "primary-search-account-menu";
-
+  const profilemenu = "primary-search-account-menu";
+  const renderProfileMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "left",
+      }}
+      id={profilemenu}
+      keepMounted
+      transformOrigin={{
+        vertical: "bottom",
+        horizontal: "center",
+      }}
+      open={isProfileMenuOpen}
+      onClose={handleMenuClose}
+    style={{marginTop:'40px',}}
+    >
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+    </Menu>
+  );
+  const langmenu = "primary-search-account-menu";
+  const renderLangMenu = (
+    <Menu
+      anchorEl={anchorE2}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "left",
+      }}
+      id={langmenu}
+      keepMounted
+      transformOrigin={{
+        vertical: "bottom",
+        horizontal: "center",
+      }}
+      open={isLangMenuOpen}
+      onClose={handleMenuClose}
+      style={{marginTop:'40px',}}
+    >
+      <MenuItem onClick={handleMenuClose}>India</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Indonesia</MenuItem>
+    </Menu>
+  );
   const mobileMenuId = "primary-search-account-menu-mobile";
 
   // search
@@ -1065,7 +1136,6 @@ function HomePage(props) {
               },
             }}
           >
-            
             <Search
               className={appstyle.search}
               sx={{ color: "#262626", background: "none" }}
@@ -1080,19 +1150,29 @@ function HomePage(props) {
                 inputProps={{ "aria-label": "search" }}
               />
             </Search>
-
+            {/* <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={profilemenu}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
+              <Person4OutlinedIcon />
+            </IconButton> */}
             <IconButton
               sx={{ color: "#262626" }}
               size="large"
               edge="end"
               aria-label="account of current user"
-              aria-controls={menuId}
+              aria-controls={profilemenu}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
             >
               <Person4OutlinedIcon />
             </IconButton>
-            <IconButton
+            {/* <IconButton
               size="large"
               aria-label="show 4 new mails"
               sx={{ color: "#262626" }}
@@ -1100,24 +1180,52 @@ function HomePage(props) {
               <Badge badgeContent={4} color="warning">
                 <SettingsOutlinedIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
               sx={{ color: "#262626" }}
+              onClick={handleClick}
             >
               <Badge badgeContent={17} color="warning">
                 <NotificationsOutlinedIcon />
               </Badge>
             </IconButton>
+            {/* notification popup */}
+            <Popover
+        id={id}
+        open={open}
+        anchornotification={anchornotification}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        sx={{marginTop:'40px'}}
+      >
+        {/* Add your notification content here */}
+        <div style={{ padding: '10px' }}>
+          <h3>New Notifications</h3>
+          <ul>
+            <li>Notification 1</li>
+            <li>Notification 2</li>
+            <li>Notification 3</li>
+            {/* Add more notifications as needed */}
+          </ul>
+        </div>
+      </Popover>
             <IconButton
               sx={{ color: "#262626" }}
               size="large"
               edge="end"
               aria-label="account of current user"
-              aria-controls={menuId}
+              aria-controls={langmenu}
               aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
+              onClick={handleLangMenuOpen}
             >
               <GTranslateIcon />
             </IconButton>
@@ -1250,6 +1358,8 @@ function HomePage(props) {
         <Toolbar />
         <RoutesPages />
       </Box>
+      {renderProfileMenu}
+      {renderLangMenu}
     </Box>
   );
 }
