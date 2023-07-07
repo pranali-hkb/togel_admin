@@ -35,8 +35,10 @@ import { styled, alpha } from "@mui/material/styles";
 import axios from "axios";
 import config from "../../config";
 import Swal from "sweetalert2";
-import TokenContext from '../../TokenContext'
+// import TokenContext from '../../TokenContext'
+// import AdminDataContext from '../../TokenContext'
 import { useContext } from "react";
+import {TokenContext,AdminDataContext} from '../../App'
 // search
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -88,6 +90,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const GameList = () => {
 
 const accessToken =useContext(TokenContext);
+const adminInfo =useContext(AdminDataContext);
 
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
@@ -177,6 +180,7 @@ const accessToken =useContext(TokenContext);
     try {
       // const  accessToken = localStorage.getItem('user-token');
       console.log("accessToken111",accessToken)
+      console.log("adminInfo",adminInfo)
       if(accessToken){
       const response = await axios.get(`${config.serverUrl}/admin/setting/game`,
         {

@@ -11,12 +11,17 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import config from "../../config";
 import { useContext } from "react";
-import TokenContext from "../../TokenContext";
+// import TokenContext from "../../TokenContext";
 
+import {TokenContext,AdminDataContext} from '../../App'
 
 const DashbordCards = () => {
 
   const accessToken =useContext(TokenContext);
+  const adminInfo =useContext(AdminDataContext);
+  console.log("accessToken=>",accessToken)
+  console.log("adminInfo=>",adminInfo)
+  console.log("admincode=>",adminInfo.admincode)
     //-------------- states-----------------------//
     const [supermastercount  , setSuperMasterCount] = useState([]);
     const [mastercount  , setMasterCount] = useState([]);
@@ -36,7 +41,7 @@ const DashbordCards = () => {
               }
             }
           );
-          console.log("response=>", response.data);
+          console.log("response =>", response.data);
           setSuperMasterCount(response.data.data);
         }
       } catch (e) {
