@@ -780,8 +780,8 @@ function HomePage(props) {
       <ListItem disablePadding>
         <ListItemButton
           ref={userButtonRef}
-          onClick={() => navigate("/prediction")}
-          selected={location.pathname === "/prediction"}
+          onClick={() => navigate("/calculation")}
+          selected={location.pathname === "/calculation"}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
@@ -801,7 +801,7 @@ function HomePage(props) {
                 WebkitTextFillColor: "#fa8c15",
               },
               WebkitTextFillColor:
-                location.pathname === "/prediction" ? "#fa8c15" : "#038fdd",
+                location.pathname === "/calculation" ? "#fa8c15" : "#038fdd",
             }}
             className={appstyle.navtext}
           >
@@ -845,9 +845,8 @@ function HomePage(props) {
       <ListItem disablePadding>
         <ListItemButton
           ref={userButtonRef}
-          // onClick={() => navigate("/logout")}
-          onClick={() => handleLogout()}
-          selected={location.pathname === "/login"}
+          onClick={() => navigate("/logs")}
+          selected={location.pathname === "/logs"}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
@@ -867,7 +866,7 @@ function HomePage(props) {
                 WebkitTextFillColor: "#fa8c15",
               },
               WebkitTextFillColor:
-                location.pathname === "/login" ? "#fa8c15" : "#038fdd",
+                location.pathname === "/logs" ? "#fa8c15" : "#038fdd",
             }}
             className={appstyle.navtext}
           >

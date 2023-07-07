@@ -17,6 +17,8 @@ import UpdateProfile from './components/UpdateProfile/UpdateProfile'
 import Prediction from './components/Prediction/Prediction'
 import GameList from './components/GameList/GameList'
 import LoginPage from './components/LoginPage/LoginPage'
+import Calculation from './components/Calculation/Calculation'
+import Logs from './components/Logs/Logs'
 const RoutesPages = () => {
   return (
     <div>
@@ -35,8 +37,9 @@ const RoutesPages = () => {
           <Route path="/winlossreport" element={<WinlossReport/>} />
           {/* <Route path="/login" element={<Logout />} /> */}
           <Route path='/supermasterprofileupdate' element={<UpdateProfile/>}/>
+          <Route path='/calculation' element={<Calculation/>}/>
           <Route path='/prediction' element={<Prediction/>}/>
-          <Route path='/gamelist' element={<GameList/>}/>
+          <Route path='/logs' element={<Logs/>}/>
           <Route path='/login' element={<LoginPage/>}/>
         </Routes>
     </div>
