@@ -5,6 +5,7 @@ import DashbordCards from "../DashbordCards/DashbordCards";
 import SampleDataTable from "../SampleDataTable/SampleDataTable";
 import SampleTable from "../SampleDataTable/SampleTable";
 import AddSuperMasterForm from "../AddSuperMasterForm/AddSuperMasterForm";
+import { AppBar } from "@mui/material";
 
 function MainDahboard() {
   return (
@@ -14,7 +15,7 @@ function MainDahboard() {
       <RecentUserTable />  */}
       {/* <SampleDataTable /> */}
       {/* <SampleTable/> */}
-
+<AppBar/>
     <AddSuperMasterForm/>
     </div>
   );

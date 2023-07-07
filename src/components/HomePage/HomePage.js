@@ -69,6 +69,8 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import Logout from "../Logout/Logout";
 import hkblogo from "../../assets/images/Logo/logo.png";
+import GTranslateIcon from "@mui/icons-material/GTranslate";
+
 const drawerWidth = 270;
 
 function HomePage(props) {
@@ -91,12 +93,18 @@ function HomePage(props) {
   const userButtonRef = useRef();
 
   const [menuStates, setMenuStates] = React.useState({
+    home: false,
+    user: false,
     superMaster: false,
-    master: false,
+    calculation: false,
+    prediction: false,
+    logs: false,
+    logout: false,
     // Add more menu items here
   });
 
   const handleMenuClick = (menuName) => {
+    console.log("menustate =>", menuName);
     setMenuStates((prevState) => ({
       ...prevState,
       [menuName]: !prevState[menuName],
@@ -240,7 +248,7 @@ function HomePage(props) {
             >
               <ListItemIcon sx={{ color: "white" }}>
                 {/* <Avatar sx={{ backgroundColor: "#fff" }}> */}
-                  <img src={hkblogo} alt="" width={120} />
+                <img src={hkblogo} alt="" width={120} />
                 {/* </Avatar> */}
               </ListItemIcon>
               {/* <ListItemText sx={{ color: "#fff" }}> Pranali Bos</ListItemText> */}
@@ -253,8 +261,25 @@ function HomePage(props) {
       <ListItem disablePadding>
         <ListItemButton
           ref={userButtonRef}
-          onClick={() => navigate("/dashboard")}
-          selected={location.pathname === "/dashboard"}
+          onClick={() => handleMenuClick("home")}
+          selected={menuStates.home}
+          sx={{
+            "&:hover": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+
+            "&:focus": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+            "&:active": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+
+            color: menuStates.home ? "#fa8c15" : "#038fdd",
+          }}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
@@ -274,7 +299,7 @@ function HomePage(props) {
               },
 
               WebkitTextFillColor:
-                location.pathname === "/dashboard" ? "#fa8c15" : "#038fdd",
+                location.pathname === "/maindashboard" ? "#fa8c15" : "#038fdd",
             }}
             className={appstyle.navtext}
           >
@@ -286,9 +311,9 @@ function HomePage(props) {
 
       <ListItem disablePadding>
         <ListItemButton
-          onClick={() => handleMenuClick("superMaster")}
+          onClick={() => handleMenuClick("user")}
           ref={userButtonRef}
-          selected={menuStates.superMaster}
+          selected={menuStates.user}
           sx={{
             "&:hover": {
               WebkitTextFillColor: "#fa8c15",
@@ -303,8 +328,8 @@ function HomePage(props) {
               WebkitTextFillColor: "#fa8c15",
               color: "#fa8c15",
             },
-            // backgroundColor: menuStates.superMaster ? "#642483" : "transparent",
-            color: menuStates.superMaster ? "#fa8c15" : "#038fdd",
+
+            color: menuStates.user ? "#fa8c15" : "#038fdd",
           }}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
@@ -325,11 +350,11 @@ function HomePage(props) {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center",
+                alignItems: "left",
               }}
             >
               User
-              {menuStates.superMaster ? (
+              {menuStates.user ? (
                 <KeyboardArrowDownIcon
                   sx={{
                     ml: 10,
@@ -346,7 +371,7 @@ function HomePage(props) {
           </ListItemText>
         </ListItemButton>
       </ListItem>
-      <Collapse in={menuStates.superMaster} timeout="auto" unmountOnExit>
+      <Collapse in={menuStates.user} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
             ref={userButtonRef}
@@ -382,7 +407,7 @@ function HomePage(props) {
           </ListItemButton>
         </List>
       </Collapse>
-      <Collapse in={menuStates.superMaster} timeout="auto" unmountOnExit>
+      <Collapse in={menuStates.user} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
             ref={userButtonRef}
@@ -420,7 +445,7 @@ function HomePage(props) {
           </ListItemButton>
         </List>
       </Collapse>
-      <Collapse in={menuStates.superMaster} timeout="auto" unmountOnExit>
+      <Collapse in={menuStates.user} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
             ref={userButtonRef}
@@ -459,9 +484,9 @@ function HomePage(props) {
 
       <ListItem disablePadding>
         <ListItemButton
-          onClick={() => handleMenuClick("master")}
+          onClick={() => handleMenuClick("superMaster")}
           ref={userButtonRef}
-          selected={menuStates.master}
+          selected={menuStates.superMaster}
           sx={{
             "&:hover": {
               WebkitTextFillColor: "#fa8c15",
@@ -476,7 +501,7 @@ function HomePage(props) {
               WebkitTextFillColor: "#fa8c15",
               color: "#fa8c15",
             },
-            // backgroundColor: menuStates.superMaster ? "#642483" : "transparent",
+
             color: menuStates.superMaster ? "#fa8c15" : "#038fdd",
           }}
         >
@@ -502,7 +527,7 @@ function HomePage(props) {
               }}
             >
               Super Master
-              {menuStates.master ? (
+              {menuStates.superMaster ? (
                 <KeyboardArrowDownIcon
                   sx={{
                     ml: 2,
@@ -519,7 +544,7 @@ function HomePage(props) {
           </ListItemText>
         </ListItemButton>
       </ListItem>
-      <Collapse in={menuStates.master} timeout="auto" unmountOnExit>
+      <Collapse in={menuStates.superMaster} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
             ref={userButtonRef}
@@ -557,7 +582,7 @@ function HomePage(props) {
           </ListItemButton>
         </List>
       </Collapse>
-      <Collapse in={menuStates.master} timeout="auto" unmountOnExit>
+      <Collapse in={menuStates.superMaster} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
             ref={userButtonRef}
@@ -616,7 +641,7 @@ function HomePage(props) {
               WebkitTextFillColor: "#fa8c15",
               color: "#fa8c15",
             },
-            // backgroundColor: menuStates.superMaster ? "#642483" : "transparent",
+
             color: menuStates.reports ? "#fa8c15" : "#038fdd",
           }}
         >
@@ -641,7 +666,7 @@ function HomePage(props) {
                 alignItems: "left",
               }}
             >
-             Reports
+              Reports
               {menuStates.reports ? (
                 <KeyboardArrowDownIcon
                   sx={{
@@ -697,7 +722,6 @@ function HomePage(props) {
           </ListItemButton>
         </List>
       </Collapse>
-
       <Collapse in={menuStates.reports} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton
@@ -780,8 +804,25 @@ function HomePage(props) {
       <ListItem disablePadding>
         <ListItemButton
           ref={userButtonRef}
-          onClick={() => navigate("/calculation")}
-          selected={location.pathname === "/calculation"}
+          onClick={() => handleMenuClick("calculation")}
+          selected={menuStates.calculation}
+          sx={{
+            "&:hover": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+
+            "&:focus": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+            "&:active": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+
+            color: menuStates.calculation ? "#fa8c15" : "#038fdd",
+          }}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
@@ -812,8 +853,25 @@ function HomePage(props) {
       <ListItem disablePadding>
         <ListItemButton
           ref={userButtonRef}
-          onClick={() => navigate("/prediction")}
-          selected={location.pathname === "/prediction"}
+          onClick={() => handleMenuClick("prediction")}
+          selected={menuStates.prediction}
+          sx={{
+            "&:hover": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+
+            "&:focus": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+            "&:active": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+
+            color: menuStates.prediction ? "#fa8c15" : "#038fdd",
+          }}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
@@ -845,8 +903,25 @@ function HomePage(props) {
       <ListItem disablePadding>
         <ListItemButton
           ref={userButtonRef}
-          onClick={() => navigate("/logs")}
-          selected={location.pathname === "/logs"}
+          onClick={() => handleMenuClick("logs")}
+          selected={menuStates.logs}
+          sx={{
+            "&:hover": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+
+            "&:focus": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+            "&:active": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+
+            color: menuStates.logs ? "#fa8c15" : "#038fdd",
+          }}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
@@ -877,9 +952,25 @@ function HomePage(props) {
       <ListItem disablePadding>
         <ListItemButton
           ref={userButtonRef}
-          // onClick={() => navigate("/logout")}
-          onClick={() => handleLogout()}
-          selected={location.pathname === "/login"}
+          onClick={() => handleMenuClick("logout")}
+          selected={menuStates.logout}
+          sx={{
+            "&:hover": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+
+            "&:focus": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+            "&:active": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+
+            color: menuStates.logout ? "#fa8c15" : "#038fdd",
+          }}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
@@ -962,7 +1053,7 @@ function HomePage(props) {
               },
             }}
           >
-         
+            
             <Search
               className={appstyle.search}
               sx={{ color: "#262626", background: "none" }}
@@ -1006,6 +1097,17 @@ function HomePage(props) {
               <Badge badgeContent={17} color="warning">
                 <NotificationsOutlinedIcon />
               </Badge>
+            </IconButton>
+            <IconButton
+              sx={{ color: "#262626" }}
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+            >
+              <GTranslateIcon />
             </IconButton>
 
             <Menu
