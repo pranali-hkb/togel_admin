@@ -117,10 +117,12 @@ function LoginPage() {
         adminname: adminInformation.name,
         admincode: adminInformation.code,
         adminrole: adminInformation.roleName,
+        adminroleid: adminInformation.role_id,
         adminid: adminInformation.id,
         adminuserid: adminInformation.user_id,
         adminemail: adminInformation.email,
-        admintype: adminInformation.is_admin,
+        adminis_admin: adminInformation.is_admin,
+        admintype: adminInformation.type,
 
       }
       localStorage.setItem("user-info", JSON.stringify(adminData));

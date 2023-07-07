@@ -25,7 +25,7 @@ const RoutesPages = () => {
     <Routes>
           <Route exact path="/" element={<MainDahboard/>} />
           <Route exact path="/maindashboard" element={<MainDahboard/>} />
-          <Route exact path="/dashboard" element={<MainDahboard/>} />
+          {/* <Route exact path="/dashboard" element={<MainDahboard/>} /> */}
           <Route path="/supermaster" element={<SuperMaster />} />
           <Route path="/usersupermaster" element={<SuperMaster />} />
           <Route path="/gamesettting" element={<GameSetting />} />
