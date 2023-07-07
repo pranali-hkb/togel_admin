@@ -26,14 +26,15 @@
   text-align: left;
   border-radius: 12px;
   background-color: rgb(253, 253, 253);
-  padding: 0 0 2% 0;
+  padding: 0 0 8% 0;
 }
 .container {
-  width: 90%;
+  width: 70%;
   display: flex;
   justify-content: center;
   align-items: start;
   padding: 2% 0 2% 0;
+  gap: 15px;
 }
 
 .sectionleft {

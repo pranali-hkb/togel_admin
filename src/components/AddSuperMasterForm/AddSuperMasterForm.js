@@ -9,11 +9,9 @@ const AddSuperMasterForm = () => {
   return (
     <>
       <Box className={formstyles.maincontainer}>
-      
-          <Typography className={formstyles.heading} sx={{ textAlign: "left" }}>
-            Add Super Master
-          </Typography>
-     
+        <Typography className={formstyles.heading} sx={{ textAlign: "left" }}>
+          Add Super Master
+        </Typography>
 
         <div className={formstyles.container}>
           <div className={formstyles.sectionleft}>
@@ -27,6 +25,13 @@ const AddSuperMasterForm = () => {
                 fullWidth
                 required
                 color="warning"
+                // change placeholder css
+                InputProps={{
+                  style: { fontSize: "14px" },
+                }}
+                inputProps={{
+                  maxLength: 50, // Maximum allowed characters
+                }}
               />
             </div>
 
@@ -40,6 +45,13 @@ const AddSuperMasterForm = () => {
                 fullWidth
                 required
                 color="warning"
+                // change placeholder font
+                InputProps={{
+                  style: { fontSize: "14px" },
+                }}
+                inputProps={{
+                  maxLength: 2, // Maximum allowed characters
+                }}
               />
             </div>
             {/* 3 */}
@@ -52,6 +64,13 @@ const AddSuperMasterForm = () => {
                 fullWidth
                 required
                 color="warning"
+                // change placeholder font
+                InputProps={{
+                  style: { fontSize: "14px" },
+                }}
+                inputProps={{
+                  maxLength: 15, // Maximum allowed characters
+                }}
               />
             </div>
 
@@ -65,6 +84,13 @@ const AddSuperMasterForm = () => {
                 fullWidth
                 required
                 color="warning"
+                // change placeholder font
+                InputProps={{
+                  style: { fontSize: "14px" },
+                }}
+                inputProps={{
+                  maxLength: 15, // Maximum allowed characters
+                }}
               />
             </div>
             {/* 5 */}
@@ -77,6 +103,13 @@ const AddSuperMasterForm = () => {
                 fullWidth
                 required
                 color="warning"
+                // change placeholder font
+                InputProps={{
+                  style: { fontSize: "14px" },
+                }}
+                inputProps={{
+                  maxLength: 15, // Maximum allowed characters
+                }}
               />
             </div>
             {/* 6 */}
@@ -89,6 +122,13 @@ const AddSuperMasterForm = () => {
                 fullWidth
                 required
                 color="warning"
+                // change placeholder font
+                InputProps={{
+                  style: { fontSize: "14px" },
+                }}
+                inputProps={{
+                  maxLength: 20, // Maximum allowed characters
+                }}
               />
             </div>
           </div>
@@ -103,6 +143,13 @@ const AddSuperMasterForm = () => {
                 fullWidth
                 required
                 color="warning"
+                // change placeholder font
+                InputProps={{
+                  style: { fontSize: "14px" },
+                }}
+                inputProps={{
+                  maxLength: 10, // Maximum allowed characters
+                }}
               />
             </div>
 
@@ -116,6 +163,13 @@ const AddSuperMasterForm = () => {
                 fullWidth
                 required
                 color="warning"
+                // change placeholder font
+                InputProps={{
+                  style: { fontSize: "14px" },
+                }}
+                inputProps={{
+                  maxLength: 50, // Maximum allowed characters
+                }}
               />
             </div>
             {/* 3 */}
@@ -128,6 +182,13 @@ const AddSuperMasterForm = () => {
                 fullWidth
                 required
                 color="warning"
+                // change placeholder font
+                InputProps={{
+                  style: { fontSize: "14px" },
+                }}
+                inputProps={{
+                  maxLength: 50, // Maximum allowed characters
+                }}
               />
             </div>
 
@@ -141,6 +202,13 @@ const AddSuperMasterForm = () => {
                 fullWidth
                 required
                 color="warning"
+                // change placeholder font
+                InputProps={{
+                  style: { fontSize: "14px" },
+                }}
+                inputProps={{
+                  maxLength: 50, // Maximum allowed characters
+                }}
               />
             </div>
             {/* 5 */}
@@ -152,6 +220,13 @@ const AddSuperMasterForm = () => {
                 size="medium"
                 fullWidth
                 color="warning"
+                // change placeholder font
+                InputProps={{
+                  style: { fontSize: "14px" },
+                }}
+                inputProps={{
+                  maxLength: 10, // Maximum allowed characters
+                }}
               />
             </div>
           </div>
