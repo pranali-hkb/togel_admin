@@ -9,13 +9,13 @@ import AddSuperMasterForm from "../AddSuperMasterForm/AddSuperMasterForm";
 function MainDahboard() {
   return (
     <div>
-      <DashbordCards />
+      {/* <DashbordCards />
       <DashboardChart />
-      <RecentUserTable /> 
+      <RecentUserTable />  */}
       {/* <SampleDataTable /> */}
       {/* <SampleTable/> */}
 
-    {/* <AddSuperMasterForm/> */}
+    <AddSuperMasterForm/>
     </div>
   );
 }

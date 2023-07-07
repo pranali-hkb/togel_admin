@@ -68,7 +68,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import Logout from "../Logout/Logout";
-
+import hkblogo from "../../assets/images/Logo/logo.png";
 const drawerWidth = 270;
 
 function HomePage(props) {
@@ -225,10 +225,10 @@ function HomePage(props) {
         }}
       >
         <div
-          // style={{
-          //   borderTop: "1px solid #038fdd",
-          //   borderBottom: "1px solid #038fdd",
-          // }}
+        // style={{
+        //   borderTop: "1px solid #038fdd",
+        //   borderBottom: "1px solid #038fdd",
+        // }}
         >
           <ListItem
             disablePadding
@@ -239,9 +239,9 @@ function HomePage(props) {
               sx={{ color: openUser ? "#038fdd" : "transparent" }}
             >
               <ListItemIcon sx={{ color: "white" }}>
-                <Avatar sx={{ backgroundColor: "#fff" }}>
-                  <img src={userprofile} alt="" />
-                </Avatar>
+                {/* <Avatar sx={{ backgroundColor: "#fff" }}> */}
+                  <img src={hkblogo} alt="" width={120} />
+                {/* </Avatar> */}
               </ListItemIcon>
               {/* <ListItemText sx={{ color: "#fff" }}> Pranali Bos</ListItemText> */}
             </ListItemButton>
@@ -250,7 +250,7 @@ function HomePage(props) {
       </div>
       {/* <Toolbar /> */}
 
-      <ListItem disablePadding >
+      <ListItem disablePadding>
         <ListItemButton
           ref={userButtonRef}
           onClick={() => navigate("/dashboard")}
@@ -290,7 +290,21 @@ function HomePage(props) {
           ref={userButtonRef}
           selected={menuStates.superMaster}
           sx={{
-            backgroundColor: menuStates.superMaster ? "#642483" : "transparent",
+            "&:hover": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+
+            "&:focus": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+            "&:active": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+            // backgroundColor: menuStates.superMaster ? "#642483" : "transparent",
+            color: menuStates.superMaster ? "#fa8c15" : "#038fdd",
           }}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
@@ -305,16 +319,6 @@ function HomePage(props) {
             sx={{
               display: "flex",
               justifyContent: "start",
-              "&:hover": {
-                color: "#fa8c15",
-              },
-              
-              // "&:focus": {
-              //   color: "#fa8c15",
-              // },
-              color: menuStates.superMaster
-                ? "#fa8c15"
-                : "#038fdd",
             }}
           >
             <span
@@ -328,15 +332,13 @@ function HomePage(props) {
               {menuStates.superMaster ? (
                 <KeyboardArrowDownIcon
                   sx={{
-                    ml: 4,
-                    color: menuStates.superMaster ? "#fa8c15" : "#038fdd",
+                    ml: 10,
                   }}
                 ></KeyboardArrowDownIcon>
               ) : (
                 <KeyboardArrowRightIcon
                   sx={{
-                    ml: 4,
-                    color: menuStates.superMaster ? "#fa8c15" : "#038fdd",
+                    ml: 10,
                   }}
                 ></KeyboardArrowRightIcon>
               )}
@@ -364,9 +366,7 @@ function HomePage(props) {
                   ? "#fa8c15"
                   : "trabsparent",
               color:
-                location.pathname === "/superMaster"
-                  ? "orange"
-                  : "trabsparent",
+                location.pathname === "/superMaster" ? "orange" : "trabsparent",
             }}
             onClick={() => navigate("/superMaster")}
             selected={location.pathname === "/superMaster"}
@@ -454,46 +454,6 @@ function HomePage(props) {
           </ListItemButton>
         </List>
       </Collapse>
-      {/* <Collapse in={menuStates.superMaster} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton
-            ref={userButtonRef}
-            sx={{
-              pl: 7,
-
-              "&:hover": {
-                WebkitTextFillColor: "#fa8c15",
-                color: "#fa8c15",
-              },
-              "&:focus": {
-                WebkitTextFillColor: "#fa8c15",
-                color: "#fa8c15",
-              },
-              WebkitTextFillColor:
-                location.pathname === "/gamesettting"
-                  ? "#fa8c15"
-                  : "trabsparent",
-              color:
-                location.pathname === "/gamesettting"
-                  ? "orange"
-                  : "trabsparent",
-            }}
-            onClick={() => navigate("/gamesettting")}
-            selected={location.pathname === "/gamesettting"}
-          >
-            <ListItemText sx={{}} className={appstyle.menunavtext}>
-              <SettingsIcon
-                sx={{
-                  pt: 1,
-                }}
-              ></SettingsIcon>{" "}
-              Game Settings
-            </ListItemText>
-          </ListItemButton>
-        </List>
-      </Collapse> */}
-
-      {/* // **************User End******************* */}
 
       {/* // **************Super Admin Start******************* */}
 
@@ -503,14 +463,28 @@ function HomePage(props) {
           ref={userButtonRef}
           selected={menuStates.master}
           sx={{
-            backgroundColor: menuStates.master ? "#642483" : "transparent",
+            "&:hover": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+
+            "&:focus": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+            "&:active": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+            // backgroundColor: menuStates.superMaster ? "#642483" : "transparent",
+            color: menuStates.superMaster ? "#fa8c15" : "#038fdd",
           }}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
-              <PersonOutlineOutlinedIcon
+              <AccountCircleOutlinedIcon
                 sx={{ color: "#fa8c15" }}
-              ></PersonOutlineOutlinedIcon>
+              ></AccountCircleOutlinedIcon>
             </Avatar>
           </ListItemIcon>
           <ListItemText
@@ -518,35 +492,26 @@ function HomePage(props) {
             sx={{
               display: "flex",
               justifyContent: "start",
-              "&:hover": {
-                WebkitTextFillColor: "#fa8c15",
-              },
-              "&:focus": {
-                WebkitTextFillColor: "#fa8c15",
-              },
-              WebkitTextFillColor: menuStates.master ? "#fa8c15" : "#038fdd",
             }}
           >
             <span
               style={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center",
+                alignItems: "left",
               }}
             >
-              Super Admin
+              Super Master
               {menuStates.master ? (
                 <KeyboardArrowDownIcon
-                  sx={{ 
-                    // ml: 10,
-                    color: menuStates.master ? "#fa8c15" : "#038fdd",
+                  sx={{
+                    ml: 2,
                   }}
                 ></KeyboardArrowDownIcon>
               ) : (
                 <KeyboardArrowRightIcon
                   sx={{
-                    // ml: 10,
-                    color: menuStates.master ? "#fa8c15" : "#038fdd",
+                    ml: 2,
                   }}
                 ></KeyboardArrowRightIcon>
               )}
@@ -630,83 +595,7 @@ function HomePage(props) {
           </ListItemButton>
         </List>
       </Collapse>
-      {/* <Collapse in={menuStates.master} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton
-            ref={userButtonRef}
-            sx={{
-              pl: 7,
 
-              "&:hover": {
-                WebkitTextFillColor: "#fa8c15",
-                color: "#fa8c15",
-              },
-              "&:focus": {
-                WebkitTextFillColor: "#fa8c15",
-                color: "#fa8c15",
-              },
-              WebkitTextFillColor:
-                location.pathname === "/gamelist" ? "#fa8c15" : "trabsparent",
-              color:
-                location.pathname === "/gamelist" ? "orange" : "trabsparent",
-            }}
-            onClick={() => navigate("/gamelist")}
-            selected={location.pathname === "/gamelist"}
-          >
-            <ListItemText sx={{}} className={appstyle.menunavtext}>
-              <ListAltOutlined
-                sx={{
-                  pt: 1,
-                }}
-              ></ListAltOutlined>{" "}
-              Game List
-            </ListItemText>
-          </ListItemButton>
-        </List>
-      </Collapse>
-      <Collapse in={menuStates.master} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton
-            ref={userButtonRef}
-            sx={{
-              pl: 7,
-
-              "&:hover": {
-                WebkitTextFillColor: "#fa8c15",
-                color: "#fa8c15",
-              },
-              "&:focus": {
-                WebkitTextFillColor: "#fa8c15",
-                color: "#fa8c15",
-              },
-              WebkitTextFillColor:
-                location.pathname === "/gamesettting"
-                  ? "#fa8c15"
-                  : "trabsparent",
-              color:
-                location.pathname === "/gamesettting"
-                  ? "orange"
-                  : "trabsparent",
-            }}
-            onClick={() => navigate("/gamesettting")}
-            selected={location.pathname === "/gamesettting"}
-          >
-            <ListItemText sx={{}} className={appstyle.menunavtext}>
-              <SettingsIcon
-                sx={{
-                  pt: 1,
-                }}
-              ></SettingsIcon>{" "}
-              Game Settings
-            </ListItemText>
-          </ListItemButton>
-        </List>
-      </Collapse> */}
-      {/* // **************Super Admin End*******************
-
-
-
-      
       {/* // **************Reports ******************* */}
       <ListItem disablePadding>
         <ListItemButton
@@ -714,15 +603,28 @@ function HomePage(props) {
           ref={userButtonRef}
           selected={menuStates.reports}
           sx={{
-            backgroundColor: menuStates.reports ? "#642483" : "transparent",
+            "&:hover": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+
+            "&:focus": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+            "&:active": {
+              WebkitTextFillColor: "#fa8c15",
+              color: "#fa8c15",
+            },
+            // backgroundColor: menuStates.superMaster ? "#642483" : "transparent",
+            color: menuStates.reports ? "#fa8c15" : "#038fdd",
           }}
         >
           <ListItemIcon sx={{ color: "#038fdd" }}>
             <Avatar sx={{ backgroundColor: "#fff" }}>
-              {/* <img src={reportprofile} alt="" /> */}
-              <SummarizeOutlinedIcon
+              <AccountCircleOutlinedIcon
                 sx={{ color: "#fa8c15" }}
-              ></SummarizeOutlinedIcon>
+              ></AccountCircleOutlinedIcon>
             </Avatar>
           </ListItemIcon>
           <ListItemText
@@ -730,35 +632,26 @@ function HomePage(props) {
             sx={{
               display: "flex",
               justifyContent: "start",
-              "&:hover": {
-                WebkitTextFillColor: "#fa8c15",
-              },
-              "&:focus": {
-                WebkitTextFillColor: "#fa8c15",
-              },
-              WebkitTextFillColor: menuStates.reports ? "#fa8c15" : "#038fdd",
             }}
           >
             <span
               style={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center",
+                alignItems: "left",
               }}
             >
-              Reports
+             Reports
               {menuStates.reports ? (
                 <KeyboardArrowDownIcon
                   sx={{
-                    ml: 9,
-                    color: menuStates.reports ? "#fa8c15" : "#038fdd",
+                    ml: 7,
                   }}
                 ></KeyboardArrowDownIcon>
               ) : (
                 <KeyboardArrowRightIcon
                   sx={{
-                    ml: 9,
-                    color: menuStates.reports ? "#fa8c15" : "#038fdd",
+                    ml: 7,
                   }}
                 ></KeyboardArrowRightIcon>
               )}
@@ -1070,6 +963,7 @@ function HomePage(props) {
               },
             }}
           >
+         
             <Search
               className={appstyle.search}
               sx={{ color: "#262626", background: "none" }}
@@ -1084,6 +978,7 @@ function HomePage(props) {
                 inputProps={{ "aria-label": "search" }}
               />
             </Search>
+
             <IconButton
               sx={{ color: "#262626" }}
               size="large"
