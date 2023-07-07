@@ -8,7 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { Button, MenuItem, FormControl, Select } from "@mui/material";
-import tablestyle from "./SampleDataTable.module.css";
+import tablestyle from "./SampleTable.module.css";
 import EditIcon from "../../assets/images/profile/pen.svg";
 import DeleteIcon from "../../assets/images/profile/remove.svg";
 import { useState } from "react";

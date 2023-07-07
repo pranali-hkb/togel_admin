@@ -1,0 +1,136 @@
+.buttonsec {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+
+  padding: 2% 2% 2% 0%;
+}
+.buttonleft {
+  width: 50%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+
+}
+.buttonrgt {
+  width: 50%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+ 
+}
+
+.searchsec {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding-bottom: 1%;
+}
+
+.tableheading {
+    font-family: "Roboto" !important;
+  font-size: 20px!important;
+  font-weight: 800!important;
+  color: #344767!important;
+}
+
+.tableName {
+  font-size: 16px;
+  font-weight: 700;
+  color: #344767;
+}
+
+.tableData {
+  font-size: 14px;
+  font-weight: 700;
+  color: #344767;
+}
+
+.btnViewMore {
+  background: #038fde !important;
+  border: solid 1px #d9d9d9;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important; */
+  border-radius: 4px !important;
+  font-family: "Roboto" !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 11px !important;
+  line-height: 140% !important;
+  color: #fff !important;
+  text-transform: capitalize !important;
+}
+.btnViewMore:hover {
+  color: #700482;
+}
+.btnaddmaster {
+    background: #038fde !important;
+    border: solid 1px #d9d9d9;
+    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important; */
+    border-radius: 4px !important;
+    font-family: "Roboto" !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 11px !important;
+    line-height: 140% !important;
+    color: #fff !important;
+    text-transform: capitalize !important;
+  }
+  .btnaddmaster:hover {
+    color: #700482;
+  }
+  
+.btnSave {
+  background: #6358dc !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 8px !important;
+  font-family: "Poppins" !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  line-height: 135.5% !important;
+  width: 260px !important;
+  height: 50px !important;
+  display: flex;
+  color: #ffffff;
+}
+.btnReject {
+  background: #ec2e2e !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 8px !important;
+  font-family: "Poppins" !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  line-height: 135.5% !important;
+  height: 50px !important;
+  width: 260px !important;
+  color: #ffffff;
+  display: flex;
+}
+.addButton {
+  padding: 1% 4% 1% 4% !important;
+  background: -webkit-linear-gradient(left, #564093, #d2449d);
+  color: #fff !important;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  /* border-radius: 18px !important; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .mainbtnsec {
+    width: 33% !important;
+  }
+  .btnViewMore {
+    padding: 3px 3px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mainbtnsec {
+    width: 33% !important;
+  }
+}
