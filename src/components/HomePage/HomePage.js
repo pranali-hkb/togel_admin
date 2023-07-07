@@ -105,6 +105,18 @@ function HomePage(props) {
 
   const handleMenuClick = (menuName) => {
     console.log("menustate =>", menuName);
+    if(menuName=="home"){
+      navigate("/maindashboard")
+    }
+    if(menuName=="calculation"){
+      navigate("/calculation")
+    }
+    if(menuName=="prediction"){
+      navigate("/prediction")
+    }
+    if(menuName=="logs"){
+      navigate("/logs")
+    }
     setMenuStates((prevState) => ({
       ...prevState,
       [menuName]: !prevState[menuName],
