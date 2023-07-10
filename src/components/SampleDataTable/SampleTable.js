@@ -204,7 +204,7 @@ export default function SampleTable() {
   };
 
   return (
-    <div style={{ height: 400, width: "100%", textAlign: "center" }}>
+    <div style={{ height: 500, width: "100%", textAlign: "center" , backgroundColor:'#fff',borderRadius:'5px',marginBottom:'15%'}}>
       <div className={tablestyle.buttonsec}>
         {/* secleft start */}
         <div className={tablestyle.buttonleft}>
@@ -245,6 +245,7 @@ export default function SampleTable() {
         }}
         pageSizeOptions={[5, 10]}
         checkboxSelection
+        sx={{backgroundColor:"#fff"}}
       />
     </div>
   );
