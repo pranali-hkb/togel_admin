@@ -470,14 +470,14 @@ function HomePage(props) {
                 color: "#fa8c15",
               },
               WebkitTextFillColor:
-                location.pathname === "/superMaster"
+                location.pathname === "/addsupermaster"
                   ? "#fa8c15"
                   : "trabsparent",
               color:
-                location.pathname === "/superMaster" ? "orange" : "trabsparent",
+                location.pathname === "/addsupermaster" ? "orange" : "trabsparent",
             }}
-            onClick={() => navigate("/superMaster")}
-            selected={location.pathname === "/superMaster"}
+            onClick={() => navigate("/addsupermaster")}
+            selected={location.pathname === "/addsupermaster"}
           >
             <ListItemText sx={{}} className={appstyle.menunavtext}>
               <Person4OutlinedIcon

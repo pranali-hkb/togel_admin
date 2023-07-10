@@ -42,11 +42,11 @@ const CustomizedPieChart = () => {
         <Pie
           data={data}
           dataKey="value"
-          cx={200}
-          cy={160}
+          cx={160}
+          cy={130}
           labelLine={false}
           label={renderCustomizedLabel}
-          outerRadius={140}
+          outerRadius={100}
           fill="#8884d8"
        
         >

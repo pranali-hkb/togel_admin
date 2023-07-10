@@ -65,13 +65,13 @@ const CustomizeBarChart = () => {
   return (
     <>
       <BarChart
-        width={610}
-        height={340}
+        width={350}
+        height={350}
         data={dataTurnover}
         margin={{
-          top: 50,
+          top: 40,
           right: 20,
-          left: 2,
+          left: 0,
           bottom: 2,
         }}
         padding={{
@@ -81,7 +81,7 @@ const CustomizeBarChart = () => {
         }}
         barSize={20}
       >
-        <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
+        <XAxis dataKey="name" scale="point" padding={{ left: 2, right: 2 }} />
         <YAxis />
         <Tooltip />
         <Legend />

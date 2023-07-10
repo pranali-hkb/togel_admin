@@ -21,7 +21,7 @@ const DashbordCards = () => {
   const adminInfo =useContext(AdminDataContext);
   console.log("accessToken=>",accessToken)
   console.log("adminInfo=>",adminInfo)
-  console.log("admincode=>",adminInfo.admincode)
+  // console.log("admincode=>",adminInfo.admincode)
     //-------------- states-----------------------//
     const [supermastercount  , setSuperMasterCount] = useState([]);
     const [mastercount  , setMasterCount] = useState([]);

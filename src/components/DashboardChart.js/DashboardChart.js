@@ -19,6 +19,7 @@ import {
 
 import CustomizedPieChart from "../CustomizedPieChart/CustomizedPieChart";
 import CustomizeBarChart from "../CustomizeBarChart/CustomizeBarChart";
+import CustomizeLineChart from "../CustomizeLineChart/CustomizeLineChart";
 
 const DashboardChart = () => {
   return (
@@ -29,18 +30,27 @@ const DashboardChart = () => {
           <div className={chartsStyle.Charts1}>
       
             <Box className={chartsStyle.CustomizeBarChart}>
-            <Typography variant="h1">TurnOver</Typography>
+            <Typography variant="h1"className={chartsStyle.heading}>TurnOver</Typography>
               <CustomizeBarChart />
             </Box>
           </div>
-          <div className={chartsStyle.Charts2}>
+          <div className={chartsStyle.Charts1}>
           
             <Box className={chartsStyle.CustomizePaiChart}>
-            <Typography variant="h1">Monthly Transaction</Typography>
+            <Typography variant="h1" className={chartsStyle.heading}>Monthly Transaction</Typography>
 
             <CustomizedPieChart />
             </Box>
           </div>
+
+          <div className={chartsStyle.Charts1}>
+          
+          <Box className={chartsStyle.CustomizePaiChart}>
+          <Typography variant="h1" className={chartsStyle.heading}>Market Status</Typography>
+
+          <CustomizeLineChart />
+          </Box>
+        </div>
         </div>
       </div>
     </>
