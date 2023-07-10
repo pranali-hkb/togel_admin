@@ -19,6 +19,7 @@ import GameList from './components/GameList/GameList'
 import LoginPage from './components/LoginPage/LoginPage'
 import Calculation from './components/Calculation/Calculation'
 import Logs from './components/Logs/Logs'
+import AddSuperMaster from './components/AddSuperMaster/AddSuperMaster'
 const RoutesPages = () => {
   return (
     <div>
@@ -41,6 +42,7 @@ const RoutesPages = () => {
           <Route path='/prediction' element={<Prediction/>}/>
           <Route path='/logs' element={<Logs/>}/>
           <Route path='/login' element={<LoginPage/>}/>
+          <Route path='/addsupermaster' element={<AddSuperMaster/>}/>
         </Routes>
     </div>
   )

@@ -15,21 +15,16 @@
 
 .Charts1 {
   height: 520px;
-  width: 59%;
+  width: 32%;
   display: flex;
   justify-content: center;
   align-content: center;
   flex-direction: column;
   text-align: center;
 }
-.Charts2 {
-  height: 520px;
-  width: 39%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-  text-align: center;
+
+.heading{
+  padding: 2% 0 1% 0;
 }
 .CustomizeBarChart {
   background-color: #ffffff;
