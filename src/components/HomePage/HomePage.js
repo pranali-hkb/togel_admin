@@ -77,6 +77,23 @@ import hkblogo from "../../assets/images/Logo/logo.png";
 import GTranslateIcon from "@mui/icons-material/GTranslate";
 import Popover from "@mui/material/Popover";
 import { FormControl, Select, Typography } from "@mui/material";
+import { styled as muiStyled } from '@mui/system';
+
+
+
+
+
+// css for language dropdown for border none
+const CustomSelect = muiStyled(Select)({
+  '& .MuiOutlinedInput-notchedOutline': {
+    border: 'none',
+
+  },
+});
+
+
+
+
 
 const drawerWidth = 270;
 
@@ -263,7 +280,7 @@ function HomePage(props) {
       }}
       open={isLangMenuOpen}
       onClose={handleMenuClose}
-      style={{ marginTop: "40px" }}
+      style={{ marginTop: "40px" ,}}
     >
       <MenuItem onClick={handleMenuClose} sx={{ marginBottom: "10px" }}>
         <img src={indo} alt="" width={30} />
@@ -1251,18 +1268,18 @@ function HomePage(props) {
             >
               <GTranslateIcon />
             </IconButton> */}
-            <FormControl sx={{ border: "none", color: "#262626" }}>
-              <Select
+            <FormControl sx={{ borderColor: "none", border:'none', padding:"0px"}}>
+              <CustomSelect
                  className={appstyle.languagedropdown}
-                // sx={{ padding: "5px" }}
+   
                 value={selectedOption}
                 onChange={handleChange}
-                autoWidth
-                displayEmpty
+                // autoWidth
+                // displayEmpty
                 inputProps={{ "aria-label": "Without label" }}
                 renderValue={(value) => (
                   <Typography className={appstyle.languageText}>
-                    <ListItemIcon>
+                    <ListItemIcon sx={{padding:"0px"}}>
                       {options.find((o) => o.value === value)?.icon}
                     </ListItemIcon>
                     {value}
@@ -1276,7 +1293,7 @@ function HomePage(props) {
                     <Typography>{option.label}</Typography>
                   </MenuItem>
                 ))}
-              </Select>
+              </CustomSelect>
             </FormControl>
             <Menu
               sx={{ color: "green" }}
