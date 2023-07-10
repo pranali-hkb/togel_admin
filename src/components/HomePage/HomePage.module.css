@@ -41,3 +41,17 @@
   font-size: 14px;
   color: #262626;
 }
+.flagsection{
+  margin-left: 7px;
+}
+.languageText{
+  font-size: 15px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0px !important;
+    padding-right: none !important;
+}
+.languagedropdown{
+  padding: 5px 30px 5px 3px !important;
+}

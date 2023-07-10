@@ -39,6 +39,11 @@ import agentprofile from "../../assets/images//profile/agentprofile.svg";
 import reportprofile from "../../assets/images//profile/reportprofile.svg";
 import logoutprofile from "../../assets/images//profile/logoutprofile.svg";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import EmojiFlagsIcon from "@mui/icons-material/EmojiFlags";
+import indo from "../../assets/images/profile/id.jpg";
+import eng from "../../assets/images/profile/en.jpg";
+import Indo from "../../assets/images/profile/id.jpg";
+import Eng from "../../assets/images/profile/en.jpg";
 import {
   ListAltOutlined,
   Person2Rounded,
@@ -70,12 +75,8 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import Logout from "../Logout/Logout";
 import hkblogo from "../../assets/images/Logo/logo.png";
 import GTranslateIcon from "@mui/icons-material/GTranslate";
-import Popover from '@mui/material/Popover';
-
-
-
-
-
+import Popover from "@mui/material/Popover";
+import { FormControl, Select, Typography } from "@mui/material";
 
 const drawerWidth = 270;
 
@@ -177,7 +178,7 @@ function HomePage(props) {
   const handleLangMenuOpen = (event) => {
     setAnchorE2(event.currentTarget);
   };
-////////////////////////////////////
+  ////////////////////////////////////
   const handleClick = (event) => {
     setAnchorNotification(event.currentTarget);
   };
@@ -186,7 +187,7 @@ function HomePage(props) {
     setAnchorNotification(null);
   };
   const open = Boolean(anchornotification);
-  const id = open ? 'notification-popover' : undefined;
+  const id = open ? "notification-popover" : undefined;
 
   // //////////////////////////
 
@@ -228,12 +229,24 @@ function HomePage(props) {
       }}
       open={isProfileMenuOpen}
       onClose={handleMenuClose}
-    style={{marginTop:'40px',}}
+      style={{ marginTop: "40px" }}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
+
+  const options = [
+    { value: "ID", label: "Indonesia", icon: <GTranslateIcon /> },
+    { value: "ENG", label: "English", icon: <GTranslateIcon /> },
+  ];
+
+  const [selectedOption, setSelectedOption] = useState("ID");
+
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+  // console.log('selectedOption',selectedOption)
   const langmenu = "primary-search-account-menu";
   const renderLangMenu = (
     <Menu
@@ -250,10 +263,17 @@ function HomePage(props) {
       }}
       open={isLangMenuOpen}
       onClose={handleMenuClose}
-      style={{marginTop:'40px',}}
+      style={{ marginTop: "40px" }}
     >
-      <MenuItem onClick={handleMenuClose}>India</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Indonesia</MenuItem>
+      <MenuItem onClick={handleMenuClose} sx={{ marginBottom: "10px" }}>
+        <img src={indo} alt="" width={30} />
+        <span className={appstyle.flagsection}>Indonesia</span>
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <img src={eng} alt="" width={30} />
+
+        <span className={appstyle.flagsection}>English</span>
+      </MenuItem>
     </Menu>
   );
   const mobileMenuId = "primary-search-account-menu-mobile";
@@ -609,7 +629,7 @@ function HomePage(props) {
                 alignItems: "left",
               }}
             >
-              Super Master
+              Super Admin
               {menuStates.superMaster ? (
                 <KeyboardArrowDownIcon
                   sx={{
@@ -1161,6 +1181,7 @@ function HomePage(props) {
             >
               <Person4OutlinedIcon />
             </IconButton> */}
+
             <IconButton
               sx={{ color: "#262626" }}
               size="large"
@@ -1193,32 +1214,33 @@ function HomePage(props) {
             </IconButton>
             {/* notification popup */}
             <Popover
-        id={id}
-        open={open}
-        anchornotification={anchornotification}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        sx={{marginTop:'40px'}}
-      >
-        {/* Add your notification content here */}
-        <div style={{ padding: '10px' }}>
-          <h3>New Notifications</h3>
-          <ul>
-            <li>Notification 1</li>
-            <li>Notification 2</li>
-            <li>Notification 3</li>
-            {/* Add more notifications as needed */}
-          </ul>
-        </div>
-      </Popover>
-            <IconButton
+              id={id}
+              open={open}
+              anchornotification={anchornotification}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              sx={{ marginTop: "40px" }}
+            >
+              {/* Add your notification content here */}
+              <div style={{ padding: "10px" }}>
+                <h3>New Notifications</h3>
+                <ul>
+                  <li>Notification 1</li>
+                  <li>Notification 2</li>
+                  <li>Notification 3</li>
+                  {/* Add more notifications as needed */}
+                </ul>
+              </div>
+            </Popover>
+
+            {/* <IconButton
               sx={{ color: "#262626" }}
               size="large"
               edge="end"
@@ -1228,8 +1250,34 @@ function HomePage(props) {
               onClick={handleLangMenuOpen}
             >
               <GTranslateIcon />
-            </IconButton>
-
+            </IconButton> */}
+            <FormControl sx={{ border: "none", color: "#262626" }}>
+              <Select
+                 className={appstyle.languagedropdown}
+                // sx={{ padding: "5px" }}
+                value={selectedOption}
+                onChange={handleChange}
+                autoWidth
+                displayEmpty
+                inputProps={{ "aria-label": "Without label" }}
+                renderValue={(value) => (
+                  <Typography className={appstyle.languageText}>
+                    <ListItemIcon>
+                      {options.find((o) => o.value === value)?.icon}
+                    </ListItemIcon>
+                    {value}
+                  </Typography>
+                )}
+               
+              >
+                {options.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    <ListItemIcon>{option.icon}</ListItemIcon>
+                    <Typography>{option.label}</Typography>
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
             <Menu
               sx={{ color: "green" }}
               anchorEl={mobileMoreAnchorEl}
@@ -1358,6 +1406,7 @@ function HomePage(props) {
         <Toolbar />
         <RoutesPages />
       </Box>
+
       {renderProfileMenu}
       {renderLangMenu}
     </Box>
