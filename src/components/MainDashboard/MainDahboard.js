@@ -15,8 +15,8 @@ function MainDahboard() {
       <RecentUserTable />  */}
       {/* <SampleDataTable /> */}
       {/* <SampleTable/> */}
-<AddSuperMaster/>
-    {/* <AddSuperMaster/> */}
+
+    <AddSuperMaster/>
     {/* <AddSuperMasterForm/> */}
     </div>
   );
