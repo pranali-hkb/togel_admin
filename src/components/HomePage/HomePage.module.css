@@ -49,9 +49,10 @@
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    padding: 0px !important;
-    padding-right: none !important;
+    padding: 0px 0px 0px 0px !important;
+    border: none;
 }
 .languagedropdown{
-  padding: 5px 30px 5px 3px !important;
+  padding: 0px 0px 0px 0px !important;
+  border: none;
 }
