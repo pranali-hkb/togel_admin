@@ -23,66 +23,53 @@
 
 .cardbg1 {
   width: 100%;
-  /* background: url("../../assets/images/profile/cardbg.png"),
-    linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%) !important; */
-  /* background: linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%); */
-  /* background-color: #030852!important; */
-  background-color: #038fde!important;
-  border-radius: 5px;
+  background: #FF944E!important;
+  border-radius: 8px!important;
   text-align: left;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  /* background-position:  right center !important; */
-
-  position: relative !important;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25)!important;
 }
 .cardbg2 {
   width: 100%;
-  /* background: linear-gradient(270deg, #2e95e7 14.04%, #84c3f7 93.18%); */
-  /* background-color: #fa8c16 !important; */
-  background: -webkit-linear-gradient(left, #564093, #d2449d);
-  border-radius: 5px;
+  background: #00E0FF!important;
+  border-radius: 8px!important;
   text-align: left;
-  box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36) !important;
-  position: relative !important;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25)!important;
 }
 .cardbg3 {
   width: 100%;
-  background-color: #fff !important;
- 
-  /* background: linear-gradient(270deg, #fe8996 14.04%, #fcab80 93.18%); */
-  background-color: #038fde!important;
-  border-radius: 5px;
+  background: #FC88B6!important;
+  border-radius: 8px!important;
   text-align: left;
-  box-shadow: 0px 2px 6px rgba(220, 34, 101, 0.36) !important;
-  position: relative !important;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25)!important;
 }
 
 .cardheading {
-  padding-top: 10%;
-  font-weight: 700 !important;
-  font-size: 22px !important;
-  line-height: 140% !important;
-  color: #fff !important;
-  padding-left: 5%;
+  font-family: Avenir LT Std;
+  padding-top: 2%;
+  font-family: Avenir LT Std;
+  font-weight: 500 !important;
+  font-size: 24px !important;
+  color: #101828 !important;
+  padding-left: 3%;
 }
 
 .subhead {
+  font-family: Avenir LT Std;
   padding-top: 4%;
-  font-weight: 500 !important;
-  font-size: 18px !important;
-  line-height: 140% !important;
-  color: #fff !important;
-  padding-left: 5%;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  color: #101828 !important;
+  padding-left: 3%;
 }
 
 .counterhead {
-  padding-top: 4%;
-  font-weight: 700 !important;
-  font-size: 18px !important;
-  line-height: 140% !important;
-  color: #fff !important;
-  padding-left: 5%;
+  font-family: Avenir LT Std;
+  padding-top: 5%;
+  font-family: Avenir LT Std;
+  font-weight: 500 !important;
+  font-size: 24px !important;
+  color: #101828 !important;
+  padding-left: 3%; 
 }
 .supermastericon {
   width: 55px;

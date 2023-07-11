@@ -10,13 +10,13 @@ import AddSuperMaster from "../AddSuperMaster/AddSuperMaster";
 function MainDahboard() {
   return (
     <div>
-      <DashbordCards />
-      <DashboardChart />
-      <RecentUserTable /> 
+      {/* <DashbordCards />
+      <DashboardChart /> */}
+
       {/* <SampleDataTable /> */}
        {/* <SampleTable/> */}
 
-    {/* <AddSuperMaster/>  */}
+    <AddSuperMaster/> 
    
     </div>
   );

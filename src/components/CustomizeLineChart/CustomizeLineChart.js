@@ -59,7 +59,7 @@ export default function CustomizeLineChart() {
   return (
     <LineChart
       width={380}
-      height={350}
+      height={300}
       data={data}
       margin={{
         top: 45,
