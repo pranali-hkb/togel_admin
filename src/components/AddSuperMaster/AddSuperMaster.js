@@ -24,16 +24,16 @@ const AddSuperMaster = () => {
   console.log("adminInfo=>", adminInfo);
   // console.log("adminInfo code=>", adminInfo.admincode);
  
-  let adminroleId = adminInfo.adminroleid;
-  let adminCode = adminInfo.admincode;
-  let adminType = adminInfo.admintype;
-  let adminuserId = adminInfo.adminuserid;
-  let adminUsername = adminInfo.adminusername;
-  let adminName = adminInfo.name;
-  let adminRole = adminInfo.roleName;
-  let adminId = adminInfo.id;
-  let adminEmail = adminInfo.email;
-  let adminIs_admin = adminInfo.is_admin;
+  // let adminroleId = adminInfo.adminroleid;
+  // let adminCode = adminInfo.admincode;
+  // let adminType = adminInfo.admintype;
+  // let adminuserId = adminInfo.adminuserid;
+  // let adminUsername = adminInfo.adminusername;
+  // let adminName = adminInfo.name;
+  // let adminRole = adminInfo.roleName;
+  // let adminId = adminInfo.id;
+  // let adminEmail = adminInfo.email;
+  // let adminIs_admin = adminInfo.is_admin;
   //------------------------------------States-----------------------------//
   const [superMasterName, setSuperMasterName] = useState("");
   const [superMasterUserName, setSuperMasterUserName] = useState("");
@@ -88,9 +88,9 @@ const AddSuperMaster = () => {
       bank_name: bankName,
       division: division,
       role_id: 1,
-      code: `${adminCode}${superMasterCode}`,
+      // code: `${adminCode}${superMasterCode}`,
       type: "AdminMaster",
-      user_id: parseInt(adminuserId),
+      // user_id: parseInt(adminuserId),
     };
     console.log("save data==>", data);
     console.log("save data==>", JSON.stringify(data));
@@ -122,7 +122,7 @@ const AddSuperMaster = () => {
               <span className={formstyles.badgeCode}>
                 <Badge
                   color="success"
-                  badgeContent={adminCode}
+                  // badgeContent={adminCode}
                   max={99}
                 ></Badge>
               </span>
