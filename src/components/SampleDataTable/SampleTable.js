@@ -6,6 +6,7 @@ import {
   FormControl,
   Select,
   Typography,
+  Avatar,
 } from "@mui/material";
 import tablestyle from "./SampleTable.module.css";
 import EditIcon from "../../assets/images/profile/pen.svg";
@@ -15,8 +16,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-
-import SettingsIcon from '@mui/icons-material/Settings';
+import plusIcone from "../../assets/images/profile/plus.svg";
+import CircleIcon from "@mui/icons-material/Circle";
+import SettingsIcon from "@mui/icons-material/Settings";
 // ****
 
 // Define handleButtonClick function
@@ -51,7 +53,7 @@ const Search = styled("div")(({ theme }) => ({
   height: "42px",
   color: "rgba(123, 128, 154, 1)",
   height: "42px",
-  width: "173px",
+  width: "235px",
   marginRight: theme.spacing(2),
   marginLeft: 0,
   width: "100%",
@@ -69,8 +71,6 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  top: "0px",
-  right: "0",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -78,7 +78,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(2)})`,
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
@@ -88,55 +88,103 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const columns = [
-  { field: "id", headerName: "ID", width: 20 , },
-  { field: "User_Code", headerName: "User_Code",  type: "number" , align:'left'},
-  { field: "Super_Master_Name", headerName: "First name", width: 150  },
+  { field: "id", headerName: "NO", width: 20 },
+  {
+    field: "User_Code",
+    headerName: "USER CODE",
+    type: "number",
+    align: "left",
+    // headerClassName: "tablestyle header_section",
+  },
+  { field: "Super_Master_Name", headerName: "SUPER MASTER NAME", width: 150 },
   {
     field: "Total_Master",
-    headerName: "Total Master",
+    headerName: "TOTAL MASTER",
     width: 150,
     type: "number",
-    align:'left'
+    align: "left",
   },
   {
     field: "Details",
-    headerName: "Details",
-  
-    // width: 50,
-    // headerClassName: "custom-header",
-
-    flex: 1,
-    renderCell: (params) => (
-      <RemoveRedEyeIcon
-      onClick={() => handleButtonClick(params.row)}
-      sx={{ color: "orange", fontSize: "25px" }}
-    ></RemoveRedEyeIcon>
-      
-    ),
-  },
-  {
-    field: "Status",
-    headerName: "Status",
-    // type: "number",
-    // width: 50,
-    // headerClassName: "custom-header",
+    headerName: "DETAIL",
 
     flex: 1,
     renderCell: (params) => (
       <Button
-        className={tablestyle.btnViewMore}
-        sx={{ textTransform: "none" }}
-        // variant="contained"
-        // color="primary"
         onClick={() => handleButtonClick(params.row)}
+        sx={{ color: "orange", fontSize: "14px" }}
       >
-        Active
+        DETAIL
       </Button>
     ),
   },
   {
+    field: "status",
+    headerName: "STATUS",
+    renderCell: (params) => {
+      // console.log("param", params);
+      return (
+        <div>
+        {params.row.status == 0?
+
+          <Button
+            sx={{ color: "green", fontSize: "14px" }}
+          >
+            Active
+          </Button>
+          :""
+        }
+        {params.row.status == 1?
+          <Button
+            sx={{ color: "red", fontSize: "14px" }}
+          >
+            Suspended
+          </Button>
+          :""
+        }
+        {params.row.status == 2?
+          <Button
+            sx={{ color: "black", fontSize: "14px" }}
+          >
+            Inactive
+          </Button>
+          :""
+        }
+        </div>
+        
+      );
+    },
+  },
+  // {
+  //   field: "Details",
+  //   headerName: "DETAIL",
+
+  //   flex: 1,
+  //   renderCell: (params) => (
+  //     <RemoveRedEyeIcon
+  //       onClick={() => handleButtonClick(params.row)}
+  //       sx={{ color: "orange", fontSize: "25px" }}
+  //     ></RemoveRedEyeIcon>
+  //   ),
+  // },
+  // {
+  //   field: "Status",
+  //   headerName: "Status",
+
+  //   flex: 1,
+  //   renderCell: (params) => (
+  //     <Button
+  //       className={tablestyle.btnViewMore}
+  //       sx={{ textTransform: "none" }}
+  //       onClick={() => handleButtonClick(params.row)}
+  //     >
+  //       Active
+  //     </Button>
+  //   ),
+  // },
+  {
     field: "AddMaster",
-    headerName: "Add Master",
+    headerName: "ADD MASTER",
     // type: "number",
     // width: 50,
     // headerClassName: "custom-header",
@@ -156,36 +204,88 @@ const columns = [
   },
   {
     field: "Settings",
-    headerName: "Settings",
+    headerName: "SETTING",
     // type: "number",
     width: 10,
     // headerClassName: "custom-header",
-align:"left",
+    align: "left",
     flex: 1,
     renderCell: (params) => (
-   
-        <SettingsIcon
-          onClick={() => handleButtonClick(params.row)}
-          sx={{ color: "orange", fontSize: "25px"  }}
-        ></SettingsIcon>
-   
+      <SettingsIcon
+        onClick={() => handleButtonClick(params.row)}
+        sx={{ color: "orange", fontSize: "25px" }}
+      ></SettingsIcon>
     ),
   },
 ];
 
 const rows = [
-  { id: 1, Super_Master_Name: "Jon", Total_Master: 35, User_Code: 35 },
-  { id: 2, Super_Master_Name: "Jon", Total_Master: 35, User_Code: 42 },
-  { id: 3, Super_Master_Name: "Jon", Total_Master: 5, User_Code: 45 },
-  { id: 4, Super_Master_Name: "Jon", Total_Master: 95, User_Code: 16 },
-  { id: 5, Super_Master_Name: "Jon", Total_Master: 45, User_Code: null },
-  { id: 6, Super_Master_Name: "Jon", Total_Master: 15, User_Code: 150 },
-  { id: 7, Super_Master_Name: "Jon", Total_Master: 6, User_Code: 44 },
-  { id: 8, Super_Master_Name: "Jon", Total_Master: 4, User_Code: 36 },
-  { id: 9, Super_Master_Name: "Jon", Total_Master: 52, User_Code: 65 },
+  {
+    id: 1,
+    User_Code: "YZ",
+    Super_Master_Name: "Jon",
+    Total_Master: 35,
+    status: 0,
+  },
+  {
+    id: 2,
+    User_Code: "GF",
+    Super_Master_Name: "Jon",
+    Total_Master: 35,
+    status: 1,
+  },
+  {
+    id: 3,
+    User_Code: "GH",
+    Super_Master_Name: "Jon",
+    Total_Master: 5,
+    status: 2,
+  },
+  {
+    id: 4,
+    User_Code: "SD",
+    Super_Master_Name: "Jon",
+    Total_Master: 95,
+    status: 2,
+  },
+  {
+    id: 5,
+    User_Code: "CV",
+    Super_Master_Name: "Jon",
+    Total_Master: 45,
+    status: 1,
+  },
+  {
+    id: 6,
+    User_Code: "MN",
+    Super_Master_Name: "Jon",
+    Total_Master: 15,
+    status: 0,
+  },
+  {
+    id: 7,
+    User_Code: "KL",
+    Super_Master_Name: "Jon",
+    Total_Master: 6,
+    status: 0,
+  },
+  {
+    id: 8,
+    User_Code: "DF",
+    Super_Master_Name: "Jon",
+    Total_Master: 4,
+    status: 1,
+  },
+  {
+    id: 9,
+    User_Code: "FG",
+    Super_Master_Name: "Jon",
+    Total_Master: 52,
+    status: 2,
+  },
 ];
 
-export default function SampleTable() {
+const SampleTable = () => {
   const [activeStatus, setActiveStatus] = useState("ALL");
   const [deletedStatus, setDeletedStatus] = useState(false);
   const [open, setOpen] = useState(false);
@@ -204,37 +304,51 @@ export default function SampleTable() {
   };
 
   return (
-    <div style={{ height: 500, width: "100%", textAlign: "center" , backgroundColor:'#fff',borderRadius:'5px',marginBottom:'15%'}}>
-      <div className={tablestyle.buttonsec}>
-        {/* secleft start */}
-        <div className={tablestyle.buttonleft}>
-          <Typography className={tablestyle.tableheading}>
-            Super Master List
-          </Typography>
-        </div>
-        {/* sec right start */}
-        <div className={tablestyle.buttonrgt}>
-          <Button
-            sx={{ textTransform: "none" }}
-            className={tablestyle.addButton}
-            onClick={handleOpen}
-          >
-            + Add Super Master
-          </Button>
-        </div>
+    <div
+      style={{
+        height: 500,
+        width: "100%",
+        textAlign: "center",
+        backgroundColor: "#fff",
+        borderRadius: "5px",
+        marginBottom: "15%",
+      }}
+    >
+      <div className={tablestyle.btnAddSuperMaster}>
+        <Button
+          sx={{ textTransform: "none" }}
+          className={tablestyle.addButton}
+          onClick={handleOpen}
+          startIcon={<plusIcone sx={{ color: "#fff" }} />}
+        >
+          {/* <span className={tablestyle.addIcon}> */}
+          {/* <plusIcone></plusIcone> */}
+          {/* </span> */}
+          Add Super Master
+        </Button>
       </div>
-      <div className={tablestyle.searchsec}>
-        <Search sx={{ backgroundColor: "transparent", borderColor: "none" }}>
+
+      <div className={tablestyle.buttonsec}>
+        <Typography className={tablestyle.tableheading}>
+          Super Master List
+        </Typography>
+
+        <Search
+          className={tablestyle.search}
+          sx={{ color: "#4B5563", background: "none" }}
+        >
+          <SearchIconWrapper sx={{ color: "#4B5563" }}>
+            <SearchIcon sx={{ color: "#4B5563" }} />
+          </SearchIconWrapper>
           <StyledInputBase
-            size="small"
+            className={tablestyle.searchtxt}
             placeholder="Search…"
+            height="42px"
             inputProps={{ "aria-label": "search" }}
           />
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
         </Search>
       </div>
+
       <DataGrid
         rows={rows}
         columns={columns}
@@ -244,9 +358,10 @@ export default function SampleTable() {
           },
         }}
         pageSizeOptions={[5, 10]}
-        checkboxSelection
-        sx={{backgroundColor:"#fff"}}
+        // checkboxSelection
+        sx={{ backgroundColor: "#fff" }}
       />
     </div>
   );
-}
+};
+export default SampleTable;

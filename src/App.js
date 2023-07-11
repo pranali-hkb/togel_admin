@@ -26,12 +26,12 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <HomePage /> 
-        {/* <TokenContext.Provider value={token}>
+        <TokenContext.Provider value={token}>
 
            <AdminDataContext.Provider value={adminData}>
             {token ? <HomePage /> : <LoginPage />}
           </AdminDataContext.Provider>
-        </TokenContext.Provider> */}
+        </TokenContext.Provider>
       </BrowserRouter>
     </div>
   );

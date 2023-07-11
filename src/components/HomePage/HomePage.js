@@ -507,14 +507,14 @@ function HomePage(props) {
                 color: "#fa8c15",
               },
               WebkitTextFillColor:
-                location.pathname === "/addsupermaster"
+                location.pathname === "/sampleTable"
                   ? "#fa8c15"
                   : "trabsparent",
               color:
-                location.pathname === "/addsupermaster" ? "orange" : "trabsparent",
+                location.pathname === "/sampleTable" ? "orange" : "trabsparent",
             }}
-            onClick={() => navigate("/addsupermaster")}
-            selected={location.pathname === "/addsupermaster"}
+            onClick={() => navigate("/sampleTable")}
+            selected={location.pathname === "/sampleTable"}
           >
             <ListItemText sx={{}} className={appstyle.menunavtext}>
               <Person4OutlinedIcon
@@ -543,16 +543,16 @@ function HomePage(props) {
                 color: "#fa8c15",
               },
               WebkitTextFillColor:
-                location.pathname === "/supermasterprofileupdate"
+                location.pathname === "/addsupermaster"
                   ? "#fa8c15"
                   : "trabsparent",
               color:
-                location.pathname === "/supermasterprofileupdate"
+                location.pathname === "/addsupermaster"
                   ? "orange"
                   : "trabsparent",
             }}
-            onClick={() => navigate("/supermasterprofileupdate")}
-            selected={location.pathname === "/supermasterprofileupdate"}
+            onClick={() => navigate("/addsupermaster")}
+            selected={location.pathname === "/addsupermaster"}
           >
             <ListItemText sx={{}} className={appstyle.menunavtext}>
               <PersonIcon

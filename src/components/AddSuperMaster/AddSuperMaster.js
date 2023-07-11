@@ -11,22 +11,29 @@ import { TokenContext, AdminDataContext } from "../../App";
 import Swal from "sweetalert2";
 
 const AddSuperMaster = () => {
+  const  accessToken = localStorage.getItem('user-token');
+  const adminDataString  = localStorage.getItem("user-info");
+
+  console.log("adminDataString=>", JSON.stringify(adminDataString));
+  const adminInfo = JSON.parse(adminDataString);
   //-------------------------------useContext -------------------------//
 
-  const accessToken = useContext(TokenContext);
-  const adminInfo = useContext(AdminDataContext);
-  console.log("accessToken=>", accessToken);
+  // const accessToken = useContext(TokenContext);
+  // const adminInfo = useContext(AdminDataContext);
+  console.log("accessToken11=>", accessToken);
   console.log("adminInfo=>", adminInfo);
-  // let adminroleid = adminInfo.adminroleid;
-  // let admincode = adminInfo.admincode;
-  // let admintype = adminInfo.admintype;
-  // let adminuserid = adminInfo.adminuserid;
-  // let adminusername = adminInfo.adminusername;
-  // let adminname = adminInfo.name;
-  // let adminrole = adminInfo.roleName;
-  // let adminid = adminInfo.id;
-  // let adminemail = adminInfo.email;
-  // let adminis_admin = adminInfo.is_admin;
+  // console.log("adminInfo code=>", adminInfo.admincode);
+ 
+  let adminroleId = adminInfo.adminroleid;
+  let adminCode = adminInfo.admincode;
+  let adminType = adminInfo.admintype;
+  let adminuserId = adminInfo.adminuserid;
+  let adminUsername = adminInfo.adminusername;
+  let adminName = adminInfo.name;
+  let adminRole = adminInfo.roleName;
+  let adminId = adminInfo.id;
+  let adminEmail = adminInfo.email;
+  let adminIs_admin = adminInfo.is_admin;
   //------------------------------------States-----------------------------//
   const [superMasterName, setSuperMasterName] = useState("");
   const [superMasterUserName, setSuperMasterUserName] = useState("");
@@ -45,27 +52,27 @@ const AddSuperMaster = () => {
   // --------------------------  POST API START--------------------------------------------//
 
   const addSuperMasterData = () => {
-    if (
-      superMasterName != "" &&
-      phoneNo != "" &&
-      superMasterUserName != "" &&
-      superMasterCode != "" &&
-      accountNumber != "" &&
-      superMasterPassword != "" &&
-      superMasterConfirmPassword != "" &&
-      accountName != "" &&
-      bankName != "" &&
-      nickName != "" &&
-      superMasterEmail != " "
-    ) {
-      if (superMasterPassword === superMasterConfirmPassword) {
+    // if (
+    //   superMasterName != "" &&
+    //   phoneNo != "" &&
+    //   superMasterUserName != "" &&
+    //   superMasterCode != "" &&
+    //   accountNumber != "" &&
+    //   superMasterPassword != "" &&
+    //   superMasterConfirmPassword != "" &&
+    //   accountName != "" &&
+    //   bankName != "" &&
+    //   nickName != "" &&
+    //   superMasterEmail != " "
+    // ) {
+    //   if (superMasterPassword === superMasterConfirmPassword) {
         sendData();
-      } else {
-        Swal.fire("Password and confirm Password do not match! ", "", "error");
-      }
-    } else {
-      Swal.fire("Please fill All Fields! ", "", "warning");
-    }
+    //   } else {
+    //     Swal.fire("Password and confirm Password do not match! ", "", "error");
+    //   }
+    // } else {
+    //   Swal.fire("Please fill All Fields! ", "", "warning");
+    // }
   };
 
   const sendData = () => {
@@ -81,9 +88,9 @@ const AddSuperMaster = () => {
       bank_name: bankName,
       division: division,
       role_id: 1,
-      // code: `${admincode}${superMasterCode}`,
+      code: `${adminCode}${superMasterCode}`,
       type: "AdminMaster",
-      // user_id: parseInt(adminuserid),
+      user_id: parseInt(adminuserId),
     };
     console.log("save data==>", data);
     console.log("save data==>", JSON.stringify(data));
@@ -115,7 +122,7 @@ const AddSuperMaster = () => {
               <span className={formstyles.badgeCode}>
                 <Badge
                   color="success"
-                  // badgeContent={adminInfo.admincode}
+                  badgeContent={adminCode}
                   max={99}
                 ></Badge>
               </span>
@@ -157,9 +164,9 @@ const AddSuperMaster = () => {
               InputProps={{
                 style: { fontSize: "14px" },
               }}
-              inputProps={{
-                maxLength: 20, // Maximum allowed characters
-              }}
+              // inputProps={{
+              //   maxLength: 30, // Maximum allowed characters
+              // }}
             />
           </div>
         </div>

@@ -14,10 +14,10 @@ function MainDahboard() {
       <DashboardChart />
       <RecentUserTable /> 
       {/* <SampleDataTable /> */}
-      {/* <SampleTable/>
+       {/* <SampleTable/> */}
 
-    {/* <AddSuperMaster/> */}
-    {/* <AddSuperMasterForm/> */}
+    {/* <AddSuperMaster/>  */}
+   
     </div>
   );
 }

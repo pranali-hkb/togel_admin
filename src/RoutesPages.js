@@ -20,6 +20,7 @@ import LoginPage from './components/LoginPage/LoginPage'
 import Calculation from './components/Calculation/Calculation'
 import Logs from './components/Logs/Logs'
 import AddSuperMaster from './components/AddSuperMaster/AddSuperMaster'
+import SampleTable from './components/SampleDataTable/SampleTable'
 const RoutesPages = () => {
   return (
     <div>
@@ -43,6 +44,7 @@ const RoutesPages = () => {
           <Route path='/logs' element={<Logs/>}/>
           <Route path='/login' element={<LoginPage/>}/>
           <Route path='/addsupermaster' element={<AddSuperMaster/>}/>
+          <Route path='/sampleTable' element={<SampleTable/>}/>
         </Routes>
     </div>
   )

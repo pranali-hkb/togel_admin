@@ -16,11 +16,11 @@ import { useContext } from "react";
 import {TokenContext,AdminDataContext} from '../../App'
 
 const DashbordCards = () => {
-
-  const accessToken =useContext(TokenContext);
-  const adminInfo =useContext(AdminDataContext);
-  console.log("accessToken=>",accessToken)
-  console.log("adminInfo=>",adminInfo)
+  const  accessToken = localStorage.getItem('user-token');
+  // const accessToken =useContext(TokenContext);
+  // const adminInfo =useContext(AdminDataContext);
+  console.log("accessToken dash=>",accessToken)
+  // console.log("adminInfo=>",adminInfo)
   // console.log("admincode=>",adminInfo.admincode)
     //-------------- states-----------------------//
     const [supermastercount  , setSuperMasterCount] = useState([]);
@@ -75,7 +75,7 @@ const DashbordCards = () => {
         console.log("error=>", e);
       }
     };
-  console.log("mastercount",supermastercount)
+  console.log("mastercount",mastercount)
     useEffect(() => {
       getmastercount();
     }, []);
@@ -105,7 +105,6 @@ const DashbordCards = () => {
     useEffect(() => {
       getagentcount();
     }, []);
-
   return (
     <>
       <div className={CardStyles.maincardsec}>

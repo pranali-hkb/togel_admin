@@ -7,19 +7,21 @@ import axios from "axios";
 import { DataGrid } from "@mui/x-data-grid";
 import { Avatar, Box, TableContainer } from "@mui/material";
 import Paper from "@mui/material/Paper";
-
-
+import { TokenContext, AdminDataContext } from "../../App";
+import { useContext } from "react";
 
 const RecentUserTable = () => {
   //-------------- states-----------------------//
   const [userDataTable, setUserDataTable] = useState([]);
-
+  const accessToken = useContext(TokenContext);
   //-----------------Get API---------------------//
 
   const getUserData = async () => {
 
     try {
-      const  accessToken = localStorage.getItem('user-token');
+      // const  accessToken = localStorage.getItem('user-token');
+     
+      
       console.log("accessToken",accessToken)
       if(accessToken){
         const response = await axios.get(
@@ -31,7 +33,7 @@ const RecentUserTable = () => {
             }
           }
         );
-        console.log("response=>", response.data);
+        console.log("response master list=>", response.data);
         setUserDataTable(response.data.data);
       }
     } catch (e) {

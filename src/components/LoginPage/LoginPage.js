@@ -110,24 +110,24 @@ function LoginPage() {
       console.log("save data==>", data);
       const response = await axios.post(`${config.serverUrl}/auth/login`, data);
       console.log("response=>", response);
-      // localStorage.setItem("user-token", response.data.token);
-      // let adminInformation = response.data.data;
-      // let adminData = {
-      //   adminusername: adminInformation.username,
-      //   adminname: adminInformation.name,
-      //   admincode: adminInformation.code,
-      //   adminrole: adminInformation.roleName,
-      //   adminroleid: adminInformation.role_id,
-      //   adminid: adminInformation.id,
-      //   adminuserid: adminInformation.user_id,
-      //   adminemail: adminInformation.email,
-      //   adminis_admin: adminInformation.is_admin,
-      //   admintype: adminInformation.type,
+      localStorage.setItem("user-token", response.data.token);
+      let adminInformation = response.data.data;
+      let adminData = {
+        adminusername: adminInformation.username,
+        adminname: adminInformation.name,
+        admincode: adminInformation.code,
+        adminrole: adminInformation.roleName,
+        adminroleid: adminInformation.role_id,
+        adminid: adminInformation.id,
+        adminuserid: adminInformation.user_id,
+        adminemail: adminInformation.email,
+        adminis_admin: adminInformation.is_admin,
+        admintype: adminInformation.type,
 
-      // }
-      // localStorage.setItem("user-info", JSON.stringify(adminData));
+      }
+      localStorage.setItem("user-info", JSON.stringify(adminData));
    
-      // console.log("adminInformation=>", adminInformation);
+      console.log("adminInformation=>", adminInformation);
       if (response.data.token) {
         // Save user info to local storage
         // localStorage.setItem("user-info", btoa(JSON.stringify(response.data)));
