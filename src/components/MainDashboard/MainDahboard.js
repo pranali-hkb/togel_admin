@@ -12,7 +12,7 @@ function MainDahboard() {
     <div>
       <DashbordCards />
       <DashboardChart />
-      <RecentUserTable /> 
+
       {/* <SampleDataTable /> */}
       {/* <SampleTable/>
 

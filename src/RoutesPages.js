@@ -26,7 +26,6 @@ const RoutesPages = () => {
     <Routes>
           <Route exact path="/" element={<MainDahboard/>} />
           <Route exact path="/maindashboard" element={<MainDahboard/>} />
-          {/* <Route exact path="/dashboard" element={<MainDahboard/>} /> */}
           <Route path="/supermaster" element={<SuperMaster />} />
           <Route path="/usersupermaster" element={<SuperMaster />} />
           <Route path="/gamesettting" element={<GameSetting />} />
@@ -36,12 +35,11 @@ const RoutesPages = () => {
           <Route path="/transactionreport" element={<TransactionReport/>} />
           <Route path="/turnoverreport" element={<TurnoverReport />} />
           <Route path="/winlossreport" element={<WinlossReport/>} />
-          {/* <Route path="/login" element={<Logout />} /> */}
           <Route path='/supermasterprofileupdate' element={<UpdateProfile/>}/>
           <Route path='/calculation' element={<Calculation/>}/>
           <Route path='/prediction' element={<Prediction/>}/>
           <Route path='/logs' element={<Logs/>}/>
-          <Route path='/login' element={<LoginPage/>}/>
+          {/* <Route path='/login' element={<LoginPage/>}/> */}
           <Route path='/addsupermaster' element={<AddSuperMaster/>}/>
         </Routes>
     </div>

@@ -2,13 +2,13 @@ import React from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 const CustomizedPieChart = () => {
     const data = [
-      { name: 'Agent', value: 400 },
-      { name: 'Agent', value: 300 },
-      { name: 'Agent', value: 200 },
-    //   { name: 'Category 4', value: 100 },
+      { name: 'Sydney', value: 400 },
+      { name: 'Taiwan', value: 300 },
+      { name: 'China', value: 200 },
+      // { name: 'India', value: 100 },
     ];
   
-    const COLORS = ['#67b7dc', '#fe9e15', '#84b761', '#67b7dc'];
+    const COLORS = ['red', 'yellow', 'blue', ];
   
     const renderCustomizedLabel = ({
       cx,
@@ -38,7 +38,7 @@ const CustomizedPieChart = () => {
     };
   
     return (
-      <PieChart width={460} height={350} >
+      <PieChart width={460} height={300} >
         <Pie
           data={data}
           dataKey="value"
